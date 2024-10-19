@@ -1,11 +1,7 @@
-import React from 'react'
+import { Typography } from '@mui/material';
 
 function MainPage() {
-  return (
-    <div>
-      
-    </div>
-  )
+    return <Typography variant="h1">Main Page</Typography>;
 }
 
-export default MainPage
+export default MainPage;

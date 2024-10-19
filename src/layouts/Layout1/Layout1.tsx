@@ -1,11 +1,5 @@
-import React from 'react'
-
 function Layout1() {
-  return (
-    <div>
-      
-    </div>
-  )
+    return <div></div>;
 }
 
-export default Layout1
+export default Layout1;
