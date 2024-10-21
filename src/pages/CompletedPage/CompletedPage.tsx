@@ -11,6 +11,8 @@ function CompletedPage() {
         navigate('/');
     }
 
+    // return <LoadingPage />
+
     return (
         <Box
             sx={{
@@ -22,7 +24,6 @@ function CompletedPage() {
                 alignItems: 'center',
             }}
         >
-            {/* <LoadingPage /> */}
             <img src={images.Success} />
             <Typography
                 sx={{

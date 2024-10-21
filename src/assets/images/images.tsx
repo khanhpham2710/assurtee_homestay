@@ -3,6 +3,7 @@ import InfoIncon from './frame-48_2024-10-21/frame-48.png';
 import Tooltip from './frame-57_2024-10-21/frame-57.png';
 import Loading from './loading.gif';
 import Success from './invalid-name_2024-10-21/invalid-name.png';
+import InsuranceLogo from './logo_2024-10-21/logo.png'
 
 const images = {
     HomeIcon,
@@ -10,6 +11,7 @@ const images = {
     Tooltip,
     Loading,
     Success,
+    InsuranceLogo
 };
 
 export default images;
