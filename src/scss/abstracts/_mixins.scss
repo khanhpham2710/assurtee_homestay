@@ -37,3 +37,8 @@
     letter-spacing: normal;
     text-align: center;
 }
+
+@mixin flexCenter {
+    display: flex;
+    
+}

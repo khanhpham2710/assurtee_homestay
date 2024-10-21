@@ -17,11 +17,11 @@ export default function Question({title, items} : MultiButtonProps) {
         };
     
     return (
-        <div>
+        <div className='dflex_center flexColumn_item'>
             <h2>{title}</h2>
             <div>
                {items.map((item,index) => (
-                <button key={index } onClick={() => handleClick(item)} className="buttonQuestion">
+                <button key={index } onClick={() => handleClick(item)} className="buttonQuestion" style={{marginRight: "12px"}}>
                     {item}
                 </button>
                ))}

@@ -12,10 +12,3 @@
     padding: 0 20px;
 }
 
-.header2 {
-    @include ab.header;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}

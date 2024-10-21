@@ -43,3 +43,13 @@ $font-styles: (
     $font-name: nth($font-styles, $i);
     @include font-face($font-name);
 }
+
+
+.dflex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flexColumn_item{
+    flex-direction: column;
+}
