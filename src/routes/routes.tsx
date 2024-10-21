@@ -11,7 +11,7 @@ import Layout1 from '../layouts/Layout1/Layout1';
 type RouteType = {
     path: string;
     component: React.FC;
-    layout?: React.FC | React.ExoticComponent | null;
+    layout?: React.FC | null;
 }
 
 const routes: RouteType[] = [
