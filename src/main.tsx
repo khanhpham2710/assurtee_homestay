@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './scss/main.scss'
+import './scss/main.scss';
 import { CssBaseline } from '@mui/material';
 
 createRoot(document.getElementById('root')!).render(

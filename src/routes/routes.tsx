@@ -16,8 +16,10 @@ type RouteType = {
 
 const routes: RouteType[] = [
     { path: '/', component: MainPage, layout: null },
-    { path: "/insurance_info", component: InsuranceInfo, layout: Layout1 },
-    { path: "/completed", component: CompletedPage, layout: null }
+
+    { path: '/insurance_info', component: InsuranceInfo, layout: Layout1 },
+
+    { path: '/completed', component: CompletedPage, layout: null },
 ];
 
 export default routes;
