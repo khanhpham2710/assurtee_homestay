@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
 }
-.flexColumn_item{
+.flexColumn_item {
     flex-direction: column;
 }
 
@@ -17,10 +17,14 @@
     width: 100%;
 }
 
-.dflex_item_inline[data-items="2"] {
+.dflex_item_inline[data-items='2'] {
     --items-count: 2;
 }
 
-.dflex_item_inline[data-items="3"] {
+.dflex_item_inline[data-items='3'] {
     --items-count: 3;
+}
+
+.css-1l5xnma-MuiPaper-root-MuiAccordion-root.Mui-expanded {
+    margin: 0 !important;
 }

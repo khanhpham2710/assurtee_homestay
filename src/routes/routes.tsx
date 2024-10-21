@@ -24,7 +24,7 @@ const routes: RouteType[] = [
 
     { path: '/completed', component: CompletedPage, header: Header1 },
 
-    { path: '/filledInfor', component: FilledInfor, header : Header2}
+    { path: '/filledInfor', component: FilledInfor, header: Header2 },
 ];
 
 export default routes;
