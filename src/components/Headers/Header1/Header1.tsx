@@ -1,12 +1,12 @@
 import images from '../../../assets/images/images';
-import { Box } from '@mui/material';
+import { Box, Tooltip } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function Header1() {
     const navigate = useNavigate();
 
     function handleClick() {
-        // navigate('/')
+        navigate('/');
     }
 
     return (
