@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import images from '../../assets/images/images';
+import images from '../../assets/images';
 
 function LoadingPage() {
     return (

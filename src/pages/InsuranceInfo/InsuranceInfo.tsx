@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Box, Typography } from '@mui/material';
-import images from '../../assets/images/images';
+import images from '../../assets/images';
 import FeeAccordion from '../../components/FeeAccordion/FeeAccordion';
 
 

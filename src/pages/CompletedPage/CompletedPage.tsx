@@ -1,5 +1,5 @@
 import React from 'react';
-import images from '../../assets/images/images';
+import images from '../../assets/images';
 import LoadingPage from '../../components/Loading/Loading';
 import { Box, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
