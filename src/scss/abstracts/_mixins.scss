@@ -2,3 +2,12 @@
     height: 68px;
     width: 100%;
 }
+
+
+@mixin title {
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: normal !important;
+    letter-spacing: normal;
+    text-align: center;
+}

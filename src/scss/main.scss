@@ -1,4 +1,5 @@
-@use './layout/index';
+@use './layout/index' as i;
+@use './component/index' as c;
 
 * {
     margin: 0;

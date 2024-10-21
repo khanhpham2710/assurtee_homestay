@@ -1,0 +1,15 @@
+@use '../abstracts/index' as ab;
+
+.titleSmall {
+    @include ab.title;
+    font-family: AppleSDGothicNeoH !important;
+    font-size: 20px !important;
+    color: #000;
+}
+
+.titleMedium {
+    @include ab.title;
+    font-family: AppleSDGothicNeoH !important;
+    font-size: 22px !important;
+    color: #000;
+}
