@@ -11,13 +11,15 @@ import Layout1 from '../layouts/Layout1/Layout1';
 type RouteType = {
     path: string;
     component: React.FC;
-    layout?: React.FC | React.ExoticComponent | null;
-}
+    layout?: React.FC | null;
+};
 
 const routes: RouteType[] = [
     { path: '/', component: MainPage, layout: null },
-    { path: "/insurance_info", component: InsuranceInfo, layout: Layout1 },
-    { path: "/completed", component: CompletedPage, layout: null }
+
+    { path: '/insurance_info', component: InsuranceInfo, layout: Layout1 },
+
+    { path: '/completed', component: CompletedPage, layout: null },
 ];
 
 export default routes;
