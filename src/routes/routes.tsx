@@ -7,9 +7,9 @@ import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import FilledInfor from '../pages/FilledInfor/FilledInfor';
 
 // headers
-import Header1 from '../components/Headers/Header1/Header1';
-import Header2 from '../components/Headers/Header2/Header2';
-import HeaderMain from '../components/Headers/HeaderMain/HeaderMain';
+import Header1 from '../components/Headers/Header1';
+import Header2 from '../components/Headers/Header2';
+import HeaderMain from '../components/Headers/HeaderMain';
 
 type RouteType = {
     path: string;

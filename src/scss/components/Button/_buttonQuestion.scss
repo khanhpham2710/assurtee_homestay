@@ -1,0 +1,34 @@
+.buttonQuestion {
+    width: 150px;
+    height: 50px;
+    border-radius: 35px;
+    border: solid 3px #e0e0e0;
+    background-color: #f6f7f9;
+
+    font-family: AppleSDGothicNeoH;
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
+    color: #cfcfcf;
+    text-decoration: none;
+}
+
+
+.buttonQuestion.active {
+    width: 150px;
+    height: 50px;
+    border-radius: 35px;
+    border: solid 3px #333647;
+    background-color: #f6f7f9;
+
+    font-family: AppleSDGothicNeoH;
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.75;
+    letter-spacing: normal;
+    color: #000000;
+    text-decoration: none;
+}
