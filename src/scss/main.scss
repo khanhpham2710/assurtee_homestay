@@ -43,5 +43,3 @@ $font-styles: (
     $font-name: nth($font-styles, $i);
     @include font-face($font-name);
 }
-
-

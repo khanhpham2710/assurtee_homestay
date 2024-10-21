@@ -3,10 +3,10 @@ import InfoIncon from '/Image/frame-48.png';
 import Tooltip from '/Image/frame-57.png';
 import Loading from '/Image/loading.gif';
 import Success from '/Image/invalid-name.png';
-import InsuranceLogo from '/Image/logo.png'
-import chosedButton from "/Image/group.png";
-import blankButton from "/Image/oval-copy.png";
-import cheroLeft from "/Image/charon_left.png"
+import InsuranceLogo from '/Image/logo.png';
+import chosedButton from '/Image/group.png';
+import blankButton from '/Image/oval-copy.png';
+import cheroLeft from '/Image/charon_left.png';
 const images = {
     HomeIcon,
     InfoIncon,
@@ -16,7 +16,7 @@ const images = {
     chosedButton,
     blankButton,
     cheroLeft,
-    InsuranceLogo
+    InsuranceLogo,
 };
 
 export default images;

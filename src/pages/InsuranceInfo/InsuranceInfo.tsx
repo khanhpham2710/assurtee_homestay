@@ -3,9 +3,7 @@ import { Avatar, Box, Typography } from '@mui/material';
 import images from '../../assets/images';
 import FeeAccordion from '../../components/FeeAccordion/FeeAccordion';
 
-
 function InsuranceInfo() {
-
     return (
         <>
             <Avatar
