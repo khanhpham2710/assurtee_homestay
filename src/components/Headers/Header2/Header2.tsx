@@ -9,7 +9,6 @@ export default function Header2() {
             </div>
             <Typography className="header2 titleSmall">
             주택 정보 입력
-            
             </Typography>
         </Box>
     );
