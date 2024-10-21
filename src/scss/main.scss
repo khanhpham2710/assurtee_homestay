@@ -1,6 +1,5 @@
 @use './layout/index';
 
-
 * {
     margin: 0;
     padding: 0;
@@ -43,4 +42,3 @@ $font-styles: (
     $font-name: nth($font-styles, $i);
     @include font-face($font-name);
 }
-

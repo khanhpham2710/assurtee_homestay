@@ -12,7 +12,7 @@ type RouteType = {
     path: string;
     component: React.FC;
     layout?: React.FC | null;
-}
+};
 
 const routes: RouteType[] = [
     { path: '/', component: MainPage, layout: null },

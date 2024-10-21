@@ -5,15 +5,13 @@ import { useNavigate } from 'react-router-dom';
 function Header1() {
     const navigate = useNavigate();
 
-    function handleClick(){
+    function handleClick() {
         // navigate('/')
     }
 
     return (
-        <Box
-            className="header1"
-        >
-            <img src={images.HomeIcon} onClick={handleClick}/>
+        <Box className="header1">
+            <img src={images.HomeIcon} onClick={handleClick} />
             <img src={images.InfoIncon} />
         </Box>
     );
