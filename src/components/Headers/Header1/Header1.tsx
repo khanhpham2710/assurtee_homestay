@@ -1,4 +1,4 @@
-import images from '../../assets/images/images';
+import images from '../../../assets/images/images';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
