@@ -1,5 +1,5 @@
 import React, { Dispatch } from 'react';
-import images from "../../assets/images/images";
+import images from "../../assets/images";
 interface MultiButtonProps {
     title: string;
     items: string[];

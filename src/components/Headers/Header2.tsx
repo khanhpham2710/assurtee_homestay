@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import images from "../../assets/images/images";
+import images from "../../assets/images";
 export default function Header2() {
     return (
         <Box className = "header0 dflex_center">
