@@ -2,3 +2,16 @@
     height: 68px;
     width: 100%;
 }
+
+@mixin button {
+    width: 312px;
+    height: 50px;
+    flex-grow: 0;
+
+    font-size: 16px;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fff;
+}

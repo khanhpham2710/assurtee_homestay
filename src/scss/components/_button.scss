@@ -1,0 +1,25 @@
+@use '../abstracts/mixins' as ab;
+
+.button1 {
+    @include ab.button;
+
+    background-color: #c8c8c8;
+    border-radius: 25px;
+
+    font-family: AppleSDGothicNeoEB;
+    line-height: 1.22;
+}
+
+.button1.active {
+    background-color: #333647;
+}
+
+.button2 {
+    @include ab.button;
+
+    border-radius: 8px;
+    background-color: #333647;
+
+    font-family: AppleSDGothicNeoH;
+    line-height: 1.75;
+}
