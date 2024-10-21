@@ -12,7 +12,7 @@ function App() {
 
                     return (
                         <Route
-                            key={route.path} 
+                            key={route.path}
                             path={route.path}
                             element={
                                 <>
