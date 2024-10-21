@@ -6,18 +6,19 @@ function App() {
     return (
         <Router>
             <Routes>
-                {routes.map((route, index: number) => {
+                {routes.map((route) => {
                     const Page = route.component;
-                    const Layout = route.layout || React.Fragment;
+                    const Header = route.header;
 
                     return (
                         <Route
-                            key={index}
+                            key={route.path} 
                             path={route.path}
                             element={
-                                <Layout>
+                                <>
+                                    <Header />
                                     <Page />
-                                </Layout>
+                                </>
                             }
                         />
                     );

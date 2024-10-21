@@ -5,21 +5,22 @@ import MainPage from '../pages/MainPage/MainPage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 
-// layouts
-import Layout1 from '../layouts/Layout1/Layout1';
+// headers
+import Header1 from '../components/Headers/Header1/Header1';
+import HeaderMain from '../components/Headers/HeaderMain/HeaderMain';
 
 type RouteType = {
     path: string;
     component: React.FC;
-    layout?: React.FC | null;
+    header: React.FC;
 };
 
 const routes: RouteType[] = [
-    { path: '/', component: MainPage, layout: null },
+    { path: '/', component: MainPage, header: HeaderMain },
 
-    { path: '/insurance_info', component: InsuranceInfo, layout: Layout1 },
+    { path: '/insurance_info', component: InsuranceInfo, header: Header1 },
 
-    { path: '/completed', component: CompletedPage, layout: null },
+    { path: '/completed', component: CompletedPage, header: Header1 },
 ];
 
 export default routes;
