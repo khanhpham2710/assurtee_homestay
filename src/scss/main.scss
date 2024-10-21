@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: #f6f7f9;
+}
+
+$font-styles: (
+    'AppleSDGothicNeoB', 
+    'AppleSDGothicNeoEB', 
+    'AppleSDGothicNeoH',
+    'AppleSDGothicNeoL',
+    'AppleSDGothicNeoM',
+    'AppleSDGothicNeoR',
+    'AppleSDGothicNeoSB',
+    'AppleSDGothicNeoT',
+    'AppleSDGothicNeoUL',
+    'BMDOHYEON_otf',
+    'NotoSansCJKkr-Black',
+    'NotoSansCJKkr-Bold',
+    'NotoSansCJKkr-DemiLight',
+    'NotoSansCJKkr-Light',
+    'NotoSansCJKkr-Medium',
+    'NotoSansCJKkr-Regular',
+    'NotoSansCJKkr-Thin',
+    'NotoSansCJKkrMonoCJKkr-Bold',
+    'NotoSansCJKkrCJKkr-Regular'
+);
+
+@mixin font-face($name) {
+    @font-face {
+        font-family: $name;
+        src: url('/font/#{$name}.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+@for $i from 1 through length($font-styles) {
+    $font-name: nth($font-styles, $i);
+    @include font-face($font-name);
+}
