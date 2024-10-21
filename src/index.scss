@@ -2,9 +2,13 @@
     margin: 0;
     padding: 0;
     border: 0;
+    background-color: #f6f7f9;
 }
 
-$font-styles: ('AppleSDGothicNeoB', 'AppleSDGothicNeoN', 'AppleSDGothicNeoH');
+$font-styles: (
+    'AppleSDGothicNeoB', 
+    'AppleSDGothicNeoN', 
+    'AppleSDGothicNeoH');
 
 @mixin font-face($name) {
     @font-face {
