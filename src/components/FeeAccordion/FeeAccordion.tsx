@@ -4,23 +4,38 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Box, Typography } from '@mui/material';
+import images from '../../assets/images';
 
 type Fee = {
     name: string;
-    fee: string;
+    fee: number;
 };
 
 function FeeAccordion() {
     const fees: Fee[] = [
         {
             name: '화재보장 부문',
-            fee: '9,300원',
+            fee: 9300,
         },
         {
             name: '영업배상 보장 부문',
-            fee: '10,000원',
+            fee: 10000,
         },
     ];
+
+    const totalFee = fees.reduce((sum, item) => sum + item.fee, 0);
+
+    const fontStyle = {
+        fontFamily: 'AppleSDGothicNeoM',
+        fontSize: '16px',
+        fontStretch: 'normal',
+        fontStyle: 'normal',
+        lineHeight: '1.75',
+        letterSpacing: 'normal',
+        textAlign: 'left',
+        color: '#000',
+        backgroundColor: '#fff0f3',
+    };
 
     return (
         <Accordion
@@ -36,6 +51,8 @@ function FeeAccordion() {
                     boxShadow: 'none',
                     display: 'flex',
                     justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '0 24px'
                 }}
                 expandIcon={
                     <ExpandMoreIcon
@@ -55,56 +72,73 @@ function FeeAccordion() {
                     }}
                 >
                     <Typography
-                        style={{
+                        sx={{
+                            ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoH',
-                            fontSize: '16px',
-                            lineHeight: '1.75',
-                            textAlign: 'left',
-                            color: '#000',
-                            backgroundColor: '#fff0f3',
                         }}
                     >
                         총 보험료
                     </Typography>
                     <Typography
                         style={{
+                            ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoH',
                             fontSize: '22px',
-                            fontStretch: 'normal',
                             lineHeight: '1.27',
-                            letterSpacing: 'normal',
                             textAlign: 'right',
                             color: '#fb5601',
-                            backgroundColor: '#fff0f3',
                         }}
                     >
-                        19,300원
+                        {totalFee.toLocaleString()}원
                     </Typography>
                 </Box>
             </AccordionSummary>
-            {fees &&
-                fees.map((item, index) => {
-                    return (
-                        <AccordionDetails
-                            key={index}
+            {fees.map((item, index) => (
+                <AccordionDetails
+                    key={index}
+                    sx={{
+                        borderBottom: '#e0e0e0 solid 1px',
+                        height: '50px',
+                        backgroundColor: '#fff0f3',
+                        padding: 0,
+                    }}
+                >
+                    <Box
+                        sx={{
+                            width: '100%',
+                            height: '100%',
+                            padding: '0 24px',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            backgroundColor: '#fff0f3',
+                        }}
+                    >
+                        <Typography
                             sx={{
-                                borderBottom: '#e0e0e0 solid 1px',
-                                height: '50px',
+                                ...fontStyle,
+                                position: 'relative',
+                                '&::before': {
+                                    content: '""',
+                                    display: 'inline-block',
+                                    width: '9px',
+                                    height: '9px',
+                                    margin: '0 8px 4px 6px',
+                                    backgroundImage: `url(${images.Bullet})`,
+                                    backgroundSize: 'contain',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundPosition: 'center',
+                                },
                             }}
                         >
-                            <Box
-                                width={{
-                                    width: '100%',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                }}
-                            >
-                                <Box>{item.name}</Box>
-                                <Box>{item.fee}</Box>
-                            </Box>
-                        </AccordionDetails>
-                    );
-                })}
+                            {item.name}
+                        </Typography>
+                        <Typography sx={fontStyle}>
+                            {item.fee.toLocaleString()}원
+                        </Typography>
+                    </Box>
+                </AccordionDetails>
+            ))}
         </Accordion>
     );
 }

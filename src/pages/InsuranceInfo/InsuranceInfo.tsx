@@ -16,11 +16,28 @@ function InsuranceInfo() {
             />
             <h2
                 className="titleMedium"
-                style={{ margin: '12px 24px 0', textAlign: 'left' }}
+                style={{ margin: '12px 24px 52px', textAlign: 'left' }}
             >
                 현대해상화재보험 외국인관광도시민박보험
             </h2>
             <FeeAccordion />
+            <section style={{
+                margin: "40px 0 16px 24px"
+            }}>
+                <Typography sx={{
+                    'fontFamily': 'AppleSDGothicNeoM',
+                    'fontSize': '12px',
+                    'fontStretch': 'normal',
+                    'fontStyle': 'normal',
+                    'lineHeight': '1',
+                    'letterSpacing': 'normal',
+                    'textAlign': 'left',
+                    'color': '#000'
+                }}>
+                가입정보
+                </Typography>
+
+            </section>
         </>
     );
 }

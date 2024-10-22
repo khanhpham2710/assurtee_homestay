@@ -1,4 +1,3 @@
-import React from 'react';
 import images from '../../assets/images';
 import LoadingPage from '../../components/Loading/Loading';
 import { Box, Button, Typography } from '@mui/material';
