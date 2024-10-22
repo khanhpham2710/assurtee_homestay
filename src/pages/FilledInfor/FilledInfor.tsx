@@ -1,10 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import FilledData from "../../components/FilledData/FilledData"
+import FilledData from '../../components/FilledData/FilledData';
 export default function FilledInfor() {
     return (
         <div style={{ padding: '0 24px' }}>
-            <section className="dflex-column" style={{marginBottom: "28px"}}>
+            <section className="dflex-column" style={{ marginBottom: '28px' }}>
                 <p className="titleNumber">
                     <span>1</span> / 2
                 </p>
@@ -21,10 +19,8 @@ export default function FilledInfor() {
             </section>
 
             <section>
-                  <FilledData/>
+                <FilledData />
             </section>
-
-
         </div>
     );
 }

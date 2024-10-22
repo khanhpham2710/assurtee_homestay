@@ -1,11 +1,10 @@
-import { Box, Typography } from '@mui/material';
 import images from '../../assets/images';
 
 function Download({ text }: { text: string }) {
     return (
-        <Box
+        <div
             className="dflex_center"
-            sx={{
+            style={{
                 width: '150px',
                 height: '50px',
                 backgroundColor: '#e7ecf3',
@@ -14,8 +13,8 @@ function Download({ text }: { text: string }) {
                 cursor: 'pointer',
             }}
         >
-            <Typography
-                sx={{
+            <p
+                style={{
                     fontFamily: 'AppleSDGothicNeoB',
                     fontSize: '14px',
                     fontStretch: 'normal',
@@ -27,9 +26,9 @@ function Download({ text }: { text: string }) {
                 }}
             >
                 {text}
-            </Typography>
+            </p>
             <img src={images.Download} />
-        </Box>
+        </div>
     );
 }
 

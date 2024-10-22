@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import RegistrationInfoBox, { InfoProps } from './RegistrationInfoBox';
 
 function RegistrationInfo() {
@@ -39,20 +38,7 @@ function RegistrationInfo() {
                 margin: '40px 24px 0',
             }}
         >
-            <Typography
-                sx={{
-                    fontFamily: 'AppleSDGothicNeoM',
-                    fontSize: '12px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
-                    lineHeight: '1.83',
-                    letterSpacing: 'normal',
-                    textAlign: 'left',
-                    color: '#000',
-                }}
-            >
-                가입정보
-            </Typography>
+            <h4 className="title_label">가입정보</h4>
             {infos.map((info, index) => {
                 return (
                     <RegistrationInfoBox

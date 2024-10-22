@@ -1,4 +1,5 @@
-import { Box, Divider, Typography } from '@mui/material';
+import React from 'react';
+import { Divider } from '@mui/material';
 
 export type InfoProps = {
     title: string;
@@ -6,47 +7,43 @@ export type InfoProps = {
 };
 
 function RegistrationInfoBox({ title, info }: InfoProps) {
-    const style = {
+    const fontStyle: React.CSSProperties = {
         fontSize: '16px',
-        fontStretch: 'normal',
-        fontStyle: 'normal',
         lineHeight: '1.75',
-        letterSpacing: 'normal',
-
         flex: '1 1 auto',
         minWidth: '0',
     };
 
     return (
         <>
-            <Box
+            <div
                 className="dflex_spacebetween"
-                sx={{
-                    mineight: '50px',
-                    paddingY: '11px',
+                style={{
+                    minHeight: '50px',
+                    padding: '11px 0',
                 }}
             >
-                <Typography
-                    sx={{
-                        style,
+                <h5
+                    style={{
+                        ...fontStyle,
                         fontFamily: 'AppleSDGothicNeoH',
                         color: '#b7c2d6',
                         textAlign: 'left',
                     }}
                 >
                     {title}
-                </Typography>
-                <Typography
-                    sx={{
-                        ...style,
+                </h5>
+                <h5
+                    style={{
+                        ...fontStyle,
                         fontFamily: 'AppleSDGothicNeoM',
                         color: '#000',
                         textAlign: 'right',
                     }}
                 >
                     {info}
-                </Typography>
-            </Box>
+                </h5>
+            </div>
             <Divider
                 sx={{
                     mb: '8px',

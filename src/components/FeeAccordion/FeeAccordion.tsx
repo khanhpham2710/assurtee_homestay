@@ -3,7 +3,6 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Box, Typography } from '@mui/material';
 import images from '../../assets/images';
 
 type Fee = {
@@ -25,33 +24,23 @@ function FeeAccordion() {
 
     const totalFee = fees.reduce((sum, item) => sum + item.fee, 0);
 
-    const fontStyle = {
+    const fontStyle: React.CSSProperties = {
         fontFamily: 'AppleSDGothicNeoM',
         fontSize: '16px',
-        fontStretch: 'normal',
-        fontStyle: 'normal',
         lineHeight: '1.75',
-        letterSpacing: 'normal',
-        textAlign: 'left',
         color: '#000',
         backgroundColor: '#fff0f3',
     };
 
     return (
-        <Accordion
-            sx={{
-                boxShadow: 'none',
-            }}
-        >
+        <Accordion id="fee_accordion" sx={{ boxShadow: 'none' }}>
             <AccordionSummary
                 sx={{
                     height: '70px',
                     backgroundColor: '#fff0f3',
                     borderBottom: '#e0e0e0 solid 1px',
-                    boxShadow: 'none',
                     padding: '0 24px',
                 }}
-                className="dflex_spacebetween"
                 expandIcon={
                     <ExpandMoreIcon
                         sx={{
@@ -61,23 +50,19 @@ function FeeAccordion() {
                     />
                 }
             >
-                <Box
-                    sx={{
-                        backgroundColor: '#fff0f3',
-                        width: '100%',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                    }}
+                <div
+                    className="dflex_spacebetween"
+                    style={{ width: '100%', backgroundColor: '#fff0f3' }}
                 >
-                    <Typography
-                        sx={{
+                    <h4
+                        style={{
                             ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoH',
                         }}
                     >
                         총 보험료
-                    </Typography>
-                    <Typography
+                    </h4>
+                    <h4
                         style={{
                             ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoH',
@@ -88,8 +73,8 @@ function FeeAccordion() {
                         }}
                     >
                         {totalFee.toLocaleString()}원
-                    </Typography>
-                </Box>
+                    </h4>
+                </div>
             </AccordionSummary>
             {fees.map((item, index) => (
                 <AccordionDetails
@@ -101,21 +86,18 @@ function FeeAccordion() {
                         padding: 0,
                     }}
                 >
-                    <Box
+                    <div
                         className="dflex_spacebetween"
-                        sx={{
+                        style={{
                             width: '100%',
                             height: '100%',
                             padding: '0 24px',
                             backgroundColor: '#fff0f3',
                         }}
                     >
-                        <Typography
-                            sx={{
-                                ...fontStyle,
-                                position: 'relative',
-                                '&::before': {
-                                    content: '""',
+                        <h4 style={fontStyle}>
+                            <span
+                                style={{
                                     display: 'inline-block',
                                     width: '9px',
                                     height: '9px',
@@ -124,15 +106,12 @@ function FeeAccordion() {
                                     backgroundSize: 'contain',
                                     backgroundRepeat: 'no-repeat',
                                     backgroundPosition: 'center',
-                                },
-                            }}
-                        >
+                                }}
+                            />
                             {item.name}
-                        </Typography>
-                        <Typography sx={fontStyle}>
-                            {item.fee.toLocaleString()}원
-                        </Typography>
-                    </Box>
+                        </h4>
+                        <h4 style={fontStyle}>{item.fee.toLocaleString()}원</h4>
+                    </div>
                 </AccordionDetails>
             ))}
         </Accordion>

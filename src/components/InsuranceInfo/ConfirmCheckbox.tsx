@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { useCallback, useState } from 'react';
 import images from '../../assets/images';
-import { Typography } from '@mui/material';
 
 const Container = styled.div`
     width: 312px;
@@ -10,11 +8,7 @@ const Container = styled.div`
     padding: 18px;
     border-radius: 8px;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.12);
-    background-color: #fff0f3;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 10px;
 
     &:after {
@@ -30,26 +24,28 @@ const Container = styled.div`
     }
 `;
 
-function ConfirmCheckbox() {
-    const [checked, setChecked] = useState(true);
+type Props = {
+    checked: boolean;
+    handleCheck: () => void;
+};
 
-    const handleCheck = useCallback((event : React.ChangeEvent<HTMLInputElement>)=>{
-        setChecked(event.target.checked);
-    },[])
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setChecked(event.target.checked);
-    };
-
+function ConfirmCheckbox({ checked, handleCheck }: Props) {
     return (
-        <Container>
-            <img src={checked ? images.CheckBox : images.UnCheckBox} />
-            <Typography
-                sx={{
+        <Container
+            onClick={handleCheck}
+            className="dflex_center"
+            style={{
+                backgroundColor: checked ? '#fff0f3' : '#f0f2f7',
+            }}
+        >
+            <img
+                src={checked ? images.CheckBox : images.UnCheckBox}
+                style={{ cursor: 'pointer' }}
+            />
+            <h5
+                style={{
                     fontFamily: 'SFProText',
                     fontSize: '12px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
                     lineHeight: '1.33',
                     letterSpacing: '-0.41px',
                     textAlign: 'left',
@@ -58,7 +54,7 @@ function ConfirmCheckbox() {
             >
                 가입하는 보험의 보장내용/상품설명서, 보험약관, 주요내용을 모두
                 확인하였습니다.
-            </Typography>
+            </h5>
         </Container>
     );
 }

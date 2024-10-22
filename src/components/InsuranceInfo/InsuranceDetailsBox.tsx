@@ -1,4 +1,5 @@
-import { Box, Divider, Typography } from '@mui/material';
+import React from 'react';
+import { Divider } from '@mui/material';
 import MyToolTip from '../MyTooltip/MyToolTip';
 
 export type InfoProps = {
@@ -8,27 +9,23 @@ export type InfoProps = {
 };
 
 function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
-    const style = {
-        fontStretch: 'normal',
-        fontStyle: 'normal',
-        letterSpacing: 'normal',
-
+    const fontStyle: React.CSSProperties = {
         flex: '1 1 auto',
         minWidth: '0',
     };
 
     return (
         <>
-            <Box
+            <div
                 className="dflex_spacebetween"
-                sx={{
-                    mineight: '50px',
-                    paddingY: '11px',
+                style={{
+                    minHeight: '50px',
+                    padding: '11px 0',
                 }}
             >
-                <Typography
-                    sx={{
-                        style,
+                <h5
+                    style={{
+                        ...fontStyle,
                         fontFamily: 'AppleSDGothicNeoM',
                         fontSize: '14px',
                         color: '#646464',
@@ -37,11 +34,11 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                     }}
                 >
                     {title}
-                </Typography>
-                <Box className="dflex_center" sx={{ gap: '8px' }}>
-                    <Typography
-                        sx={{
-                            ...style,
+                </h5>
+                <div className="dflex_center" style={{ gap: '8px' }}>
+                    <h4
+                        style={{
+                            ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoSB',
                             fontSize: '16px',
                             color: '#000',
@@ -50,10 +47,10 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                         }}
                     >
                         {info}
-                    </Typography>
+                    </h4>
                     <MyToolTip text={tooltip} align="left" />
-                </Box>
-            </Box>
+                </div>
+            </div>
             <Divider
                 sx={{
                     mb: '8px',

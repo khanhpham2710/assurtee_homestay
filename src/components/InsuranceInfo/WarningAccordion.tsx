@@ -2,20 +2,8 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Typography } from '@mui/material';
 
 function WarningAccordion() {
-    const style = {
-        fontFamily: 'AppleSDGothicNeoM',
-        fontSize: '14px',
-        fontStretch: 'normal',
-        fontStyle: 'normal',
-        lineHeight: 'normal',
-        letterSpacing: 'normal',
-        textAlign: 'left',
-        color: '#646464',
-    };
-
     return (
         <Accordion id='warning_accordion'>
             <AccordionSummary
@@ -27,20 +15,9 @@ function WarningAccordion() {
                     paddingX: '24px'
                 }}
             >
-                <Typography
-                    sx={{
-                        fontFamily: 'AppleSDGothicNeoB',
-                        fontSize: '14px',
-                        fontStretch: 'normal',
-                        fontStyle: 'normal',
-                        lineheight: '1.14',
-                        letterSpacing: 'normal',
-                        textAlign: 'left',
-                        color: '#000',
-                    }}
-                >
+                <h3 className='heading'>
                     보험가입 전 유의사항
-                </Typography>
+                </h3>
             </AccordionSummary>
             <AccordionDetails sx={{
                 padding: '17px 24px 22px',
