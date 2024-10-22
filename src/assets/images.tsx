@@ -8,6 +8,8 @@ import chosedButton from '/Image/group.png';
 import blankButton from '/Image/oval-copy.png';
 import cheroLeft from '/Image/charon_left.png';
 import Bullet from '/Image/vector-105-stroke.png';
+import ScanText from '/Image/scantext.png';
+import ScanImage from '/Image/scanImage.png';
 const images = {
     HomeIcon,
     InfoIcon,
@@ -18,7 +20,9 @@ const images = {
     blankButton,
     cheroLeft,
     InsuranceLogo,
-    Bullet
+    Bullet,
+    ScanText,
+    ScanImage
 };
-
+3
 export default images;

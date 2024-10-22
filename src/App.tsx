@@ -1,10 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import routes from './routes/routes';
-
+import { useLocation } from 'react-router-dom';
 function App() {
+    const location = useLocation();
+    const getBackgroundColor = (pathname: string) => {
+        switch (pathname) {
+            case '/':
+                return '#ffffff';
+            default:
+                return '#f6f7f9';
+        }
+    };
+
     return (
-        <Router>
+        <div
+            style={{
+                backgroundColor: getBackgroundColor(location.pathname),
+                minHeight: '100vh',
+            }}
+        >
             <Routes>
                 {routes.map((route) => {
                     const Page = route.component;
@@ -16,7 +31,7 @@ function App() {
                             path={route.path}
                             element={
                                 <>
-                                    {Header} 
+                                    {Header}
                                     <Page />
                                 </>
                             }
@@ -25,8 +40,16 @@ function App() {
                 })}
                 <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
+        </div>
+    );
+}
+
+function AppWrapper() {
+    return (
+        <Router>
+            <App />
         </Router>
     );
 }
 
-export default App;
+export default AppWrapper;

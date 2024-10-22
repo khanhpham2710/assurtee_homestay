@@ -15,3 +15,14 @@
     color: #000;
     font-weight: bold !important;
 }
+
+.titleMini {
+    @include ab.title;
+    font-family: AppleSDGothicNeoH !important;
+    font-size: 18px !important;
+    color: #000;
+    font-weight: bold !important;
+    span {
+        background-color: transparent !important;
+    }
+}
