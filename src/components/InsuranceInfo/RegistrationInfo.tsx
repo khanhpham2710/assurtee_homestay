@@ -62,7 +62,13 @@ function RegistrationInfo() {
                     />
                 );
             })}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '8px' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    justifyContent: 'flex-end',
+                    marginTop: '8px',
+                }}
+            >
                 <button
                     style={{
                         width: '66px',

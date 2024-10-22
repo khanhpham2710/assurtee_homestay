@@ -3,11 +3,10 @@ import { Box, Typography } from '@mui/material';
 import images from '../../assets/images';
 
 interface Header2Props {
-    title:string
+    title: string;
 }
 
-
-export default function Header2({title} : {title:string}) {
+export default function Header2({ title }: { title: string }) {
     return (
         <Box className="header0 dflex_center">
             <div className="back_icon_header">
