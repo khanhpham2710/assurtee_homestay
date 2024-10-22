@@ -1,14 +1,12 @@
-@use "./title" as t;
-
+@use './title' as t;
 
 .textfiledInput {
-    
     margin-top: 20px !important;
 
     .custom-root {
         border-bottom: 1px solid rgba(0, 0, 0, 0.42);
     }
-    
+
     // Apply custom color on hover
     .custom-root:hover {
         border-bottom: 2px solid #ea3062 !important;
@@ -22,13 +20,12 @@
     // Customize the label styles (optional if you have titleLable defined)
     .MuiFormLabel-root,
     .MuiFormLabel-root.Mui-focused {
-         @include t.titleLable;
+        @include t.titleLable;
     }
-
 }
 
-.label2{
-    label{
+.label2 {
+    label {
         display: none;
     }
 }

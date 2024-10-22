@@ -28,7 +28,7 @@ const images = {
     ScanImage,
     Download,
     CheckBox,
-    UnCheckBox
+    UnCheckBox,
 };
-3;
+
 export default images;

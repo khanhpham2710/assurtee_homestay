@@ -5,7 +5,6 @@
     font-family: AppleSDGothicNeoH !important;
     font-size: 20px !important;
     color: #000;
-
 }
 
 .titleMedium {
@@ -35,7 +34,7 @@
     color: #000;
     font-family: AppleSDGothicNeoB;
     span {
-        color:  #ea3062
+        color: #ea3062;
     }
 }
 
@@ -44,6 +43,16 @@
     font-size: 16px;
     line-height: 1;
     letter-spacing: normal;
+    text-align: left;
+    color: #000;
+}
+
+.title_label {
+    @include ab.title;
+
+    font-family: AppleSDGothicNeoM;
+    font-size: 12px;
+    line-height: 1;
     text-align: left;
     color: #000;
 }

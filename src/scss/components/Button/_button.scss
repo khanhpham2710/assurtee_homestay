@@ -27,19 +27,16 @@
 .button3 {
     width: 360px;
     height: 50px;
-    padding: 0 152px 14px;
-    background-color: #d9d9d9 !important;
+    padding: 17px 152px 14px;
+    background-color: #d9d9d9;
 
-    font-family: AppleSDGothicNeoEB !important;
-    font-size: 16px !important;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal !important;
-    letter-spacing: normal !important;
-    text-align: center;
-    color: #fff !important;
+    @include ab.title;
+
+    font-family: AppleSDGothicNeoEB;
+    font-size: 16px;
+    color: #fff;
 }
 
-.button3.active{
-    background-color: #333647 !important;
+.button3.active {
+    background-color: #333647;
 }

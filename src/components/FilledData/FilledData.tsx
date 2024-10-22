@@ -40,7 +40,7 @@ export default function FilledData() {
                     gap: 2,
                     flexWrap: 'wrap',
                     alignItems: 'center',
-                    background: "pink",
+                    background: 'pink',
                     borderBottom: '1px solid rgba(0, 0, 0, 0.42)',
                     '&:hover': {
                         borderBottom: '2px solid #ea3062',
@@ -66,7 +66,14 @@ export default function FilledData() {
                         maxWidth: 'calc(70% - 8px)',
                     }}
                 />
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, background: "red" }}>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        background: 'red',
+                    }}
+                >
                     <button
                         type="button"
                         onClick={handleClickShowPassword}
@@ -77,7 +84,7 @@ export default function FilledData() {
                             alignSelf: 'flex-end',
                         }}
                     >
-                       -
+                        -
                     </button>
                     <TextField
                         type={showPassword ? 'text' : 'password'}

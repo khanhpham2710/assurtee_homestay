@@ -1,77 +1,68 @@
 import images from '../../assets/images';
-import LoadingPage from '../../components/Loading/Loading';
-import { Box, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import LoadingPage from '../../components/Loading/Loading';
 
 function CompletedPage() {
     const navigate = useNavigate();
 
-    function handleClick() {
+    const handleHomeClick = () => {
         navigate('/');
-    }
+    };
 
     // return <LoadingPage />
 
     return (
-        <Box
-            sx={{
+        <div
+            className="dflex_center flexColumn_item"
+            style={{
                 width: '100%',
                 height: 'calc(100vh - 100px)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
             }}
         >
             <img src={images.Success} />
-            <Typography
-                sx={{
-                    mt: '38px',
-                    mb: '12px',
+            <h3
+                style={{
+                    margin: '38px 0 12px',
                     fontFamily: 'AppleSDGothicNeoH',
                     fontSize: '22px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
                     lineHeight: '1.27',
-                    letterSpacing: 'normal',
-                    textAlign: 'center',
                     color: '#000',
+                    textAlign: 'center',
                 }}
             >
                 보험 가입이 완료 되었습니다.
-            </Typography>
-
-            <Typography
-                sx={{
+            </h3>
+            <h3
+                style={{
                     fontFamily: 'AppleSDGothicNeoM',
                     fontSize: '16px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
                     lineHeight: '1.27',
-                    letterSpacing: 'normal',
-                    textAlign: 'center',
                     color: '#000',
+                    textAlign: 'center',
                 }}
             >
                 가입확인서는 입력하신 <br />
                 핸드폰 번호 카카오톡으로 보내드렸습니다.
-            </Typography>
-
+            </h3>
             <button className="button2" style={{ marginTop: '32px' }}>
                 가입내역 확인
             </button>
-            <Box
-                sx={{
+            <h6
+                style={{
                     position: 'absolute',
                     bottom: '40px',
                     width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center',
+                    fontSize: '16px',
+                    lineHeight: '1.25',
+                    color: '#000',
+                    textAlign: 'center',
+                    cursor: 'pointer',
                 }}
+                onClick={handleHomeClick}
             >
-                <Typography onClick={handleClick}>홈으로</Typography>
-            </Box>
-        </Box>
+                홈으로
+            </h6>
+        </div>
     );
 }
 

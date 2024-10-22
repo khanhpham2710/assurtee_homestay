@@ -1,5 +1,4 @@
-import React from 'react';
-import { Avatar, Box, Button, Typography } from '@mui/material';
+import { Avatar } from '@mui/material';
 import images from '../../assets/images';
 import FeeAccordion from '../../components/FeeAccordion/FeeAccordion';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
@@ -7,10 +6,17 @@ import InsuranceDetails from '../../components/InsuranceInfo/InsuranceDetails';
 import Download from '../../components/InsuranceInfo/Download';
 import WarningAccordion from '../../components/InsuranceInfo/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
+import { useState } from 'react';
 
 function InsuranceInfo() {
+    const [checked, setChecked] = useState(true);
+
+    const handleCheck = () => {
+        setChecked((prev) => !prev);
+    };
+
     return (
-        <Box className="dflex-column">
+        <div className="dflex-column">
             <Avatar
                 src={images.InsuranceLogo}
                 alt=""
@@ -41,28 +47,23 @@ function InsuranceInfo() {
             <section style={{ padding: '0 24px' }}>
                 <WarningAccordion />
             </section>
-            <Typography
-                sx={{
-                    fontFamily: 'AppleSDGothicNeoM',
-                    fontSize: '12px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
+            <h3
+                className="title_label"
+                style={{
                     lineHeight: 'normal',
-                    letterSpacing: 'normal',
-                    textAlign: 'left',
                     color: '#646464',
                     margin: '34px auto 47px',
                 }}
             >
                 준법감시확인필 제202325412호 2024.5.25~2025.5.25
-            </Typography>
-            <ConfirmCheckbox />
-            <section>
-                <Button disabled={true} className="button3">
+            </h3>
+            <ConfirmCheckbox checked={checked} handleCheck={handleCheck} />
+            <section className="dflex_center">
+                <button className={`button3 ${checked ? 'active' : ''}`}>
                     가입하기
-                </Button>
+                </button>
             </section>
-        </Box>
+        </div>
     );
 }
 

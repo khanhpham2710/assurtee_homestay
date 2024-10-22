@@ -1,4 +1,3 @@
-import { Typography } from '@mui/material';
 import InsuranceDetailsBox, { InfoProps } from './InsuranceDetailsBox';
 
 function InsuranceDetails() {
@@ -92,20 +91,7 @@ function InsuranceDetails() {
                 margin: '40px 24px 0',
             }}
         >
-            <Typography
-                sx={{
-                    fontFamily: 'AppleSDGothicNeoM',
-                    fontSize: '12px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
-                    lineHeight: '1.83',
-                    letterSpacing: 'normal',
-                    textAlign: 'left',
-                    color: '#000',
-                }}
-            >
-                보장내용
-            </Typography>
+            <h4 className="title_label">보장내용</h4>
             {infos.map((info, index) => {
                 return (
                     <InsuranceDetailsBox

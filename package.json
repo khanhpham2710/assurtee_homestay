@@ -7,10 +7,10 @@
         "dev": "vite",
         "build": "tsc -b && vite build",
         "preview": "vite preview",
-        "lint": "eslint --ext js,jsx,ts,tsx src/",
-        "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
-        "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
-        "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.jsx|*.js|*.scss|*.css)\"",
+        "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,scss}\"",
+        "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx,scss}\"",
+        "prettier": "prettier --check \"src/**/*.{tsx,ts,jsx,js,scss,css}\"",
+        "prettier:fix": "prettier --write \"src/**/*.{tsx,ts,jsx,js,scss,css}\"",
         "test": "vitest"
     },
     "dependencies": {
