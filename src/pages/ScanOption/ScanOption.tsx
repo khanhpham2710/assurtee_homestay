@@ -13,7 +13,11 @@ export default function ScanOption() {
     return (
         <div
             className="fullWidth_item"
-            style={{ padding: '0 24px', marginTop: '16px', backgroundColor:"#f6f7f9 !important"}}
+            style={{
+                padding: '0 24px',
+                marginTop: '16px',
+                backgroundColor: '#f6f7f9 !important',
+            }}
         >
             <Question
                 title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
@@ -38,8 +42,11 @@ export default function ScanOption() {
                         backgroundColor: '#e7ecf3',
                     }}
                 >
-                    <img src={images.ScanText} alt=""/>
-                    <p className="titleMini" style={{backgroundColor: "transparent"}}>
+                    <img src={images.ScanText} alt="" />
+                    <p
+                        className="titleMini"
+                        style={{ backgroundColor: 'transparent' }}
+                    >
                         <span>
                             사업자등록번호 <br />
                             직접입력
@@ -56,7 +63,10 @@ export default function ScanOption() {
                     }}
                 >
                     <img src={images.ScanImage} alt="" style={{}} />
-                    <p className="titleMini" style={{backgroundColor: "transparent"}}>
+                    <p
+                        className="titleMini"
+                        style={{ backgroundColor: 'transparent' }}
+                    >
                         <span>
                             사업자등증 <br />
                             촬영(스캔)입력

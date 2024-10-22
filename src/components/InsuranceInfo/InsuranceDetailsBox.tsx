@@ -38,7 +38,7 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                 >
                     {title}
                 </Typography>
-                <Box className="dflex_center" sx={{gap : '8px'}}>
+                <Box className="dflex_center" sx={{ gap: '8px' }}>
                     <Typography
                         sx={{
                             ...style,
@@ -51,7 +51,7 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                     >
                         {info}
                     </Typography>
-                    <MyToolTip text={tooltip} align='left'/>
+                    <MyToolTip text={tooltip} align="left" />
                 </Box>
             </Box>
             <Divider

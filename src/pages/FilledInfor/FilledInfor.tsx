@@ -1,21 +1,6 @@
-import React from 'react'
-import {useState, useEffect} from "react";
+import React from 'react';
+import { useState, useEffect } from 'react';
 
 export default function FilledInfor() {
-
-
-
-
-  return (
-    <div>
-        
-
-
-
-    </div>
-  )
-
-
-
-
+    return <div></div>;
 }

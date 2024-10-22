@@ -10,6 +10,9 @@ import cheroLeft from '/Image/charon_left.png';
 import Bullet from '/Image/vector-105-stroke.png';
 import ScanText from '/Image/scantext.png';
 import ScanImage from '/Image/scanImage.png';
+import Download from '/Image/component-8.png';
+import CheckBox from '/Image/frame-61-checked.png';
+import UnCheckBox from '/Image/frame-61.png';
 const images = {
     HomeIcon,
     InfoIcon,
@@ -22,7 +25,10 @@ const images = {
     InsuranceLogo,
     Bullet,
     ScanText,
-    ScanImage
+    ScanImage,
+    Download,
+    CheckBox,
+    UnCheckBox
 };
-3
+3;
 export default images;
