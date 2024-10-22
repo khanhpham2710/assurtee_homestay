@@ -49,11 +49,9 @@ function FeeAccordion() {
                     backgroundColor: '#fff0f3',
                     borderBottom: '#e0e0e0 solid 1px',
                     boxShadow: 'none',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '0 24px'
+                    padding: '0 24px',
                 }}
+                className="dflex_spacebetween"
                 expandIcon={
                     <ExpandMoreIcon
                         sx={{
@@ -104,13 +102,11 @@ function FeeAccordion() {
                     }}
                 >
                     <Box
+                        className="dflex_spacebetween"
                         sx={{
                             width: '100%',
                             height: '100%',
                             padding: '0 24px',
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
                             backgroundColor: '#fff0f3',
                         }}
                     >
