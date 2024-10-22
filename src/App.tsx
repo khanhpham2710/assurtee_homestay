@@ -16,7 +16,7 @@ function App() {
                             path={route.path}
                             element={
                                 <>
-                                    <Header />
+                                    {Header} 
                                     <Page />
                                 </>
                             }
