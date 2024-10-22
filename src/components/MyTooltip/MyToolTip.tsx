@@ -1,23 +1,24 @@
 import images from '../../assets/images';
 
 interface MyToolTipProps {
-  text: string[];
+  text?: string[];
+  align?: 'left' | 'center' | 'right';
 }
 
-function MyToolTip({ text }: MyToolTipProps) {
+const MyToolTip: React.FC<MyToolTipProps> = ({ text = [], align = 'right' }) => {
   return (
     <div className="tooltip">
       <img src={images.InfoIcon} alt="Information icon" />
-      <div className="tooltiptext">
+      <p className="tooltiptext" style={{ textAlign: align }}>
         {text.map((line, index) => (
           <span key={index}>
             {line}
             {index < text.length - 1 && <br />}
           </span>
         ))}
-      </div>
+      </p>
     </div>
   );
-}
+};
 
 export default MyToolTip;

@@ -3,6 +3,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.dflex_spacebetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    flex-wrap: wrap; 
+}
+
 .flexColumn_item {
     flex-direction: column;
 }
