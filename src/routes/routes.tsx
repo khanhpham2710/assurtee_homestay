@@ -14,17 +14,17 @@ import HeaderMain from '../components/Headers/HeaderMain';
 type RouteType = {
     path: string;
     component: React.FC;
-    header: React.FC;
+    header: React.ReactNode
 };
 
 const routes: RouteType[] = [
-    { path: '/', component: MainPage, header: HeaderMain },
+    { path: '/', component: MainPage, header: <HeaderMain/> },
 
-    { path: '/insurance_info', component: InsuranceInfo, header: Header1 },
+    { path: '/insurance_info', component: InsuranceInfo, header: <Header1/> },
 
-    { path: '/completed', component: CompletedPage, header: Header1 },
+    { path: '/completed', component: CompletedPage, header: <Header1/> },
 
-    { path: '/filledInfor', component: FilledInfor, header: Header2 },
+    { path: '/filledInfor', component: FilledInfor,  header : <Header2 title ="주택 정보 입력" />},
 ];
 
 export default routes;
