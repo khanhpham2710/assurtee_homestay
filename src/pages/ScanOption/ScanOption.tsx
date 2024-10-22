@@ -1,0 +1,69 @@
+import React, { useState } from 'react';
+import Question from '../../components/Questions/Question';
+import Divider from '@mui/material/Divider';
+import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import images from '../../assets/images';
+export default function ScanOption() {
+    const items = ['예', '아니오'];
+    const [item, setItem] = useState<string>(items[0]);
+
+    console.log(item);
+
+    return (
+        <div
+            className="fullWidth_item"
+            style={{ padding: '0 24px', marginTop: '16px', backgroundColor:"#f6f7f9 !important"}}
+        >
+            <Question
+                title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
+                item={item}
+                items={items}
+                setItem={setItem}
+            />
+
+            <div style={{ marginTop: '30px', marginBottom: '40px' }}>
+                <Divider className="divider_1" />
+            </div>
+
+            <section
+                className="fullWidth_item dflex_center"
+                style={{ gap: '10px' }}
+            >
+                <div
+                    className="item-detail-box"
+                    style={{
+                        width: '151px',
+                        height: '151px',
+                        backgroundColor: '#e7ecf3',
+                    }}
+                >
+                    <img src={images.ScanText} alt=""/>
+                    <p className="titleMini" style={{backgroundColor: "transparent"}}>
+                        <span>
+                            사업자등록번호 <br />
+                            직접입력
+                        </span>
+                    </p>
+                </div>
+
+                <div
+                    className="item-detail-box"
+                    style={{
+                        width: '151px',
+                        height: '151px',
+                        backgroundColor: '#e7ecf3',
+                    }}
+                >
+                    <img src={images.ScanImage} alt="" style={{}} />
+                    <p className="titleMini" style={{backgroundColor: "transparent"}}>
+                        <span>
+                            사업자등증 <br />
+                            촬영(스캔)입력
+                        </span>
+                    </p>
+                </div>
+            </section>
+        </div>
+    );
+}

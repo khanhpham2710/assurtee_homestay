@@ -1,0 +1,30 @@
+
+
+.divider_1 {
+    height: 1px !important;
+    margin-top: 30px !important;
+    margin-bottom: 40px !important;
+    background-color: #e0e0e0 !important;
+    margin: 0 auto !important;
+    // max-width: 100%;
+}
+
+@media only screen and (min-width:720px) {
+    .divider_1 {
+        max-width: 80%;
+    }
+}
+
+@media  only screen and (min-width: 920px) {
+    .divider_1 {
+        max-width: 70%;
+    }
+}
+
+
+@media only screen and (min-width:1200px) {
+    .divider_1 {
+        max-width: 43%;
+    }
+}
+

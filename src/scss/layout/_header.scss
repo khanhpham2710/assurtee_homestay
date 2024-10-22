@@ -2,6 +2,7 @@
 
 .header0 {
     @include ab.header;
+    background-color: transparent;
 }
 
 .header1 {
@@ -10,4 +11,5 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    background-color: transparent;
 }
