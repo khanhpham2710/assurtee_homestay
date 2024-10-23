@@ -7,7 +7,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier';
 
 export default [
     {
-        ignores: ['node_modules', '**/*.test.js'], // Specify patterns to ignore
+        ignores: ['node_modules', '**/*.test.js'],
         files: ['**/*.{js,mjs,cjs,ts,jsx,tsx,scss}'],
         languageOptions: {
             globals: globals.browser,
