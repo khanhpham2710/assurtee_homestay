@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Inputs from '../../components/Inputs/Inputs';
 export default function FilledInfor() {
+    
     const [constractor, setContractor] = useState<string>('');
     const [dob, setDob] = useState<string>('');
     const [registrationNumber, setRegistrationNumber] = useState<string>('');
