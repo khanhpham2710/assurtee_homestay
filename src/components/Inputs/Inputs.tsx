@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { PersonalType } from '../../utils/redux/infoSlice';
 
 const CustomInput = styled.input`
     height: 50px;
@@ -45,33 +46,25 @@ const InputSection = styled.section`
 
 type InputsProps = {
     contractor: string;
-    setContractor: React.Dispatch<React.SetStateAction<string>>;
     dob: string;
-    setDob: React.Dispatch<React.SetStateAction<string>>;
     registrationNumber: string;
-    setRegistrationNumber: React.Dispatch<React.SetStateAction<string>>;
     phoneNumber: string;
-    setPhoneNumber: React.Dispatch<React.SetStateAction<string>>;
+    handleChange: (key: keyof PersonalType, value: string) => void;
 };
 
 function Inputs({
     contractor,
-    setContractor,
     dob,
-    setDob,
     registrationNumber,
-    setRegistrationNumber,
     phoneNumber,
-    setPhoneNumber,
+    handleChange,
 }: InputsProps) {
-    const numberOnly = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        setter: React.Dispatch<React.SetStateAction<string>>
-    ) => {
+    const numberOnly = (e: React.ChangeEvent<HTMLInputElement>): string => {
         const value = e.target.value;
         if (/^\d*$/.test(value)) {
-            setter(value);
+            return value;
         }
+        return '';
     };
 
     return (
@@ -85,21 +78,21 @@ function Inputs({
                     type="text"
                     value={contractor}
                     placeholder="이름을 입력해 주세요."
-                    onChange={(e) => setContractor(e.target.value)}
+                    onChange={(e) => handleChange('contractor', e.target.value)}
                 />
             </InputSection>
 
             <InputSection>
-                <label className="title_label" htmlFor="id-number">
+                <label className="title_label" htmlFor="dob">
                     주민등록번호
                 </label>
                 <section className="dflex_center">
                     <CustomInput
-                        id="id-number"
+                        id="dob"
                         placeholder="생년월일6자리"
                         maxLength={6}
                         value={dob}
-                        onChange={(e) => numberOnly(e, setDob)}
+                        onChange={(e) => handleChange('dob', numberOnly(e))}
                     />
                     <p
                         style={{
@@ -113,9 +106,11 @@ function Inputs({
                     <PasswordInput
                         placeholder="•••••••"
                         type="password"
-                        maxLength={6}
+                        maxLength={7}
                         value={registrationNumber}
-                        onChange={(e) => numberOnly(e, setRegistrationNumber)}
+                        onChange={(e) =>
+                            handleChange('registrationNumber', numberOnly(e))
+                        }
                     />
                 </section>
             </InputSection>
@@ -127,8 +122,9 @@ function Inputs({
                 <CustomInput
                     id="phone-number"
                     placeholder='"-" 없이 입력하세요.'
+                    maxLength={11}
                     value={phoneNumber}
-                    onChange={(e) => numberOnly(e, setPhoneNumber)}
+                    onChange={(e) => handleChange('phoneNumber', numberOnly(e))}
                 />
             </InputSection>
         </form>
