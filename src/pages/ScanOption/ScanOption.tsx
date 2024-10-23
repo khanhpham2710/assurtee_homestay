@@ -25,9 +25,7 @@ export default function ScanOption() {
                 setItem={setItem}
             />
 
-            <div style={{ marginTop: '30px', marginBottom: '40px' }}>
-                <Divider className="divider_1" />
-            </div>
+            <Divider className="divider_1" />
 
             <section
                 className="fullWidth_item dflex_center"

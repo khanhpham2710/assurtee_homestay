@@ -13,7 +13,7 @@ export interface BusinessType {
     businessName: string;
     address: string;
     extra: string;
-    hanok: '예' | '아니요';
+    hanok: '예' | '아니요' | '';
 }
 
 export interface InfoType extends PersonalType, BusinessType {}
