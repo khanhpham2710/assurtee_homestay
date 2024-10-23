@@ -10,7 +10,7 @@ import cheroLeft from '/Image/charon_left.png';
 import Bullet from '/Image/vector-105-stroke.png';
 import ScanText from '/Image/scantext.png';
 import ScanImage from '/Image/scanImage.png';
-import Download from '/Image/component-8.png';
+// import Download from '/Image/component-8.png';
 import CheckBox from '/Image/frame-61-checked.png';
 import UnCheckBox from '/Image/frame-61.png';
 import AssurLogo from "/Image/AssureteeLogo.png"
@@ -31,7 +31,7 @@ const images = {
     Bullet,
     ScanText,
     ScanImage,
-    Download,
+    // Download,
     CheckBox,
     UnCheckBox,
     AssurLogo,
