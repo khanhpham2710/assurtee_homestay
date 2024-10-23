@@ -8,5 +8,6 @@ export default function HomePage() {
                 <HeaderMain />
                 <section></section>
             </section>
-        </section>    );
+        </section>
+    );
 }

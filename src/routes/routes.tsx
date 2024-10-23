@@ -5,12 +5,13 @@ import HomePage from '../pages/HomePage/HomePage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/ScanOption/ScanOption';
-import FilledInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
+import FilledPersonalInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
+import FilledBusinessInfor from '../pages/FilledBusinessInfor/FilledBusinessInfor';
+import SearchAddress from '../pages/SearchAddress/SearchAddress';
 
 // headers
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
-import HeaderMain from '../components/Headers/HeaderMain';
 
 type RouteType = {
     path: string;
@@ -19,7 +20,7 @@ type RouteType = {
 };
 
 const routes: RouteType[] = [
-    { path: '/', component: HomePage, header: null},
+    { path: '/', component: HomePage, header: null },
 
     { path: '/insurance_info', component: InsuranceInfo, header: <Header1 /> },
 
@@ -31,7 +32,22 @@ const routes: RouteType[] = [
         header: <Header2 title="주택 정보 입력" />,
     },
 
-    { path: '/filled-infor', component: FilledInfor, header: <Header1 /> },
+    {
+        path: '/personal-infor',
+        component: FilledPersonalInfor,
+        header: <Header1 />,
+    },
+
+    {
+        path: '/business-infor',
+        component: FilledBusinessInfor,
+        header: <Header2 title="주택 정보 입력" />,
+    },
+    {
+        path: '/search-address',
+        component: SearchAddress,
+        header: null,
+    },
 ];
 
 export default routes;
