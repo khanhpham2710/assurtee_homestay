@@ -1,11 +1,12 @@
 import React from 'react';
 
 // components
+import HomePage from '../pages/HomePage/HomePage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/ScanOption/ScanOption';
-import FilledInfor from '../pages/FilledInfor/FilledInfor';
-import HomePage from '../pages/HomePage/HomePage';
+import FilledInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
+
 // headers
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
@@ -18,6 +19,8 @@ type RouteType = {
 };
 
 const routes: RouteType[] = [
+    { path: '/', component: HomePage, header: null},
+
     { path: '/insurance_info', component: InsuranceInfo, header: <Header1 /> },
 
     { path: '/completed', component: CompletedPage, header: <Header1 /> },
@@ -29,10 +32,6 @@ const routes: RouteType[] = [
     },
 
     { path: '/filled-infor', component: FilledInfor, header: <Header1 /> },
-
-    {
-        path: "/", component: HomePage, header: null
-    }
 ];
 
 export default routes;
