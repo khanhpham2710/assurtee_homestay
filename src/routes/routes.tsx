@@ -19,7 +19,7 @@ type RouteType = {
 };
 
 const routes: RouteType[] = [
-    { path: '/', component: HomePage, header: null},
+    { path: '/', component: HomePage, header: null },
 
     { path: '/insurance_info', component: InsuranceInfo, header: <Header1 /> },
 
