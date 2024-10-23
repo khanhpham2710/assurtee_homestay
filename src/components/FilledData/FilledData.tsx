@@ -101,7 +101,6 @@ export default function FilledData() {
                         }}
                         inputProps={{
                             maxLength: 7, // Limit to 7 digits
-                            inputMode: 'numeric', // Ensure numeric input on mobile
                             pattern: '[0-9]*', // Ensure digits only
                             style: {
                                 WebkitTextSecurity: !showPassword
