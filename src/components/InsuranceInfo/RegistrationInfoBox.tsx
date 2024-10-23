@@ -23,7 +23,7 @@ function RegistrationInfoBox({ title, info }: InfoProps) {
                     padding: '11px 0',
                 }}
             >
-                <h5
+                <label
                     style={{
                         ...fontStyle,
                         fontFamily: 'AppleSDGothicNeoH',
@@ -32,7 +32,7 @@ function RegistrationInfoBox({ title, info }: InfoProps) {
                     }}
                 >
                     {title}
-                </h5>
+                </label>
                 <h5
                     style={{
                         ...fontStyle,

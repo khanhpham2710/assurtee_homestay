@@ -23,7 +23,7 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                     padding: '11px 0',
                 }}
             >
-                <h5
+                <label
                     style={{
                         ...fontStyle,
                         fontFamily: 'AppleSDGothicNeoM',
@@ -34,7 +34,7 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                     }}
                 >
                     {title}
-                </h5>
+                </label>
                 <div className="dflex_center" style={{ gap: '8px' }}>
                     <h4
                         style={{
