@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import MainPage from '../pages/MainPage/MainPage';
+import HomePage from '../pages/HomePage/HomePage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/ScanOption/ScanOption';
@@ -15,11 +15,11 @@ import HeaderMain from '../components/Headers/HeaderMain';
 type RouteType = {
     path: string;
     component: React.FC;
-    header: React.ReactNode;
+    header: React.ReactNode | null;
 };
 
 const routes: RouteType[] = [
-    { path: '/', component: MainPage, header: <HeaderMain /> },
+    { path: '/', component: HomePage, header: null},
 
     { path: '/insurance_info', component: InsuranceInfo, header: <Header1 /> },
 

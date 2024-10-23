@@ -24,6 +24,16 @@
     }
 }
 
+.titleMicro {
+    @include ab.title;
+    font-family: AppleSDGothicNeoH !important;
+    font-size: 14px !important;
+    color: #000;
+    span {
+        background-color: transparent !important;
+    }
+}
+
 .titleNumber {
     font-size: 14px;
     font-stretch: normal;
