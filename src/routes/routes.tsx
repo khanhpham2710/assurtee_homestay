@@ -5,7 +5,7 @@ import MainPage from '../pages/MainPage/MainPage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/ScanOption/ScanOption';
-import FilledInfor from '../pages/FilledInfor/FilledInfor';
+import FilledInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
 
 // headers
 import Header1 from '../components/Headers/Header1';
