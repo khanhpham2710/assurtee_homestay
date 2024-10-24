@@ -7,7 +7,7 @@
 .tooltip .tooltiptext {
     visibility: hidden;
     width: max-content;
-    max-width: 312px;
+    max-width: calc(100% - 48px);
     background-color: black;
     padding: 10px 12px;
     position: absolute;
