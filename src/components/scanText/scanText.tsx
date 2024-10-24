@@ -27,7 +27,7 @@ export default function ScanText() {
                         // }
                         autoComplete="off"
                         // width={100%}
-                        style={{textAlign:"center", width:"100%"}}
+                        style={{ textAlign: 'center', width: '100%' }}
                     />
                 </InputSection>
 
