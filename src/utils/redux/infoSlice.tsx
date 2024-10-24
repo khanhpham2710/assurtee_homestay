@@ -8,12 +8,12 @@ export interface PersonalType {
 }
 
 export interface BusinessType {
-    division: string;
+    division: '개인' | '법인' | '';
     businessNumber: string;
     businessName: string;
     address: string;
     extra: string;
-    hanok: '예' | '아니요';
+    hanok: '예' | '아니요' | '';
 }
 
 export interface InfoType extends PersonalType, BusinessType {}
