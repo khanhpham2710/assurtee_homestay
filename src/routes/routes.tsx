@@ -29,7 +29,7 @@ const routes: RouteType[] = [
     {
         path: '/scan-option',
         component: ScanOption,
-        header: <Header2 title="주택 정보 입력" />,
+        header: <Header2 title="주택 정보 입력" backTo="/" />,
     },
 
     {
@@ -41,7 +41,7 @@ const routes: RouteType[] = [
     {
         path: '/business-infor',
         component: FilledBusinessInfor,
-        header: <Header2 title="주택 정보 입력" />,
+        header: <Header2 title="주택 정보 입력" backTo="/scan-option" />,
     },
     {
         path: '/search-address',

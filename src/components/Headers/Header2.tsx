@@ -1,14 +1,18 @@
 import images from '../../assets/images';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function Header2({ title }: { title: string }) {
-    const navigate = useNavigate();
-
+export default function Header2({
+    title,
+    backTo,
+}: {
+    title: string;
+    backTo: string;
+}) {
     return (
         <div className="header0 dflex_center">
-            <div className="back_icon_header" onClick={() => navigate(-1)}>
+            <Link className="back_icon_header" to={backTo}>
                 <img src={images.cheroLeft} alt="" />
-            </div>
+            </Link>
             <h2 className="titleSmall">{title}</h2>
         </div>
     );

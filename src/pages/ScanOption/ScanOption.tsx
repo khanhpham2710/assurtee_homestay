@@ -4,9 +4,20 @@ import Divider from '@mui/material/Divider';
 import images from '../../assets/images';
 import ScanImage_Main from '../../components/scanImage/scanImage_Main';
 import ScanText from '../../components/scanText/scanText';
+import MyModal, { MyModalProps } from '../../components/MyModal/MyModal';
+
 export default function ScanOption() {
     const items = ['예', '아니오'];
     const [item, setItem] = useState<string>(items[0]);
+    const [open, setOpen] = useState<boolean>(false);
+
+    const [modal, setModal] = useState<MyModalProps>({
+        open: open,
+        setOpen,
+        title: '',
+        appBarColor: '#fff',
+        component: null,
+    });
 
     return (
         <div
@@ -70,11 +81,6 @@ export default function ScanOption() {
                     </p>
                 </div>
             </section>
-
-
-            {/* <ScanImage_Main/> */}
-            {/* <ScanText/> */}
-
         </div>
     );
 }
