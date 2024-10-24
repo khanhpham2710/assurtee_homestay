@@ -15,6 +15,8 @@ import CheckBox from '/Image/frame-61-checked.png';
 import UnCheckBox from '/Image/frame-61.png';
 import AssurLogo from '/Image/AssureteeLogo.png';
 import backArrow from '/Image/backArrow.png';
+import ArrowDown from '/Image/arrowDown.png';
+import videoButton from '/Image/videoButton.png';
 import BackGroundBanner1 from '/Image/img.png';
 import BackGroundBanner2 from '/Image/img@2x.png';
 import BackGroundBanner3 from '/Image/img@3x.png';
@@ -40,6 +42,8 @@ const images = {
     BackGroundBanner1,
     BackGroundBanner2,
     BackGroundBanner3,
+    ArrowDown,
+    videoButton,
     CloseButton,
 };
 

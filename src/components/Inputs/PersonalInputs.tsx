@@ -7,7 +7,6 @@ const PasswordInput = styled(CustomInput)`
     font-size: 60px;
     letter-spacing: -30px;
     caret-color: transparent;
-
     &::-ms-reveal,
     ::-ms-clear {
         display: none;
