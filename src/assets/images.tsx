@@ -18,6 +18,7 @@ import backArrow from '/Image/backArrow.png';
 import BackGroundBanner1 from '/Image/img.png';
 import BackGroundBanner2 from '/Image/img@2x.png';
 import BackGroundBanner3 from '/Image/img@3x.png';
+import CloseButton from '/Image/isolation-mode.png';
 const images = {
     HomeIcon,
     InfoIcon,
@@ -39,6 +40,7 @@ const images = {
     BackGroundBanner1,
     BackGroundBanner2,
     BackGroundBanner3,
+    CloseButton,
 };
 
 export default images;

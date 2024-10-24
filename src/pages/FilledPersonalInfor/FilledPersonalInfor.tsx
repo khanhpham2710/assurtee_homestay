@@ -77,6 +77,9 @@ export default function FilledPersonalInfo() {
                     className={allChecked ? 'button1 active' : 'button1'}
                     onClick={handleSubmit}
                     disabled={!allChecked}
+                    style={{
+                        marginBottom: '30px',
+                    }}
                 >
                     주택 정보 입력
                 </button>

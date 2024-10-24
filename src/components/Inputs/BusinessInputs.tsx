@@ -1,18 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BusinessType } from '../../utils/redux/infoSlice';
-import { CustomInput } from '.';
+import { CustomInput, InputSection } from '.';
 import { Link } from 'react-router-dom';
-
-const InputSection = styled.section`
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-    transition: border-color 0.3s ease;
-
-    &:focus-within {
-        border-bottom: 1px solid #ea3062;
-    }
-`;
+import OptionInput from './OptionInput';
 
 type InputsProps = {
     form: BusinessType;
@@ -34,12 +24,12 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                 <label className="title_label" htmlFor="division">
                     구분
                 </label>
-                <CustomInput
-                    id="division"
-                    type="text"
+                <OptionInput
+                    variable="division"
                     value={form.division}
                     placeholder="개인/법인을 선택해 주세요."
-                    onChange={(e) => handleChange('division', e.target.value)}
+                    handleChange={handleChange}
+                    items={['개인', '법인']}
                 />
             </InputSection>
 
@@ -55,6 +45,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     onChange={(e) =>
                         handleChange('businessNumber', numberOnly(e))
                     }
+                    autoComplete="off"
                 />
             </InputSection>
 
@@ -70,6 +61,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     onChange={(e) =>
                         handleChange('businessName', e.target.value)
                     }
+                    autoComplete="off"
                 />
             </InputSection>
 
@@ -85,6 +77,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                         onChange={(e) =>
                             handleChange('address', e.target.value)
                         }
+                        autoComplete="off"
                     />
                     <Link to="/search-address">
                         <button className="address-button">주소검색</button>
@@ -99,6 +92,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     maxLength={11}
                     value={form.extra}
                     onChange={(e) => handleChange('extra', e.target.value)}
+                    autoComplete="off"
                 />
             </InputSection>
 
@@ -106,11 +100,12 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                 <label className="title_label" htmlFor="hanok">
                     한옥 여부
                 </label>
-                <CustomInput
-                    id="hanok"
+                <OptionInput
+                    variable="hanok"
                     placeholder="해당 건물이 한옥인가요?"
                     value={form.hanok}
-                    onChange={(e) => handleChange('hanok', e.target.value)}
+                    handleChange={handleChange}
+                    items={['예', '아니요']}
                 />
             </InputSection>
         </form>
