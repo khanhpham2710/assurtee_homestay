@@ -48,7 +48,7 @@ export default function Question({
                             }}
                         />
 
-                        {item}
+                        {item1}
                     </button>
                 ))}
             </div>

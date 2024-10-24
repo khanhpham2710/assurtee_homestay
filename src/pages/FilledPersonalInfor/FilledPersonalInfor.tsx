@@ -1,26 +1,28 @@
 import { useState } from 'react';
-import Inputs from '../../components/Inputs/Inputs';
+import PersonalInputs from '../../components/Inputs/PersonalInputs';
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { PersonalType } from '../../utils/redux/infoSlice';
+import { useNavigate } from 'react-router-dom';
 
-const initialFormState: PersonalType = {
+const initialForm: PersonalType = {
     contractor: '',
     dob: '',
     registrationNumber: '',
     phoneNumber: '',
 };
 
-export default function FilledInfo() {
+export default function FilledPersonalInfo() {
     const dispatch = useDispatch();
-    const [formState, setFormState] = useState<PersonalType>(initialFormState);
+    const navigate = useNavigate();
+    const [form, setForm] = useState<PersonalType>(initialForm);
 
     const handleChange = (key: keyof PersonalType, value: string) => {
-        setFormState((prev) => ({ ...prev, [key]: value }));
+        setForm((prev) => ({ ...prev, [key]: value }));
     };
 
     const validateFields = (): boolean => {
-        const { contractor, dob, registrationNumber, phoneNumber } = formState;
+        const { contractor, dob, registrationNumber, phoneNumber } = form;
 
         if (!contractor || !dob || !registrationNumber || !phoneNumber)
             return false;
@@ -42,17 +44,17 @@ export default function FilledInfo() {
         return true;
     };
 
-    const handleSubmit = () => {
-        const isValid = validateFields();
-        if (isValid) {
-            dispatch(updateInfo(formState));
+    const allChecked: boolean = validateFields();
+
+    const handleSubmit = async () => {
+        if (allChecked) {
+            await dispatch(updateInfo(form));
+            navigate('/scan-option');
         }
     };
 
-    const allChecked: boolean = validateFields();
-
     return (
-        <div style={{ padding: '0 24px' }}>
+        <div style={{ padding: '8px 24px 0' }}>
             <section className="dflex-column" style={{ marginBottom: '28px' }}>
                 <p className="titleNumber">
                     <span>1</span> / 2
@@ -65,13 +67,7 @@ export default function FilledInfo() {
                 </p>
             </section>
             <section>
-                <Inputs
-                    contractor={formState.contractor}
-                    handleChange={handleChange}
-                    dob={formState.dob}
-                    phoneNumber={formState.phoneNumber}
-                    registrationNumber={formState.registrationNumber}
-                />
+                <PersonalInputs form={form} handleChange={handleChange} />
             </section>
             <section
                 style={{ width: '100%', marginTop: '40px' }}
@@ -81,6 +77,9 @@ export default function FilledInfo() {
                     className={allChecked ? 'button1 active' : 'button1'}
                     onClick={handleSubmit}
                     disabled={!allChecked}
+                    style={{
+                        marginBottom: '30px',
+                    }}
                 >
                     주택 정보 입력
                 </button>

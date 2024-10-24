@@ -66,3 +66,14 @@
     text-align: left;
     color: #000;
 }
+
+.title_drawer {
+    @include ab.title;
+
+    font-family: AppleSDGothicNeoH;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: left;
+    color: #ea3062;
+}

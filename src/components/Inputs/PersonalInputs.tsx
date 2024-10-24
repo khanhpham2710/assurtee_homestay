@@ -1,69 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PersonalType } from '../../utils/redux/infoSlice';
-
-const CustomInput = styled.input`
-    height: 50px;
-    width: 100%;
-    font-family: 'AppleSDGothicNeoH';
-    font-size: 16px;
-    line-height: 1.75;
-    text-align: left;
-    color: #000;
-    background-color: #f6f7f9;
-    outline: none;
-    transition: border-color 0.3s ease;
-
-    &:focus {
-        outline: none;
-        background-color: #f6f7f9;
-    }
-
-    &:hover {
-        background-color: #f6f7f9 !important;
-    }
-
-    &::placeholder {
-        color: #cfcfcf;
-    }
-`;
+import { CustomInput, InputSection } from '.';
 
 const PasswordInput = styled(CustomInput)`
     font-size: 60px;
     letter-spacing: -30px;
     caret-color: transparent;
-
     &::-ms-reveal,
     ::-ms-clear {
         display: none;
     }
 `;
 
-const InputSection = styled.section`
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-    transition: border-color 0.3s ease;
-
-    &:focus-within {
-        border-bottom: 1px solid #ea3062;
-    }
-`;
-
 type InputsProps = {
-    contractor: string;
-    dob: string;
-    registrationNumber: string;
-    phoneNumber: string;
+    form: PersonalType;
     handleChange: (key: keyof PersonalType, value: string) => void;
 };
 
-function Inputs({
-    contractor,
-    dob,
-    registrationNumber,
-    phoneNumber,
-    handleChange,
-}: InputsProps) {
+function PersonalInputs({ form, handleChange }: InputsProps) {
     const numberOnly = (e: React.ChangeEvent<HTMLInputElement>): string => {
         const value = e.target.value;
         if (/^\d*$/.test(value)) {
@@ -81,9 +36,10 @@ function Inputs({
                 <CustomInput
                     id="contractor"
                     type="text"
-                    value={contractor}
+                    value={form.contractor}
                     placeholder="이름을 입력해 주세요."
                     onChange={(e) => handleChange('contractor', e.target.value)}
+                    autoComplete="off"
                 />
             </InputSection>
 
@@ -96,8 +52,9 @@ function Inputs({
                         id="dob"
                         placeholder="생년월일6자리"
                         maxLength={6}
-                        value={dob}
+                        value={form.dob}
                         onChange={(e) => handleChange('dob', numberOnly(e))}
+                        autoComplete="off"
                     />
                     <p
                         style={{
@@ -112,28 +69,30 @@ function Inputs({
                         placeholder="•••••••"
                         type="password"
                         maxLength={7}
-                        value={registrationNumber}
+                        value={form.registrationNumber}
                         onChange={(e) =>
                             handleChange('registrationNumber', numberOnly(e))
                         }
+                        autoComplete="off"
                     />
                 </section>
             </InputSection>
 
             <InputSection>
-                <label className="title_label" htmlFor="phone-number">
+                <label className="title_label" htmlFor="phoneNumber">
                     휴대폰번호
                 </label>
                 <CustomInput
-                    id="phone-number"
+                    id="phoneNumber"
                     placeholder='"-" 없이 입력하세요.'
                     maxLength={11}
-                    value={phoneNumber}
+                    value={form.phoneNumber}
                     onChange={(e) => handleChange('phoneNumber', numberOnly(e))}
+                    autoComplete="off"
                 />
             </InputSection>
         </form>
     );
 }
 
-export default Inputs;
+export default PersonalInputs;
