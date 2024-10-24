@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Question from '../../components/Questions/Question';
 import Divider from '@mui/material/Divider';
 import images from '../../assets/images';
-
+import ScanImage_Main from '../../components/scanImage/scanImage_Main';
+import ScanText from '../../components/scanText/scanText';
 export default function ScanOption() {
     const items = ['예', '아니오'];
     const [item, setItem] = useState<string>(items[0]);
@@ -69,6 +70,11 @@ export default function ScanOption() {
                     </p>
                 </div>
             </section>
+
+
+            {/* <ScanImage_Main/> */}
+            {/* <ScanText/> */}
+
         </div>
     );
 }
