@@ -1,4 +1,3 @@
-import React from 'react';
 import images from '../../assets/images';
 
 function Header3({ title }: { title: string }) {
