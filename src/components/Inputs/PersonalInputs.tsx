@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PersonalType } from '../../utils/redux/infoSlice';
-import { CustomInput } from '.';
+import { CustomInput, InputSection } from '.';
 
 const PasswordInput = styled(CustomInput)`
     font-size: 60px;
@@ -11,16 +11,6 @@ const PasswordInput = styled(CustomInput)`
     &::-ms-reveal,
     ::-ms-clear {
         display: none;
-    }
-`;
-
-const InputSection = styled.section`
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-    transition: border-color 0.3s ease;
-
-    &:focus-within {
-        border-bottom: 1px solid #ea3062;
     }
 `;
 
@@ -50,6 +40,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     value={form.contractor}
                     placeholder="이름을 입력해 주세요."
                     onChange={(e) => handleChange('contractor', e.target.value)}
+                    autoComplete="off"
                 />
             </InputSection>
 
@@ -64,6 +55,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                         maxLength={6}
                         value={form.dob}
                         onChange={(e) => handleChange('dob', numberOnly(e))}
+                        autoComplete="off"
                     />
                     <p
                         style={{
@@ -82,6 +74,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                         onChange={(e) =>
                             handleChange('registrationNumber', numberOnly(e))
                         }
+                        autoComplete="off"
                     />
                 </section>
             </InputSection>
@@ -96,6 +89,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     maxLength={11}
                     value={form.phoneNumber}
                     onChange={(e) => handleChange('phoneNumber', numberOnly(e))}
+                    autoComplete="off"
                 />
             </InputSection>
         </form>

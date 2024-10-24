@@ -1,13 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Question from '../../components/Questions/Question';
 import Divider from '@mui/material/Divider';
-import { Link } from 'react-router-dom';
 import images from '../../assets/images';
+
 export default function ScanOption() {
     const items = ['예', '아니오'];
     const [item, setItem] = useState<string>(items[0]);
-
-    console.log(item);
 
     return (
         <div

@@ -5,8 +5,6 @@ import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import { BusinessType } from '../../utils/redux/infoSlice';
 import Question from '../../components/Questions/Question';
 import { Divider } from '@mui/material';
-import MyDrawer from '../../components/MyDrawer/MyDrawer';
-import TestDrawer from '../../components/MyDrawer/TestDrawer';
 
 const initialFormState: BusinessType = {
     division: '',
@@ -21,7 +19,6 @@ export default function FilledBusinessInfo() {
     const dispatch = useDispatch();
     const [form, setForm] = useState<BusinessType>(initialFormState);
     const [item, setItem] = useState<string>('예');
-    const [open, setOpen] = useState<boolean>(false);
 
     const items: string[] = ['예', '아니오'];
 
@@ -46,7 +43,6 @@ export default function FilledBusinessInfo() {
 
     const handleSubmit = () => {
         if (allChecked) {
-            setOpen(true);
             dispatch(updateInfo(form));
         }
     };
@@ -76,15 +72,15 @@ export default function FilledBusinessInfo() {
             >
                 <button
                     className={allChecked ? 'button1 active' : 'button1'}
-                    // onClick={handleSubmit}
-                    // disabled={!allChecked}
-                    onClick={() => setOpen((prev) => !prev)}
+                    onClick={handleSubmit}
+                    disabled={!allChecked}
+                    style={{
+                        marginBottom: '30px',
+                    }}
                 >
                     확인
                 </button>
             </section>
-            {/* <MyDrawer open={open} setOpen={setOpen} /> */}
-            <TestDrawer open={open} setOpen={setOpen} />
         </div>
     );
 }
