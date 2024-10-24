@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Question from '../../components/Questions/Question';
 import Divider from '@mui/material/Divider';
 import images from '../../assets/images';
+import ScanImage_Main from '../../components/scanImage/scanImage_Main';
+import ScanText from '../../components/scanText/scanText';
 import MyModal, { MyModalProps } from '../../components/MyModal/MyModal';
 
 export default function ScanOption() {
@@ -79,17 +81,6 @@ export default function ScanOption() {
                     </p>
                 </div>
             </section>
-            {/* <MyModal
-                title="사업자등록번호 입력"
-                component={
-                    <Question
-                        title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
-                        item={item}
-                        items={items}
-                        setItem={setItem}
-                    />
-                }
-            /> */}
         </div>
     );
 }
