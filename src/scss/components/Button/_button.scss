@@ -72,13 +72,16 @@
     // box-shadow: rgba(0.45, 0, 0, 0) -20px 25px 20px 0px;
     // display: flex;
     // justify-content: center;
-    box-shadow: linear-gradient(to top, #fff 24%, rgba(255, 255, 255, 0)) !important;
+    box-shadow: linear-gradient(
+        to top,
+        #fff 24%,
+        rgba(255, 255, 255, 0)
+    ) !important;
 }
 
-
-.button_main{
-    background-color: #ea3062 ;
-    padding:  0 107.5px 0 106.5px;
+.button_main {
+    background-color: #ea3062;
+    padding: 0 107.5px 0 106.5px;
     height: 56px;
     width: 100%;
     border-radius: 8px;
@@ -88,6 +91,6 @@
     display: block;
     position: absolute;
     p {
-        color: white
+        color: white;
     }
 }
