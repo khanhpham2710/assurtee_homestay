@@ -16,6 +16,11 @@ const CustomInput = styled.input`
 
     &:focus {
         outline: none;
+        background-color: #f6f7f9;
+    }
+
+    &:hover {
+        background-color: #f6f7f9 !important;
     }
 
     &::placeholder {
