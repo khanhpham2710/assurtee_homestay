@@ -7,11 +7,7 @@ interface Props {
 }
 
 export default function Video_component({ title, video_id }: Props) {
-
-    
     const [clicked, setClicked] = useState(false);
-
-
 
     return (
         <div className="video_component">
@@ -63,8 +59,8 @@ export default function Video_component({ title, video_id }: Props) {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    style={{borderRadius:"7px"}}
-                    onClick={()=>setClicked(false)}
+                    style={{ borderRadius: '7px' }}
+                    onClick={() => setClicked(false)}
                 ></iframe>
             )}
         </div>

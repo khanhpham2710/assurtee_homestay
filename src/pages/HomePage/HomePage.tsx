@@ -102,17 +102,27 @@ export default function HomePage() {
                 sx={{
                     marginTop: '30px',
                     flexGrow: 1,
-                    padding: "0 24px "
+                    padding: '0 24px ',
                 }}
             >
-                <Grid container spacing={1} columnSpacing={1} justifyContent="center" alignItems ="center" >
+                <Grid
+                    container
+                    spacing={1}
+                    columnSpacing={1}
+                    justifyContent="center"
+                    alignItems="center"
+                >
                     {videos_embbeded &&
                         videos_embbeded.map((video, index) => (
-                            <Grid size={{ xl: 3, lg: 3, md: 6, sm: 12 }} className='dflex_center' key={index}>
-                                    <Video_component
-                                        title={video.title}
-                                        video_id={video.video_id}
-                                    />
+                            <Grid
+                                size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
+                                className="dflex_center"
+                                key={index}
+                            >
+                                <Video_component
+                                    title={video.title}
+                                    video_id={video.video_id}
+                                />
                             </Grid>
                         ))}
                 </Grid>
