@@ -10,14 +10,10 @@ function HeaderMain() {
     }
 
     return (
-        <Box className="header1">
-            <img
-                src={images.AssurLogo}
-                onClick={handleClick}
-                style={{ width: '130px' }}
-            />
-            <div className="header_item_right dflex_item gapMini ">
-                <p className="titleMicro">가입확인</p>
+        <Box className="header1" sx={{backgroundColor:"transparent"}} >
+            <img className="mainLogo" src={images.AssurLogo} onClick={handleClick} />
+            <div className="header_item_right dflex_item gapMini mainLogo_2">
+                <p className='titleMicro'>가입확인</p>
                 <img src={images.backArrow} alt="" />
             </div>
         </Box>
