@@ -58,7 +58,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     />
                     <p
                         style={{
-                            fontSize: '50px',
+                            fontSize: '60px',
                             lineHeight: '1',
                             transform: 'translateY(-15%)',
                         }}

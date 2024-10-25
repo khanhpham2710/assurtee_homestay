@@ -1,5 +1,5 @@
 .buttonQuestion {
-    width: 150px;
+    width: calc(300px / var(--items-count));
     height: 50px;
     border-radius: 35px;
     border: solid 3px #e0e0e0;
@@ -16,7 +16,7 @@
 }
 
 .buttonQuestion.active {
-    width: 150px;
+    width: calc(300px / var(--items-count));
     height: 50px;
     border-radius: 35px;
     border: solid 3px #333647;
@@ -30,4 +30,19 @@
     letter-spacing: normal;
     color: #000000;
     text-decoration: none;
+}
+
+.dflex_item_inline {
+    display: flex;
+    flex-direction: row;
+    gap: calc(24px / var(--items-count));
+}
+
+
+.dflex_item_inline[data-items='2'] {
+    --items-count: 2;
+}
+
+.dflex_item_inline[data-items='3'] {
+    --items-count: 3;
 }

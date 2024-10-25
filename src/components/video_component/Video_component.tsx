@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef  } from 'react';
 import Images from '../../assets/images';
 
 interface Props {
@@ -8,6 +8,16 @@ interface Props {
 
 export default function Video_component({ title, video_id }: Props) {
     const [clicked, setClicked] = useState(false);
+
+    const iframeContainerRef = useRef<HTMLDivElement>(null);
+
+    const handleClick = () => {
+        setClicked(true);
+        if (iframeContainerRef.current) {
+            iframeContainerRef.current.requestFullscreen();
+        }
+    };
+
 
     return (
         <div className="video_component">
@@ -57,7 +67,7 @@ export default function Video_component({ title, video_id }: Props) {
                     height="180px"
                     src={`https://www.youtube.com/embed/${video_id}?autoplay=1`}
                     frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                     allowFullScreen
                     style={{ borderRadius: '7px' }}
                     onClick={() => setClicked(false)}
