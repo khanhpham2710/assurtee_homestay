@@ -22,6 +22,7 @@ import BackGroundBanner2 from '/Image/img@2x.png';
 import BackGroundBanner3 from '/Image/img@3x.png';
 import CloseButton from '/Image/isolation-mode.png';
 import Group9 from '/Image/group-9.png';
+import KeyDown from '/Image/icon.png';
 const images = {
     HomeIcon,
     InfoIcon,
@@ -47,6 +48,7 @@ const images = {
     videoButton,
     CloseButton,
     Group9,
+    KeyDown
 };
 
 export default images;
