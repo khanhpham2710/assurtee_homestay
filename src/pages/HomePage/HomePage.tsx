@@ -242,6 +242,7 @@ export default function HomePage() {
                             </div>
                         </div>
                     </Grid>
+                    
                 </Grid>
             </Box>
 

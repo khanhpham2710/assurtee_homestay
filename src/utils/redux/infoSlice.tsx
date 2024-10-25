@@ -16,6 +16,8 @@ export interface BusinessType {
     hanok: '예' | '아니요' | '';
 }
 
+export interface InsuranceAmount {}
+
 export interface InfoType extends PersonalType, BusinessType {}
 
 const initialState: InfoType = {

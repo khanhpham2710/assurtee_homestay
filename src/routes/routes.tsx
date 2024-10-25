@@ -12,7 +12,7 @@ import SearchAddress from '../pages/SearchAddress/SearchAddress';
 // headers
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
-import InsuranceAmount from '../pages/InsuranceAmount/InsuranceAmount';
+import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmount';
 
 type RouteType = {
     path: string;
