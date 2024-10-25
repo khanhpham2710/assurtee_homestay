@@ -27,6 +27,7 @@ import item_2 from "/Image/item_2.png";
 import item_3 from "/Image/item_3.png";
 import item_4 from "/Image/item_4.png";
 import KeyDown from '/Image/icon.png';
+import greyTooltip from "/Image/greytooltip.png";
 const images = {
     HomeIcon,
     InfoIcon,
@@ -56,7 +57,8 @@ const images = {
     item_2,
     item_3,
     item_4,
-    KeyDown
+    KeyDown,
+    greyTooltip
 };
 
 export default images;
