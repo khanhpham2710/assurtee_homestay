@@ -1,4 +1,4 @@
-import React, { useState, useRef  } from 'react';
+import React, { useState } from 'react';
 import Images from '../../assets/images';
 
 interface Props {
@@ -7,71 +7,101 @@ interface Props {
 }
 
 export default function Video_component({ title, video_id }: Props) {
-    const [clicked, setClicked] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
-    const iframeContainerRef = useRef<HTMLDivElement>(null);
-
-    const handleClick = () => {
-        setClicked(true);
-        if (iframeContainerRef.current) {
-            iframeContainerRef.current.requestFullscreen();
-        }
+    const handlePlayClick = () => {
+        setIsFullscreen(true);
     };
 
+    const handleCloseClick = () => {
+        setIsFullscreen(false);
+    };
 
     return (
         <div className="video_component">
             <p style={{ marginBottom: '13px' }}>{title}</p>
 
-            {/* Conditionally render either the video thumbnail or the iframe */}
-            {!clicked ? (
-                <div className="thumbnail_container">
+            {/* Video Thumbnail */}
+            <div className="thumbnail_container" style={{ position: 'relative' }}>
+                <img
+                    src={`https://img.youtube.com/vi/${video_id}/hqdefault.jpg`}
+                    style={{
+                        objectFit: 'cover',
+                        width: '312px',
+                        height: '174px',
+                        borderRadius: '7px',
+                    }}
+                    alt="Thumbnail"
+                />
+                <button
+                    onClick={handlePlayClick}
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        background: 'transparent',
+                        border: 'none',
+                        cursor: 'pointer',
+                    }}
+                >
                     <img
-                        src={`https://img.youtube.com/vi/${video_id}/hqdefault.jpg`}
+                        src={Images.videoButton}
+                        alt="Play Button"
                         style={{
                             objectFit: 'cover',
-                            width: '312px',
-                            height: '174px',
-                            borderRadius: '7px',
+                            width: '44px',
+                            height: '44px',
+                            background: 'transparent',
                         }}
-                        alt="Thumbnail"
                     />
+                </button>
+            </div>
+
+            {/* Fullscreen Video Modal */}
+            {isFullscreen && (
+                <div
+                    className="fullscreen_modal"
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 9999,
+                    }}
+                >
+                    <iframe
+                        className="video_frame"
+                        src={`https://www.youtube.com/embed/${video_id}?autoplay=1`}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                        }}
+                    ></iframe>
                     <button
-                        onClick={() => setClicked(true)}
+                        onClick={handleCloseClick}
                         style={{
                             position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-70%, -40%)',
+                            top: '20px',
+                            right: '20px',
                             background: 'transparent',
                             border: 'none',
+                            color: '#fff',
+                            fontSize: '50px',
                             cursor: 'pointer',
                         }}
+                        aria-label="Close Video"
                     >
-                        <img
-                            src={Images.videoButton}
-                            alt="Play Button"
-                            style={{
-                                objectFit: 'cover',
-                                width: '44px',
-                                height: '44px',
-                                background: 'transparent',
-                            }}
-                        />
+                        &times;
                     </button>
                 </div>
-            ) : (
-                <iframe
-                    className="video_frame"
-                    width="315px"
-                    height="180px"
-                    src={`https://www.youtube.com/embed/${video_id}?autoplay=1`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    allowFullScreen
-                    style={{ borderRadius: '7px' }}
-                    onClick={() => setClicked(false)}
-                ></iframe>
             )}
         </div>
     );
