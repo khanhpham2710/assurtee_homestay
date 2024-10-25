@@ -1,6 +1,5 @@
-import React from 'react';
 import { BusinessType } from '../../utils/redux/infoSlice';
-import { CustomInput, InputSection } from '.';
+import { CustomInput, InputSection, numberOnly } from '.';
 import { Link } from 'react-router-dom';
 import OptionInput from './OptionInput';
 
@@ -10,14 +9,6 @@ type InputsProps = {
 };
 
 function BusinessInputs({ form, handleChange }: InputsProps) {
-    const numberOnly = (e: React.ChangeEvent<HTMLInputElement>): string => {
-        const value = e.target.value;
-        if (/^[\d-]*$/.test(value)) {
-            return value;
-        }
-        return '';
-    };
-
     return (
         <form className="dflex-column">
             <InputSection>
@@ -32,7 +23,6 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     items={['개인', '법인']}
                 />
             </InputSection>
-
             <InputSection>
                 <label className="title_label" htmlFor="businessNumber">
                     등록번호
@@ -48,7 +38,6 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     autoComplete="off"
                 />
             </InputSection>
-
             <InputSection>
                 <label className="title_label" htmlFor="businessName">
                     상호(법인)명
@@ -64,7 +53,6 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     autoComplete="off"
                 />
             </InputSection>
-
             <InputSection>
                 <label className="title_label" htmlFor="address">
                     사업장 소재지
@@ -84,7 +72,6 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     </Link>
                 </section>
             </InputSection>
-
             <InputSection>
                 <CustomInput
                     id="extra"
@@ -95,7 +82,6 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     autoComplete="off"
                 />
             </InputSection>
-
             <InputSection>
                 <label className="title_label" htmlFor="hanok">
                     한옥 여부

@@ -1,51 +1,47 @@
-import * as React from 'react';
+import React from 'react';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import images from '../../assets/images';
-import { BusinessType } from '../../utils/redux/infoSlice';
+import { BusinessType, InsuranceAmountType } from '../../utils/redux/infoSlice';
 
-export type Props = {
+type Props = {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     window?: () => Window;
     items: string[];
-    handleChange: (key: keyof BusinessType, value: string) => void;
-    variable: keyof BusinessType;
+    handleChange: (
+        key: keyof BusinessType | keyof InsuranceAmountType,
+        value: string
+    ) => void;
+    variable: keyof BusinessType | keyof InsuranceAmountType;
 };
 
-const buttonStyle: React.CSSProperties = {
-    height: '50%',
-    fontFamily: 'AppleSDGothicNeoM',
-    fontSize: '16px',
-    textAlign: 'left',
-    color: '#000',
-    backgroundColor: '#fff',
-};
-
-export default function MyDrawer(props: Props) {
-    const { open, setOpen, window, items, handleChange, variable } = props;
-
+const MyDrawer: React.FC<Props> = ({
+    open,
+    setOpen,
+    window,
+    items,
+    handleChange,
+    variable,
+}) => {
     const container =
         window !== undefined ? () => window().document.body : undefined;
 
-    const toggleDrawer =
-        () => (event: React.KeyboardEvent | React.MouseEvent) => {
-            if (
-                event &&
-                event.type === 'keydown' &&
-                ((event as React.KeyboardEvent).key === 'Tab' ||
-                    (event as React.KeyboardEvent).key === 'Shift')
-            ) {
-                return;
-            }
+    const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
+        if (
+            event &&
+            event.type === 'keydown' &&
+            ((event as React.KeyboardEvent).key === 'Tab' ||
+                (event as React.KeyboardEvent).key === 'Shift')
+        ) {
+            return;
+        }
+        setOpen((prev) => !prev);
+    };
 
-            setOpen((prev) => !prev);
-        };
-
-    function handleClick(e: React.MouseEvent<HTMLButtonElement>) {
-        const value = e.currentTarget.value;
+    const handleClick = (value: string) => {
         handleChange(variable, value);
         setOpen(false);
-    }
+    };
 
     const list = () => (
         <div role="presentation">
@@ -60,25 +56,28 @@ export default function MyDrawer(props: Props) {
                 <h1 className="title_drawer">개인/법인을 선택해 주세요.</h1>
                 <img
                     src={images.CloseButton}
-                    onClick={toggleDrawer()}
+                    onClick={toggleDrawer}
                     alt="Close"
                 />
             </div>
             <div
-                style={{
-                    height: 133,
-                    padding: '24px 14px 24px 23px',
-                }}
+                style={{ height: 133, padding: '24px 14px 24px 23px' }}
                 className="dflex-column"
             >
-                {items.map((temp, index) => (
+                {items.map((item, index) => (
                     <button
-                        style={buttonStyle}
                         key={index}
-                        value={temp}
-                        onClick={handleClick}
+                        style={{
+                            height: '50%',
+                            fontFamily: 'AppleSDGothicNeoM',
+                            fontSize: '16px',
+                            textAlign: 'left',
+                            color: '#000',
+                            backgroundColor: '#fff',
+                        }}
+                        onClick={() => handleClick(item)}
                     >
-                        {temp}
+                        {item}
                     </button>
                 ))}
             </div>
@@ -86,25 +85,23 @@ export default function MyDrawer(props: Props) {
     );
 
     return (
-        <div>
-            <React.Fragment>
-                <SwipeableDrawer
-                    container={container}
-                    anchor={'bottom'}
-                    open={open}
-                    onClose={toggleDrawer()}
-                    onOpen={toggleDrawer()}
-                    sx={{
-                        '& .MuiDrawer-paper': {
-                            borderTopLeftRadius: '8px',
-                            borderTopRightRadius: '8px',
-                        },
-                        zIndex: 2000,
-                    }}
-                >
-                    {list()}
-                </SwipeableDrawer>
-            </React.Fragment>
-        </div>
+        <SwipeableDrawer
+            container={container}
+            anchor="bottom"
+            open={open}
+            onClose={toggleDrawer}
+            onOpen={toggleDrawer}
+            sx={{
+                '& .MuiDrawer-paper': {
+                    borderTopLeftRadius: '8px',
+                    borderTopRightRadius: '8px',
+                },
+                zIndex: 2000,
+            }}
+        >
+            {list()}
+        </SwipeableDrawer>
     );
-}
+};
+
+export default MyDrawer;

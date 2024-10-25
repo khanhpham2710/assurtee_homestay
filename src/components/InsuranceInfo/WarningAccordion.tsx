@@ -13,29 +13,21 @@ function WarningAccordion() {
                 overflow: 'hidden',
             }}
         >
-            <Accordion
-                id="warning_accordion"
-                sx={{
-                    boxShadow: 'none',
-                    '& .Mui-expanded': {
-                        minHeight: '0',
-                    },
-                }}
-            >
+            <Accordion id="warning_accordion" disableGutters elevation={0}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     sx={{
                         height: '50px',
                         backgroundColor: '#fff',
-                        paddingX: '24px',
+                        padding: '0 24px',
+                        borderBottom: '1px solid #e0e0e0',
                     }}
                 >
-                    <h3 className="heading">보험가입 전 유의사항</h3>
+                    <p className="heading">보험가입 전 유의사항</p>
                 </AccordionSummary>
                 <AccordionDetails
                     sx={{
-                        padding: '17px 24px 22px',
-                        border: 'solid 1px #e0e0e0',
+                        padding: '17px 24px',
                         backgroundColor: '#faf9f9',
                     }}
                 >

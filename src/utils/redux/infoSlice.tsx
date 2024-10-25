@@ -16,9 +16,18 @@ export interface BusinessType {
     hanok: '예' | '아니요' | '';
 }
 
-export interface InsuranceAmount {}
+export interface InsuranceAmountType {
+    construction: number;
+    facilities: number;
+    inventory: number;
+    housingType: string | '단독';
+    area: number;
+}
 
-export interface InfoType extends PersonalType, BusinessType {}
+export interface InfoType
+    extends PersonalType,
+        BusinessType,
+        InsuranceAmountType {}
 
 const initialState: InfoType = {
     contractor: '',
@@ -31,6 +40,11 @@ const initialState: InfoType = {
     address: '',
     extra: '',
     hanok: '아니요',
+    construction: 3,
+    facilities: 6,
+    inventory: 2,
+    housingType: '단독',
+    area: 79,
 };
 
 const infoSlice = createSlice({

@@ -33,27 +33,27 @@ function FeeAccordion() {
     };
 
     return (
-        <Accordion id="fee_accordion" sx={{ boxShadow: 'none' }}>
+        <Accordion
+            id="fee_accordion"
+            disableGutters
+            elevation={0}
+            sx={{
+                boxShadow: 'none',
+                '&::before': {
+                    display: 'none',
+                },
+            }}
+        >
             <AccordionSummary
+                expandIcon={<ExpandMoreIcon sx={{ color: '#fb5601' }} />}
                 sx={{
                     height: '70px',
                     backgroundColor: '#fff0f3',
-                    borderBottom: '#e0e0e0 solid 1px',
+                    borderBottom: '1px solid #e0e0e0',
                     padding: '0 24px',
                 }}
-                expandIcon={
-                    <ExpandMoreIcon
-                        sx={{
-                            color: '#fb5601',
-                            backgroundColor: '#fff0f3',
-                        }}
-                    />
-                }
             >
-                <div
-                    className="dflex_spacebetween"
-                    style={{ width: '100%', backgroundColor: '#fff0f3' }}
-                >
+                <div className="dflex_spacebetween" style={{ width: '100%' }}>
                     <h4
                         style={{
                             ...fontStyle,
@@ -80,7 +80,7 @@ function FeeAccordion() {
                 <AccordionDetails
                     key={index}
                     sx={{
-                        borderBottom: '#e0e0e0 solid 1px',
+                        borderBottom: '1px solid #e0e0e0',
                         height: '50px',
                         backgroundColor: '#fff0f3',
                         padding: 0,
@@ -92,7 +92,6 @@ function FeeAccordion() {
                             width: '100%',
                             height: '100%',
                             padding: '0 24px',
-                            backgroundColor: '#fff0f3',
                         }}
                     >
                         <h4 style={fontStyle}>

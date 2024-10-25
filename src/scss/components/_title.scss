@@ -74,6 +74,15 @@
     color: #000;
 }
 
+.title_label-2 {
+    @include ab.title;
+    font-family: AppleSDGothicNeoH;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 0.75;
+    color: #000;
+}
+
 .title_drawer {
     @include ab.title;
     font-family: AppleSDGothicNeoH;
@@ -89,6 +98,23 @@
     text-align: center !important;
 }
 
+.title_all_terms {
+    @include ab.title;
+
+    font-family: 'AppleSDGothicNeoM';
+    font-size: 16px;
+    line-height: 1.25;
+    color: '#000';
+}
+
+.title_terms {
+    @include ab.title;
+
+    font-family: 'AppleSDGothicNeoM';
+    font-size: '14px';
+    line-height: '1.43';
+    color: '#646464';
+}
 .title_card_banner {
     font-family: AppleSDGothicNeoH;
     font-size: 20px;
@@ -112,7 +138,6 @@
     margin-top: 8px;
     margin-bottom: 2px;
 }
-
 
 .title_card_subdesc {
     font-family: AppleSDGothicNeoSB;
