@@ -29,7 +29,7 @@ import item_4 from '/Image/item_4.png';
 import KeyDown from '/Image/icon.png';
 import TermCheckBox from '/Image/frame-62.png';
 import TermUnCheckBox from '/Image/frame-63.png';
-import greyTooltip from "/Image/greytooltip.png";
+import greyTooltip from '/Image/greytooltip.png';
 const images = {
     HomeIcon,
     InfoIcon,
@@ -62,7 +62,7 @@ const images = {
     KeyDown,
     TermCheckBox,
     TermUnCheckBox,
-    greyTooltip
+    greyTooltip,
 };
 
 export default images;

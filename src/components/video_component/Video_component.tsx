@@ -1,4 +1,4 @@
-import React, { useState, useRef  } from 'react';
+import React, { useState, useRef } from 'react';
 import Images from '../../assets/images';
 
 interface Props {
@@ -17,7 +17,6 @@ export default function Video_component({ title, video_id }: Props) {
             iframeContainerRef.current.requestFullscreen();
         }
     };
-
 
     return (
         <div className="video_component">

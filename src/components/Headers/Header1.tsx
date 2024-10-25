@@ -18,7 +18,7 @@ function Header1() {
                     '본 사이트에서 안내되는 보험료는 보험사의',
                     '최종 청약 단계의 보험료와 충분히 다를 수 있습니다.',
                 ]}
-                color = {"black"}
+                color={'black'}
             />
         </Box>
     );

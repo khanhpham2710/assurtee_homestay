@@ -58,7 +58,10 @@ export default function ScanOption() {
                     <img src={images.ScanText} alt="" />
                     <p
                         className="titleMini"
-                        style={{ backgroundColor: 'transparent', lineHeight:"22px"}}
+                        style={{
+                            backgroundColor: 'transparent',
+                            lineHeight: '22px',
+                        }}
                     >
                         <span>
                             사업자등록번호 <br />
@@ -86,7 +89,10 @@ export default function ScanOption() {
                     <img src={images.ScanImage} alt="" style={{}} />
                     <p
                         className="titleMini"
-                        style={{ backgroundColor: 'transparent', lineHeight:"22px" }}
+                        style={{
+                            backgroundColor: 'transparent',
+                            lineHeight: '22px',
+                        }}
                     >
                         <span>
                             사업자등증 <br />
