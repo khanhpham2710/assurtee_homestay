@@ -99,6 +99,7 @@ export default function MyDrawer(props: Props) {
                             borderTopLeftRadius: '8px',
                             borderTopRightRadius: '8px',
                         },
+                        zIndex: 2000,
                     }}
                 >
                     {list()}

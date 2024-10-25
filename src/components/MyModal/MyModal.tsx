@@ -1,8 +1,6 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
@@ -17,13 +15,16 @@ const Transition = React.forwardRef(function Transition(
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export type MyModalProps = {
-    open: boolean;
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+export type ModalType = {
     title: string;
     appBarColor?: '#fff' | '#000';
     component: React.ReactNode;
 };
+
+export type MyModalProps = {
+    open: boolean;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+} & ModalType;
 
 export default function MyModal({
     open,
@@ -32,62 +33,47 @@ export default function MyModal({
     appBarColor = '#fff',
     component,
 }: MyModalProps) {
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
     const handleClose = () => {
         setOpen(false);
     };
 
     return (
-        <React.Fragment>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Open full-screen dialog
-            </Button>
-            <Dialog
-                fullScreen
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={Transition}
-                aria-labelledby="modal-title"
-                aria-describedby="modal-description"
+        <Dialog
+            fullScreen
+            open={open}
+            onClose={handleClose}
+            TransitionComponent={Transition}
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
+        >
+            <AppBar
+                className="dflex_center"
+                sx={{
+                    position: 'relative',
+                    boxShadow: 'none',
+                    backgroundColor: appBarColor,
+                    height: '68px',
+                    padding: '0px !important',
+                }}
             >
-                <AppBar
+                <h2 id="modal-title" className="titleSmall">
+                    {title}
+                </h2>
+                <IconButton
+                    edge="start"
+                    color="inherit"
+                    onClick={handleClose}
+                    aria-label="close"
                     sx={{
-                        position: 'relative',
-                        boxShadow: 'none',
+                        color: appBarColor === '#fff' ? '#000' : '#fff',
+                        position: 'absolute',
+                        right: '24px',
                     }}
                 >
-                    <Toolbar
-                        className="dflex_center"
-                        sx={{
-                            height: '68px',
-                            backgroundColor: appBarColor,
-                            boxShadow: 'none',
-                            position: 'relative',
-                        }}
-                    >
-                        <h2 id="modal-title" className="titleSmall">
-                            {title}
-                        </h2>
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            onClick={handleClose}
-                            aria-label="close"
-                            sx={{
-                                color: appBarColor === '#fff' ? '#000' : '#fff',
-                                position: 'absolute',
-                                right: '24px',
-                            }}
-                        >
-                            <CloseIcon />
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-                {component}
-            </Dialog>
-        </React.Fragment>
+                    <CloseIcon />
+                </IconButton>
+            </AppBar>
+            {component}
+        </Dialog>
     );
 }

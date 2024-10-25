@@ -67,31 +67,6 @@ function RegistrationInfo() {
                     />
                 );
             })}
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    marginTop: '8px',
-                }}
-            >
-                <button
-                    style={{
-                        width: '66px',
-                        height: '24px',
-                        background: '#333647',
-                        padding: '1px 12px',
-                        fontFamily: 'AppleSDGothicNeoM',
-                        fontSize: '12px',
-                        lineHeight: '1.83',
-                        color: '#fff',
-                        borderRadius: '40px',
-                        border: 'none',
-                        cursor: 'pointer',
-                    }}
-                >
-                    내용수정
-                </button>
-            </div>
         </section>
     );
 }
