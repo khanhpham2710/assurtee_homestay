@@ -161,7 +161,7 @@ export default function HomePage() {
                 sx={{
                     marginTop: '30px',
                     flexGrow: 1,
-                    marginBottom: "90px"
+                    marginBottom: '90px',
                 }}
             >
                 <Grid
@@ -242,7 +242,6 @@ export default function HomePage() {
                             </div>
                         </div>
                     </Grid>
-                    
                 </Grid>
             </Box>
 

@@ -4,12 +4,11 @@ import { useState } from 'react';
 import { CustomInput, InputSection } from '../../components/Inputs/index';
 
 export default function ScanText() {
-
     return (
         <section>
             <div
                 className="dflex_center flexColumn_item fullWidth_item"
-                style={{ marginTop: '30px'}}
+                style={{ marginTop: '30px' }}
             >
                 <p
                     className="titleLarge"
@@ -34,9 +33,7 @@ export default function ScanText() {
 
                 <button
                     className="button1 active"
-                    style={{ position: "absolute",
-                        bottom: "30px",
-                     }}
+                    style={{ position: 'absolute', bottom: '30px' }}
                 >
                     사업자등록증 촬영하기
                 </button>

@@ -3,9 +3,6 @@ import images from '../../assets/images';
 
 export default function scanImage_Main() {
     return (
-
-
-
         <section>
             <div
                 className="dflex_center flexColumn_item "
