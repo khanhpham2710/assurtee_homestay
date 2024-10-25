@@ -26,11 +26,6 @@
     flex-direction: column;
 }
 
-.dflex_item_inline {
-    display: flex;
-    flex-direction: row;
-    gap: calc(24px / var(--items-count));
-}
 
 .fullWidth_item {
     width: 100%;
@@ -40,13 +35,6 @@
     height: 100vh;
 }
 
-.dflex_item_inline[data-items='2'] {
-    --items-count: 2;
-}
-
-.dflex_item_inline[data-items='3'] {
-    --items-count: 3;
-}
 
 .text_center_items {
     text-align: center;

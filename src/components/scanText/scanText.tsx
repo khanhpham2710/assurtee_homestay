@@ -35,7 +35,7 @@ export default function ScanText() {
                     className="button1 active"
                     style={{ position: 'absolute', bottom: '30px' }}
                 >
-                    사업자등록증 촬영하기
+                    확인
                 </button>
             </div>
         </section>
