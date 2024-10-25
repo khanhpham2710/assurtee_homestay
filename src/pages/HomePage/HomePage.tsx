@@ -11,10 +11,10 @@ export default function HomePage() {
         dots: false,
         arrows: false,
         autoplay: true,
-        autoplaySpeed: 1000,
+        autoplaySpeed: 100,
         centerMode: false,
         infinite: true,
-        speed: 3500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         fade: true,
@@ -50,7 +50,7 @@ export default function HomePage() {
     console.log('carouselImages: ', carouselImages);
 
     return (
-        <section>
+        <section className="fullWidth_item fullHeightView_item">
             <section className="banner_header">
                 <div className="banner">
                     <Slider {...settings}>
@@ -97,12 +97,26 @@ export default function HomePage() {
                 </div>
             </section>
 
+            <div
+                className="title_video"
+                style={{ marginTop: '90px', marginBottom: '40px' }}
+            >
+                <p className="title_main_component">
+                    외도민업 <br /> 전용보험
+                </p>
+                <p className="title_main_des">
+                    외도민업을 운영하는 사업주들의 <br />
+                    사고로 인해 입을 수 있는 피해와 보상을 <br />
+                    전용보험으로 커버 받을 수 있습니다.
+                </p>
+            </div>
+
             <Box
                 className="video_description"
                 sx={{
                     marginTop: '30px',
                     flexGrow: 1,
-                    padding: '0 24px ',
+                    // padding: '0 10px ',
                 }}
             >
                 <Grid
@@ -125,6 +139,110 @@ export default function HomePage() {
                                 />
                             </Grid>
                         ))}
+                </Grid>
+            </Box>
+
+            <div
+                className="title_card"
+                style={{ marginTop: '90px', marginBottom: '40px' }}
+            >
+                <p className="title_main_component">
+                    외도민업 <br /> 전용보험
+                </p>
+                <p>
+                    외도민업을 운영하는 사업주들의 <br />
+                    사고로 인해 입을 수 있는 피해와 보상을 <br />
+                    전용보험으로 커버 받을 수 있습니다.
+                </p>
+            </div>
+
+            <Box
+                className="card_component"
+                sx={{
+                    marginTop: '30px',
+                    flexGrow: 1,
+                    marginBottom: "90px"
+                }}
+            >
+                <Grid
+                    container
+                    spacing={1}
+                    columnSpacing={1}
+                    justifyContent="center"
+                    alignItems="center"
+                >
+                    <Grid
+                        size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
+                        className="dflex_center"
+                    >
+                        <div style={{ width: '312px', height: '138px' }}>
+                            <div>
+                                <p>Special</p>
+                                <p>
+                                    (사)외국인관광도시민박업협회 회원사만
+                                    가입가능
+                                </p>
+                            </div>
+                            <div>
+                                <img src={images.item_1} alt="" />
+                            </div>
+                        </div>
+                    </Grid>
+
+                    <Grid
+                        size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
+                        className="dflex_center"
+                    >
+                        <div style={{ width: '312px', height: '138px' }}>
+                            <div>
+                                <p>Special</p>
+                                <p>
+                                    (사)외국인관광도시민박업협회 회원사만
+                                    가입가능
+                                </p>
+                            </div>
+                            <div>
+                                <img src={images.item_2} alt="" />
+                            </div>
+                        </div>
+                    </Grid>
+
+                    <Grid
+                        size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
+                        className="dflex_center"
+                    >
+                        <div style={{ width: '312px', height: '138px' }}>
+                            <div>
+                                <p>Special</p>
+                                <p>
+                                    (사)외국인관광도시민박업협회 회원사만
+                                    가입가능
+                                </p>
+                            </div>
+                            <div>
+                                <img src={images.item_3} alt="" />
+                            </div>
+                        </div>
+                    </Grid>
+
+                    <Grid
+                        size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
+                        className="dflex_center"
+                    >
+                        <div style={{ width: '312px', height: '138px' }}>
+                            <div>
+                                <p>Special</p>
+                                <p>
+                                    (사)외국인관광도시민박업협회 회원사만
+                                    가입가능
+                                </p>
+                            </div>
+                            <div>
+                                <img src={images.item_4} alt="" />
+                            </div>
+                        </div>
+                    </Grid>
+                    
                 </Grid>
             </Box>
 

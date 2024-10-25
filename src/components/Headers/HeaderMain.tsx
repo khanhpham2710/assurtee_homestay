@@ -16,7 +16,7 @@ function HeaderMain() {
                 src={images.AssurLogo}
                 onClick={handleClick}
             />
-            <div className="header_item_right dflex_item gapMini mainLogo_2">
+            <div className="header_item_right dflex_center mainLogo_2" style={{gap:"3px"}}>
                 <p className="titleMicro">가입확인</p>
                 <img src={images.backArrow} alt="" />
             </div>
