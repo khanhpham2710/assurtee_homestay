@@ -7,7 +7,6 @@ interface Props {
 }
 
 export default function Video_component({ title, video_id }: Props) {
-
     const [isFullscreen, setIsFullscreen] = useState(false);
 
     const handlePlayClick = () => {
@@ -23,7 +22,10 @@ export default function Video_component({ title, video_id }: Props) {
             <p style={{ marginBottom: '13px' }}>{title}</p>
 
             {/* Video Thumbnail */}
-            <div className="thumbnail_container" style={{ position: 'relative' }}>
+            <div
+                className="thumbnail_container"
+                style={{ position: 'relative' }}
+            >
                 <img
                     src={`https://img.youtube.com/vi/${video_id}/hqdefault.jpg`}
                     style={{
