@@ -18,10 +18,14 @@ import backArrow from '/Image/backArrow.png';
 import ArrowDown from '/Image/arrowDown.png';
 import videoButton from '/Image/videoButton.png';
 import BackGroundBanner1 from '/Image/img.png';
-import BackGroundBanner2 from '/Image/img@2x.png';
-import BackGroundBanner3 from '/Image/img@3x.png';
+import BackGroundBanner2 from '/Image/img_2@2x.png';
+import BackGroundBanner3 from '/Image/img_3@3x.png';
 import CloseButton from '/Image/isolation-mode.png';
 import Group9 from '/Image/group-9.png';
+import item_1 from "/Image/item_1.png";
+import item_2 from "/Image/item_2.png";
+import item_3 from "/Image/item_3.png";
+import item_4 from "/Image/item_4.png";
 const images = {
     HomeIcon,
     InfoIcon,
@@ -47,6 +51,10 @@ const images = {
     videoButton,
     CloseButton,
     Group9,
+    item_1,
+    item_2,
+    item_3,
+    item_4,
 };
 
 export default images;

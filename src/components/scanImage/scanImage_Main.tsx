@@ -3,6 +3,9 @@ import images from '../../assets/images';
 
 export default function scanImage_Main() {
     return (
+
+
+
         <section>
             <div
                 className="dflex_center flexColumn_item "
@@ -32,7 +35,7 @@ export default function scanImage_Main() {
 
                 <button
                     className="button1 active"
-                    style={{ marginTop: '131px' }}
+                    style={{ position: 'absolute', bottom: '30px' }}
                 >
                     사업자등록증 촬영하기
                 </button>
