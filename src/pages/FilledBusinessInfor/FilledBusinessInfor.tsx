@@ -41,9 +41,9 @@ export default function FilledBusinessInfo() {
 
     const allChecked: boolean = validateFields();
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (allChecked) {
-            dispatch(updateInfo(form));
+            await dispatch(updateInfo(form));
         }
     };
 

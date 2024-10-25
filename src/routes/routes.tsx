@@ -12,6 +12,7 @@ import SearchAddress from '../pages/SearchAddress/SearchAddress';
 // headers
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
+import InsuranceAmount from '../pages/InsuranceAmount/InsuranceAmount';
 
 type RouteType = {
     path: string;
@@ -22,7 +23,7 @@ type RouteType = {
 const routes: RouteType[] = [
     { path: '/', component: HomePage, header: null },
 
-    { path: '/insurance_info', component: InsuranceInfo, header: <Header1 /> },
+    { path: '/insurance-info', component: InsuranceInfo, header: <Header1 /> },
 
     { path: '/completed', component: CompletedPage, header: <Header1 /> },
 
@@ -47,6 +48,11 @@ const routes: RouteType[] = [
         path: '/search-address',
         component: SearchAddress,
         header: null,
+    },
+    {
+        path: '/insurance-amount',
+        component: InsuranceAmount,
+        header: <Header1 />,
     },
 ];
 
