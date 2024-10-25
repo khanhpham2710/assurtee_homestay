@@ -21,7 +21,7 @@ export default function FeeLandingPage() {
             >
                 {/* First Section */}
 
-                <Typography sx={{ fontWeight: 'bold', marginBottom:"19px"}}>
+                <Typography sx={{ fontWeight: 'bold', marginBottom: '19px' }}>
                     화재보험
                 </Typography>
                 <Divider
@@ -125,7 +125,10 @@ export default function FeeLandingPage() {
 
                 {/* Second Section */}
 
-                <Typography variant="h6" sx={{ fontWeight: 'bold', marginBottom:"19px"}}>
+                <Typography
+                    variant="h6"
+                    sx={{ fontWeight: 'bold', marginBottom: '19px' }}
+                >
                     영업배상책임보험
                 </Typography>
                 <Divider
@@ -138,7 +141,9 @@ export default function FeeLandingPage() {
 
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                     <Typography>보험료</Typography>
-                    <Typography sx={{ fontWeight: 'bold', marginBottom:"19px" }}>
+                    <Typography
+                        sx={{ fontWeight: 'bold', marginBottom: '19px' }}
+                    >
                         10,000원
                     </Typography>
                 </Box>

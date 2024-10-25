@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Question from '../../components/Questions/Question';
 import InsuranceAmount from '../../components/FilledInsuranceAmount/InsuranceAmount';
 import Terms from '../../components/FilledInsuranceAmount/Terms';
@@ -22,9 +22,12 @@ function FilledInsuranceAmount() {
                 items={items}
                 setItem={setItem}
             />
-
-            <InsuranceAmount />
-            <Terms checkAll={checkAll} setCheckAll={setCheckAll} />
+            <section style={{ marginTop: '40px' }}>
+                <InsuranceAmount />
+            </section>
+            <section style={{ marginTop: '40px' }}>
+                <Terms checkAll={checkAll} setCheckAll={setCheckAll} />
+            </section>
         </div>
     );
 }
