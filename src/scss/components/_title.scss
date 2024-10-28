@@ -1,53 +1,47 @@
 @use '../abstracts/index' as ab;
 
-.titleSmall {
-    @include ab.title;
-    font-family: AppleSDGothicNeoH ;
-    font-size: 20px ;
-    color: #000;
+.titleLarge {
+    @include ab.label;
+    font-size: 24px;
+    line-height: 1.17 !important;
 }
 
 .titleMedium {
-    @include ab.title;
-    font-family: AppleSDGothicNeoH !important;
+    @include ab.label;
     font-size: 22px !important;
-    color: #000;
 }
 
-.titleLarge {
-    @include ab.title;
-    font-family: AppleSDGothicNeoH;
-    font-size: 24px;
-    line-height: 1.17 !important;
-    color: #000;
+.titleSmall {
+    @include ab.label;
+    font-size: 20px !important;
 }
 
 .titleMini {
-    @include ab.title;
-    font-family: AppleSDGothicNeoH !important;
+    @include ab.label;
     font-size: 18px !important;
-    color: #000;
+    text-align: center;
     span {
         background-color: transparent !important;
     }
 }
 
+.titleTiny {
+    @include ab.label;
+    font-size: 16px !important;
+}
+
 .titleMicro {
-    @include ab.title;
-    font-family: AppleSDGothicNeoH !important;
+    @include ab.label;
     font-size: 14px !important;
-    color: #000;
     span {
         background-color: transparent !important;
     }
 }
 
 .titleNumber {
+    @include ab.title;
     font-size: 14px;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 2;
-    letter-spacing: normal;
     text-align: left;
     color: #000;
     font-family: AppleSDGothicNeoB;
@@ -67,6 +61,7 @@
 
 .title_label {
     @include ab.title;
+
     font-family: AppleSDGothicNeoM;
     font-size: 12px;
     line-height: 1;
@@ -76,15 +71,33 @@
 
 .title_label-2 {
     @include ab.title;
+
     font-family: AppleSDGothicNeoH;
     font-size: 16px;
-    font-weight: 900;
     line-height: 0.75;
     color: #000;
 }
 
+.title-amount {
+    @include titleLable;
+    line-height: 1.75;
+}
+
+.subtitle {
+    @include ab.title;
+
+    font-family: SFProText;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: -0.41px;
+    text-align: left;
+    color: #6d6d6d;
+}
+
 .title_drawer {
     @include ab.title;
+
     font-family: AppleSDGothicNeoH;
     font-size: 20px;
     font-weight: 900;
@@ -101,7 +114,7 @@
 .title_all_terms {
     @include ab.title;
 
-    font-family: 'AppleSDGothicNeoM';
+    font-family: AppleSDGothicNeoM;
     font-size: 16px;
     line-height: 1.25;
     color: '#000';
@@ -110,29 +123,28 @@
 .title_terms {
     @include ab.title;
 
-    font-family: 'AppleSDGothicNeoM';
+    font-family: AppleSDGothicNeoM;
     font-size: '14px';
     line-height: '1.43';
     color: '#646464';
 }
+
 .title_card_banner {
+    @include ab.title;
+
     font-family: AppleSDGothicNeoH;
     font-size: 20px;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.1;
-    letter-spacing: normal;
     text-align: left;
     color: #ea3062;
 }
 
 .title_card_desc {
+    @include ab.title;
+
     font-family: AppleSDGothicNeoSB;
     font-size: 16px;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.38;
-    letter-spacing: normal;
     text-align: left;
     color: #000;
     margin-top: 8px;
@@ -140,12 +152,11 @@
 }
 
 .title_card_subdesc {
+    @include ab.title;
+
     font-family: AppleSDGothicNeoSB;
     font-size: 14px;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.57;
-    letter-spacing: normal;
     text-align: left;
     color: #6c7db7;
 }

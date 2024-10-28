@@ -1,10 +1,7 @@
 import React from 'react';
 import images from '../../assets/images';
 import { useState } from 'react';
-import {
-    CustomInput,
-    InputSection,
-} from '../../utils/styled-components/inputs';
+import { CustomInput, InputSection } from '../Input/CustomInput';
 
 export default function ScanText() {
     return (

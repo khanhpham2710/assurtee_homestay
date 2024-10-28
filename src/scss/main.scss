@@ -46,3 +46,8 @@ $font-styles: (
     $font-name: nth($font-styles, $i);
     @include font-face($font-name);
 }
+
+@font-face {
+    font-family: 'SFProText';
+    src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff');
+}

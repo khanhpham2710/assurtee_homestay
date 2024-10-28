@@ -1,12 +1,13 @@
 import React from 'react';
 import { Divider } from '@mui/material';
+import images from '../../assets/images';
 
 export type InfoProps = {
     title: string;
     info: string;
 };
 
-function RegistrationInfoBox({ title, info }: InfoProps) {
+function PaymentInfoBox({ title, info }: InfoProps) {
     const fontStyle: React.CSSProperties = {
         fontSize: '16px',
         lineHeight: '1.75',
@@ -31,6 +32,18 @@ function RegistrationInfoBox({ title, info }: InfoProps) {
                         textAlign: 'left',
                     }}
                 >
+                    <span
+                        style={{
+                            display: 'inline-block',
+                            width: '9px',
+                            height: '9px',
+                            margin: '0 8px 4px 6px',
+                            backgroundImage: `url(${images.greyL})`,
+                            backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center',
+                        }}
+                    />
                     {title}
                 </label>
                 <p
@@ -54,4 +67,4 @@ function RegistrationInfoBox({ title, info }: InfoProps) {
     );
 }
 
-export default RegistrationInfoBox;
+export default PaymentInfoBox;

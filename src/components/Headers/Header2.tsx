@@ -13,7 +13,7 @@ export default function Header2({
             <Link className="back_icon_header" to={backTo}>
                 <img src={images.cheroLeft} alt="" />
             </Link>
-            <h2 className="titleSmall">{title}</h2>
+            <p className="titleSmall">{title}</p>
         </div>
     );
 }

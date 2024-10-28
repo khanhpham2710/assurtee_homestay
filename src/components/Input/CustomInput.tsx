@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const InputSection = styled.section`
@@ -30,24 +29,8 @@ export const CustomInput = styled.input`
     &::placeholder {
         color: #cfcfcf;
     }
-
-    &::autoComplete="off"
 `;
 
-export const numberOnly = (e: React.ChangeEvent<HTMLInputElement>): string => {
-    const value = e.target.value;
-    if (/^[\d]*$/.test(value)) {
-        return value;
-    }
-    return '';
-};
-
-export const numberAndLineOnly = (
-    e: React.ChangeEvent<HTMLInputElement>
-): string => {
-    const value = e.target.value;
-    if (/^[\d-]*$/.test(value)) {
-        return value;
-    }
-    return '';
-};
+export const BlueCustomInput = styled(CustomInput)`
+    color: #9faae5;
+`;

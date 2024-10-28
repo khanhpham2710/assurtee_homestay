@@ -21,17 +21,15 @@ function RegistrationInfo() {
     const infos: InfoProps[] = [
         {
             title: '상호',
-            info: state.businessName || '홍대우리민박',
+            info: state.businessName,
         },
         {
             title: '등록번호',
-            info: state.registrationNumber || '584-12-65820',
+            info: state.businessNumber,
         },
         {
             title: '가입 대상 소재지',
-            info:
-                state.address ||
-                '경기도 고양시 덕양구 향기5로 66(향동동, DMC 두산위브 더 퍼스트) 1003동 204호',
+            info: state.address,
         },
         {
             title: '보험시작일',
@@ -43,11 +41,11 @@ function RegistrationInfo() {
         },
         {
             title: '화재보험',
-            info: '1억',
+            info: state.fireInsurance,
         },
         {
             title: '영업배상책임보험',
-            info: '79m²',
+            info: `${state.area}m²`,
         },
     ];
 
@@ -57,7 +55,7 @@ function RegistrationInfo() {
                 margin: '40px 24px 0',
             }}
         >
-            <h4 className="title_label">가입정보</h4>
+            <p className="title_label">가입정보</p>
             {infos.map((info, index) => {
                 return (
                     <RegistrationInfoBox

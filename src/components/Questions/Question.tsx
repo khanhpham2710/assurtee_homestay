@@ -1,43 +1,45 @@
 import React, { Dispatch } from 'react';
 import images from '../../assets/images';
-interface MultiButtonProps {
+
+interface MultiButtonProps<T = string> {
     title: string;
-    items: string[];
-    item: string;
-    setItem: Dispatch<React.SetStateAction<string>>;
+    items: T[];
+    item: T;
+    setItem: Dispatch<React.SetStateAction<T>>;
 }
 
-export default function Question({
+function Question<T = string>({
     title,
     item,
     items,
     setItem,
-}: MultiButtonProps) {
-    const handleClick = (item: string) => {
+}: MultiButtonProps<T>) {
+    const handleClick = (item: T) => {
         setItem(item);
     };
+
     return (
         <div className="dflex_center flexColumn_item">
-            <h2
+            <p
                 className="titleMedium"
                 style={{ marginBottom: '30px', textAlign: 'left' }}
             >
                 {title}
-            </h2>
+            </p>
             <div className="dflex_item_inline" data-items={items.length}>
                 {items.map((item1, index) => (
                     <button
                         key={index}
                         onClick={() => handleClick(item1)}
                         className={
-                            item1 == item
-                                ? 'buttonQuestion active dflex_center '
+                            item1 === item
+                                ? 'buttonQuestion active dflex_center'
                                 : 'buttonQuestion dflex_center'
                         }
                     >
                         <img
                             src={
-                                item1 == item
+                                item1 === item
                                     ? images.chosedButton
                                     : images.blankButton
                             }
@@ -46,12 +48,14 @@ export default function Question({
                                 width: '20px',
                                 height: '20px',
                             }}
+                            alt={item1 as string}
                         />
-
-                        {item1}
+                        {item1 as string}
                     </button>
                 ))}
             </div>
         </div>
     );
 }
+
+export default Question;
