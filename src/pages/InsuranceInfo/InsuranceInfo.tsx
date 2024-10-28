@@ -6,17 +6,47 @@ import InsuranceDetails from '../../components/InsuranceInfo/InsuranceDetails';
 import Download from '../../components/InsuranceInfo/Download';
 import WarningAccordion from '../../components/InsuranceInfo/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MyModal from '../../components/MyModal/MyModal';
 import FillAllInfor from '../FilledAllInfor/FillAllInfor';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../utils/redux/store';
+import { useNavigate } from 'react-router-dom';
 
 function InsuranceInfo() {
     const [checked, setChecked] = useState<boolean>(true);
+    const [allFilled, setAllFilled] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
+    const navigate = useNavigate();
+
+    const state = useSelector((state: RootState) => state.info);
+
+    const checkIfAllFilled = () => {
+        const requiredFields = [
+            state.businessName,
+            state.businessNumber,
+            state.address,
+            state.fireInsurance,
+            state.area,
+        ];
+        return requiredFields.every(
+            (field) => field !== '' && field !== undefined
+        );
+    };
+
+    useEffect(() => {
+        setAllFilled(checkIfAllFilled());
+    }, [state]);
 
     const handleCheck = () => {
         setChecked((prev) => !prev);
     };
+
+    function handleSubmit() {
+        if (allFilled && checked) {
+            navigate('/payment');
+        }
+    }
 
     return (
         <div className="dflex-column">
@@ -28,12 +58,12 @@ function InsuranceInfo() {
                     objectFit: 'contain',
                 }}
             />
-            <h2
+            <p
                 className="titleMedium"
                 style={{ margin: '12px 24px 52px', textAlign: 'left' }}
             >
                 현대해상화재보험 외국인관광도시민박보험
-            </h2>
+            </p>
             <FeeAccordion />
             <RegistrationInfo />
             <div
@@ -78,12 +108,16 @@ function InsuranceInfo() {
             </h3>
             <ConfirmCheckbox checked={checked} handleCheck={handleCheck} />
             <section className="dflex_center">
-                <button className={`button3 ${checked ? 'active' : ''}`}>
+                <button
+                    className={`button3 ${checked && allFilled ? 'active' : ''}`}
+                    disabled={!checked && !allFilled}
+                    onClick={handleSubmit}
+                >
                     가입하기
                 </button>
             </section>
             <MyModal
-                component={<FillAllInfor />}
+                component={<FillAllInfor setOpen={setOpen} />}
                 open={open}
                 setOpen={setOpen}
                 title="가입 내용 수정"

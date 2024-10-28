@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CustomInput } from '../../utils/styled-components/inputs';
+import { CustomInput } from './CustomInput';
 import MyDrawer from '../MyDrawer/MyDrawer';
 import images from '../../assets/images';
 

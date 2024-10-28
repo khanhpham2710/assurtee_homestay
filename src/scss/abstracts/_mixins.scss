@@ -4,11 +4,6 @@
 }
 
 @mixin button {
-    width: 312px;
-    height: 50px;
-    flex-grow: 0;
-
-    font-size: 16px;
     font-stretch: normal;
     font-style: normal;
     letter-spacing: normal;
@@ -16,22 +11,34 @@
     color: #fff;
 }
 
-@mixin button {
-    width: 312px;
-    height: 50px;
-    flex-grow: 0;
-
-    font-size: 16px;
+@mixin inactive-button {
     font-stretch: normal;
     font-style: normal;
     letter-spacing: normal;
     text-align: center;
     color: #fff;
+    background-color: #c8c8c8;
+    font-size: 16px;
+    font-family: AppleSDGothicNeoEB;
+    height: 50px;
+
+    &.active {
+        background-color: #333647 !important;
+        cursor: pointer;
+    }
 }
 
 @mixin title {
     font-stretch: normal !important;
     font-style: normal !important;
     letter-spacing: normal;
-    text-align: center;
+}
+
+@mixin label {
+    font-stretch: normal !important;
+    font-style: normal !important;
+    letter-spacing: normal;
+    text-align: left;
+    font-family: AppleSDGothicNeoH !important;
+    color: #000;
 }

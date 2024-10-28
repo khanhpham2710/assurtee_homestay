@@ -8,6 +8,7 @@ import ScanOption from '../pages/ScanOption/ScanOption';
 import FilledPersonalInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
 import FilledBusinessInfor from '../pages/FilledBusinessInfor/FilledBusinessInfor';
 import SearchAddress from '../pages/SearchAddress/SearchAddress';
+import Payment from '../pages/Payment/Payment';
 
 // headers
 import Header1 from '../components/Headers/Header1';
@@ -23,7 +24,7 @@ type RouteType = {
 const routes: RouteType[] = [
     { path: '/', component: HomePage, header: null },
 
-    { path: '/insurance-info', component: InsuranceInfo, header: <Header1 /> },
+    { path: '/insurance-infor', component: InsuranceInfo, header: <Header1 /> },
 
     { path: '/completed', component: CompletedPage, header: <Header1 /> },
 
@@ -53,6 +54,11 @@ const routes: RouteType[] = [
         path: '/insurance-amount',
         component: InsuranceAmount,
         header: <Header1 />,
+    },
+    {
+        path: '/payment',
+        component: Payment,
+        header: <Header2 title="결제" backTo="/insurance-infor" />,
     },
 ];
 

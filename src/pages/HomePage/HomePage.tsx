@@ -289,7 +289,7 @@ export default function HomePage() {
             >
                 <div
                     className="title_card"
-                    style={{ marginTop: '90px', marginBottom: '40px'}}
+                    style={{ marginTop: '90px', marginBottom: '40px' }}
                 >
                     <p className="title_main_component">
                         전용보험 <br /> 보험료 산출 예시

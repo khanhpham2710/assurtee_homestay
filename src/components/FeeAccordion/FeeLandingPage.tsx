@@ -381,7 +381,7 @@ export default function FeeLandingPage() {
                     sx={{
                         height: '1px',
                         backgroundColor: '#6d6d6d',
-                        marginBottom: "5px",
+                        marginBottom: '5px',
                     }}
                 />
             </Box>

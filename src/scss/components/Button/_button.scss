@@ -1,18 +1,12 @@
 @use '../../abstracts/mixins' as ab;
 
 .button1 {
-    @include ab.button;
+    @include ab.inactive-button;
 
-    background-color: #c8c8c8;
     border-radius: 25px;
+    width: 312px;
 
-    font-family: AppleSDGothicNeoEB;
     line-height: 1.22;
-}
-
-.button1.active {
-    background-color: #333647;
-    cursor: pointer;
 }
 
 .button2 {
@@ -20,28 +14,19 @@
 
     border-radius: 8px;
     background-color: #333647;
+    width: 312px;
+    height: 50px;
+    flex-grow: 0;
 
+    font-size: 16px;
     font-family: AppleSDGothicNeoH;
     line-height: 1.75;
     cursor: pointer;
 }
 
 .button3 {
+    @include ab.inactive-button;
     width: 360px;
-    height: 50px;
-    padding: 17px 152px 14px;
-    background-color: #d9d9d9;
-
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoEB;
-    font-size: 16px;
-    color: #fff;
-}
-
-.button3.active {
-    background-color: #333647;
-    cursor: pointer;
 }
 
 .address-button {
@@ -54,7 +39,7 @@
     background-color: #f6f7f9;
     cursor: pointer;
 
-    @include ab.title;
+    @include ab.button;
 
     font-family: AppleSDGothicNeoM;
     font-size: 14px;
@@ -100,4 +85,42 @@
     border-radius: 40px;
     border: none;
     cursor: pointer;
+}
+
+.button-back {
+    width: 94px;
+    height: 50px;
+    background-color: #e6ebf4;
+    cursor: pointer;
+
+    @include ab.button;
+    font-family: AppleSDGothicNeoEB;
+    font-size: 16px;
+    text-align: center;
+    color: #989898;
+}
+
+.button-calculate {
+    width: 266px;
+    height: 50px;
+    background-color: #333647;
+
+    @include ab.button;
+    font-family: AppleSDGothicNeoEB;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+}
+
+.button-calculate.active {
+    background-color: #333647;
+    cursor: pointer;
+}
+
+.button-submit-all {
+    width: 312px;
+
+    @include ab.inactive-button;
+    line-height: 1.75;
+    border-radius: 8px;
 }
