@@ -19,6 +19,7 @@
 .titleMini {
     @include ab.label;
     font-size: 18px !important;
+    text-align: center;
     span {
         background-color: transparent !important;
     }
