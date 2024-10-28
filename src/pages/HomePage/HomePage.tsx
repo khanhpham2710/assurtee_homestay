@@ -257,7 +257,7 @@ export default function HomePage() {
                     <Grid
                         container
                         spacing={1}
-                        columnSpacing={1}
+                        columnSpacing={3}
                         rowSpacing={2}
                         justifyContent="left"
                         alignItems="center"
