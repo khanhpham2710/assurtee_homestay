@@ -1,5 +1,9 @@
 import { BusinessType } from '../../utils/redux/infoSlice';
-import { CustomInput, InputSection, numberOnly } from '.';
+import {
+    CustomInput,
+    InputSection,
+    numberAndLineOnly,
+} from '../../utils/styled-components/inputs';
 import { Link } from 'react-router-dom';
 import OptionInput from './OptionInput';
 
@@ -15,7 +19,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                 <label className="title_label" htmlFor="division">
                     구분
                 </label>
-                <OptionInput
+                <OptionInput<BusinessType>
                     variable="division"
                     value={form.division}
                     placeholder="개인/법인을 선택해 주세요."
@@ -33,7 +37,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     placeholder="사업자등록번호를 입력해 주세요."
                     value={form.businessNumber}
                     onChange={(e) =>
-                        handleChange('businessNumber', numberOnly(e))
+                        handleChange('businessNumber', numberAndLineOnly(e))
                     }
                     autoComplete="off"
                 />
@@ -86,7 +90,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                 <label className="title_label" htmlFor="hanok">
                     한옥 여부
                 </label>
-                <OptionInput
+                <OptionInput<BusinessType>
                     variable="hanok"
                     placeholder="해당 건물이 한옥인가요?"
                     value={form.hanok}
