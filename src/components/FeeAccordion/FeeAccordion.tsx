@@ -54,15 +54,15 @@ function FeeAccordion() {
                 }}
             >
                 <div className="dflex_spacebetween" style={{ width: '100%' }}>
-                    <h4
+                    <p
                         style={{
                             ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoH',
                         }}
                     >
                         총 보험료
-                    </h4>
-                    <h4
+                    </p>
+                    <p
                         style={{
                             ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoH',
@@ -73,7 +73,7 @@ function FeeAccordion() {
                         }}
                     >
                         {totalFee.toLocaleString()}원
-                    </h4>
+                    </p>
                 </div>
             </AccordionSummary>
             {fees.map((item, index) => (
@@ -94,22 +94,22 @@ function FeeAccordion() {
                             padding: '0 24px',
                         }}
                     >
-                        <h4 style={fontStyle}>
+                        <p style={fontStyle}>
                             <span
                                 style={{
                                     display: 'inline-block',
                                     width: '9px',
                                     height: '9px',
                                     margin: '0 8px 4px 6px',
-                                    backgroundImage: `url(${images.Bullet})`,
+                                    backgroundImage: `url(${images.blackL})`,
                                     backgroundSize: 'contain',
                                     backgroundRepeat: 'no-repeat',
                                     backgroundPosition: 'center',
                                 }}
                             />
                             {item.name}
-                        </h4>
-                        <h4 style={fontStyle}>{item.fee.toLocaleString()}원</h4>
+                        </p>
+                        <p style={fontStyle}>{item.fee.toLocaleString()}원</p>
                     </div>
                 </AccordionDetails>
             ))}

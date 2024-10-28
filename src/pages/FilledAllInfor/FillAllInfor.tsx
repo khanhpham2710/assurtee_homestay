@@ -1,43 +1,57 @@
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateInfo, InfoType } from '../../utils/redux/infoSlice';
+import { RootState } from '../../utils/redux/store';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateInfo } from '../../utils/redux/infoSlice';
-import { PersonalType, BusinessType } from '../../utils/redux/infoSlice';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
+import DateInputs from '../../components/Inputs/DateInputs';
+import Question from '../../components/Questions/Question';
+import InsuranceAmount from '../../components/FilledInsuranceAmount/InsuranceAmount';
 
-const initialForm: PersonalType = {
-    contractor: '',
-    dob: '',
-    registrationNumber: '',
-    phoneNumber: '',
-};
-
-const initialFormState: BusinessType = {
-    division: '',
-    businessNumber: '',
-    businessName: '',
-    address: '',
-    extra: '',
-    hanok: '',
-};
-
-function FillAllInfor() {
+function FillAllInfor({
+    setOpen,
+}: {
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
     const dispatch = useDispatch();
-    const [form1, setForm1] = useState<PersonalType>(initialForm);
-    const [form2, setForm2] = useState<BusinessType>(initialFormState);
+    const info: InfoType = useSelector((state: RootState) => state.info);
 
-    const handleChange1 = (key: keyof PersonalType, value: string) => {
-        setForm1((prev) => ({ ...prev, [key]: value }));
+    const [form, setForm] = useState<InfoType>(info);
+    const items: Array<'1억' | '3억' | '5억'> = ['1억', '3억', '5억'];
+    const [item, setItem] = useState<'1억' | '3억' | '5억'>(items[0]);
+
+    const handleChange = (key: keyof InfoType, value: string | number) => {
+        setForm((prev) => ({ ...prev, [key]: value }));
     };
 
-    const handleChange2 = (key: keyof BusinessType, value: string) => {
-        setForm2((prev) => ({ ...prev, [key]: value }));
-    };
+    useEffect(() => {
+        setForm((prev) => ({ ...prev, fireInsurance: item }));
+    }, [item]);
 
     const validateFields = (): boolean => {
-        const { contractor, dob, registrationNumber, phoneNumber } = form1;
+        const {
+            contractor,
+            dob,
+            registrationNumber,
+            phoneNumber,
+            businessNumber,
+            businessName,
+            address,
+            extra,
+            hanok,
+        } = form;
 
-        if (!contractor || !dob || !registrationNumber || !phoneNumber)
+        if (
+            !contractor ||
+            !dob ||
+            !registrationNumber ||
+            !phoneNumber ||
+            !businessNumber ||
+            !businessName ||
+            !address ||
+            !extra ||
+            !hanok
+        )
             return false;
 
         if (
@@ -54,11 +68,6 @@ function FillAllInfor() {
             return false;
         }
 
-        const { businessNumber, businessName, address, extra, hanok } = form2;
-
-        if (!businessNumber || !businessName || !address || !extra || !hanok)
-            return false;
-
         if (!/\d{3}-\d{2}-\d{5}/.test(businessNumber)) {
             return false;
         }
@@ -70,8 +79,8 @@ function FillAllInfor() {
 
     const handleSubmit = async () => {
         if (allChecked) {
-            await dispatch(updateInfo(form1));
-            await dispatch(updateInfo(form2));
+            await dispatch(updateInfo(form));
+            setOpen(false);
         }
     };
 
@@ -79,11 +88,11 @@ function FillAllInfor() {
         <div
             style={{
                 marginTop: '8px',
-                marginBottom: '40px',
                 padding: '0 24px',
             }}
+            className="dflex_center flexColumn_item"
         >
-            <PersonalInputs form={form1} handleChange={handleChange1} />
+            <PersonalInputs form={form} handleChange={handleChange} />
             <p
                 className="titleMedium"
                 style={{
@@ -92,10 +101,30 @@ function FillAllInfor() {
                     marginBottom: '28px',
                 }}
             >
-                건물/주택 정보를 입력해 주세요.
+                건물/주택 정보
             </p>
 
-            <BusinessInputs form={form2} handleChange={handleChange2} />
+            <BusinessInputs form={form} handleChange={handleChange} />
+            <DateInputs />
+            <Question<'1억' | '3억' | '5억'>
+                title="화재보험 가입금액을 선택해 주세요."
+                item={item}
+                items={items}
+                setItem={setItem}
+            />
+            <InsuranceAmount form={form} handleChange={handleChange} />
+            <section style={{ marginTop: '20px', marginBottom: '40px' }}>
+                <button
+                    className={
+                        allChecked
+                            ? 'button-submit-all active'
+                            : 'button-submit-all'
+                    }
+                    onClick={handleSubmit}
+                >
+                    수정
+                </button>
+            </section>
         </div>
     );
 }

@@ -7,7 +7,8 @@ import InsuranceLogo from '/Image/logo.png';
 import chosedButton from '/Image/group.png';
 import blankButton from '/Image/oval-copy.png';
 import cheroLeft from '/Image/charon_left.png';
-import Bullet from '/Image/vector-105-stroke.png';
+import blackL from '/Image/vector-105-stroke.png';
+import greyL from '/Image/vector-105-stroke_2024-10-28/vector-105-stroke.png';
 import ScanText from '/Image/scantext.png';
 import ScanImage from '/Image/scanImage.png';
 import Download from '/Image/component-8.png';
@@ -30,6 +31,7 @@ import KeyDown from '/Image/icon.png';
 import TermCheckBox from '/Image/frame-62.png';
 import TermUnCheckBox from '/Image/frame-63.png';
 import greyTooltip from '/Image/greytooltip.png';
+import PinkCheckBox from '/Image/frame-61_2024-10-28/frame-61.png';
 import whiteL from "/Image/whiteL.png"
 import bottom_carousel_1 from "/Image/bottom_carousel_1.png";
 import bottom_carousel_2 from "/Image/bottom_carousel_2.png";
@@ -46,7 +48,7 @@ const images = {
     blankButton,
     cheroLeft,
     InsuranceLogo,
-    Bullet,
+    blackL,
     ScanText,
     ScanImage,
     Download,
@@ -69,6 +71,8 @@ const images = {
     TermCheckBox,
     TermUnCheckBox,
     greyTooltip,
+    greyL,
+    PinkCheckBox,
     whiteL,
     bottom_carousel_1,
     bottom_carousel_2,

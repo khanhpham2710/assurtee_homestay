@@ -1,10 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import { PersonalType } from '../../utils/redux/infoSlice';
-import {
-    CustomInput,
-    InputSection,
-} from '../../utils/styled-components/inputs';
+import { CustomInput, InputSection } from '../Input/CustomInput';
+import { numberOnly } from '../../utils/validation/number';
 
 const PasswordInput = styled(CustomInput)`
     font-size: 60px;
@@ -22,16 +19,8 @@ type InputsProps = {
 };
 
 function PersonalInputs({ form, handleChange }: InputsProps) {
-    const numberOnly = (e: React.ChangeEvent<HTMLInputElement>): string => {
-        const value = e.target.value;
-        if (/^\d*$/.test(value)) {
-            return value;
-        }
-        return '';
-    };
-
     return (
-        <form className="dflex-column">
+        <form className="dflex-column" style={{ width: '100%' }}>
             <InputSection>
                 <label className="title_label" htmlFor="contractor">
                     계약자

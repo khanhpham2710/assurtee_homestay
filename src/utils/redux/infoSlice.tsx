@@ -17,6 +17,7 @@ export interface BusinessType {
 }
 
 export interface InsuranceAmountType {
+    fireInsurance: '1억' | '3억' | '5억';
     construction: number;
     facilities: number;
     inventory: number;
@@ -40,6 +41,7 @@ const initialState: InfoType = {
     address: '',
     extra: '',
     hanok: '아니요',
+    fireInsurance: '1억',
     construction: 3,
     facilities: 6,
     inventory: 2,
