@@ -17,11 +17,17 @@ function HeaderMain() {
                 onClick={handleClick}
             />
             <div
-                className="header_item_right dflex_center mainLogo_2"
-                style={{ gap: '3px' }}
+                className="header_item_right"
             >
-                <p className="titleMicro">가입확인</p>
-                <img src={images.backArrow} alt="" />
+                <Link
+                    to="/scan-option"
+                    className="dflex_center mainLogo_2"
+                    style={{ textDecoration: 'none', gap: '3px'}}
+                   
+                >
+                    <p className="titleMicro">가입확인</p>
+                    <img src={images.backArrow} alt="" />
+                </Link>
             </div>
         </Box>
     );
