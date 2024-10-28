@@ -10,7 +10,7 @@ export default function Video_component({ title, video_id }: Props) {
     const [isFullscreen, setIsFullscreen] = useState(false);
 
     const handlePlayClick = () => {
-        setIsFullscreen(true);
+        window.open(`https://www.youtube.com/watch?v=${video_id}`, '_blank');
     };
 
     const handleCloseClick = () => {

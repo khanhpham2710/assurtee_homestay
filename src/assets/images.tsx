@@ -30,6 +30,12 @@ import KeyDown from '/Image/icon.png';
 import TermCheckBox from '/Image/frame-62.png';
 import TermUnCheckBox from '/Image/frame-63.png';
 import greyTooltip from '/Image/greytooltip.png';
+import whiteL from "/Image/whiteL.png"
+import bottom_carousel_1 from "/Image/bottom_carousel_1.png";
+import bottom_carousel_2 from "/Image/bottom_carousel_2.png";
+import bottom_carousel_3 from "/Image/bottom_carousel_3.png";
+import mainLogo from "/Image/ci.png";
+import onTopIcon from "/Image/top.png";
 const images = {
     HomeIcon,
     InfoIcon,
@@ -63,6 +69,12 @@ const images = {
     TermCheckBox,
     TermUnCheckBox,
     greyTooltip,
+    whiteL,
+    bottom_carousel_1,
+    bottom_carousel_2,
+    bottom_carousel_3,
+    mainLogo,
+    onTopIcon
 };
 
 export default images;

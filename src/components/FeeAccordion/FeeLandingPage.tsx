@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import MyToolTip from '../MyTooltip/MyToolTip';
+import images from '../../assets/images';
 export default function FeeLandingPage() {
     return (
         <section
@@ -13,6 +15,7 @@ export default function FeeLandingPage() {
             <Box
                 sx={{
                     width: '312px',
+                    height: 'auto',
                     padding: '32px 14px 55px',
                     backgroundColor: '#2d2d2d',
                     color: 'white',
@@ -21,7 +24,13 @@ export default function FeeLandingPage() {
             >
                 {/* First Section */}
 
-                <Typography sx={{ fontWeight: 'bold', marginBottom: '19px' }}>
+                <Typography
+                    sx={{
+                        fontSize: '20px',
+                        marginBottom: '19px',
+                        fontFamily: 'AppleSDGothicNeoH',
+                    }}
+                >
                     화재보험
                 </Typography>
                 <Divider
@@ -39,44 +48,23 @@ export default function FeeLandingPage() {
                         marginBottom: '19px',
                     }}
                 >
-                    <Typography>보험료</Typography>
-                    <Typography sx={{ fontWeight: 'bold' }}>9,300원</Typography>
-                </Box>
-                <Divider
-                    sx={{
-                        height: '1px',
-                        backgroundColor: '#6d6d6d',
-                        marginBottom: '16px',
-                    }}
-                />
+                    <Typography
+                        sx={{
+                            fontSize: '18px',
+                            fontFamily: 'AppleSDGothicNeoEB',
+                        }}
+                    >
+                        보험료
+                    </Typography>
 
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        marginBottom: '24px',
-                    }}
-                >
-                    <Typography>가입금액</Typography>
-                    <Typography>1억원</Typography>
-                </Box>
-                <Divider
-                    sx={{
-                        height: '1px',
-                        backgroundColor: '#6d6d6d',
-                        marginBottom: '30px',
-                    }}
-                />
-
-                <Box
-                    sx={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        marginBottom: '24px',
-                    }}
-                >
-                    <Typography>건물</Typography>
-                    <Typography>3,000만원</Typography>
+                    <Typography
+                        sx={{
+                            fontSize: '20px',
+                            fontFamily: 'AppleSDGothicNeoEB',
+                        }}
+                    >
+                        9,300원
+                    </Typography>
                 </Box>
                 <Divider
                     sx={{
@@ -93,8 +81,34 @@ export default function FeeLandingPage() {
                         marginBottom: '24px',
                     }}
                 >
-                    <Typography>시설 및 집기</Typography>
-                    <Typography>3,000만원</Typography>
+                    <div className="dflex_center" style={{ gap: '7px' }}>
+                        <img
+                            src={images.whiteL}
+                            alt=""
+                            style={{ transform: 'translateY(-5px)' }}
+                        />
+                        <Typography
+                            sx={{
+                                fontSize: '14px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                                color: '#ffffff',
+                            }}
+                        >
+                            가입금액
+                        </Typography>
+                    </div>
+
+                    <div className="dflex_center" style={{ gap: '3px' }}>
+                        <Typography
+                            sx={{
+                                fontSize: '16px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                            }}
+                        >
+                            1억원
+                        </Typography>
+                        <MyToolTip text={[]} align="left" />
+                    </div>
                 </Box>
                 <Divider
                     sx={{
@@ -111,23 +125,138 @@ export default function FeeLandingPage() {
                         marginBottom: '24px',
                     }}
                 >
-                    <Typography>재고자산</Typography>
-                    <Typography>3,000만원</Typography>
+                    <div className="dflex_center" style={{ gap: '7px' }}>
+                        <img
+                            src={images.whiteL}
+                            alt=""
+                            style={{ transform: 'translateY(-5px)' }}
+                        />
+                        <Typography
+                            sx={{
+                                fontSize: '14px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                                color: '#ffffff',
+                            }}
+                        >
+                            건물
+                        </Typography>
+                    </div>
+
+                    <div className="dflex_center" style={{ gap: '3px' }}>
+                        <Typography
+                            sx={{
+                                fontSize: '16px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                            }}
+                        >
+                            3,000만원
+                        </Typography>
+                        <MyToolTip text={[]} align="left" />
+                    </div>
+                </Box>
+                <Divider
+                    sx={{
+                        height: '1px',
+                        backgroundColor: '#6d6d6d',
+                        marginBottom: '30px',
+                    }}
+                />
+
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '24px',
+                    }}
+                >
+                    <div className="dflex_center" style={{ gap: '7px' }}>
+                        <img
+                            src={images.whiteL}
+                            alt=""
+                            style={{ transform: 'translateY(-5px)' }}
+                        />
+                        <Typography
+                            sx={{
+                                fontSize: '14px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                                color: '#ffffff',
+                            }}
+                        >
+                            시설 및 집기
+                        </Typography>
+                    </div>
+                    <div className="dflex_center" style={{ gap: '3px' }}>
+                        <Typography
+                            sx={{
+                                fontSize: '16px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                            }}
+                        >
+                            3,000만원
+                        </Typography>
+                        <MyToolTip text={[]} align="left" />
+                    </div>
+                </Box>
+                <Divider
+                    sx={{
+                        height: '1px',
+                        backgroundColor: '#6d6d6d',
+                        marginBottom: '30px',
+                    }}
+                />
+
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '24px',
+                    }}
+                >
+                    <div className="dflex_center" style={{ gap: '7px' }}>
+                        <img
+                            src={images.whiteL}
+                            alt=""
+                            style={{ transform: 'translateY(-5px)' }}
+                        />
+                        <Typography
+                            sx={{
+                                fontSize: '14px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                                color: '#ffffff',
+                            }}
+                        >
+                            재고자산
+                        </Typography>
+                    </div>
+                    <div className="dflex_center" style={{ gap: '3px' }}>
+                        <Typography
+                            sx={{
+                                fontSize: '16px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                            }}
+                        >
+                            3,000만원
+                        </Typography>
+                        <MyToolTip text={[]} align="left" />
+                    </div>
                 </Box>
 
                 <Divider
                     sx={{
                         height: '1px',
                         backgroundColor: '#6d6d6d',
-                        marginBottom: '30px',
+                        marginBottom: '42px',
                     }}
                 />
 
                 {/* Second Section */}
 
                 <Typography
-                    variant="h6"
-                    sx={{ fontWeight: 'bold', marginBottom: '19px' }}
+                    sx={{
+                        fontSize: '20px',
+                        marginBottom: '19px',
+                        fontFamily: 'AppleSDGothicNeoH',
+                    }}
                 >
                     영업배상책임보험
                 </Typography>
@@ -139,10 +268,26 @@ export default function FeeLandingPage() {
                     }}
                 />
 
-                <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Typography>보험료</Typography>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '19px',
+                    }}
+                >
                     <Typography
-                        sx={{ fontWeight: 'bold', marginBottom: '19px' }}
+                        sx={{
+                            fontSize: '18px',
+                            fontFamily: 'AppleSDGothicNeoEB',
+                        }}
+                    >
+                        보험료
+                    </Typography>
+                    <Typography
+                        sx={{
+                            fontSize: '20px',
+                            fontFamily: 'AppleSDGothicNeoEB',
+                        }}
                     >
                         10,000원
                     </Typography>
@@ -152,6 +297,91 @@ export default function FeeLandingPage() {
                         height: '1px',
                         backgroundColor: '#6d6d6d',
                         marginBottom: '30px',
+                    }}
+                />
+
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '24px',
+                    }}
+                >
+                    <div className="dflex_center" style={{ gap: '7px' }}>
+                        <img
+                            src={images.whiteL}
+                            alt=""
+                            style={{ transform: 'translateY(-5px)' }}
+                        />
+                        <Typography
+                            sx={{
+                                fontSize: '14px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                                color: '#ffffff',
+                            }}
+                        >
+                            형태
+                        </Typography>
+                    </div>
+                    <div className="dflex_center" style={{ gap: '3px' }}>
+                        <Typography
+                            sx={{
+                                fontSize: '16px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                            }}
+                        >
+                            단독
+                        </Typography>
+                        <MyToolTip text={[]} align="left" />
+                    </div>
+                </Box>
+                <Divider
+                    sx={{
+                        height: '1px',
+                        backgroundColor: '#6d6d6d',
+                        marginBottom: '30px',
+                    }}
+                />
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        marginBottom: '24px',
+                    }}
+                >
+                    <div className="dflex_center" style={{ gap: '7px' }}>
+                        <img
+                            src={images.whiteL}
+                            alt=""
+                            style={{ transform: 'translateY(-5px)' }}
+                        />
+                        <Typography
+                            sx={{
+                                fontSize: '14px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                                color: '#ffffff',
+                            }}
+                        >
+                            공급면적
+                        </Typography>
+                    </div>
+                    <div className="dflex_center" style={{ gap: '5px' }}>
+                        <Typography
+                            sx={{
+                                fontSize: '16px',
+                                fontFamily: 'AppleSDGothicNeoM',
+                            }}
+                        >
+                            79m²
+                        </Typography>
+                        <MyToolTip text={[]} align="left" />
+                    </div>
+                </Box>
+                <Divider
+                    sx={{
+                        height: '1px',
+                        backgroundColor: '#6d6d6d',
+                        marginBottom: "5px",
                     }}
                 />
             </Box>
