@@ -56,9 +56,9 @@ export default function MyModal({
                     padding: '0px !important',
                 }}
             >
-                <h2 id="modal-title" className="titleSmall">
+                <p id="modal-title" className="titleSmall">
                     {title}
-                </h2>
+                </p>
                 <IconButton
                     edge="start"
                     color="inherit"

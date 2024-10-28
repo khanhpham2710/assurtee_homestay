@@ -24,7 +24,11 @@ const FilledBusinessInfo: React.FC = () => {
     const items = ['예', '아니오'];
 
     const handleChange = (key: keyof BusinessType, value: string) => {
-        setForm((prev) => ({ ...prev, [key]: value }));
+        if (item === '예' && (key === 'address' || key === 'extra')) {
+            setForm((prev) => ({ ...prev, extra: value, address: value }));
+        } else {
+            setForm((prev) => ({ ...prev, [key]: value }));
+        }
     };
 
     const validateFields = () => {

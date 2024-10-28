@@ -36,7 +36,7 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                     {title}
                 </label>
                 <div className="dflex_center" style={{ gap: '8px' }}>
-                    <h4
+                    <p
                         style={{
                             ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoSB',
@@ -47,7 +47,7 @@ function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
                         }}
                     >
                         {info}
-                    </h4>
+                    </p>
                     <MyToolTip text={tooltip} align="left" />
                 </div>
             </div>

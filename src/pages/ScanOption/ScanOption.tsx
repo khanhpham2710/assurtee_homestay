@@ -26,7 +26,7 @@ export default function ScanOption() {
                 backgroundColor: '#f6f7f9 !important',
             }}
         >
-            <Question
+            <Question<string>
                 title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
                 item={item}
                 items={items}

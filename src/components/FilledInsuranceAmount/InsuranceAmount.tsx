@@ -1,72 +1,54 @@
-import React, { useState } from 'react';
-import {
-    CustomInput,
-    InputSection,
-    numberOnly,
-} from '../../utils/styled-components/inputs';
-import OptionInput from '../Inputs/OptionInput';
+import { CustomInput, InputSection } from '../Input/CustomInput';
+import { numberOnly } from '../../utils/validation/number';
+import OptionInput from '../Input/OptionInput';
 import { InsuranceAmountType } from '../../utils/redux/infoSlice';
-import Slider from '@mui/material/Slider';
+import SliderInput from '../Input/SliderInput';
 
-const initialFormState: InsuranceAmountType = {
-    construction: 3,
-    facilities: 2,
-    inventory: 5,
-    housingType: '단독',
-    area: 79,
-};
-
-function InsuranceAmount() {
-    const [form, setForm] = useState<InsuranceAmountType>(initialFormState);
-
-    const handleChange = (
+type PropsType = {
+    form: InsuranceAmountType;
+    handleChange: (
         key: keyof InsuranceAmountType,
         value: string | number
-    ) => {
-        setForm((prev) => ({ ...prev, [key]: value }));
-    };
+    ) => void;
+};
 
-    const handleSlider = (event: Event, value: number): void => {
-        handleChange('construction', value);
-    };
-
+function InsuranceAmount({ form, handleChange }: PropsType) {
     return (
-        <form>
-            <Slider
-                defaultValue={3}
-                step={1}
+        <form style={{ width: '100%' }}>
+            <SliderInput<InsuranceAmountType>
+                variable="construction"
+                value={form.construction}
+                handleChange={handleChange}
+                label="건물"
                 min={1}
                 max={5}
-                value={form.construction}
-                onChange={handleSlider}
-                sx={{
-                    color: '#ea3062',
-                    boxShadow: 'none',
-                    '& .MuiSlider-thumb': {
-                        height: 18,
-                        width: 18,
-                        backgroundColor: '#ea3062',
-                        '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-                            boxShadow: 'none',
-                            outline: 'none',
-                            '@media (hover: none)': {
-                                boxShadow: 'none',
-                            },
-                        },
-                        '&:before': {
-                            display: 'none',
-                        },
-                    },
-                    '& .MuiSlider-track': {
-                        border: 'none',
-                        height: 4,
-                    },
-                    '& .MuiSlider-rail': {
-                        opacity: 0.5,
-                        backgroundColor: '#e0e0e0',
-                    },
-                }}
+                step={1}
             />
+            <SliderInput<InsuranceAmountType>
+                variable="facilities"
+                value={form.facilities}
+                handleChange={handleChange}
+                label="시설 및 집기 비품"
+                min={0.5}
+                max={5}
+                step={0.5}
+            />
+            <SliderInput<InsuranceAmountType>
+                variable="inventory"
+                value={form.inventory}
+                handleChange={handleChange}
+                label="재고자산"
+                min={1}
+                max={5}
+                step={1}
+            />
+
+            <p
+                className="titleMedium"
+                style={{ textAlign: 'left', margin: '7px 0 8px' }}
+            >
+                영업배상 책임보험 가입면적을 선택해 주세요.
+            </p>
             <InputSection>
                 <label className="title_label">주택 유형</label>
                 <OptionInput<InsuranceAmountType>

@@ -1,11 +1,8 @@
 import { BusinessType } from '../../utils/redux/infoSlice';
-import {
-    CustomInput,
-    InputSection,
-    numberAndLineOnly,
-} from '../../utils/styled-components/inputs';
+import { CustomInput, InputSection } from '../Input/CustomInput';
+import { numberAndLineOnly } from '../../utils/validation/number';
 import { Link } from 'react-router-dom';
-import OptionInput from './OptionInput';
+import OptionInput from '../Input/OptionInput';
 
 type InputsProps = {
     form: BusinessType;
@@ -14,7 +11,7 @@ type InputsProps = {
 
 function BusinessInputs({ form, handleChange }: InputsProps) {
     return (
-        <form className="dflex-column">
+        <form className="dflex-column" style={{ width: '100%' }}>
             <InputSection>
                 <label className="title_label" htmlFor="division">
                     구분
@@ -80,7 +77,6 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                 <CustomInput
                     id="extra"
                     placeholder="상세주소 입력(건물명, 동/호수, 단독주택 등)"
-                    maxLength={11}
                     value={form.extra}
                     onChange={(e) => handleChange('extra', e.target.value)}
                     autoComplete="off"
