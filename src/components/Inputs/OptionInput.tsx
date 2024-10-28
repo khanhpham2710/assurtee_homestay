@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
-import { CustomInput } from '.';
+import { useState } from 'react';
+import { CustomInput } from '../../utils/styled-components/inputs';
 import MyDrawer from '../MyDrawer/MyDrawer';
-import { BusinessType, InsuranceAmountType } from '../../utils/redux/infoSlice';
 import images from '../../assets/images';
 
-type InputProps = {
-    variable: keyof BusinessType | keyof InsuranceAmountType;
+type InputProps<T> = {
+    variable: keyof T;
     value: string;
     placeholder?: string;
-    handleChange: (
-        key: keyof BusinessType | keyof InsuranceAmountType,
-        value: string
-    ) => void;
+    handleChange: (key: keyof T, value: string) => void;
     items: string[];
 };
 
-const OptionInput: React.FC<InputProps> = ({
+function OptionInput<T>({
     variable,
     value,
     placeholder,
     handleChange,
     items,
-}) => {
+}: InputProps<T>) {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
         <>
             <div onClick={() => setOpen(true)} className="dflex_center">
                 <CustomInput
-                    id={variable}
                     type="text"
                     value={value}
                     placeholder={placeholder}
@@ -37,7 +32,7 @@ const OptionInput: React.FC<InputProps> = ({
                 />
                 <img src={images.KeyDown} alt="Toggle" />
             </div>
-            <MyDrawer
+            <MyDrawer<T>
                 open={open}
                 setOpen={setOpen}
                 items={items}
@@ -46,6 +41,6 @@ const OptionInput: React.FC<InputProps> = ({
             />
         </>
     );
-};
+}
 
 export default OptionInput;

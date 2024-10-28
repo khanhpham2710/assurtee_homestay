@@ -1,44 +1,44 @@
 .tooltip {
     position: relative;
     display: inline-block;
-}
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: max-content;
-    max-width: calc(100vw - 48px);
-    background-color: black;
-    padding: 10px 12px;
-    position: absolute;
-    transform: translate(-0.5px, 8px);
-    z-index: 1;
-    right: 0;
+    .tooltiptext {
+        visibility: hidden;
+        width: max-content;
+        max-width: calc(100vw - 48px);
+        background-color: black;
+        padding: 10px 12px;
+        position: absolute;
+        transform: translate(-0.5px, 8px);
+        z-index: 1;
+        right: 0;
 
-    font-family: AppleSDGothicNeoM;
-    font-size: 12px;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: normal;
-    color: #fff;
+        font-family: AppleSDGothicNeoM;
+        font-size: 12px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+        color: #fff;
 
-    span {
-        background-color: #26272e;
+        span {
+            background-color: #26272e;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            right: 3px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
     }
-}
 
-/* Arrow for the tooltip */
-.tooltip .tooltiptext::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    right: 3px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent black transparent;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
+    &:hover{
+        .tooltiptext{
+            visibility: visible;
+        }
+    }
 }

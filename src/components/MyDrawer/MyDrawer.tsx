@@ -1,28 +1,24 @@
 import React from 'react';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import images from '../../assets/images';
-import { BusinessType, InsuranceAmountType } from '../../utils/redux/infoSlice';
 
-type Props = {
+type Props<T> = {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     window?: () => Window;
     items: string[];
-    handleChange: (
-        key: keyof BusinessType | keyof InsuranceAmountType,
-        value: string
-    ) => void;
-    variable: keyof BusinessType | keyof InsuranceAmountType;
+    handleChange: (key: keyof T, value: string) => void;
+    variable: keyof T;
 };
 
-const MyDrawer: React.FC<Props> = ({
+function MyDrawer<T>({
     open,
     setOpen,
     window,
     items,
     handleChange,
     variable,
-}) => {
+}: Props<T>) {
     const container =
         window !== undefined ? () => window().document.body : undefined;
 
@@ -58,6 +54,7 @@ const MyDrawer: React.FC<Props> = ({
                     src={images.CloseButton}
                     onClick={toggleDrawer}
                     alt="Close"
+                    style={{ cursor: 'pointer' }}
                 />
             </div>
             <div
@@ -74,6 +71,8 @@ const MyDrawer: React.FC<Props> = ({
                             textAlign: 'left',
                             color: '#000',
                             backgroundColor: '#fff',
+                            border: 'none',
+                            cursor: 'pointer',
                         }}
                         onClick={() => handleClick(item)}
                     >
@@ -102,6 +101,6 @@ const MyDrawer: React.FC<Props> = ({
             {list()}
         </SwipeableDrawer>
     );
-};
+}
 
 export default MyDrawer;

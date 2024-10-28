@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PersonalType } from '../../utils/redux/infoSlice';
-import { CustomInput, InputSection } from '.';
+import {
+    CustomInput,
+    InputSection,
+} from '../../utils/styled-components/inputs';
 
 const PasswordInput = styled(CustomInput)`
     font-size: 60px;
