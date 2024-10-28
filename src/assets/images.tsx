@@ -32,12 +32,12 @@ import TermCheckBox from '/Image/frame-62.png';
 import TermUnCheckBox from '/Image/frame-63.png';
 import greyTooltip from '/Image/greytooltip.png';
 import PinkCheckBox from '/Image/frame-61_2024-10-28/frame-61.png';
-import whiteL from "/Image/whiteL.png"
-import bottom_carousel_1 from "/Image/bottom_carousel_1.png";
-import bottom_carousel_2 from "/Image/bottom_carousel_2.png";
-import bottom_carousel_3 from "/Image/bottom_carousel_3.png";
-import mainLogo from "/Image/ci.png";
-import onTopIcon from "/Image/top.png";
+import whiteL from '/Image/whiteL.png';
+import bottom_carousel_1 from '/Image/bottom_carousel_1.png';
+import bottom_carousel_2 from '/Image/bottom_carousel_2.png';
+import bottom_carousel_3 from '/Image/bottom_carousel_3.png';
+import mainLogo from '/Image/ci.png';
+import onTopIcon from '/Image/top.png';
 const images = {
     HomeIcon,
     InfoIcon,
@@ -78,7 +78,7 @@ const images = {
     bottom_carousel_2,
     bottom_carousel_3,
     mainLogo,
-    onTopIcon
+    onTopIcon,
 };
 
 export default images;

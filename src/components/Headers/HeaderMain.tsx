@@ -16,14 +16,11 @@ function HeaderMain() {
                 src={images.AssurLogo}
                 onClick={handleClick}
             />
-            <div
-                className="header_item_right"
-            >
+            <div className="header_item_right">
                 <Link
                     to="/scan-option"
                     className="dflex_center mainLogo_2"
-                    style={{ textDecoration: 'none', gap: '3px'}}
-                   
+                    style={{ textDecoration: 'none', gap: '3px' }}
                 >
                     <p className="titleMicro">가입확인</p>
                     <img src={images.backArrow} alt="" />

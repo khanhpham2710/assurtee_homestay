@@ -1,6 +1,5 @@
 @use '../abstracts/index' as ab;
 
-
 .titleLarge {
     @include ab.label;
     font-size: 24px;
