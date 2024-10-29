@@ -90,7 +90,7 @@ export default function ScanImage_Process() {
     };
 
     return (
-        <div>
+        <div style={{position: "fixed", top: 0}}>
 
             <section className="fullWidth_item fullHeightView_item ">
                 <div className="webcam-component">
