@@ -18,7 +18,7 @@ export const CustomInput = styled.input`
     line-height: 1.75;
     text-align: left;
     color: #000;
-    background-color: #f6f7f9;
+    background-color: transparent;
     outline: none;
     transition: border-color 0.3s ease;
 

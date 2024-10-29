@@ -1,6 +1,4 @@
 import React from 'react';
-import images from '../../assets/images';
-import { Balcony } from '@mui/icons-material';
 
 interface MyToolTipProps {
     text?: string[];

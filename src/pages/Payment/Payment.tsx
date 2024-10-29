@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../utils/redux/store';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import UnpaidModal from '../../components/UnpaidModal/UnpaidModal';
 
 type Fee = {
     name: string;
@@ -51,6 +52,7 @@ function Payment() {
         fees.reduce((sum, item) => sum + item.fee, 0).toLocaleString() + '원';
 
     const [annual, setAnnual] = useState<boolean>(true);
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
 
     return (
         <div>
@@ -66,7 +68,7 @@ function Payment() {
                 src={images.InsuranceLogo}
                 alt=""
                 sx={{
-                    margin: '16px 206px 0px 24px',
+                    margin: '16px 24px 0px',
                     objectFit: 'contain',
                 }}
             />
@@ -101,7 +103,7 @@ function Payment() {
                     margin: '19px 24px 0',
                 }}
             >
-                <p className="titleTiny">총 결제금액</p>
+                <p className="title-16">총 결제금액</p>
                 <p style={orangeFont}>{totalFee}</p>
             </section>
             <p
@@ -112,7 +114,7 @@ function Payment() {
             </p>
             <div
                 className="dflex_item"
-                style={{ gap: '10px', margin: '14px 24px 60px' }}
+                style={{ gap: '10px', margin: '14px 24px 110px' }}
             >
                 <img
                     src={annual ? images.PinkCheckBox : images.UnCheckBox}
@@ -120,15 +122,22 @@ function Payment() {
                         setAnnual((prev) => !prev);
                     }}
                 />
-                <p>일반 결제</p>
+                <p className="title_all_terms">일반 결제</p>
             </div>
-            <button
-                className={allFieldsFilled ? 'button3 active' : 'button3'}
-                disabled={!allFieldsFilled}
-                onClick={handleClick}
-            >
-                결제하기
-            </button>
+            <UnpaidModal open={modalOpen} setOpen={setModalOpen} />
+            <section className="dflex_center" style={{ width: '100%' }}>
+                <button
+                    className={allFieldsFilled ? 'button3 active' : 'button3'}
+                    disabled={!allFieldsFilled}
+                    onClick={handleClick}
+                    style={{
+                        position: 'fixed',
+                        bottom: 0,
+                    }}
+                >
+                    결제하기
+                </button>
+            </section>
         </div>
     );
 }
