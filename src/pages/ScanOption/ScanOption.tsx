@@ -112,9 +112,9 @@ export default function ScanOption() {
                 />
             </div>
 
-            <section style={{ marginTop: '50px', padding:"0 !important" }}>
+            {/* <section style={{ marginTop: '50px', padding:"0 !important" }}>
                 <ScanImage_Process />
-            </section>
+            </section> */}
         </>
     );
 }

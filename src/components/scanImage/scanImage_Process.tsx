@@ -64,9 +64,9 @@ export default function ScanImage_Process() {
 
                 const fileURL = URL.createObjectURL(file);
 
-                setImageURL(fileURL)
-                console.log("imageURL: ", imageURL);
-                console.log("Captured Image File: ", file);
+                setImageURL(fileURL);
+                console.log('imageURL: ', imageURL);
+                console.log('Captured Image File: ', file);
 
                 let response = null;
 
@@ -87,12 +87,11 @@ export default function ScanImage_Process() {
 
     const videoConstraints = {
         facingMode: 'environment',
-        // width: "1080px",
-        // height: "1920px",
     };
 
     return (
         <div>
+
             <section className="fullWidth_item fullHeightView_item ">
                 <div className="webcam-component">
                     <Webcam
@@ -103,35 +102,33 @@ export default function ScanImage_Process() {
                         screenshotFormat="image/jpeg"
                         videoConstraints={videoConstraints}
                     />
+                    <div className="scan_title">
+                        <p>
+                            카메라로 사업자등록증을 자동 활영합니다. 사각형에
+                            맞게 놓아주세요.
+                        </p>
+                    </div>
+                    <div className="overlay"></div>
+                    <div className="bright-area"></div>
                 </div>
             </section>
 
-
-            <div
-                style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    marginTop: '50px',
-                }}
-            >
-                <button
-                    className="confirm-button active"
-                    style={{ padding: '16px 80px 14px', marginTop: '0px' }}
-                    onClick={handleScanImage}
-                >
-                    사업자등록번호
-                </button>
-            </div>
-
+        
             {/* <section className="text-output" style={{ textAlign: 'center' }}>
                 {imageURL && (
                     <div>
                         <h2>Captured Image Preview:</h2>
-                        <img src={imageURL} alt="Captured" width="1080px" height="1920px" />
+                        <img
+                            src={imageURL}
+                            alt="Captured"
+                            width="1080px"
+                            height="1920px"
+                        />
                     </div>
                 )}
             </section> */}
+
+
         </div>
     );
 }
