@@ -5,6 +5,7 @@ import images from '../../assets/images';
 import ScanImage_Main from '../../components/scanImage/scanImage_Main';
 import ScanText from '../../components/scanText/scanText';
 import MyModal, { ModalType } from '../../components/MyModal/MyModal';
+import ScanImage_Process from '../../components/scanImage/scanImage_Process';
 
 export default function ScanOption() {
     const items = ['예', '아니오'];
@@ -108,6 +109,12 @@ export default function ScanOption() {
                 component={modal.component}
                 appBarColor={modal.appBarColor}
             />
+
+            <section style={{marginTop: "50px"}}>
+                        <ScanImage_Process/>
+            </section>
+
+            
         </div>
     );
 }
