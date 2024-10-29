@@ -10,7 +10,7 @@ const BASE_AXIOS: AxiosInstance = axios.create({
 
 export const postImage = async (
     blobImage: Blob
-): Promise<AxiosResponse<any>> => {
+): Promise<AxiosResponse<unknown>> => {
     const formData = new FormData();
     formData.append(
         'message',

@@ -26,14 +26,36 @@ function FilledInsuranceAmount() {
 
     const [checkAll, setCheckAll] = useState<boolean>(true);
 
-    const buttonActive: boolean =
-        checkAll &&
-        Object.values(form).every((value) => value !== '' && value !== null);
+    function validateFields(): boolean {
+        const {
+            fireInsurance,
+            construction,
+            facilities,
+            inventory,
+            housingType,
+            area,
+        } = form;
+
+        if (
+            !fireInsurance ||
+            !construction ||
+            !facilities ||
+            !inventory ||
+            !housingType ||
+            !area
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    const buttonActive: boolean = checkAll && validateFields();
 
     const handleSubmit = async () => {
         if (buttonActive) {
             await dispatch(updateInfo(form));
-            navigate('/scan-option');
+            navigate('/insurance-infor');
         }
     };
 

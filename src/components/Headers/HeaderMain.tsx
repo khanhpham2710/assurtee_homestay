@@ -18,7 +18,7 @@ function HeaderMain() {
             />
             <div className="header_item_right">
                 <Link
-                    to="/scan-option"
+                    to="/personal-infor"
                     className="dflex_center mainLogo_2"
                     style={{ textDecoration: 'none', gap: '3px' }}
                 >

@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Question from '../../components/Questions/Question';
 import Divider from '@mui/material/Divider';
 import images from '../../assets/images';
 import ScanImage_Main from '../../components/scanImage/scanImage_Main';
 import ScanText from '../../components/scanText/scanText';
 import MyModal, { ModalType } from '../../components/MyModal/MyModal';
-import ScanImage_Process from '../../components/scanImage/scanImage_Process';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../utils/redux/store';
 
-export default function ScanOption() {
+const ScanOption: React.FC = () => {
+    const { sameAddress } = useSelector((state: RootState) => state.info);
     const items = ['예', '아니오'];
-    const [item, setItem] = useState<string>(items[0]);
+    const [item, setItem] = useState<string>(sameAddress ? '예' : '아니오');
     const [open, setOpen] = useState<boolean>(false);
-
     const [modal, setModal] = useState<ModalType>({
         title: '',
         appBarColor: '#fff',
         component: null,
     });
+
+    useEffect(() => {
+        const temp = sessionStorage.getItem('sameAddress');
+        if (temp) {
+            setItem(temp);
+        }
+    }, []);
+
+    useEffect(() => {
+        sessionStorage.setItem('sameAddress', item);
+    }, [item]);
 
     return (
         <>
@@ -111,10 +123,8 @@ export default function ScanOption() {
                     appBarColor={modal.appBarColor}
                 />
             </div>
-
-            {/* <section style={{ marginTop: '50px', padding:"0 !important" }}>
-                <ScanImage_Process />
-            </section> */}
         </>
     );
-}
+};
+
+export default ScanOption;

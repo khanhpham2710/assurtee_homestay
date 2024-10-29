@@ -1,28 +1,29 @@
 import { useState } from 'react';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
-import { useDispatch } from 'react-redux';
-import { updateInfo } from '../../utils/redux/infoSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { BusinessType, updateInfo } from '../../utils/redux/infoSlice';
 import { PersonalType } from '../../utils/redux/infoSlice';
 import { useNavigate } from 'react-router-dom';
-
-const initialForm: PersonalType = {
-    contractor: '',
-    dob: '',
-    registrationNumber: '',
-    phoneNumber: '',
-};
+import { RootState } from '../../utils/redux/store';
+import BusinessInputs from '../../components/Inputs/BusinessInputs';
 
 export default function FilledPersonalInfo() {
+    const info = useSelector((state: RootState) => state.info);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [form, setForm] = useState<PersonalType>(initialForm);
+    const [form1, setForm1] = useState<PersonalType>(info);
+    const [form2, setForm2] = useState<BusinessType>(info);
 
-    const handleChange = (key: keyof PersonalType, value: string) => {
-        setForm((prev) => ({ ...prev, [key]: value }));
+    const handleChange1 = (key: keyof PersonalType, value: string) => {
+        setForm1((prev) => ({ ...prev, [key]: value }));
     };
 
-    const validateFields = (): boolean => {
-        const { contractor, dob, registrationNumber, phoneNumber } = form;
+    const handleChange2 = (key: keyof BusinessType, value: string) => {
+        setForm2((prev) => ({ ...prev, [key]: value }));
+    };
+
+    const validateFields1 = (): boolean => {
+        const { contractor, dob, registrationNumber, phoneNumber } = form1;
 
         if (!contractor || !dob || !registrationNumber || !phoneNumber)
             return false;
@@ -44,12 +45,34 @@ export default function FilledPersonalInfo() {
         return true;
     };
 
-    const allChecked: boolean = validateFields();
+    const validateFields2 = (): boolean => {
+        const { businessNumber, businessName, address, extra, hanok } = form2;
 
-    const handleSubmit = async () => {
-        if (allChecked) {
-            await dispatch(updateInfo(form));
+        if (!businessNumber || !businessName || !address || !extra || !hanok) {
+            return false;
+        }
+
+        const businessNumberRegex = /^\d{3}-\d{2}-\d{5}$/;
+        if (!businessNumberRegex.test(businessNumber)) {
+            return false;
+        }
+
+        return true;
+    };
+
+    const allChecked1: boolean = validateFields1();
+    const allChecked2: boolean = validateFields2();
+
+    const handleSubmit1 = async () => {
+        if (allChecked1) {
+            await dispatch(updateInfo(form1));
             navigate('/scan-option');
+        }
+    };
+
+    const handleSubmit2 = async () => {
+        if (allChecked2) {
+            navigate('/insurance-amount');
         }
     };
 
@@ -67,21 +90,50 @@ export default function FilledPersonalInfo() {
                 </p>
             </section>
             <section>
-                <PersonalInputs form={form} handleChange={handleChange} />
+                <PersonalInputs form={form1} handleChange={handleChange1} />
             </section>
             <section
                 style={{ width: '100%', marginTop: '40px' }}
                 className="dflex_center"
             >
                 <button
-                    className={allChecked ? 'button1 active' : 'button1'}
-                    onClick={handleSubmit}
-                    disabled={!allChecked}
-                    style={{
-                        marginBottom: '30px',
-                    }}
+                    className={allChecked1 ? 'button1 active' : 'button1'}
+                    onClick={handleSubmit1}
+                    disabled={!allChecked1}
                 >
                     주택 정보 입력
+                </button>
+            </section>
+            {form2.address !== '' && (
+                <div
+                    style={{
+                        marginBottom: '70px',
+                    }}
+                >
+                    <p
+                        className="titleMedium"
+                        style={{ textAlign: 'left', marginTop: '38px' }}
+                    >
+                        건물/주택 정보
+                    </p>
+                    <BusinessInputs form={form2} handleChange={handleChange2} />
+                </div>
+            )}
+            <section className="dflex_center" style={{ width: '100%' }}>
+                <button
+                    className={
+                        allChecked1 && allChecked2
+                            ? 'button3 active'
+                            : 'button3'
+                    }
+                    disabled={!allChecked2 || !allChecked1}
+                    style={{
+                        position: 'fixed',
+                        bottom: 0,
+                    }}
+                    onClick={handleSubmit2}
+                >
+                    수정
                 </button>
             </section>
         </div>

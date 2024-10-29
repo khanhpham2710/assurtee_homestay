@@ -1,18 +1,20 @@
-import React from 'react';
 import HeaderMain from '../../components/Headers/HeaderMain';
 import Slider from 'react-slick';
 import images from '../../assets/images';
 import Video_component from '../../components/video_component/Video_component';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
-import { Accordion, AccordionSummary, Divider } from '@mui/material';
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Divider,
+} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import Card_Banner from '../../components/Card_Banner/Card_Banner';
 import FeeLandingPage from '../../components/FeeAccordion/FeeLandingPage';
 import MyToolTip from '../../components/MyTooltip/MyToolTip';
-import { Height, Score } from '@mui/icons-material';
-import { border } from '@mui/system';
 import { useRef } from 'react';
 
 export default function HomePage() {
@@ -265,6 +267,7 @@ export default function HomePage() {
                         {cardBanner &&
                             cardBanner.map((card, index) => (
                                 <Grid
+                                    key={index}
                                     size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
                                     className="dflex_center"
                                 >
@@ -365,7 +368,11 @@ export default function HomePage() {
                     </p>
 
                     <div style={{ marginTop: '30px' }}>
-                        <Accordion className="footer-accordion">
+                        <Accordion
+                            disableGutters
+                            elevation={0}
+                            className="footer-accordion"
+                        >
                             <AccordionSummary
                                 expandIcon={<AddIcon />}
                                 aria-controls="panel1-content"
@@ -382,6 +389,16 @@ export default function HomePage() {
                                     관련사이트
                                 </p>
                             </AccordionSummary>
+                            <AccordionDetails>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Suspendisse malesuada lacus
+                                    ex, sit amet blandit leo lobortis eget.
+                                    Lorem ipsum dolor sit amet, consectetur
+                                    adipiscing elit. Suspendisse malesuada lacus
+                                    ex, sit amet blandit leo lobortis eget.
+                                </p>
+                            </AccordionDetails>
                         </Accordion>
                     </div>
 
@@ -391,7 +408,7 @@ export default function HomePage() {
                 </div>
             </section>
             <section className="button_container">
-                <Link to="/scan-option">
+                <Link to="/personal-infor">
                     <button className="button_main">
                         <p className="titleMini">보험료 계산하기</p>
                     </button>

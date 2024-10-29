@@ -1,19 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CustomInput, InputSection } from '../Input/CustomInput';
+import { handleBusinessNumber } from '../../utils/validation/number';
+import { useDispatch } from 'react-redux';
+import { updateInfo } from '../../utils/redux/infoSlice';
+import { useNavigate } from 'react-router-dom';
 
 export default function ScanText() {
     const [text, setText] = useState<string>('');
+    const [isValid, setIsValid] = useState<boolean>(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-        if (e.key == 'Backspace') {
-            const newText = text.slice(0, -1);
-            setText(newText);
-        } else if (text.length === 3 || text.length === 6) {
-            const newText = text + '-' + e.key;
-            setText(newText);
-            // } else if (){
-            //     setText(text + e.key);
-            // }
+    useEffect(() => {
+        setIsValid(/\d{3}-\d{2}-\d{5}/.test(text));
+    }, [text]);
+
+    async function handleSubmit(e: React.MouseEvent<HTMLButtonElement>) {
+        e.preventDefault();
+        if (isValid) {
+            await dispatch(
+                updateInfo({
+                    businessNumber: text,
+                })
+            );
+            navigate('/business-infor');
         }
     }
 
@@ -40,15 +50,19 @@ export default function ScanText() {
                         type="text"
                         autoComplete="off"
                         style={{ textAlign: 'center', width: '312px' }}
-                        onKeyDown={handleKeyDown}
+                        onKeyDown={(e) => {
+                            handleBusinessNumber(e, text, setText);
+                        }}
                         maxLength={12}
                         value={text}
                     />
                 </InputSection>
 
                 <button
-                    className="button1 active"
+                    className={`button1 ${isValid ? 'active' : ''}`}
                     style={{ position: 'absolute', bottom: '30px' }}
+                    onClick={handleSubmit}
+                    disabled={!isValid}
                 >
                     확인
                 </button>

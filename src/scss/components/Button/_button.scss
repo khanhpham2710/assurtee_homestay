@@ -10,17 +10,13 @@
 }
 
 .button2 {
-    @include ab.button;
+    @include ab.inactive-button;
 
     border-radius: 8px;
-    background-color: #333647;
     width: 312px;
-    flex-grow: 0;
 
-    font-size: 16px;
     font-family: AppleSDGothicNeoH;
     line-height: 1.75;
-    cursor: pointer;
 }
 
 .button3 {
@@ -43,7 +39,6 @@
     font-family: AppleSDGothicNeoM;
     font-size: 14px;
     font-weight: 500;
-    text-align: center;
     color: #ea3062;
 }
 
@@ -64,6 +59,7 @@
         height: 56px;
         border-radius: 8px;
         z-index: 1;
+        cursor: pointer;
         p {
             color: white;
         }
@@ -95,7 +91,6 @@
     @include ab.button;
     font-family: AppleSDGothicNeoEB;
     font-size: 16px;
-    text-align: center;
     color: #989898;
 }
 
@@ -103,12 +98,4 @@
     width: 266px;
 
     @include ab.inactive-button;
-}
-
-.button-submit-all {
-    width: 312px;
-
-    @include ab.inactive-button;
-    line-height: 1.75;
-    border-radius: 8px;
 }

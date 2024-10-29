@@ -1,25 +1,22 @@
-// FilledBusinessInfo.tsx
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import { BusinessType } from '../../utils/redux/infoSlice';
 import Question from '../../components/Questions/Question';
 import { Divider } from '@mui/material';
-
-const initialFormState: BusinessType = {
-    division: '',
-    businessNumber: '',
-    businessName: '',
-    address: '',
-    extra: '',
-    hanok: '',
-};
+import { RootState } from '../../utils/redux/store';
+import { useNavigate } from 'react-router-dom';
 
 const FilledBusinessInfo: React.FC = () => {
+    const info = useSelector((state: RootState) => state.info);
+
     const dispatch = useDispatch();
-    const [form, setForm] = useState<BusinessType>(initialFormState);
-    const [item, setItem] = useState<string>('예');
+    const navigate = useNavigate();
+    const [form, setForm] = useState<BusinessType>(info);
+    const [item, setItem] = useState<string>(
+        sessionStorage.getItem('sameAddress') || '예'
+    );
 
     const items = ['예', '아니오'];
 
@@ -31,23 +28,32 @@ const FilledBusinessInfo: React.FC = () => {
         }
     };
 
-    const validateFields = () => {
+    const validateFields = (): boolean => {
         const { businessNumber, businessName, address, extra, hanok } = form;
-        return (
-            businessNumber &&
-            businessName &&
-            address &&
-            extra &&
-            hanok &&
-            /\d{3}-\d{2}-\d{5}/.test(businessNumber)
-        );
+
+        if (!businessNumber || !businessName || !address || !extra || !hanok) {
+            return false;
+        }
+
+        const businessNumberRegex = /^\d{3}-\d{2}-\d{5}$/;
+        if (!businessNumberRegex.test(businessNumber)) {
+            return false;
+        }
+
+        return true;
     };
 
-    const allChecked = validateFields();
+    const allChecked: boolean = validateFields();
 
     const handleSubmit = async () => {
         if (allChecked) {
-            await dispatch(updateInfo(form));
+            await dispatch(
+                updateInfo({
+                    ...form,
+                    sameAddress: item === '예' ? true : false,
+                })
+            );
+            navigate('/personal-infor');
         }
     };
 

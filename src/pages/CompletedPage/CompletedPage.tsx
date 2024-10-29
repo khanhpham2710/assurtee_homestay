@@ -9,7 +9,7 @@ function CompletedPage() {
         navigate('/');
     };
 
-    // return <LoadingPage />
+    // return <LoadingPage />;
 
     return (
         <div
@@ -20,7 +20,7 @@ function CompletedPage() {
             }}
         >
             <img src={images.Success} />
-            <h3
+            <p
                 style={{
                     margin: '38px 0 12px',
                     fontFamily: 'AppleSDGothicNeoH',
@@ -31,8 +31,8 @@ function CompletedPage() {
                 }}
             >
                 보험 가입이 완료 되었습니다.
-            </h3>
-            <h3
+            </p>
+            <p
                 style={{
                     fontFamily: 'AppleSDGothicNeoM',
                     fontSize: '16px',
@@ -43,11 +43,11 @@ function CompletedPage() {
             >
                 가입확인서는 입력하신 <br />
                 핸드폰 번호 카카오톡으로 보내드렸습니다.
-            </h3>
-            <button className="button2" style={{ marginTop: '32px' }}>
+            </p>
+            <button className="button2 active" style={{ marginTop: '32px' }}>
                 가입내역 확인
             </button>
-            <h6
+            <p
                 style={{
                     position: 'absolute',
                     bottom: '40px',
@@ -61,7 +61,7 @@ function CompletedPage() {
                 onClick={handleHomeClick}
             >
                 홈으로
-            </h6>
+            </p>
         </div>
     );
 }

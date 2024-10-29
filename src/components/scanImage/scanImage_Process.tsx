@@ -113,8 +113,25 @@ export default function ScanImage_Process() {
                 </div>
             </section>
 
-        
-            {/* <section className="text-output" style={{ textAlign: 'center' }}>
+
+            <div
+                style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: '50px',
+                }}
+            >
+                <button
+                    className="confirm-button active"
+                    style={{ padding: '16px 80px 14px', marginTop: '0px' }}
+                    onClick={handleScanImage}
+                >
+                    사업자등록번호
+                </button>
+            </div>
+
+            <section className="text-output" style={{ textAlign: 'center' }}>
                 {imageURL && (
                     <div>
                         <h2>Captured Image Preview:</h2>

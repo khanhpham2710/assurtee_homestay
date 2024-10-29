@@ -115,11 +115,7 @@ function FillAllInfor({
             <InsuranceAmount form={form} handleChange={handleChange} />
             <section style={{ marginTop: '20px', marginBottom: '40px' }}>
                 <button
-                    className={
-                        allChecked
-                            ? 'button-submit-all active'
-                            : 'button-submit-all'
-                    }
+                    className={allChecked ? 'button2 active' : 'button2'}
                     onClick={handleSubmit}
                 >
                     수정
