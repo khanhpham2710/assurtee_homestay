@@ -1,9 +1,22 @@
-import React from 'react';
-import images from '../../assets/images';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { CustomInput, InputSection } from '../Input/CustomInput';
 
 export default function ScanText() {
+    const [text, setText] = useState<string>('');
+
+    function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+        if (e.key == 'Backspace') {
+            const newText = text.slice(0, -1);
+            setText(newText);
+        } else if (text.length === 3 || text.length === 6) {
+            const newText = text + '-' + e.key;
+            setText(newText);
+            // } else if (){
+            //     setText(text + e.key);
+            // }
+        }
+    }
+
     return (
         <section>
             <div
@@ -12,7 +25,11 @@ export default function ScanText() {
             >
                 <p
                     className="titleLarge"
-                    style={{ marginBottom: '17px', lineHeight: '28px' }}
+                    style={{
+                        marginBottom: '17px',
+                        lineHeight: '28px',
+                        textAlign: 'center',
+                    }}
                 >
                     사업자 등록번호 10자리를 <br /> 입력해 주세요.
                 </p>
@@ -21,13 +38,11 @@ export default function ScanText() {
                     <CustomInput
                         id="contractor"
                         type="text"
-                        // value={form.contractor}
-                        // onChange={(e) =>
-                        //     handleChange('contractor', e.target.value)
-                        // }
                         autoComplete="off"
-                        // width={100%}
-                        style={{ textAlign: 'center', width: '100%' }}
+                        style={{ textAlign: 'center', width: '312px' }}
+                        onKeyDown={handleKeyDown}
+                        maxLength={12}
+                        value={text}
                     />
                 </InputSection>
 
