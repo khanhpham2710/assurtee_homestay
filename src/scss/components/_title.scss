@@ -25,7 +25,7 @@
     }
 }
 
-.titleTiny {
+.title-16 {
     @include ab.label;
     font-size: 16px !important;
 }
@@ -36,6 +36,24 @@
     span {
         background-color: transparent !important;
     }
+}
+
+.title_all_terms {
+    @include ab.title;
+
+    font-family: AppleSDGothicNeoM;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #000;
+}
+
+.title_terms {
+    @include ab.title;
+
+    font-family: AppleSDGothicNeoM;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #646464;
 }
 
 .titleNumber {
@@ -109,24 +127,6 @@
 .title_description {
     @include titleLable;
     text-align: center !important;
-}
-
-.title_all_terms {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoM;
-    font-size: 16px;
-    line-height: 1.25;
-    color: '#000';
-}
-
-.title_terms {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoM;
-    font-size: '14px';
-    line-height: '1.43';
-    color: '#646464';
 }
 
 .title_card_banner {

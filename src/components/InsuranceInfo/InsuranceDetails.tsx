@@ -91,7 +91,7 @@ function InsuranceDetails() {
                 margin: '40px 24px 0',
             }}
         >
-            <h4 className="title_label">보장내용</h4>
+            <p className="title_label">보장내용</p>
             {infos.map((info, index) => {
                 return (
                     <InsuranceDetailsBox

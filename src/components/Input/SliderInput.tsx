@@ -30,8 +30,15 @@ function SliderInput<T>({
     max = 5,
     step = 1,
 }: SliderType<T>) {
-    const handleSlider = (event: Event, value: number): void => {
-        handleChange(variable, value);
+    const handleSlider = (
+        event: Event,
+        value: number | number[],
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        activeThumb: number
+    ): void => {
+        if (typeof value === 'number') {
+            handleChange(variable, value);
+        }
     };
 
     return (
