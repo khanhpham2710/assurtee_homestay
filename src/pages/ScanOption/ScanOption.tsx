@@ -5,7 +5,6 @@ import images from '../../assets/images';
 import ScanImage_Main from '../../components/scanImage/scanImage_Main';
 import ScanText from '../../components/scanText/scanText';
 import MyModal, { ModalType } from '../../components/MyModal/MyModal';
-import ScanImage_Process from '../../components/scanImage/scanImage_Process';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../utils/redux/store';
 
@@ -31,99 +30,100 @@ const ScanOption: React.FC = () => {
         sessionStorage.setItem('sameAddress', item);
     }, [item]);
 
-    const handleModalOpen = (component: React.ReactNode) => {
-        setModal({
-            title: '사업자등록번호 입력',
-            appBarColor: '#fff',
-            component,
-        });
-        setOpen(true);
-    };
-
     return (
-        <div
-            className="fullWidth_item"
-            style={{
-                padding: '0 24px',
-                marginTop: '16px',
-                backgroundColor: '#f6f7f9',
-            }}
-        >
-            <Question<string>
-                title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
-                item={item}
-                items={items}
-                setItem={setItem}
-            />
-
-            <Divider className="divider_1" />
-
-            <section
-                className="fullWidth_item dflex_center"
-                style={{ gap: '10px' }}
+        <>
+            <div
+                className="fullWidth_item"
+                style={{
+                    padding: '0 24px',
+                    marginTop: '16px',
+                    backgroundColor: '#f6f7f9 !important',
+                }}
             >
-                <div
-                    className="item-detail-box"
-                    style={{
-                        width: '151px',
-                        height: '151px',
-                        backgroundColor: '#e7ecf3',
-                    }}
-                    onClick={() => handleModalOpen(<ScanText />)}
+                <Question<string>
+                    title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
+                    item={item}
+                    items={items}
+                    setItem={setItem}
+                />
+
+                <Divider className="divider_1" />
+
+                <section
+                    className="fullWidth_item dflex_center"
+                    style={{ gap: '10px' }}
                 >
-                    <img src={images.ScanText} alt="사업자등록번호 직접입력" />
-                    <p
-                        className="titleMini"
+                    <div
+                        className="item-detail-box"
                         style={{
-                            backgroundColor: 'transparent',
-                            lineHeight: '22px',
+                            width: '151px',
+                            height: '151px',
+                            backgroundColor: '#e7ecf3',
+                        }}
+                        onClick={() => {
+                            setModal({
+                                title: '사업자등록번호 입력',
+                                appBarColor: '#fff',
+                                component: <ScanText />,
+                            });
+                            setOpen(true);
                         }}
                     >
-                        <span>
-                            사업자등록번호 <br /> 직접입력
-                        </span>
-                    </p>
-                </div>
+                        <img src={images.ScanText} alt="" />
+                        <p
+                            className="titleMini"
+                            style={{
+                                backgroundColor: 'transparent',
+                                lineHeight: '22px',
+                            }}
+                        >
+                            <span>
+                                사업자등록번호 <br />
+                                직접입력
+                            </span>
+                        </p>
+                    </div>
 
-                <div
-                    className="item-detail-box"
-                    style={{
-                        width: '151px',
-                        height: '151px',
-                        backgroundColor: '#e7ecf3',
-                    }}
-                    onClick={() => handleModalOpen(<ScanImage_Main />)}
-                >
-                    <img
-                        src={images.ScanImage}
-                        alt="사업자등록번호 촬영(스캔)입력"
-                    />
-                    <p
-                        className="titleMini"
+                    <div
+                        className="item-detail-box"
                         style={{
-                            backgroundColor: 'transparent',
-                            lineHeight: '22px',
+                            width: '151px',
+                            height: '151px',
+                            backgroundColor: '#e7ecf3',
+                        }}
+                        onClick={() => {
+                            setModal({
+                                title: '사업자등록번호 입력',
+                                appBarColor: '#fff',
+                                component: <ScanImage_Main />,
+                            });
+                            setOpen(true);
                         }}
                     >
-                        <span>
-                            사업자등록증 <br /> 촬영(스캔)입력
-                        </span>
-                    </p>
-                </div>
-            </section>
-
-            <MyModal
-                open={open}
-                setOpen={setOpen}
-                title={modal.title}
-                component={modal.component}
-                appBarColor={modal.appBarColor}
-            />
-
-            <section style={{ marginTop: '50px' }}>
-                <ScanImage_Process />
-            </section>
-        </div>
+                        <img src={images.ScanImage} alt="" style={{}} />
+                        <p
+                            className="titleMini"
+                            style={{
+                                backgroundColor: 'transparent',
+                                lineHeight: '22px',
+                            }}
+                        >
+                            <span>
+                                사업자등증 <br />
+                                촬영(스캔)입력
+                            </span>
+                        </p>
+                    </div>
+                </section>
+                <MyModal
+                    open={open}
+                    setOpen={setOpen}
+                    title={modal.title}
+                    component={modal.component}
+                    appBarColor={modal.appBarColor}
+                />
+            </div>
+        </>
     );
 };
 

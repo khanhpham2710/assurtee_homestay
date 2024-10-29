@@ -2,7 +2,8 @@ import React from 'react';
 import Webcam from 'react-webcam';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { base64ToBlob, postImage } from '../../axios/axios';
+import { base64ToBlob, postImage } from '../../utils/axios/axios';
+import { Height } from '@mui/icons-material';
 
 interface OutputType {
     계약자: string | null;
@@ -30,8 +31,8 @@ export default function ScanImage_Process() {
         try {
             const imageSrc: string | null =
                 webcamRef.current?.getScreenshot({
-                    width: 190,
-                    height: 1080,
+                    width: 1080,
+                    height: 1920,
                 }) || null;
             if (imageSrc) {
                 setImage(imageSrc);
@@ -90,18 +91,28 @@ export default function ScanImage_Process() {
 
     return (
         <div>
-            <section className="scan-component">
+
+            <section className="fullWidth_item fullHeightView_item ">
                 <div className="webcam-component">
                     <Webcam
                         ref={webcamRef}
                         imageSmoothing={true}
                         forceScreenshotSourceSize={true}
+                        className="webcame_item"
                         screenshotFormat="image/jpeg"
                         videoConstraints={videoConstraints}
-                        style={{ width: '100%', height: '100%' }}
                     />
+                    <div className="scan_title">
+                        <p>
+                            카메라로 사업자등록증을 자동 활영합니다. 사각형에
+                            맞게 놓아주세요.
+                        </p>
+                    </div>
+                    <div className="overlay"></div>
+                    <div className="bright-area"></div>
                 </div>
             </section>
+
 
             <div
                 style={{
@@ -124,10 +135,17 @@ export default function ScanImage_Process() {
                 {imageURL && (
                     <div>
                         <h2>Captured Image Preview:</h2>
-                        <img src={imageURL} alt="Captured" width="300" />
+                        <img
+                            src={imageURL}
+                            alt="Captured"
+                            width="1080px"
+                            height="1920px"
+                        />
                     </div>
                 )}
-            </section>
+            </section> */}
+
+
         </div>
     );
 }
