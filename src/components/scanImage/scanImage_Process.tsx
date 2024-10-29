@@ -88,7 +88,11 @@ export default function ScanImage_Process() {
 
     return (
         <div>
-            <section className="fullWidth_item fullHeightView_item ">
+            <section
+                style={{
+                    overflow: 'hidden',
+                }}
+            >
                 <div className="webcam-component">
                     <Webcam
                         ref={webcamRef}
@@ -109,7 +113,7 @@ export default function ScanImage_Process() {
                 </div>
             </section>
 
-            <div
+            {/* <div
                 style={{
                     width: '100%',
                     display: 'flex',
@@ -138,7 +142,7 @@ export default function ScanImage_Process() {
                         />
                     </div>
                 )}
-            </section>
+            </section> */}
         </div>
     );
 }
