@@ -1,0 +1,12 @@
+.webcam-component {
+    width: 100vw;
+    height: 100vh;
+    padding: 0! important;
+    .webcame_item {
+        width: 100%;
+        height: 100%;
+    }
+    video {
+        object-fit: cover !important;
+    }
+}
