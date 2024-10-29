@@ -63,9 +63,9 @@ export default function ScanImage_Process() {
 
                 const fileURL = URL.createObjectURL(file);
 
-                setImageURL(fileURL)
-                console.log("imageURL: ", imageURL);
-                console.log("Captured Image File: ", file);
+                setImageURL(fileURL);
+                console.log('imageURL: ', imageURL);
+                console.log('Captured Image File: ', file);
 
                 let response = null;
 
@@ -101,10 +101,7 @@ export default function ScanImage_Process() {
                         style={{ width: '100%', height: '100%' }}
                     />
                 </div>
-
-                
             </section>
-
 
             <div
                 style={{

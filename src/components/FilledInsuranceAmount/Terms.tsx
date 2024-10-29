@@ -24,20 +24,20 @@ type TermTypeGroup = {
 function Terms({ checkAll, setCheckAll }: TermsProp) {
     const [terms, setTerms] = useState<TermTypeGroup[]>([
         {
-            main: { term: '자격 및 전자서명 동의(필수)', check: false },
+            main: { term: '자격 및 전자서명 동의(필수)', check: true },
             subTerms: [
-                { term: '전자서명 동의 안내', check: false },
-                { term: '초과 및 중복가입 제한 안내', check: false },
+                { term: '전자서명 동의 안내', check: true },
+                { term: '초과 및 중복가입 제한 안내', check: true },
             ],
         },
         {
-            main: { term: '개인정보 수집 및 이용 동의(필수)', check: false },
+            main: { term: '개인정보 수집 및 이용 동의(필수)', check: true },
         },
         {
-            main: { term: '서비스 및 기타 약관 동의(필수)', check: false },
+            main: { term: '서비스 및 기타 약관 동의(필수)', check: true },
         },
         {
-            main: { term: '마케팅 이용 동의(선택)', check: false },
+            main: { term: '마케팅 이용 동의(선택)', check: true },
         },
     ]);
 

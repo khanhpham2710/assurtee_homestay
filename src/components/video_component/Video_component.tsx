@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState } from 'react';
 import Images from '../../assets/images';
 
 interface Props {

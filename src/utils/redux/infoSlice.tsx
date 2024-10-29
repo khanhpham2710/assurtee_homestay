@@ -11,6 +11,7 @@ export interface BusinessType {
     division: '개인' | '법인' | '';
     businessNumber: string;
     businessName: string;
+    sameAddress: boolean;
     address: string;
     extra: string;
     hanok: '예' | '아니요' | '';
@@ -38,12 +39,13 @@ const initialState: InfoType = {
     division: '',
     businessNumber: '',
     businessName: '',
+    sameAddress: true,
     address: '',
     extra: '',
     hanok: '아니요',
     fireInsurance: '1억',
     construction: 3,
-    facilities: 6,
+    facilities: 4,
     inventory: 2,
     housingType: '단독',
     area: 79,

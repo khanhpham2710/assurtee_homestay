@@ -3,14 +3,14 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 const BASE_AXIOS: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
     headers: {
-        'X-OCR-SECREAT': import.meta.env.VITE_API_OCR_KEY,
+        'X-OCR-SECRET': import.meta.env.VITE_API_OCR_KEY,
     },
     withCredentials: true,
 });
 
 export const postImage = async (
     blobImage: Blob
-): Promise<AxiosResponse<any>> => {
+): Promise<AxiosResponse<unknown>> => {
     const formData = new FormData();
     formData.append(
         'message',
