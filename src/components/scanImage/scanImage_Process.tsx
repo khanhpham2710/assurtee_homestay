@@ -1,9 +1,6 @@
-import React from 'react';
 import Webcam from 'react-webcam';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { base64ToBlob, postImage } from '../../utils/axios/axios';
-import { Height } from '@mui/icons-material';
 
 interface OutputType {
     계약자: string | null;
@@ -91,7 +88,6 @@ export default function ScanImage_Process() {
 
     return (
         <div>
-
             <section className="fullWidth_item fullHeightView_item ">
                 <div className="webcam-component">
                     <Webcam
@@ -112,7 +108,6 @@ export default function ScanImage_Process() {
                     <div className="bright-area"></div>
                 </div>
             </section>
-
 
             <div
                 style={{
@@ -143,9 +138,7 @@ export default function ScanImage_Process() {
                         />
                     </div>
                 )}
-            </section> */}
-
-
+            </section>
         </div>
     );
 }
