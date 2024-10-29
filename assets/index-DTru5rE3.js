@@ -249,7 +249,7 @@ To suppress this warning, you need to explicitly provide the \`palette.${t}Chann
     }
 `;const U0=To(hn)`
     color: #9faae5;
-`,Al=e=>{const t=e.target.value;return/^[\d]*$/.test(t)?t:""},Y5=e=>{const t=e.target.value;return/^[\d-]*$/.test(t)?t:""};function X5(e,t,n){const r=e.nativeEvent;if(r.inputType==="deleteContentBackward"){n(t.slice(0,-1));return}let o=t+r.data;(o.length==3||o.length==6)&&(o=o+="-"),n(o)}const Q5=To(hn)`
+`,Al=e=>{const t=e.target.value;return/^[\d]*$/.test(t)?t:""},Y5=e=>{const t=e.target.value;return/^[\d-]*$/.test(t)?t:""};function X5(e,t,n){const r=e.nativeEvent;if(r.inputType==="deleteContentBackward"){n(t.slice(0,-1));return}if(r.data&&/^[\d]*$/.test(r.data)){let o=t+r.data;(o.length===3||o.length===6)&&(o+="-"),n(o)}}const Q5=To(hn)`
     font-size: 60px;
     letter-spacing: -30px;
     caret-color: transparent;
