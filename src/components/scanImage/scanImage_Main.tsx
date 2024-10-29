@@ -1,7 +1,13 @@
 import React from 'react';
 import images from '../../assets/images';
+import { ModalType } from '../MyModal/MyModal';
+import ScanImage_Process from './scanImage_Process';
 
-export default function scanImage_Main() {
+type Props = {
+    setModal: React.Dispatch<React.SetStateAction<ModalType>>;
+};
+
+export default function scanImage_Main({ setModal }: Props) {
     return (
         <section>
             <div
@@ -33,6 +39,13 @@ export default function scanImage_Main() {
                 <button
                     className="button1 active"
                     style={{ position: 'absolute', bottom: '30px' }}
+                    onClick={() => {
+                        setModal({
+                            title: '사업자등록증 촬영',
+                            appBarColor: '#000',
+                            component: <ScanImage_Process />,
+                        });
+                    }}
                 >
                     사업자등록증 촬영하기
                 </button>

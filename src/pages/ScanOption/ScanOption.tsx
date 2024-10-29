@@ -95,7 +95,9 @@ const ScanOption: React.FC = () => {
                             setModal({
                                 title: '사업자등록번호 입력',
                                 appBarColor: '#fff',
-                                component: <ScanImage_Main />,
+                                component: (
+                                    <ScanImage_Main setModal={setModal} />
+                                ),
                             });
                             setOpen(true);
                         }}

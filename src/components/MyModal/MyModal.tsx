@@ -56,7 +56,13 @@ export default function MyModal({
                     padding: '0px !important',
                 }}
             >
-                <p id="modal-title" className="titleSmall">
+                <p
+                    id="modal-title"
+                    className="titleSmall"
+                    style={{
+                        color: appBarColor === '#fff' ? "'#000'" : '#fff',
+                    }}
+                >
                     {title}
                 </p>
                 <IconButton
