@@ -50,14 +50,13 @@ export default function ScanText() {
                         type="text"
                         autoComplete="off"
                         style={{ textAlign: 'center', width: '312px' }}
-                        onInput={(e) => {
-                            handleBusinessNumber(e, text, setText);
+                        onChange={(e) => {
+                            setText(handleBusinessNumber(e, text));
                         }}
                         maxLength={12}
                         value={text}
                     />
                 </InputSection>
-
                 <button
                     className={`button1 ${isValid ? 'active' : ''}`}
                     style={{ position: 'absolute', bottom: '30px' }}

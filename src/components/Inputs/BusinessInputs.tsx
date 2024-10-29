@@ -1,8 +1,8 @@
 import { BusinessType } from '../../utils/redux/infoSlice';
 import { CustomInput, InputSection } from '../Input/CustomInput';
-import { numberAndLineOnly } from '../../utils/validation/number';
 import { Link } from 'react-router-dom';
 import OptionInput from '../Input/OptionInput';
+import { handleBusinessNumber } from '../../utils/validation/number';
 
 type InputsProps = {
     form: BusinessType;
@@ -34,7 +34,10 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     placeholder="사업자등록번호를 입력해 주세요."
                     value={form.businessNumber}
                     onChange={(e) =>
-                        handleChange('businessNumber', numberAndLineOnly(e))
+                        handleChange(
+                            'businessNumber',
+                            handleBusinessNumber(e, form.businessNumber)
+                        )
                     }
                     autoComplete="off"
                 />

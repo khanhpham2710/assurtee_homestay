@@ -8,31 +8,24 @@ export const numberOnly = (e: React.ChangeEvent<HTMLInputElement>): string => {
     return '';
 };
 
-export const numberAndLineOnly = (
-    e: React.ChangeEvent<HTMLInputElement>
-): string => {
-    const value = e.target.value;
-    if (/^[\d-]*$/.test(value)) {
-        return value;
-    }
-    return '';
-};
-
 export function handleBusinessNumber(
     e: React.FormEvent<HTMLInputElement>,
-    text: string,
-    setText: React.Dispatch<React.SetStateAction<string>>
+    text: string
 ) {
-    const inputEvent = e.nativeEvent as InputEvent;
+    const inputValue = e.currentTarget.value;
 
-    if (inputEvent.inputType === 'deleteContentBackward') {
-        setText(text.slice(0, -1));
-        return;
+    if (inputValue.length < text.length) {
+        return inputValue;
     }
 
-    let newText = text + inputEvent.data;
-    if (newText.length == 3 || newText.length == 6) {
-        newText = newText += '-';
+    const lastChar = inputValue[inputValue.length - 1];
+    if (/^\d$/.test(lastChar)) {
+        let newText = inputValue;
+
+        if (newText.length === 3 || newText.length === 6) {
+            newText += '-';
+        }
+        return newText;
     }
-    setText(newText);
+    return '';
 }
