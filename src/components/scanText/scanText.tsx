@@ -50,7 +50,7 @@ export default function ScanText() {
                         type="text"
                         autoComplete="off"
                         style={{ textAlign: 'center', width: '312px' }}
-                        onKeyDown={(e) => {
+                        onInput={(e) => {
                             handleBusinessNumber(e, text, setText);
                         }}
                         maxLength={12}
