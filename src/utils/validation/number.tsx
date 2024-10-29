@@ -19,22 +19,20 @@ export const numberAndLineOnly = (
 };
 
 export function handleBusinessNumber(
-    e: React.KeyboardEvent<HTMLInputElement>,
+    e: React.FormEvent<HTMLInputElement>,
     text: string,
     setText: React.Dispatch<React.SetStateAction<string>>
 ) {
-    e.preventDefault();
+    const inputEvent = e.nativeEvent as InputEvent;
 
-    if (e.key === 'Backspace') {
-        const newText = text.slice(0, -1);
-        setText(newText);
-    } else if (/^[0-9]$/.test(e.key) && text.length <= 11) {
-        if (text.length === 3 || text.length === 6) {
-            const newText = text + '-' + e.key;
-            setText(newText);
-        } else {
-            const newText = text + e.key;
-            setText(newText);
-        }
+    if (inputEvent.inputType === 'deleteContentBackward') {
+        setText(text.slice(0, -1));
+        return;
     }
+
+    let newText = text + inputEvent.data;
+    if (newText.length == 3 || newText.length == 6) {
+        newText = newText += '-';
+    }
+    setText(newText);
 }
