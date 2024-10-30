@@ -1,21 +1,17 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {postImage, base64ToBlob} from "../axios/axios";
+import { postImage, base64ToBlob } from '../axios/axios';
 
-
-const postImageData = createAsyncThunk("user/postImage", async(image : Blob, thunkAPI) => {
-    try {
-        const  response = await postImage(image);
-        return response
-    } catch (error: any) {
-        return thunkAPI.rejectWithValue(error.response.data)
+const postImageData = createAsyncThunk(
+    'user/postImage',
+    async (image: Blob, thunkAPI) => {
+        try {
+            const response = await postImage(image);
+            return response;
+        } catch (error: any) {
+            return thunkAPI.rejectWithValue(error.response.data);
+        }
     }
-})
-
-
-
-
-
-
+);
 
 export interface PersonalType {
     contractor: string;
@@ -45,14 +41,13 @@ export interface InsuranceAmountType {
 
 interface statusRedux {
     error: any;
-    status : string ;
+    status: string;
 }
 export interface InfoType
     extends PersonalType,
         BusinessType,
         statusRedux,
         InsuranceAmountType {}
-        
 
 const initialState: InfoType = {
     contractor: '',
@@ -73,7 +68,7 @@ const initialState: InfoType = {
     housingType: '단독',
     area: 79,
     error: null,
-    status: "start",
+    status: 'start',
 };
 
 const infoSlice = createSlice({
@@ -88,13 +83,11 @@ const infoSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(postImageData.fulfilled, (state, action : any) => {
-            
-        })
-        builder.addCase(postImageData.rejected, (state, action : any) => {
-            state.error = action.payload.data
-        })
-    }
+        builder.addCase(postImageData.fulfilled, (state, action: any) => {});
+        builder.addCase(postImageData.rejected, (state, action: any) => {
+            state.error = action.payload.data;
+        });
+    },
 });
 
 export const { updateInfo, resetInfo } = infoSlice.actions;
