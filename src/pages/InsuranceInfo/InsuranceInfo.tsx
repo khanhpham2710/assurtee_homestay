@@ -96,7 +96,7 @@ function InsuranceInfo() {
             <section style={{ padding: '0 24px' }}>
                 <WarningAccordion />
             </section>
-            <h3
+            <p
                 className="title_label"
                 style={{
                     lineHeight: 'normal',
@@ -105,7 +105,7 @@ function InsuranceInfo() {
                 }}
             >
                 준법감시확인필 제202325412호 2024.5.25~2025.5.25
-            </h3>
+            </p>
             <ConfirmCheckbox checked={checked} handleCheck={handleCheck} />
             <section className="dflex_center">
                 <button

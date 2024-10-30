@@ -24,20 +24,18 @@ type RouteType = {
 const routes: RouteType[] = [
     { path: '/', component: HomePage, header: null },
 
-    { path: '/insurance-infor', component: InsuranceInfo, header: <Header1 /> },
+    {
+        path: '/personal-infor',
+        component: FilledPersonalInfor,
+        header: <Header1 />,
+    },
 
-    { path: '/completed', component: CompletedPage, header: <Header1 /> },
+    { path: '/insurance-infor', component: InsuranceInfo, header: <Header1 /> },
 
     {
         path: '/scan-option',
         component: ScanOption,
         header: <Header2 title="주택 정보 입력" backTo="/" />,
-    },
-
-    {
-        path: '/personal-infor',
-        component: FilledPersonalInfor,
-        header: <Header1 />,
     },
 
     {
@@ -60,6 +58,8 @@ const routes: RouteType[] = [
         component: Payment,
         header: <Header2 title="결제" backTo="/insurance-infor" />,
     },
+
+    { path: '/completed', component: CompletedPage, header: <Header1 /> },
 ];
 
 export default routes;
