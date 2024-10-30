@@ -1,5 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
+
+
 const BASE_AXIOS: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
     headers: {
