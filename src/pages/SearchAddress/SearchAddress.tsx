@@ -3,16 +3,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Divider, Input } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
 function SearchAddress() {
-
     const navigate = useNavigate();
-    
+
     const routeBack = () => {
-        navigate(-1)
-    }
+        navigate(-1);
+    };
 
     return (
         <section className="search_page">
-
             <section className="search_header header1">
                 <div>
                     <p>주소검색</p>
@@ -25,7 +23,7 @@ function SearchAddress() {
                 </div>
 
                 <div>
-                    <CloseIcon sx={{ fontSize: '26px' }} onClick ={routeBack}/>
+                    <CloseIcon sx={{ fontSize: '26px' }} onClick={routeBack} />
                 </div>
             </section>
 
