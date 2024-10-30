@@ -120,7 +120,9 @@ function Terms({ checkAll, setCheckAll }: TermsProp) {
                 style={{ marginBottom: '21px', gap: '10px' }}
             >
                 <img
-                    src={checkAll ? images.CheckBox : images.UnCheckBox}
+                    src={
+                        checkAll ? images.CheckBoxBlack : images.UnCheckBoxWhite
+                    }
                     alt="Checkbox"
                     style={{ cursor: 'pointer' }}
                     onClick={handleCheckAll}
@@ -148,8 +150,8 @@ function Terms({ checkAll, setCheckAll }: TermsProp) {
                             <img
                                 src={
                                     term.main.check
-                                        ? images.TermCheckBox
-                                        : images.TermUnCheckBox
+                                        ? images.CheckBoxWhite
+                                        : images.UnCheckBoxWhite
                                 }
                                 style={{
                                     marginRight: '10px',
@@ -181,8 +183,8 @@ function Terms({ checkAll, setCheckAll }: TermsProp) {
                                         <img
                                             src={
                                                 sub.check
-                                                    ? images.TermCheckBox
-                                                    : images.TermUnCheckBox
+                                                    ? images.CheckBoxWhite
+                                                    : images.UnCheckBoxWhite
                                             }
                                             style={{
                                                 marginRight: '10px',

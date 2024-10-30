@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Question from '../../components/Questions/Question';
 import Divider from '@mui/material/Divider';
 import images from '../../assets/images';
-import ScanImage_Main from '../../components/scanImage/scanImage_Main';
-import ScanText from '../../components/scanText/scanText';
+import ScanImage_Main from '../../components/Options/scanImage_Main';
+import FillOption from '../../components/Options/FillOption';
 import MyModal, { ModalType } from '../../components/MyModal/MyModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../utils/redux/store';
@@ -64,12 +64,12 @@ const ScanOption: React.FC = () => {
                             setModal({
                                 title: '사업자등록번호 입력',
                                 appBarColor: '#fff',
-                                component: <ScanText />,
+                                component: <FillOption />,
                             });
                             setOpen(true);
                         }}
                     >
-                        <img src={images.ScanText} alt="" />
+                        <img src={images.FillOption} alt="" />
                         <p
                             className="titleMini"
                             style={{
@@ -102,7 +102,7 @@ const ScanOption: React.FC = () => {
                             setOpen(true);
                         }}
                     >
-                        <img src={images.ScanImage} alt="" style={{}} />
+                        <img src={images.ScanOption} alt="" style={{}} />
                         <p
                             className="titleMini"
                             style={{

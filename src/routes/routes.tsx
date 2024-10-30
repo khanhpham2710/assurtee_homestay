@@ -4,7 +4,7 @@ import React from 'react';
 import HomePage from '../pages/HomePage/HomePage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
-import ScanOption from '../pages/ScanOption/ScanOption';
+import ScanOption from '../pages/TwoOptions/TwoOptions';
 import FilledPersonalInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
 import FilledBusinessInfor from '../pages/FilledBusinessInfor/FilledBusinessInfor';
 import SearchAddress from '../pages/SearchAddress/SearchAddress';
