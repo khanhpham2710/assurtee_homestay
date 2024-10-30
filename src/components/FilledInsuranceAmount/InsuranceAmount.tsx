@@ -60,11 +60,24 @@ function InsuranceAmount({ form, handleChange }: PropsType) {
             </InputSection>
             <InputSection>
                 <label className="title_label">공급면적(전용면적이 아님)</label>
-                <CustomInput
-                    maxLength={10}
-                    value={form.area.toString()}
-                    onChange={(e) => handleChange('area', numberOnly(e))}
-                />
+                <div className="dflex_center">
+                    <CustomInput
+                        maxLength={10}
+                        value={form.area.toString()}
+                        onChange={(e) => handleChange('area', numberOnly(e))}
+                    />
+                    <p
+                        style={{
+                            fontFamily: 'AppleSDGothicNeoH',
+                            fontSize: '16px',
+                            lineHeight: 1.75,
+                            textAlign: 'right',
+                            color: '#cfcfcf',
+                        }}
+                    >
+                        m²
+                    </p>
+                </div>
             </InputSection>
         </form>
     );
