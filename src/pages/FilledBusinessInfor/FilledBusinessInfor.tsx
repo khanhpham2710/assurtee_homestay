@@ -60,7 +60,7 @@ const FilledBusinessInfo: React.FC = () => {
             </p>
             <BusinessInputs form={form} handleChange={handleChange} />
             <section
-                style={{ width: '100%', marginTop: '40px' }}
+                style={{ width: '100%', marginTop: '20px' }}
                 className="dflex_center"
             >
                 <button
