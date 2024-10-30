@@ -21,7 +21,7 @@ function InsuranceInfo() {
 
     const state = useSelector((state: RootState) => state.info);
 
-    const checkIfAllFilled = () => {
+    const checkAllFilled = () => {
         const requiredFields = [
             state.businessName,
             state.businessNumber,
@@ -35,7 +35,7 @@ function InsuranceInfo() {
     };
 
     useEffect(() => {
-        setAllFilled(checkIfAllFilled());
+        setAllFilled(checkAllFilled());
     }, [state]);
 
     const handleCheck = () => {

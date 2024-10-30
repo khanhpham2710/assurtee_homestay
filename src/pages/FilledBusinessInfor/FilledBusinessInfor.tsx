@@ -7,6 +7,7 @@ import Question from '../../components/Questions/Question';
 import { Divider } from '@mui/material';
 import { RootState } from '../../utils/redux/store';
 import { useNavigate } from 'react-router-dom';
+import { validateBusinessField } from '../../utils/validation/validatefields';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useSelector((state: RootState) => state.info);
@@ -28,22 +29,7 @@ const FilledBusinessInfo: React.FC = () => {
         }
     };
 
-    const validateFields = (): boolean => {
-        const { businessNumber, businessName, address, extra, hanok } = form;
-
-        if (!businessNumber || !businessName || !address || !extra || !hanok) {
-            return false;
-        }
-
-        const businessNumberRegex = /^\d{3}-\d{2}-\d{5}$/;
-        if (!businessNumberRegex.test(businessNumber)) {
-            return false;
-        }
-
-        return true;
-    };
-
-    const allChecked: boolean = validateFields();
+    const allChecked: boolean = validateBusinessField(form);
 
     const handleSubmit = async () => {
         if (allChecked) {

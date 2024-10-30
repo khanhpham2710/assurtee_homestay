@@ -7,6 +7,11 @@ import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import DateInputs from '../../components/Inputs/DateInputs';
 import Question from '../../components/Questions/Question';
 import InsuranceAmount from '../../components/FilledInsuranceAmount/InsuranceAmount';
+import {
+    validateAmountField,
+    validateBusinessField,
+    validatePersonalField,
+} from '../../utils/validation/validatefields';
 
 function FillAllInfor({
     setOpen,
@@ -28,54 +33,10 @@ function FillAllInfor({
         setForm((prev) => ({ ...prev, fireInsurance: item }));
     }, [item]);
 
-    const validateFields = (): boolean => {
-        const {
-            contractor,
-            dob,
-            registrationNumber,
-            phoneNumber,
-            businessNumber,
-            businessName,
-            address,
-            extra,
-            hanok,
-        } = form;
-
-        if (
-            !contractor ||
-            !dob ||
-            !registrationNumber ||
-            !phoneNumber ||
-            !businessNumber ||
-            !businessName ||
-            !address ||
-            !extra ||
-            !hanok
-        )
-            return false;
-
-        if (
-            dob.length !== 6 ||
-            registrationNumber.length !== 7 ||
-            !/^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1])-[0-4,9][0-9]{6}$/.test(
-                dob + '-' + registrationNumber
-            )
-        ) {
-            return false;
-        }
-
-        if (phoneNumber.length <= 8) {
-            return false;
-        }
-
-        if (!/\d{3}-\d{2}-\d{5}/.test(businessNumber)) {
-            return false;
-        }
-
-        return true;
-    };
-
-    const allChecked: boolean = validateFields();
+    const allChecked: boolean =
+        validateAmountField(form) &&
+        validateBusinessField(form) &&
+        validatePersonalField(form);
 
     const handleSubmit = async () => {
         if (allChecked) {
