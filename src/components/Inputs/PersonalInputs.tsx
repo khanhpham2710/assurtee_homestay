@@ -1,9 +1,10 @@
-import styled from 'styled-components';
 import { PersonalType } from '../../utils/redux/infoSlice';
 import { CustomInput, InputSection } from '../Input/CustomInput';
 import { numberOnly } from '../../utils/validation/number';
+import React from 'react';
+import styled from 'styled-components';
 
-const PasswordInput = styled(CustomInput)`
+const RegistrationInput = styled(CustomInput)`
     font-size: 60px;
     letter-spacing: -30px;
     caret-color: transparent;
@@ -19,6 +20,22 @@ type InputsProps = {
 };
 
 function PersonalInputs({ form, handleChange }: InputsProps) {
+    function handleRegistrationInput(
+        e: React.ChangeEvent<HTMLInputElement>
+    ): void {
+        const inputValue = e.target.value;
+        const numericValue = inputValue.replace(/[^0-9]/g, '');
+
+        const input = e.nativeEvent as InputEvent;
+        const temp = form.registrationNumber;
+
+        if (input.inputType === 'deleteContentBackward') {
+            handleChange('registrationNumber', temp.slice(0, -1));
+        } else if (numericValue.length <= 7) {
+            handleChange('registrationNumber', temp + numericValue);
+        }
+    }
+
     return (
         <form className="dflex-column" style={{ width: '100%' }}>
             <InputSection>
@@ -57,14 +74,12 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     >
                         -
                     </p>
-                    <PasswordInput
+                    <RegistrationInput
+                        id="registrationNumber"
                         placeholder="•••••••"
-                        type="password"
                         maxLength={7}
-                        value={form.registrationNumber}
-                        onChange={(e) =>
-                            handleChange('registrationNumber', numberOnly(e))
-                        }
+                        value={'•'.repeat(form.registrationNumber.length)}
+                        onChange={handleRegistrationInput}
                         autoComplete="off"
                     />
                 </section>
