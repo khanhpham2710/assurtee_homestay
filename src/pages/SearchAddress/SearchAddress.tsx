@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CloseIcon from '@mui/icons-material/Close';
 import { Divider, Input } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 function SearchAddress() {
 
     const navigate = useNavigate();
