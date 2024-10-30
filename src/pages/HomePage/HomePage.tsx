@@ -178,6 +178,7 @@ export default function HomePage() {
                 style={{
                     padding: '0 24px',
                 }}
+                ref={video_ref}
             >
                 <div
                     className="title_video"
@@ -207,7 +208,7 @@ export default function HomePage() {
                         columnSpacing={1}
                         justifyContent="left"
                         alignItems="center"
-                        ref={video_ref}
+                       
                     >
                         {videos_embbeded &&
                             videos_embbeded.map((video, index) => (
