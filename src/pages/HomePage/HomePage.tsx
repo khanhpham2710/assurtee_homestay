@@ -208,7 +208,6 @@ export default function HomePage() {
                         columnSpacing={1}
                         justifyContent="left"
                         alignItems="center"
-                       
                     >
                         {videos_embbeded &&
                             videos_embbeded.map((video, index) => (
@@ -285,6 +284,8 @@ export default function HomePage() {
                 </Box>
             </section>
 
+
+            {/* Landing Fee */}
             <section
                 className="dflex_center fullWidth_item flexColumn_item "
                 style={{
@@ -302,6 +303,8 @@ export default function HomePage() {
                 </div>
                 <FeeLandingPage />
             </section>
+
+            {/* Bottom Carousel */}
             <section className="bottom_carousel">
                 <Slider {...settings_bottom}>
                     {carouselImageBottom.map((image, index) => (
@@ -313,6 +316,8 @@ export default function HomePage() {
                     ))}
                 </Slider>
             </section>
+
+            {/* footer section */}
             <section className="footer_warning">
                 <div className="footer-warning_title">
                     <MyToolTip color="black" />
@@ -408,6 +413,9 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
+
+
+            {/* Button Fixed */}
             <section className="button_container">
                 <Link to="/personal-infor">
                     <button className="button_main">
