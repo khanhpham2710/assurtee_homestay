@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Divider, Input } from '@mui/material';
 function SearchAddress() {
     return (
-        <section className = "search_page">
+        <section className="search_page">
             <section className="search_header header1">
                 <p>주소검색</p>
 
@@ -13,13 +13,12 @@ function SearchAddress() {
             </section>
 
             <section className="search_input fullWidth_item">
-
                 <Input></Input>
 
                 <i className="fa-solid fa-magnifying-glass"></i>
             </section>
 
-            <Divider variant="fullWidth"/>
+            <Divider variant="fullWidth" />
 
             <section className="tip_search">
                 <p>tip</p>

@@ -1,22 +1,18 @@
-
-
 .search_page {
     .MuiDivider_root {
         & :focus: {
-            color: #ea3062
+            color: #ea3062;
         }
     }
 }
 
-
 .search_input {
-    
     display: flex;
     align-items: center;
-    
+
     justify-content: space-between;
 
     Input {
-      border-bottom: none;
+        border-bottom: none;
     }
 }
