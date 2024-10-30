@@ -6,6 +6,10 @@ import { PersonalType } from '../../utils/redux/infoSlice';
 import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../utils/redux/store';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
+import {
+    validateBusinessField,
+    validatePersonalField,
+} from '../../utils/validation/validatefields';
 
 export default function FilledPersonalInfo() {
     const info = useSelector((state: RootState) => state.info);
@@ -22,46 +26,8 @@ export default function FilledPersonalInfo() {
         setForm2((prev) => ({ ...prev, [key]: value }));
     };
 
-    const validateFields1 = (): boolean => {
-        const { contractor, dob, registrationNumber, phoneNumber } = form1;
-
-        if (!contractor || !dob || !registrationNumber || !phoneNumber)
-            return false;
-
-        if (
-            dob.length !== 6 ||
-            registrationNumber.length !== 7 ||
-            !/^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1])-[0-4,9][0-9]{6}$/.test(
-                dob + '-' + registrationNumber
-            )
-        ) {
-            return false;
-        }
-
-        if (phoneNumber.length <= 8) {
-            return false;
-        }
-
-        return true;
-    };
-
-    const validateFields2 = (): boolean => {
-        const { businessNumber, businessName, address, extra, hanok } = form2;
-
-        if (!businessNumber || !businessName || !address || !extra || !hanok) {
-            return false;
-        }
-
-        const businessNumberRegex = /^\d{3}-\d{2}-\d{5}$/;
-        if (!businessNumberRegex.test(businessNumber)) {
-            return false;
-        }
-
-        return true;
-    };
-
-    const allChecked1: boolean = validateFields1();
-    const allChecked2: boolean = validateFields2();
+    const allChecked1: boolean = validatePersonalField(form1);
+    const allChecked2: boolean = validateBusinessField(form2);
 
     const handleSubmit1 = async () => {
         if (allChecked1) {

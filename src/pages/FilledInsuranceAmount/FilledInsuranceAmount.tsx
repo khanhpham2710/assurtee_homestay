@@ -6,6 +6,7 @@ import { InsuranceAmountType, updateInfo } from '../../utils/redux/infoSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../utils/redux/store';
+import { validateAmountField } from '../../utils/validation/validatefields';
 
 function FilledInsuranceAmount() {
     const navigate = useNavigate();
@@ -26,31 +27,7 @@ function FilledInsuranceAmount() {
 
     const [checkAll, setCheckAll] = useState<boolean>(true);
 
-    function validateFields(): boolean {
-        const {
-            fireInsurance,
-            construction,
-            facilities,
-            inventory,
-            housingType,
-            area,
-        } = form;
-
-        if (
-            !fireInsurance ||
-            !construction ||
-            !facilities ||
-            !inventory ||
-            !housingType ||
-            !area
-        ) {
-            return false;
-        }
-
-        return true;
-    }
-
-    const buttonActive: boolean = checkAll && validateFields();
+    const buttonActive: boolean = checkAll && validateAmountField(form);
 
     const handleSubmit = async () => {
         if (buttonActive) {
