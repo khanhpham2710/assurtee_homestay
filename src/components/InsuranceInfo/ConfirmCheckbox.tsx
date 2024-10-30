@@ -39,7 +39,7 @@ function ConfirmCheckbox({ checked, handleCheck }: Props) {
             }}
         >
             <img
-                src={checked ? images.CheckBox : images.UnCheckBox}
+                src={checked ? images.CheckBoxBlack : images.UnCheckBoxGrey}
                 style={{ cursor: 'pointer' }}
             />
             <p

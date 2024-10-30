@@ -11,7 +11,7 @@ export default function Header2({
     return (
         <div className="header0 dflex_center">
             <Link className="back_icon_header" to={backTo}>
-                <img src={images.cheroLeft} alt="" />
+                <img src={images.BackButton} alt="" />
             </Link>
             <p className="titleSmall">{title}</p>
         </div>

@@ -1,7 +1,7 @@
 import HeaderMain from '../../components/Headers/HeaderMain';
 import Slider from 'react-slick';
 import images from '../../assets/images';
-import Video_component from '../../components/video_component/Video_component';
+import Video_component from '../../components/HomePageComponents/Video_component';
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
@@ -12,8 +12,8 @@ import {
     Divider,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import Card_Banner from '../../components/Card_Banner/Card_Banner';
-import FeeLandingPage from '../../components/FeeAccordion/FeeLandingPage';
+import Card_Banner from '../../components/HomePageComponents/Card_Banner';
+import FeeLandingPage from '../../components/HomePageComponents/FeeLandingPage';
 import MyToolTip from '../../components/MyTooltip/MyToolTip';
 import { useRef } from 'react';
 
@@ -148,7 +148,7 @@ export default function HomePage() {
                                         </p>
 
                                         <img
-                                            src={images.ArrowDown}
+                                            src={images.ScrollDown}
                                             onClick={() => {
                                                 if (video_ref.current) {
                                                     window.scrollTo({
@@ -314,7 +314,7 @@ export default function HomePage() {
             </section>
             <section className="footer_warning">
                 <div className="footer-warning_title">
-                    <MyToolTip text={[]} align="left" color="black" />
+                    <MyToolTip color="black" />
                     <p>필수안내사항</p>
                 </div>
 
@@ -344,7 +344,7 @@ export default function HomePage() {
                     <img src={images.mainLogo} alt="" />
 
                     <button onClick={onTop}>
-                        <img src={images.onTopIcon} alt="" />
+                        <img src={images.ScrollUp} alt="" />
                     </button>
                 </div>
                 <Divider
