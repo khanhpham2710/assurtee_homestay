@@ -92,10 +92,17 @@ function InsuranceDetails() {
     return (
         <section
             style={{
-                margin: '40px 24px 0',
+                margin: '40px 24px',
             }}
         >
-            <p className="title_label">보장내용</p>
+            <p
+                className="title_label"
+                style={{
+                    marginBottom: '13px',
+                }}
+            >
+                보장내용
+            </p>
             {infos.map((info, index) => {
                 return (
                     <InsuranceDetailsBox
