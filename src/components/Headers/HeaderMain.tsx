@@ -23,7 +23,7 @@ function HeaderMain() {
                     style={{ textDecoration: 'none', gap: '3px' }}
                 >
                     <p className="titleMicro">가입확인</p>
-                    <img src={images.backArrow} alt="" />
+                    <img src={images.ArrowIconRight} alt="" />
                 </Link>
             </div>
         </Box>

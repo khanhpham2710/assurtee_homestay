@@ -117,7 +117,7 @@ function Payment() {
                 style={{ gap: '10px', margin: '14px 24px 110px' }}
             >
                 <img
-                    src={annual ? images.PinkCheckBox : images.UnCheckBox}
+                    src={annual ? images.PinkCheckBox : images.UnCheckBoxGrey}
                     onClick={() => {
                         setAnnual((prev) => !prev);
                     }}

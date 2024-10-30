@@ -27,7 +27,7 @@ function Download({ text }: { text: string }) {
             >
                 {text}
             </p>
-            <img src={images.Download} />
+            <img src={images.ArrowIconDown} />
         </div>
     );
 }

@@ -7,7 +7,7 @@ type Props = {
     setModal: React.Dispatch<React.SetStateAction<ModalType>>;
 };
 
-export default function scanImage_Main({ setModal }: Props) {
+export default function ScanImage_Main({ setModal }: Props) {
     return (
         <section>
             <div
@@ -33,7 +33,7 @@ export default function scanImage_Main({ setModal }: Props) {
                 </p>
 
                 <div className="" style={{ marginTop: '50px' }}>
-                    <img src={images.Group9} alt="" />
+                    <img src={images.ScanDoc} alt="" />
                 </div>
 
                 <button
