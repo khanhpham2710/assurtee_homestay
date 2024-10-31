@@ -7,7 +7,7 @@ const postImageData = createAsyncThunk(
     async (image: Blob, thunkAPI) => {
         try {
             const response = await postImage(image);
-            return response;
+            return response.data;
         } catch (error) {
             if (error instanceof AxiosError) {
                 return thunkAPI.rejectWithValue(error.response?.data);
@@ -21,6 +21,7 @@ const postImageData = createAsyncThunk(
         }
     }
 );
+
 
 export interface PersonalType {
     contractor: string;
@@ -47,6 +48,8 @@ export interface InsuranceAmountType {
     housingType: string | '단독';
     area: number;
 }
+
+
 
 interface statusRedux {
     error: unknown;
@@ -92,7 +95,17 @@ const infoSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(postImageData.fulfilled, (state, action) => {});
+        builder.addCase(postImageData.fulfilled, (state, action) => {
+
+            const payload = (action.payload as any).images[0].bizLicense.result;
+            
+            state.address = payload.bisAddres.text
+            state.extra = payload.bisAddres.text
+            state.registrationNumber = payload.registerNumber.text
+            state.businessName = payload.companyName.text || payload.corpName.text
+            // state.contractor = payload.repName.text
+
+        });
         builder.addCase(postImageData.rejected, (state, action) => {
             state.error = action?.payload;
         });
