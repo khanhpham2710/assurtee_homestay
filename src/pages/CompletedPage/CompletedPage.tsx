@@ -1,15 +1,27 @@
 import images from '../../assets/images';
 import { useNavigate } from 'react-router-dom';
 import LoadingPage from '../../components/Loading/Loading';
+import { useEffect, useState } from 'react';
 
 function CompletedPage() {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState<boolean>(true);
 
     const handleHomeClick = () => {
         navigate('/');
     };
 
-    // return <LoadingPage />;
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (loading) {
+        return <LoadingPage />;
+    }
 
     return (
         <div
