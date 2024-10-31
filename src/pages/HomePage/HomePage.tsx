@@ -37,7 +37,7 @@ export default function HomePage() {
         infinite: true,
         speed: 1500,
         autoplay: true,
-        autoplaySpeed: 400,
+        autoplaySpeed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
@@ -305,9 +305,7 @@ export default function HomePage() {
                 <Slider {...settings_bottom}>
                     {carouselImageBottom.map((image, index) => (
                         <div key={index} className="banner_slider">
-                            <div className="banner_slider">
-                                <img src={image} alt="" />
-                            </div>
+                            <img src={image} alt="" />
                         </div>
                     ))}
                 </Slider>
