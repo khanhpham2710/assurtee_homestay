@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
 import { BusinessType, updateInfo } from '../../utils/redux/infoSlice';
 import { PersonalType } from '../../utils/redux/infoSlice';
@@ -25,8 +25,14 @@ export default function FilledPersonalInfo() {
         setForm2((prev) => ({ ...prev, [key]: value }));
     };
 
-    const allChecked1: boolean = validatePersonalField(form1);
-    const allChecked2: boolean = validateBusinessField(form2);
+    const allChecked1: boolean = useMemo(
+        () => validatePersonalField(form1),
+        [form1]
+    );
+    const allChecked2: boolean = useMemo(
+        () => validateBusinessField(form2),
+        [form2]
+    );
 
     const handleSubmit1 = async () => {
         if (allChecked1) {

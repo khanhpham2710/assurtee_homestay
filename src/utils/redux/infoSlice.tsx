@@ -2,12 +2,33 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage } from '../axios/axios';
 import { AxiosError } from 'axios';
 
-const postImageData = createAsyncThunk(
+export interface ImageData {
+    images: [
+        {
+            bizLicense: {
+                result: {
+                    bisAddres: {
+                        text: string;
+                    };
+                    registerNumber: {
+                        text: string;
+                    };
+                    companyName: {
+                        text: string;
+                    };
+                    corpName: { text: string };
+                };
+            };
+        },
+    ];
+}
+
+export const postImageData = createAsyncThunk<ImageData, Blob>(
     'user/postImage',
     async (image: Blob, thunkAPI) => {
         try {
             const response = await postImage(image);
-            return response.data;
+            return response;
         } catch (error) {
             if (error instanceof AxiosError) {
                 return thunkAPI.rejectWithValue(error.response?.data);
@@ -21,7 +42,6 @@ const postImageData = createAsyncThunk(
         }
     }
 );
-
 
 export interface PersonalType {
     contractor: string;
@@ -49,16 +69,15 @@ export interface InsuranceAmountType {
     area: number;
 }
 
-
-
-interface statusRedux {
+interface StatusRedux {
     error: unknown;
     status: string;
 }
+
 export interface InfoType
     extends PersonalType,
         BusinessType,
-        statusRedux,
+        StatusRedux,
         InsuranceAmountType {}
 
 const initialState: InfoType = {
@@ -95,19 +114,20 @@ const infoSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(postImageData.fulfilled, (state, action) => {
+        builder.addCase(
+            postImageData.fulfilled,
+            (state, action: PayloadAction<ImageData>) => {
+                const payload = action.payload.images[0].bizLicense.result;
 
-            const payload = (action.payload as any).images[0].bizLicense.result;
-            
-            state.address = payload.bisAddres.text
-            state.extra = payload.bisAddres.text
-            state.registrationNumber = payload.registerNumber.text
-            state.businessName = payload.companyName.text || payload.corpName.text
-            // state.contractor = payload.repName.text
-
-        });
+                state.address = payload.bisAddres.text;
+                state.registrationNumber = payload.registerNumber.text;
+                state.businessName =
+                    payload.companyName.text || payload.corpName.text;
+                // state.contractor = payload.repName.text
+            }
+        );
         builder.addCase(postImageData.rejected, (state, action) => {
-            state.error = action?.payload;
+            state.error = action.payload;
         });
     },
 });

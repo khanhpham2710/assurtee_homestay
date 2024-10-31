@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import { BusinessType } from '../../utils/redux/infoSlice';
@@ -28,7 +28,14 @@ const FilledBusinessInfo: React.FC = () => {
         }
     };
 
-    const allChecked: boolean = validateBusinessField(form);
+    useEffect(() => {
+        handleChange('extra', form.address);
+    }, [item]);
+
+    const allChecked: boolean = useMemo(
+        () => validateBusinessField(form),
+        [form]
+    );
 
     const handleSubmit = async () => {
         if (allChecked) {

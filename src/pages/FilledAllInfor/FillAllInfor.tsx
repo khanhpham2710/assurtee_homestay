@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { updateInfo, InfoType } from '../../utils/redux/infoSlice';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
@@ -32,10 +32,13 @@ function FillAllInfor({
         setForm((prev) => ({ ...prev, fireInsurance: item }));
     }, [item]);
 
-    const allChecked: boolean =
-        validateAmountField(form) &&
-        validateBusinessField(form) &&
-        validatePersonalField(form);
+    const allChecked: boolean = useMemo(() => {
+        return (
+            validateAmountField(form) &&
+            validateBusinessField(form) &&
+            validatePersonalField(form)
+        );
+    }, [form]);
 
     const handleSubmit = async () => {
         if (allChecked) {

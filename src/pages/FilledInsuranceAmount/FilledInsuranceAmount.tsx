@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Question from '../../components/Questions/Question';
 import InsuranceAmount from '../../components/FilledInsuranceAmount/InsuranceAmount';
 import Terms from '../../components/FilledInsuranceAmount/Terms';
@@ -26,7 +26,9 @@ function FilledInsuranceAmount() {
 
     const [checkAll, setCheckAll] = useState<boolean>(true);
 
-    const buttonActive: boolean = checkAll && validateAmountField(form);
+    const buttonActive = useMemo(() => {
+        return checkAll && validateAmountField(form);
+    }, [checkAll, form]);
 
     const handleSubmit = async () => {
         if (buttonActive) {
