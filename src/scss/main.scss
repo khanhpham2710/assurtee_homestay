@@ -1,5 +1,6 @@
 @use './layout/index' as lo;
 @use './components/index' as c;
+@use 'sass:list';
 
 * {
     margin: 0;
@@ -42,8 +43,8 @@ $font-styles: (
     }
 }
 
-@for $i from 1 through length($font-styles) {
-    $font-name: nth($font-styles, $i);
+@for $i from 1 through list.length($font-styles) {
+    $font-name: list.nth($font-styles, $i);
     @include font-face($font-name);
 }
 

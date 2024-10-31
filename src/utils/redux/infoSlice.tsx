@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage, base64ToBlob } from '../axios/axios';
+import { AxiosError } from 'axios';
 
 const postImageData = createAsyncThunk(
     'user/postImage',
@@ -7,8 +8,16 @@ const postImageData = createAsyncThunk(
         try {
             const response = await postImage(image);
             return response;
-        } catch (error: any) {
-            return thunkAPI.rejectWithValue(error.response.data);
+        } catch (error) {
+            if (error instanceof AxiosError) {
+                return thunkAPI.rejectWithValue(error.response?.data);
+            } else if (error instanceof Error) {
+                return thunkAPI.rejectWithValue({ message: error.message });
+            } else {
+                return thunkAPI.rejectWithValue({
+                    message: 'An unknown error occurred.',
+                });
+            }
         }
     }
 );
@@ -40,7 +49,7 @@ export interface InsuranceAmountType {
 }
 
 interface statusRedux {
-    error: any;
+    error: unknown;
     status: string;
 }
 export interface InfoType
@@ -83,9 +92,9 @@ const infoSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(postImageData.fulfilled, (state, action: any) => {});
-        builder.addCase(postImageData.rejected, (state, action: any) => {
-            state.error = action.payload.data;
+        builder.addCase(postImageData.fulfilled, (state, action) => {});
+        builder.addCase(postImageData.rejected, (state, action) => {
+            state.error = action?.payload;
         });
     },
 });
