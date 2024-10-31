@@ -9,9 +9,8 @@ import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
 import { useState, useEffect } from 'react';
 import MyModal from '../../components/MyModal/MyModal';
 import FillAllInfor from '../FilledAllInfor/FillAllInfor';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../utils/redux/store';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../utils/hooks/reduxHooks';
 
 function InsuranceInfo() {
     const [checked, setChecked] = useState<boolean>(true);
@@ -19,7 +18,7 @@ function InsuranceInfo() {
     const [open, setOpen] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    const state = useSelector((state: RootState) => state.info);
+    const state = useAppSelector((state) => state.info);
 
     const checkAllFilled = () => {
         const requiredFields = [

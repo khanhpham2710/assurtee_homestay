@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { postImage, base64ToBlob } from '../axios/axios';
+import { postImage } from '../axios/axios';
 import { AxiosError } from 'axios';
 
 const postImageData = createAsyncThunk(

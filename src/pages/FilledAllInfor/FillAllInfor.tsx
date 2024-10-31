@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { updateInfo, InfoType } from '../../utils/redux/infoSlice';
-import { RootState } from '../../utils/redux/store';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import DateInputs from '../../components/Inputs/DateInputs';
@@ -12,14 +10,15 @@ import {
     validateBusinessField,
     validatePersonalField,
 } from '../../utils/validation/validatefields';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 
 function FillAllInfor({
     setOpen,
 }: {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-    const dispatch = useDispatch();
-    const info: InfoType = useSelector((state: RootState) => state.info);
+    const dispatch = useAppDispatch();
+    const info: InfoType = useAppSelector((state) => state.info);
 
     const [form, setForm] = useState<InfoType>(info);
     const items: Array<'1억' | '3억' | '5억'> = ['1억', '3억', '5억'];

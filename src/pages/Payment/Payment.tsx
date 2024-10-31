@@ -3,8 +3,7 @@ import images from '../../assets/images';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
 import RegistrationInfoBox from '../../components/InsuranceInfo/RegistrationInfoBox';
 import PaymentInfoBox from './PaymentInfoBox';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../utils/redux/store';
+import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import UnpaidModal from '../../components/UnpaidModal/UnpaidModal';
@@ -34,7 +33,7 @@ function Payment() {
     };
 
     const navigate = useNavigate();
-    const state = useSelector((state: RootState) => state.info);
+    const state = useAppSelector((state) => state.info);
 
     const allFieldsFilled = [
         state.businessName,

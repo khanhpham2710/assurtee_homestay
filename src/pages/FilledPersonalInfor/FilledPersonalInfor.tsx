@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
-import { useDispatch, useSelector } from 'react-redux';
 import { BusinessType, updateInfo } from '../../utils/redux/infoSlice';
 import { PersonalType } from '../../utils/redux/infoSlice';
 import { useNavigate } from 'react-router-dom';
-import { RootState } from '../../utils/redux/store';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import {
     validateBusinessField,
     validatePersonalField,
 } from '../../utils/validation/validatefields';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 
 export default function FilledPersonalInfo() {
-    const info = useSelector((state: RootState) => state.info);
-    const dispatch = useDispatch();
+    const info = useAppSelector((state) => state.info);
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const [form1, setForm1] = useState<PersonalType>(info);
     const [form2, setForm2] = useState<BusinessType>(info);
