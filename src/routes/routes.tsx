@@ -9,11 +9,12 @@ import FilledPersonalInfor from '../pages/FilledPersonalInfor/FilledPersonalInfo
 import FilledBusinessInfor from '../pages/FilledBusinessInfor/FilledBusinessInfor';
 import SearchAddress from '../pages/SearchAddress/SearchAddress';
 import Payment from '../pages/Payment/Payment';
+import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmount';
+import LoadingPage from '../pages/Loading/Loading';
 
 // headers
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
-import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmount';
 
 type RouteType = {
     path: string;
@@ -58,8 +59,13 @@ const routes: RouteType[] = [
         component: Payment,
         header: <Header2 title="결제" backTo="/insurance-infor" />,
     },
+    {
+        path: '/loading',
+        component: LoadingPage,
+        header: null,
+    },
 
-    { path: '/completed', component: CompletedPage, header: <Header1 /> },
+    { path: '/complete', component: CompletedPage, header: <Header1 /> },
 ];
 
 export default routes;

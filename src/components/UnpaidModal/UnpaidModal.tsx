@@ -1,22 +1,10 @@
 import * as React from 'react';
-import Backdrop from '@mui/material/Backdrop';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
 import { SxProps, Typography } from '@mui/material';
-import { Theme } from '@emotion/react';
-
-const style: React.CSSProperties = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 312,
-    height: 212,
-    backgroundColor: '#fff',
-    boxShadow: '24px',
-    borderRadius: 8,
-    overflow: 'hidden',
-};
+import { Theme } from '@mui/system';
+import { styled } from '@mui/material/styles';
+import DialogActions from '@mui/material/DialogActions';
 
 const fontStyle: SxProps<Theme> = {
     fontFamily: 'AppleSDGothicNeoM',
@@ -30,84 +18,101 @@ const fontStyle: SxProps<Theme> = {
     },
 };
 
-type ModalType = {
+type DialogProps = {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function UnpaidModal({ open, setOpen }: ModalType) {
-    const handleClose = () => setOpen(false);
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+}));
+
+export default function CustomizedDialogs({ open, setOpen }: DialogProps) {
+    const handleCheck = () => {
+        setOpen(false);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     return (
-        <div>
-            <button onClick={() => setOpen(true)}>Open modal</button>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                open={open}
+        <React.Fragment>
+            <BootstrapDialog
                 onClose={handleClose}
-                closeAfterTransition
-                slots={{ backdrop: Backdrop }}
-                slotProps={{
-                    backdrop: {
-                        timeout: 500,
-                    },
+                aria-labelledby="customized-dialog-title"
+                open={open}
+                sx={{
+                    padding: 0,
                 }}
-                role="dialog"
             >
-                <Fade in={open}>
+                <DialogContent
+                    dividers
+                    sx={{
+                        padding: '0 !important',
+                    }}
+                >
                     <div
-                        style={style}
-                        className="dflex_spacebetween flexColumn_item"
+                        className="dflex_center flexColumn_item"
+                        style={{
+                            width: 312,
+                            height: 162,
+                            padding: '32px 24px 30px',
+                            gap: '12px',
+                            textAlign: 'center',
+                        }}
                     >
-                        <div
-                            className="dflex_center flexColumn_item"
+                        <p
                             style={{
-                                width: '100%',
-                                height: 'calc(100% - 50px)',
-                                padding: '32px 24px 30px',
-                                gap: '12px',
-                                textAlign: 'center',
-                            }}
-                        >
-                            <p
-                                style={{
-                                    fontFamily: 'AppleSDGothicNeoH',
-                                    fontSize: 22,
-                                    lineHeight: '1.27',
-                                    color: '#000',
-                                }}
-                            >
-                                결제가 완료되지 않았습니다.
-                            </p>
-                            <Typography
-                                id="transition-modal-description"
-                                sx={fontStyle}
-                            >
-                                계속해서 문제가 발생할 경우 <br />
-                                어슈어티 고객센터{' '}
-                                <a href="tel:1533-1291">1533-1291</a>로 <br />
-                                문의 주시기 바랍니다.
-                            </Typography>
-                        </div>
-                        <button
-                            onClick={handleClose}
-                            style={{
-                                height: 50,
-                                backgroundColor: '#333647',
-                                width: '100%',
-                                fontSize: 16,
                                 fontFamily: 'AppleSDGothicNeoH',
-                                cursor: 'pointer',
-                                lineHeight: 1.75,
-                                color: '#fff',
+                                fontSize: 22,
+                                lineHeight: '1.27',
+                                color: '#000',
                             }}
                         >
-                            확인
-                        </button>
+                            결제가 완료되지 않았습니다.
+                        </p>
+                        <Typography
+                            id="transition-modal-description"
+                            sx={fontStyle}
+                        >
+                            계속해서 문제가 발생할 경우 <br />
+                            어슈어티 고객센터{' '}
+                            <a href="tel:1533-1291">1533-1291</a>
+                            로 <br />
+                            문의 주시기 바랍니다.
+                        </Typography>
                     </div>
-                </Fade>
-            </Modal>
-        </div>
+                </DialogContent>
+                <DialogActions
+                    sx={{
+                        padding: '0 !important',
+                    }}
+                >
+                    <button
+                        onClick={handleCheck}
+                        style={{
+                            width: 312,
+                            height: 50,
+                            backgroundColor: '#333647',
+                            fontSize: 16,
+                            fontFamily: 'AppleSDGothicNeoH',
+                            cursor: 'pointer',
+                            lineHeight: 1.75,
+                            color: '#fff',
+                            border: 'none',
+                            outline: 'none',
+                        }}
+                    >
+                        확인
+                    </button>
+                </DialogActions>
+            </BootstrapDialog>
+        </React.Fragment>
     );
 }

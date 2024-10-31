@@ -4,8 +4,8 @@ import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
 import RegistrationInfoBox from '../../components/InsuranceInfo/RegistrationInfoBox';
 import PaymentInfoBox from './PaymentInfoBox';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import UnpaidModal from '../../components/UnpaidModal/UnpaidModal';
 
 type Fee = {
@@ -14,6 +14,17 @@ type Fee = {
 };
 
 function Payment() {
+    const location = useLocation();
+    const { isPaid }: { isPaid: boolean } = location.state || {};
+
+    useEffect(() => {
+        if (isPaid) {
+            navigate('/complete');
+        } else if (!isPaid && isPaid != undefined) {
+            setModalOpen(true);
+        }
+    }, [isPaid]);
+
     const fees: Fee[] = [
         {
             name: '화재보장 부문',
@@ -44,7 +55,7 @@ function Payment() {
     ].every((field) => field);
 
     function handleClick() {
-        navigate('/completed');
+        navigate('/loading');
     }
 
     const totalFee =
