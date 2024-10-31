@@ -40,7 +40,7 @@ export default function UnpaidModal({ open, setOpen }: ModalType) {
 
     return (
         <div>
-            {/* <button onClick={() => setOpen(true)}>Open modal</button> */}
+            <button onClick={() => setOpen(true)}>Open modal</button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
