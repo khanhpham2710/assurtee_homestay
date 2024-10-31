@@ -1,6 +1,22 @@
+import { useEffect } from 'react';
 import images from '../../assets/images';
+import { useNavigate } from 'react-router-dom';
 
 function LoadingPage() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (Math.floor(Math.random() * 2) === 0) {
+                navigate('/payment', { state: { isPaid: false } });
+            } else {
+                navigate('/payment', { state: { isPaid: true } });
+            }
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [navigate]);
+
     return (
         <div
             className="dflex_center flexColumn_item"
@@ -16,6 +32,7 @@ function LoadingPage() {
             <img
                 src={images.Loading}
                 style={{ width: '64px', height: '64px' }}
+                alt="Loading"
             />
             <h3
                 style={{

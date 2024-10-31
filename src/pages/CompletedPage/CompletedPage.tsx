@@ -1,27 +1,10 @@
 import images from '../../assets/images';
 import { useNavigate } from 'react-router-dom';
-import LoadingPage from '../../components/Loading/Loading';
-import { useEffect, useState } from 'react';
 
 function CompletedPage() {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState<boolean>(true);
 
-    const handleHomeClick = () => {
-        navigate('/');
-    };
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 5000);
-
-        return () => clearTimeout(timer);
-    }, []);
-
-    if (loading) {
-        return <LoadingPage />;
-    }
+    const handleClick = () => {};
 
     return (
         <div
@@ -56,7 +39,11 @@ function CompletedPage() {
                 가입확인서는 입력하신 <br />
                 핸드폰 번호 카카오톡으로 보내드렸습니다.
             </p>
-            <button className="button2 active" style={{ marginTop: '32px' }}>
+            <button
+                className="button2 active"
+                style={{ marginTop: '32px' }}
+                onClick={handleClick}
+            >
                 가입내역 확인
             </button>
             <p
@@ -70,7 +57,7 @@ function CompletedPage() {
                     textAlign: 'center',
                     cursor: 'pointer',
                 }}
-                onClick={handleHomeClick}
+                onClick={() => navigate('/')}
             >
                 홈으로
             </p>
