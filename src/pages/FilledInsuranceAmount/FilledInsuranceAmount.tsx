@@ -1,20 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Question from '../../components/Questions/Question';
 import InsuranceAmount from '../../components/FilledInsuranceAmount/InsuranceAmount';
 import Terms from '../../components/FilledInsuranceAmount/Terms';
 import { InsuranceAmountType, updateInfo } from '../../utils/redux/infoSlice';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../utils/redux/store';
 import { validateAmountField } from '../../utils/validation/validatefields';
+import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 
 function FilledInsuranceAmount() {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const items: Array<'1억' | '3억' | '5억'> = ['1억', '3억', '5억'];
     const [item, setItem] = useState<'1억' | '3억' | '5억'>(items[0]);
 
-    const info = useSelector((state: RootState) => state.info);
+    const info = useAppSelector((state) => state.info);
 
     const [form, setForm] = useState<InsuranceAmountType>(info);
 
@@ -27,7 +26,9 @@ function FilledInsuranceAmount() {
 
     const [checkAll, setCheckAll] = useState<boolean>(true);
 
-    const buttonActive: boolean = checkAll && validateAmountField(form);
+    const buttonActive = useMemo(() => {
+        return checkAll && validateAmountField(form);
+    }, [checkAll, form]);
 
     const handleSubmit = async () => {
         if (buttonActive) {

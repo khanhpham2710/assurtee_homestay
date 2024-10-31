@@ -284,7 +284,6 @@ export default function HomePage() {
                 </Box>
             </section>
 
-
             {/* Landing Fee */}
             <section
                 className="dflex_center fullWidth_item flexColumn_item "
@@ -411,7 +410,6 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-
 
             {/* Button Fixed */}
             <section className="button_container">

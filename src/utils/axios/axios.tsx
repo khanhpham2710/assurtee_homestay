@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { ImageData } from '../redux/infoSlice';
 
 const BASE_AXIOS: AxiosInstance = axios.create({
     baseURL: import.meta.env.VITE_BASE_URL,
@@ -8,9 +9,7 @@ const BASE_AXIOS: AxiosInstance = axios.create({
     withCredentials: true,
 });
 
-export const postImage = async (
-    blobImage: Blob
-): Promise<AxiosResponse<unknown>> => {
+export const postImage = async (blobImage: Blob): Promise<ImageData> => {
     const formData = new FormData();
     formData.append(
         'message',
@@ -25,8 +24,11 @@ export const postImage = async (
     formData.append('file', blobImage);
 
     try {
-        const response = await BASE_AXIOS.post('', formData);
-        return response;
+        const response: AxiosResponse<ImageData> = await BASE_AXIOS.post(
+            '',
+            formData
+        );
+        return response.data;
     } catch (error) {
         console.log('error: ', error);
         throw error;
