@@ -5,9 +5,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const RegistrationInput = styled(CustomInput)`
-    font-size: 60px;
-    letter-spacing: -30px;
+    font-size: 50px;
+    letter-spacing: -25px;
     caret-color: transparent;
+    padding-top: 5px;
+
     &::-ms-reveal,
     ::-ms-clear {
         display: none;
@@ -65,15 +67,18 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                         onChange={(e) => handleChange('dob', numberOnly(e))}
                         autoComplete="off"
                     />
-                    <p
-                        style={{
-                            fontSize: '60px',
-                            lineHeight: '1',
-                            transform: 'translateY(-15%)',
-                        }}
+                    <div
+                        className="dflex_center"
+                        style={{ height: '50px', width: '10px' }}
                     >
-                        -
-                    </p>
+                        <div
+                            style={{
+                                height: '2px',
+                                width: '13.5px',
+                                backgroundColor: '#000',
+                            }}
+                        ></div>
+                    </div>
                     <RegistrationInput
                         id="registrationNumber"
                         placeholder="•••••••"
