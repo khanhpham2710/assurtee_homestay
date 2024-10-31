@@ -8,7 +8,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier';
 export default [
     {
         ignores: ['node_modules', '**/*.test.js'],
-        files: ['**/*.{js,mjs,cjs,ts,jsx,tsx,scss}'],
+        files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
         languageOptions: {
             globals: globals.browser,
             parser: tsParser,
@@ -21,7 +21,7 @@ export default [
             ...pluginJs.configs.recommended.rules,
             ...tseslint.configs.recommended.rules,
             ...pluginReact.configs.flat.recommended.rules,
-            'prettier/prettier': 'error', 
+            'prettier/prettier': 'error',
             'react/react-in-jsx-scope': 'off',
         },
         settings: {

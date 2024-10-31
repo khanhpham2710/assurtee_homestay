@@ -1,10 +1,6 @@
-import { useSelector } from 'react-redux';
 import InsuranceDetailsBox, { InfoProps } from './InsuranceDetailsBox';
-import { RootState } from '../../utils/redux/store';
 
 function InsuranceDetails() {
-    const info = useSelector((state: RootState) => state.info);
-
     const infos: InfoProps[] = [
         {
             title: '화재/붕괴/침강/사태 손해(주택)',

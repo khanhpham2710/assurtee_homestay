@@ -2,7 +2,6 @@ import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
 import { SxProps, Typography } from '@mui/material';
 import { Theme } from '@emotion/react';
 
@@ -41,7 +40,7 @@ export default function UnpaidModal({ open, setOpen }: ModalType) {
 
     return (
         <div>
-            <Button onClick={() => setOpen(true)}>Open modal</Button>
+            {/* <button onClick={() => setOpen(true)}>Open modal</button> */}
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
