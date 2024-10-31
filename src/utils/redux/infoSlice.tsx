@@ -2,25 +2,44 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage } from '../axios/axios';
 import { AxiosError } from 'axios';
 
-export interface ImageData {
-    images: [
-        {
-            bizLicense: {
-                result: {
-                    bisAddres: {
-                        text: string;
-                    };
-                    registerNumber: {
-                        text: string;
-                    };
-                    companyName: {
-                        text: string;
-                    };
-                    corpName: { text: string };
-                };
+interface BoundingPoly {
+    vertices: {
+        x: number;
+        y: number;
+    }[];
+}
+
+interface TextResult {
+    text: string;
+    keyText?: string;
+    confidenceScore?: number;
+    boundingPolys?: BoundingPoly[];
+}
+
+interface BizLicenseResult {
+    birth?: TextResult[];
+    bisAddress?: TextResult[];
+    registerNumber?: TextResult[];
+    companyName?: TextResult[];
+    corpName?: TextResult[];
+}
+
+interface ImageData {
+    images?: {
+        uid?: string;
+        name?: string;
+        inferResult?: string;
+        message?: string;
+        validationResult?: {
+            result?: string;
+        };
+        bizLicense?: {
+            meta?: {
+                estimatedLanguage?: string;
             };
-        },
-    ];
+            result?: BizLicenseResult;
+        };
+    }[];
 }
 
 export const postImageData = createAsyncThunk<ImageData, Blob>(
@@ -28,7 +47,7 @@ export const postImageData = createAsyncThunk<ImageData, Blob>(
     async (image: Blob, thunkAPI) => {
         try {
             const response = await postImage(image);
-            return response;
+            return response.data;
         } catch (error) {
             if (error instanceof AxiosError) {
                 return thunkAPI.rejectWithValue(error.response?.data);
@@ -117,13 +136,17 @@ const infoSlice = createSlice({
         builder.addCase(
             postImageData.fulfilled,
             (state, action: PayloadAction<ImageData>) => {
-                const payload = action.payload.images[0].bizLicense.result;
+                const payload = action.payload.images?.[0]?.bizLicense?.result;
 
-                state.address = payload.bisAddres.text;
-                state.registrationNumber = payload.registerNumber.text;
-                state.businessName =
-                    payload.companyName.text || payload.corpName.text;
-                // state.contractor = payload.repName.text
+                if (payload) {
+                    state.address = payload.bisAddress?.[0]?.text || '';
+                    state.registrationNumber =
+                        payload.registerNumber?.[0]?.text || '';
+                    state.businessName =
+                        payload.companyName?.[0]?.text ||
+                        payload.corpName?.[0]?.text ||
+                        '';
+                }
             }
         );
         builder.addCase(postImageData.rejected, (state, action) => {
