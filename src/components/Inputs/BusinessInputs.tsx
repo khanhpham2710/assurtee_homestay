@@ -3,14 +3,23 @@ import { Link } from 'react-router-dom';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
-import { TextField } from '@mui/material';
-
+import { Box, TextField } from '@mui/material';
+import { usePostcodePopup  } from '../../components/SearchPopUp/SearchPopUp';
+import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import { RootState } from '../../utils/redux/store';
+import { useEffect } from 'react';
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
 };
 
 function BusinessInputs({ form, handleChange }: InputsProps) {
+    const {address} = useAppSelector((state:RootState) => state.info);
+
+
+    const { handleClick } = usePostcodePopup({handleChange});
+
+
     return (
         <form className="dflex-column" style={{ width: '100%' }}>
             <InputSection>
@@ -99,18 +108,25 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                                 },
                             },
                         }}
+                        
+                        value = {form.address}
                     />
 
-                    <Link
-                        to="/search-address"
+                    <Box
+                        // to="/search-address"
                         style={{
                             minHeight: '50px',
                             textDecoration: 'none',
                         }}
                         className="dflex_center"
                     >
-                        <button className="address-button">주소검색</button>
-                    </Link>
+                        <button
+                            onClick={handleClick}
+                            className="address-button"
+                        >
+                            주소검색
+                        </button>
+                    </Box>
                 </section>
             </InputSection>
             <InputSection>
