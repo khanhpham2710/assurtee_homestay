@@ -2,7 +2,8 @@ import HomeIcon from '/Image/Icons/HomeIcon.png';
 import ArrowIconDown from '/Image/Icons/ArrowIconDown.png';
 import ArrowIconRight from '/Image/Icons/ArrowIconRight.png';
 import ImageIcon from '/Image/Icons/ImageIcon.png';
-
+import Camera from '/Image/Icons/Camera.png';
+import Picture from '/Image/Icons/Picture.png';
 
 import BackButton from '/Image/Buttons/BackButton.png';
 import chosedButton from '/Image/Buttons/ChosedButton.png';
@@ -86,7 +87,9 @@ const images = {
     bottom_carousel_3,
     ScrollUp,
     ScrollDown,
-    ImageIcon
+    ImageIcon,
+    Picture,
+    Camera,
 };
 
 export default images;

@@ -1,13 +1,7 @@
-@forward "./banner";
-@forward "./footer";
-@forward "./video_component";
-@forward "./title_main_component";
-
-
-
-
-
-
+@forward './banner';
+@forward './footer';
+@forward './video_component';
+@forward './title_main_component';
 
 .button_container {
     // background-color: #fff;
@@ -31,5 +25,3 @@
         // padding: 0 16px;
     }
 }
-
-
