@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import Question from '../../components/Questions/Question';
@@ -21,16 +21,8 @@ const FilledBusinessInfo: React.FC = () => {
     const items = ['예', '아니오'];
 
     const handleChange = (key: keyof BusinessType, value: string) => {
-        if (item === '예' && (key === 'address' || key === 'extra')) {
-            setForm((prev) => ({ ...prev, extra: value, address: value }));
-        } else {
-            setForm((prev) => ({ ...prev, [key]: value }));
-        }
+        setForm((prev) => ({ ...prev, [key]: value }));
     };
-
-    useEffect(() => {
-        handleChange('extra', form.address);
-    }, [item]);
 
     const allChecked: boolean = useMemo(
         () => validateBusinessField(form),

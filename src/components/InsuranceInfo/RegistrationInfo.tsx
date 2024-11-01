@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import RegistrationInfoBox, { InfoProps } from './RegistrationInfoBox';
-import { InfoType } from '../../utils/redux/infoSlice';
 import { RootState } from '../../utils/redux/store';
 import { useMemo } from 'react';
+import { InfoType } from '../../utils/models/InfoType';
 
 function RegistrationInfo() {
     const state: InfoType = useSelector((state: RootState) => state.info);
