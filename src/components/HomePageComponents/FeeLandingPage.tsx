@@ -105,7 +105,7 @@ export default function FeeLandingPage() {
                                         marginBottom: '30px',
                                     }}
                                 />
-                                {detail.items.map((item, index) => {
+                                {detail?.items.map((item, index) => {
                                     return (
                                         <div key={index}>
                                             <Box
@@ -153,10 +153,7 @@ export default function FeeLandingPage() {
                                                     >
                                                         {item.value}
                                                     </Typography>
-                                                    <MyToolTip
-                                                        text={[]}
-                                                        align="left"
-                                                    />
+                                                    <MyToolTip align="left" />
                                                 </div>
                                             </Box>
                                             <Divider

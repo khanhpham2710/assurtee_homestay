@@ -48,6 +48,7 @@ function CompletedPage() {
             </button>
             <p
                 style={{
+                    fontFamily: 'AppleSDGothicNeoM',
                     position: 'absolute',
                     bottom: '40px',
                     width: '100%',

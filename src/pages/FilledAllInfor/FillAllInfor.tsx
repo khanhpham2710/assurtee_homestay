@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { updateInfo, InfoType } from '../../utils/redux/infoSlice';
+import { updateInfo } from '../../utils/redux/infoSlice';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import DateInputs from '../../components/Inputs/DateInputs';
@@ -11,6 +11,7 @@ import {
     validatePersonalField,
 } from '../../utils/validation/validatefields';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
+import { InfoType } from '../../utils/models/InfoType';
 
 function FillAllInfor({
     setOpen,

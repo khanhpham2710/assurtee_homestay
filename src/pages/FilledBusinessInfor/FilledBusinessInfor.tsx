@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
-import { BusinessType } from '../../utils/redux/infoSlice';
 import Question from '../../components/Questions/Question';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { validateBusinessField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
+import { BusinessType } from '../../utils/models/InfoType';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useAppSelector((state) => state.info);

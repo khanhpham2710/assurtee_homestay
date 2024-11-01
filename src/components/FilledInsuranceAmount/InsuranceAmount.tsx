@@ -1,8 +1,8 @@
 import { CustomInput, InputSection } from '../Input/CustomInput';
 import { numberOnly } from '../../utils/validation/number';
 import OptionInput from '../Input/OptionInput';
-import { InsuranceAmountType } from '../../utils/redux/infoSlice';
 import SliderInput from '../Input/SliderInput';
+import { InsuranceAmountType } from '../../utils/models/InfoType';
 
 type PropsType = {
     form: InsuranceAmountType;

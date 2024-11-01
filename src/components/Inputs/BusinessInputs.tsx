@@ -1,8 +1,8 @@
-import { BusinessType } from '../../utils/redux/infoSlice';
 import { CustomInput, InputSection } from '../Input/CustomInput';
 import { Link } from 'react-router-dom';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
+import { BusinessType } from '../../utils/models/InfoType';
 
 type InputsProps = {
     form: BusinessType;

@@ -1,8 +1,8 @@
-import { PersonalType } from '../../utils/redux/infoSlice';
 import { CustomInput, InputSection } from '../Input/CustomInput';
 import { numberOnly } from '../../utils/validation/number';
 import React from 'react';
 import styled from 'styled-components';
+import { PersonalType } from '../../utils/models/InfoType';
 
 const RegistrationInput = styled(CustomInput)`
     font-size: 50px;

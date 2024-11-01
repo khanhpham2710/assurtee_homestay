@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
-import { BusinessType, updateInfo } from '../../utils/redux/infoSlice';
-import { PersonalType } from '../../utils/redux/infoSlice';
+import { updateInfo } from '../../utils/redux/infoSlice';
 import { useNavigate } from 'react-router-dom';
 import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import {
@@ -9,6 +8,7 @@ import {
     validatePersonalField,
 } from '../../utils/validation/validatefields';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
+import { BusinessType, PersonalType } from '../../utils/models/InfoType';
 
 export default function FilledPersonalInfo() {
     const info = useAppSelector((state) => state.info);
