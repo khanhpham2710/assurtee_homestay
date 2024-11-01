@@ -27,7 +27,7 @@ export default function Card_Banner({
                 {subdesc && <p className="title_card_subdesc">{subdesc}</p>}
             </div>
             <div className="card_item_right">
-                <img src={`${icon}`} alt="" />
+                <img src={icon} alt="" />
             </div>
         </div>
     );
