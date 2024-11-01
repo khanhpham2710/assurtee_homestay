@@ -1,26 +1,33 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
-import { SxProps, Typography } from '@mui/material';
-import { Theme } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import DialogActions from '@mui/material/DialogActions';
-
-const fontStyle: SxProps<Theme> = {
-    fontFamily: 'AppleSDGothicNeoM',
-    fontSize: 16,
-    lineHeight: 1.25,
-    textAlign: 'center',
-    color: '#000',
-    '& a': {
-        color: '#0068e2',
-        textDecoration: 'underline',
-    },
-};
+import images from '../../assets/images';
 
 type DialogProps = {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    setImage: React.Dispatch<React.SetStateAction<File | null>>;
+};
+
+const buttonStyle: React.CSSProperties = {
+    width: 264,
+    height: 50,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: '0 24px',
+    padding: '6px 20px',
+    borderRadius: 120,
+    backgroundColor: '#e7ecf3',
+};
+
+const fontStyle: React.CSSProperties = {
+    fontFamily: 'AppleSDGothicNeoB',
+    fontSize: 16,
+    textAlign: 'left',
+    color: '#333647',
 };
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -36,13 +43,32 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export default function UnpaidModal({ open, setOpen }: DialogProps) {
+export default function UnpaidModal({ open, setOpen, setImage }: DialogProps) {
+    const libraryInputRef = React.useRef<HTMLInputElement | null>(null);
+    const cameraInputRef = React.useRef<HTMLInputElement | null>(null);
+
     const handleCheck = () => {
         setOpen(false);
     };
 
     const handleClose = () => {
         setOpen(false);
+    };
+
+    const handleLibraryClick = () => {
+        libraryInputRef.current?.click();
+    };
+
+    const handleCameraClick = () => {
+        cameraInputRef.current?.click();
+    };
+
+    const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const files = event.target.files;
+        if (files) {
+            setImage(files[0]);
+            setOpen(false);
+        }
     };
 
     return (
@@ -62,8 +88,8 @@ export default function UnpaidModal({ open, setOpen }: DialogProps) {
                         className="dflex_center flexColumn_item"
                         style={{
                             width: 312,
-                            height: 162,
-                            padding: '32px 24px 30px',
+                            height: 230,
+                            padding: '40px 24px 32px',
                             gap: '12px',
                             textAlign: 'center',
                         }}
@@ -78,16 +104,35 @@ export default function UnpaidModal({ open, setOpen }: DialogProps) {
                         >
                             사진을 추가해 주세요.
                         </p>
-                        <Typography
-                            id="transition-modal-description"
-                            sx={fontStyle}
-                        >
-                            계속해서 문제가 발생할 경우 <br />
-                            어슈어티 고객센터{' '}
-                            <a href="tel:1533-1291">1533-1291</a>
-                            로 <br />
-                            문의 주시기 바랍니다.
-                        </Typography>
+                        <div style={buttonStyle} onClick={handleLibraryClick}>
+                            <div className="dflex_center" style={{ gap: 8 }}>
+                                <img src={images.Camera} />
+                                <p style={fontStyle}>사진 보관함</p>
+                            </div>
+                            <img src={images.ArrowIconRight} />
+                        </div>
+                        <div style={buttonStyle} onClick={handleCameraClick}>
+                            <div className="dflex_center" style={{ gap: 8 }}>
+                                <img src={images.Picture} />
+                                <p style={fontStyle}>사진 찍기</p>
+                            </div>
+                            <img src={images.ArrowIconRight} />
+                        </div>
+                        <input
+                            type="file"
+                            ref={libraryInputRef}
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={handleFileSelect}
+                        />
+                        <input
+                            type="file"
+                            ref={cameraInputRef}
+                            accept="image/*"
+                            capture="environment"
+                            style={{ display: 'none' }}
+                            onChange={handleFileSelect}
+                        />
                     </div>
                 </DialogContent>
                 <DialogActions
@@ -110,7 +155,7 @@ export default function UnpaidModal({ open, setOpen }: DialogProps) {
                             outline: 'none',
                         }}
                     >
-                        확인
+                        닫기
                     </button>
                 </DialogActions>
             </BootstrapDialog>
