@@ -1,46 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage } from '../axios/axios';
 import { AxiosError } from 'axios';
-
-interface BoundingPoly {
-    vertices: {
-        x: number;
-        y: number;
-    }[];
-}
-
-interface TextResult {
-    text: string;
-    keyText?: string;
-    confidenceScore?: number;
-    boundingPolys?: BoundingPoly[];
-}
-
-interface BizLicenseResult {
-    birth?: TextResult[];
-    bisAddress?: TextResult[];
-    registerNumber?: TextResult[];
-    companyName?: TextResult[];
-    corpName?: TextResult[];
-}
-
-interface ImageData {
-    images?: {
-        uid?: string;
-        name?: string;
-        inferResult?: string;
-        message?: string;
-        validationResult?: {
-            result?: string;
-        };
-        bizLicense?: {
-            meta?: {
-                estimatedLanguage?: string;
-            };
-            result?: BizLicenseResult;
-        };
-    }[];
-}
+import { InfoType } from '../models/InfoType';
+import { ImageData } from '../models/ImageData';
 
 export const postImageData = createAsyncThunk<ImageData, Blob>(
     'user/postImage',
@@ -61,43 +23,6 @@ export const postImageData = createAsyncThunk<ImageData, Blob>(
         }
     }
 );
-
-export interface PersonalType {
-    contractor: string;
-    dob: string;
-    registrationNumber: string;
-    phoneNumber: string;
-}
-
-export interface BusinessType {
-    division: '개인' | '법인' | '';
-    businessNumber: string;
-    businessName: string;
-    sameAddress: boolean;
-    address: string;
-    extra: string;
-    hanok: '예' | '아니요' | '';
-}
-
-export interface InsuranceAmountType {
-    fireInsurance: '1억' | '3억' | '5억';
-    construction: number;
-    facilities: number;
-    inventory: number;
-    housingType: string | '단독';
-    area: number;
-}
-
-interface StatusRedux {
-    error: unknown;
-    status: string;
-}
-
-export interface InfoType
-    extends PersonalType,
-        BusinessType,
-        StatusRedux,
-        InsuranceAmountType {}
 
 const initialState: InfoType = {
     contractor: '',

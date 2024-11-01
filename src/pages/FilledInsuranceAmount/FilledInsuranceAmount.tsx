@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import Question from '../../components/Questions/Question';
 import InsuranceAmount from '../../components/FilledInsuranceAmount/InsuranceAmount';
 import Terms from '../../components/FilledInsuranceAmount/Terms';
-import { InsuranceAmountType, updateInfo } from '../../utils/redux/infoSlice';
+import { updateInfo } from '../../utils/redux/infoSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import { validateAmountField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
+import { InsuranceAmountType } from '../../utils/models/InfoType';
 
 function FilledInsuranceAmount() {
     const navigate = useNavigate();

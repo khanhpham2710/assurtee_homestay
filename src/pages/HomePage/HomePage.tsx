@@ -5,12 +5,7 @@ import Video_component from '../../components/HomePageComponents/Video_component
 import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Divider,
-} from '@mui/material';
+import { Accordion, AccordionSummary, Divider } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import Card_Banner from '../../components/HomePageComponents/Card_Banner';
 import FeeLandingPage from '../../components/HomePageComponents/FeeLandingPage';
@@ -45,8 +40,6 @@ export default function HomePage() {
         variableWidth: true,
         adaptiveHeight: true,
     };
-
-    console.log('Images', images.BackGroundBanner1);
 
     const carouselImages = [
         images.BackGroundBanner1,
@@ -122,10 +115,7 @@ export default function HomePage() {
                 <div className="banner">
                     <Slider {...settings}>
                         {carouselImages.map((image, index) => (
-                            <div
-                                key={index}
-                                // className="banner_image"
-                            >
+                            <div key={index}>
                                 <div
                                     className="banner_image"
                                     style={{
@@ -342,13 +332,10 @@ export default function HomePage() {
                     </span>
                 </div>
             </section>
-            <section className="footer">
+            <section id="footer">
                 <div className="footer-logo">
                     <img src={images.mainLogo} alt="" />
-
-                    <button onClick={onTop}>
-                        <img src={images.ScrollUp} alt="" />
-                    </button>
+                    <img src={images.ScrollUp} alt="" onClick={onTop} />
                 </div>
                 <Divider
                     variant="fullWidth"
@@ -369,53 +356,40 @@ export default function HomePage() {
                         팩스 : 02-6008-0801 <br />
                         이메일 : info@assuretee.co.kr <br />
                     </p>
-
-                    <div style={{ marginTop: '30px' }}>
-                        <Accordion
-                            disableGutters
-                            elevation={0}
-                            className="footer-accordion"
+                    <Accordion
+                        disableGutters
+                        elevation={0}
+                        className="footer-accordion"
+                        sx={{ marginTop: '30px' }}
+                    >
+                        <AccordionSummary
+                            expandIcon={<AddIcon />}
+                            aria-controls="panel1-content"
+                            id="panel1-header"
                         >
-                            <AccordionSummary
-                                expandIcon={<AddIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
+                            <p
+                                style={{
+                                    color: 'white',
+                                    fontWeight: '500',
+                                    lineHeight: '25px',
+                                    fontSize: '14px',
+                                }}
                             >
-                                <p
-                                    style={{
-                                        color: 'white',
-                                        fontWeight: '500',
-                                        lineHeight: '25px',
-                                        fontSize: '14px',
-                                    }}
-                                >
-                                    관련사이트
-                                </p>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Suspendisse malesuada lacus
-                                    ex, sit amet blandit leo lobortis eget.
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Suspendisse malesuada lacus
-                                    ex, sit amet blandit leo lobortis eget.
-                                </p>
-                            </AccordionDetails>
-                        </Accordion>
-                    </div>
-
-                    <div className="footer-end">
+                                관련사이트
+                            </p>
+                        </AccordionSummary>
+                    </Accordion>
+                    <p className="footer-end">
                         © assuretee Inc. All Rights Reserved.
-                    </div>
+                    </p>
                 </div>
             </section>
 
             {/* Button Fixed */}
             <section className="button_container">
                 <Link to="/personal-infor">
-                    <button className="button_main">
-                        <p className="titleMini">보험료 계산하기</p>
+                    <button className="button_main titleMini">
+                        보험료 계산하기
                     </button>
                 </Link>
             </section>
