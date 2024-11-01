@@ -3,7 +3,7 @@ import images from '../../assets/images';
 
 export default function () {
     const [image, setImage] = useState(null);
-    
+
     return (
         <div>
             <div>

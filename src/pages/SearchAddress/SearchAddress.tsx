@@ -1,12 +1,45 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Divider } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import DaumPostcodeEmbed from 'react-daum-postcode';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
 function SearchAddress() {
     const navigate = useNavigate();
 
     const routeBack = () => {
         navigate(-1);
     };
+
+    
+  
+    const scriptUrl = "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+    const open = useDaumPostcodePopup(scriptUrl);
+
+    const handleComplete = (data : any) => {
+      let fullAddress = data.address;
+      let extraAddress = '';
+  
+      if (data.addressType === 'R') {
+        if (data.bname !== '') {
+          extraAddress += data.bname;
+        }
+        if (data.buildingName !== '') {
+          extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+        }
+        fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+      }
+  
+      console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+    };
+  
+    const handleClick = () => {
+      open({ onComplete: handleComplete });
+    };
+
+
+
+
+
 
     return (
         <section className="search_page">
@@ -32,7 +65,7 @@ function SearchAddress() {
                     placeholder="예) 판교역로 235, 분당 주공, 삼평동 681"
                 />
 
-                <button onClick={() => {}}>
+                <button onClick={handleClick}>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
             </section>
@@ -75,7 +108,7 @@ function SearchAddress() {
                 </div>
             </section>
 
-            <section className="search_sponser ">
+            <section className="search_sponser">
                 <span> Powered by </span>
                 <span> kakao </span> <span> | 우편번호 서비스 안내</span>
             </section>
