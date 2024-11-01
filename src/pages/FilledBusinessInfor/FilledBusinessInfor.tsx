@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { validateBusinessField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { BusinessType } from '../../utils/models/InfoType';
+import UploadImage from '../../components/UpLoadImage/UpLoadImage';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useAppSelector((state) => state.info);
@@ -57,6 +58,13 @@ const FilledBusinessInfo: React.FC = () => {
                 건물/주택 정보를 입력해 주세요.
             </p>
             <BusinessInputs form={form} handleChange={handleChange} />
+            <section
+                style={{
+                    marginBottom: 40,
+                }}
+            >
+                <UploadImage />
+            </section>
             <section
                 style={{ width: '100%', marginTop: '20px' }}
                 className="dflex_center"

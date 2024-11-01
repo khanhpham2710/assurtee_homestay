@@ -7,8 +7,7 @@ type BannerHeaderProps = {
     video_ref: React.RefObject<HTMLDivElement>;
 };
 
-
-export default function Banner_Header ({video_ref} : BannerHeaderProps) {
+export default function Banner_Header({ video_ref }: BannerHeaderProps) {
     const handleScrollDown = () => {
         if (video_ref.current) {
             window.scrollTo({

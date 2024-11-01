@@ -15,10 +15,9 @@
         line-height: normal;
         letter-spacing: normal;
         text-align: left;
-        // margin: 0; 
+        // margin: 0;
         color: #000;
     }
-  
 }
 
 .video_description {
@@ -34,13 +33,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    img:nth-child(1){
+    img:nth-child(1) {
         object-fit: cover;
         width: 100%;
         border-radius: 7px;
         aspect-ratio: 16 / 9;
     }
- 
+
     img:nth-child(2) {
         object-fit: cover;
         width: 44px;
