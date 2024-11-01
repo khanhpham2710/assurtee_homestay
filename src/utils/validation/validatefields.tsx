@@ -1,13 +1,27 @@
 import {
     BusinessType,
-    InsuranceAmountType,
     PersonalType,
-} from '../redux/infoSlice';
+    InsuranceAmountType,
+} from '../models/InfoType';
 
 export const validatePersonalField = (form: PersonalType): boolean => {
-    const { contractor, dob, registrationNumber, phoneNumber } = form;
+    const {
+        contractor,
+        dob,
+        registrationNumber,
+        phoneNumber,
+        email,
+        delivery,
+    } = form;
 
-    if (!contractor || !dob || !registrationNumber || !phoneNumber)
+    if (
+        !contractor ||
+        !dob ||
+        !registrationNumber ||
+        !phoneNumber ||
+        !email ||
+        !delivery
+    )
         return false;
 
     if (
@@ -20,6 +34,13 @@ export const validatePersonalField = (form: PersonalType): boolean => {
         return false;
     }
 
+    if (
+        !/^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+        )
+    ) {
+        return false;
+    }
     if (phoneNumber.length <= 8) {
         return false;
     }
