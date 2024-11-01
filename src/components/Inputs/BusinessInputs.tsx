@@ -4,7 +4,7 @@ import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
 import { Box, TextField } from '@mui/material';
-import { usePostcodePopup  } from '../../components/SearchPopUp/SearchPopUp';
+import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import { RootState } from '../../utils/redux/store';
 import { useEffect } from 'react';
@@ -14,11 +14,9 @@ type InputsProps = {
 };
 
 function BusinessInputs({ form, handleChange }: InputsProps) {
-    const {address} = useAppSelector((state:RootState) => state.info);
+    const { address } = useAppSelector((state: RootState) => state.info);
 
-
-    const { handleClick } = usePostcodePopup({handleChange});
-
+    const { handleClick } = usePostcodePopup({ handleChange });
 
     return (
         <form className="dflex-column" style={{ width: '100%' }}>
@@ -108,8 +106,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                                 },
                             },
                         }}
-                        
-                        value = {form.address}
+                        value={form.address}
                     />
 
                     <Box

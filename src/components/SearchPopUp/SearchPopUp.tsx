@@ -6,12 +6,11 @@ import { useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { BusinessType } from '../../utils/models/InfoType';
 
-
 type InputsProps = {
     handleChange: (key: keyof BusinessType, value: string) => void;
 };
 
-export const usePostcodePopup = ({handleChange} : InputsProps) => {
+export const usePostcodePopup = ({ handleChange }: InputsProps) => {
     const open = useDaumPostcodePopup(scriptUrl);
     const dispatch = useAppDispatch();
     const [fullAddress, setFullAddress] = useState<string | null>(null);
@@ -40,7 +39,6 @@ export const usePostcodePopup = ({handleChange} : InputsProps) => {
                 address: extraAddress,
             })
         );
-
     };
 
     useEffect(() => {
@@ -50,8 +48,6 @@ export const usePostcodePopup = ({handleChange} : InputsProps) => {
         }
         console.log('useEffect ', fullAddress);
     }, [fullAddress, dispatch]);
-
-
 
     const handleClick = () => {
         open({ onComplete: handleComplete });
