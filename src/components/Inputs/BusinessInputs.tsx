@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
+import { TextField } from '@mui/material';
 
 type InputsProps = {
     form: BusinessType;
@@ -22,6 +23,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     placeholder="개인/법인을 선택해 주세요."
                     handleChange={handleChange}
                     items={['개인', '법인']}
+                    title="개인/법인을 선택해 주세요."
                 />
             </InputSection>
             <InputSection>
@@ -61,17 +63,52 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                 <label className="title_label" htmlFor="address">
                     사업장 소재지
                 </label>
-                <section className="dflex_center">
-                    <CustomInput
+                <section
+                    className="dflex_center"
+                    style={{
+                        gap: '19px',
+                    }}
+                >
+                    <TextField
                         id="address"
+                        multiline
+                        fullWidth
                         placeholder="주소를 입력해 주세요."
-                        value={form.address}
                         onChange={(e) =>
                             handleChange('address', e.target.value)
                         }
-                        autoComplete="off"
+                        variant="standard"
+                        sx={{
+                            backgroundColor: 'transparent',
+                            outline: 'none',
+                            width: '100%',
+                            '& .MuiInputBase-input::placeholder': {
+                                color: '#cfcfcf',
+                                opacity: 1,
+                            },
+                        }}
+                        slotProps={{
+                            input: {
+                                disableUnderline: true,
+                                style: {
+                                    fontFamily: 'AppleSDGothicNeoH',
+                                    fontSize: '16px',
+                                    lineHeight: '1.75',
+                                    color: '#000',
+                                    padding: 0,
+                                },
+                            },
+                        }}
                     />
-                    <Link to="/search-address">
+
+                    <Link
+                        to="/search-address"
+                        style={{
+                            minHeight: '50px',
+                            textDecoration: 'none',
+                        }}
+                        className="dflex_center"
+                    >
                         <button className="address-button">주소검색</button>
                     </Link>
                 </section>
@@ -94,7 +131,20 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     placeholder="해당 건물이 한옥인가요?"
                     value={form.hanok}
                     handleChange={handleChange}
+                    title="예/아니요 선택해 주세요."
                     items={['예', '아니요']}
+                />
+            </InputSection>
+            <InputSection>
+                <label className="title_label" htmlFor="hanok">
+                    한옥 여부
+                </label>
+                <OptionInput<BusinessType>
+                    variable="sprinkler"
+                    value={form.sprinkler}
+                    handleChange={handleChange}
+                    items={['설치되어 있습니다.', '설치되어 있지 않습니다.']}
+                    title="스프링쿨러 유무를 선택해 주세요."
                 />
             </InputSection>
         </form>

@@ -3,6 +3,7 @@ import { numberOnly } from '../../utils/validation/number';
 import React from 'react';
 import styled from 'styled-components';
 import { PersonalType } from '../../utils/models/InfoType';
+import OptionInput from '../Input/OptionInput';
 
 const RegistrationInput = styled(CustomInput)`
     font-size: 50px;
@@ -101,6 +102,27 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     value={form.phoneNumber}
                     onChange={(e) => handleChange('phoneNumber', numberOnly(e))}
                     autoComplete="off"
+                />
+            </InputSection>
+            <InputSection>
+                <label className="title_label" htmlFor="email">
+                    이메일
+                </label>
+                <CustomInput
+                    id="email"
+                    placeholder="이메일을 입력해 주세요."
+                    value={form.email}
+                    onChange={(e) => handleChange('email', e.target.value)}
+                    autoComplete="off"
+                />
+            </InputSection>
+            <InputSection>
+                <OptionInput<PersonalType>
+                    variable="email"
+                    handleChange={handleChange}
+                    items={['직접입력', 'other']}
+                    value={form.delivery}
+                    title="직접 선택하시거나 보내주세요"
                 />
             </InputSection>
         </form>

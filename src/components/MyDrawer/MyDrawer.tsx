@@ -9,6 +9,7 @@ type Props<T> = {
     items: string[];
     handleChange: (key: keyof T, value: string) => void;
     variable: keyof T;
+    title: string;
 };
 
 function MyDrawer<T>({
@@ -18,6 +19,7 @@ function MyDrawer<T>({
     items,
     handleChange,
     variable,
+    title,
 }: Props<T>) {
     const container =
         window !== undefined ? () => window().document.body : undefined;
@@ -49,7 +51,7 @@ function MyDrawer<T>({
                 }}
                 className="dflex_spacebetween"
             >
-                <h1 className="title_drawer">개인/법인을 선택해 주세요.</h1>
+                <p className="title_drawer">{title}</p>
                 <img
                     src={images.CloseButton}
                     onClick={toggleDrawer}
