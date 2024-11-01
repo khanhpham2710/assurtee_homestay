@@ -37,3 +37,11 @@ export interface ImageData {
         };
     }[];
 }
+
+export interface PostImageFailed {
+    code?: string;
+    message: string;
+    path?: string;
+    traceId?: string;
+    timestamp: Date;
+}

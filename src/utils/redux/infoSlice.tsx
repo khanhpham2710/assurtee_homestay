@@ -1,28 +1,40 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage } from '../axios/axios';
-import { AxiosError } from 'axios';
+import axios from 'axios';
 import { InfoType } from '../models/InfoType';
-import { ImageData } from '../models/ImageData';
+import { ImageData, PostImageFailed } from '../models/ImageData';
 
-export const postImageData = createAsyncThunk<ImageData, Blob>(
-    'user/postImage',
-    async (image: Blob, thunkAPI) => {
-        try {
-            const response = await postImage(image);
-            return response.data;
-        } catch (error) {
-            if (error instanceof AxiosError) {
-                return thunkAPI.rejectWithValue(error.response?.data);
-            } else if (error instanceof Error) {
-                return thunkAPI.rejectWithValue({ message: error.message });
-            } else {
-                return thunkAPI.rejectWithValue({
-                    message: 'An unknown error occurred.',
-                });
-            }
+export const postImageData = createAsyncThunk<
+    ImageData,
+    Blob,
+    { rejectValue: PostImageFailed }
+>('user/postImage', async (image: Blob, thunkAPI) => {
+    try {
+        const response = await postImage(image);
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error) && error.response) {
+            const errorData = error.response?.data as PostImageFailed;
+            return thunkAPI.rejectWithValue({
+                code: errorData.code || '',
+                message: errorData.message || 'Axios error occurred',
+                path: errorData.path || '',
+                traceId: errorData.traceId || '',
+                timestamp: errorData.timestamp
+                    ? new Date(errorData.timestamp)
+                    : new Date(),
+            });
+        } else {
+            return thunkAPI.rejectWithValue({
+                message:
+                    error instanceof Error
+                        ? error.message
+                        : 'An unknown error occurred',
+                timestamp: new Date(),
+            });
         }
     }
-);
+});
 
 const initialState: InfoType = {
     contractor: '',
@@ -43,7 +55,7 @@ const initialState: InfoType = {
     housingType: '단독',
     area: 79,
     error: null,
-    status: 'start',
+    status: 'idle',
 };
 
 const infoSlice = createSlice({
@@ -51,32 +63,45 @@ const infoSlice = createSlice({
     initialState,
     reducers: {
         updateInfo(state, action: PayloadAction<Partial<InfoType>>) {
-            return { ...state, ...action.payload };
+            Object.assign(state, action.payload);
         },
         resetInfo() {
             return initialState;
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(
-            postImageData.fulfilled,
-            (state, action: PayloadAction<ImageData>) => {
-                const payload = action.payload.images?.[0]?.bizLicense?.result;
+        builder
+            .addCase(postImageData.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(
+                postImageData.fulfilled,
+                (state, action: PayloadAction<ImageData>) => {
+                    const payload =
+                        action.payload.images?.[0]?.bizLicense?.result;
 
-                if (payload) {
-                    state.address = payload.bisAddress?.[0]?.text || '';
-                    state.registrationNumber =
-                        payload.registerNumber?.[0]?.text || '';
-                    state.businessName =
-                        payload.companyName?.[0]?.text ||
-                        payload.corpName?.[0]?.text ||
-                        '';
+                    if (payload) {
+                        state.address = payload.bisAddress?.[0]?.text || '';
+                        state.registrationNumber =
+                            payload.registerNumber?.[0]?.text || '';
+                        state.businessName =
+                            payload.companyName?.[0]?.text ||
+                            payload.corpName?.[0]?.text ||
+                            '';
+                    }
+                    state.status = 'succeeded';
                 }
-            }
-        );
-        builder.addCase(postImageData.rejected, (state, action) => {
-            state.error = action.payload;
-        });
+            )
+            .addCase(
+                postImageData.rejected,
+                (state, action: PayloadAction<PostImageFailed | undefined>) => {
+                    state.error = action.payload || {
+                        message: 'Post image failed',
+                        timestamp: new Date(),
+                    };
+                    state.status = 'failed';
+                }
+            );
     },
 });
 
