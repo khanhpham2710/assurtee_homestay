@@ -17,7 +17,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
     const {address} = useAppSelector((state:RootState) => state.info);
 
 
-    const { handleClick } = usePostcodePopup();
+    const { handleClick } = usePostcodePopup({handleChange});
 
 
     return (
@@ -108,7 +108,8 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                                 },
                             },
                         }}
-                        value = {address || form.address}
+                        
+                        value = {form.address}
                     />
 
                     <Box

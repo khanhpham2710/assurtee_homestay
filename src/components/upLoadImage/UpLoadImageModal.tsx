@@ -43,7 +43,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export default function UnpaidModal({ open, setOpen, setImage }: DialogProps) {
+export default function UploadImageModal({ open, setOpen, setImage }: DialogProps) {
     const libraryInputRef = React.useRef<HTMLInputElement | null>(null);
     const cameraInputRef = React.useRef<HTMLInputElement | null>(null);
 

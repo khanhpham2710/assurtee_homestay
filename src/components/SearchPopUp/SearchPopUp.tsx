@@ -4,8 +4,14 @@ const scriptUrl =
     '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
 import { useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
+import { BusinessType } from '../../utils/models/InfoType';
 
-export const usePostcodePopup = () => {
+
+type InputsProps = {
+    handleChange: (key: keyof BusinessType, value: string) => void;
+};
+
+export const usePostcodePopup = ({handleChange} : InputsProps) => {
     const open = useDaumPostcodePopup(scriptUrl);
     const dispatch = useAppDispatch();
     const [fullAddress, setFullAddress] = useState<string | null>(null);
@@ -39,7 +45,8 @@ export const usePostcodePopup = () => {
 
     useEffect(() => {
         if (fullAddress) {
-            dispatch(updateInfo({ address: fullAddress }));
+            // dispatch(updateInfo({ address: fullAddress }));
+            handleChange('address', fullAddress);
         }
         console.log('useEffect ', fullAddress);
     }, [fullAddress, dispatch]);
