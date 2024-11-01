@@ -14,16 +14,7 @@ type InputsProps = {
 };
 
 function BusinessInputs({ form, handleChange }: InputsProps) {
-
-
-
     const {address} = useAppSelector((state:RootState) => state.info);
-    console.log('address: ', address);
-
-
-    // useEffect(()=> {
-    //     const {address} = useAppSelector((state:RootState) => state.info);
-    // },[address])
 
 
     const { handleClick } = usePostcodePopup();
