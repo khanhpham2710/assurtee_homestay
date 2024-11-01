@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage } from '../axios/axios';
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { InfoType } from '../models/InfoType';
 import { ImageData, PostImageFailed } from '../models/ImageData';
 
@@ -10,7 +10,7 @@ export const postImageData = createAsyncThunk<
     { rejectValue: PostImageFailed }
 >('user/postImage', async (image: Blob, thunkAPI) => {
     try {
-        const response = await postImage(image);
+        const response: AxiosResponse<ImageData> = await postImage(image);
         return response.data;
     } catch (error) {
         if (error instanceof AxiosError) {

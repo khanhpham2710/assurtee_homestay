@@ -56,6 +56,7 @@ function InsuranceAmount({ form, handleChange }: PropsType) {
                     value={form.housingType}
                     handleChange={handleChange}
                     variable="housingType"
+                    title="some thing"
                 />
             </InputSection>
             <InputSection>
