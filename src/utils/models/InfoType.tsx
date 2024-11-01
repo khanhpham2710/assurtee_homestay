@@ -5,6 +5,8 @@ export interface PersonalType {
     dob: string;
     registrationNumber: string;
     phoneNumber: string;
+    email: string;
+    delivery: '직접입력' | string;
 }
 
 export interface BusinessType {
@@ -15,6 +17,7 @@ export interface BusinessType {
     address: string;
     extra: string;
     hanok: '예' | '아니요' | '';
+    sprinkler: '설치되어 있지 않습니다' | '설치되어 있지 않습니다.';
 }
 
 export interface InsuranceAmountType {

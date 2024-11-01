@@ -9,6 +9,7 @@ type InputProps<T> = {
     placeholder?: string;
     handleChange: (key: keyof T, value: string) => void;
     items: string[];
+    title: string;
 };
 
 function OptionInput<T>({
@@ -17,6 +18,7 @@ function OptionInput<T>({
     placeholder,
     handleChange,
     items,
+    title,
 }: InputProps<T>) {
     const [open, setOpen] = useState<boolean>(false);
 
@@ -24,6 +26,7 @@ function OptionInput<T>({
         <>
             <div onClick={() => setOpen(true)} className="dflex_center">
                 <CustomInput
+                    id={variable as string}
                     type="text"
                     value={value}
                     placeholder={placeholder}
@@ -38,6 +41,7 @@ function OptionInput<T>({
                 items={items}
                 handleChange={handleChange}
                 variable={variable}
+                title={title}
             />
         </>
     );
