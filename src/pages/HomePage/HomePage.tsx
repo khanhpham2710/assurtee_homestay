@@ -51,7 +51,6 @@ export default function HomePage() {
                     </button>
                 </Link>
             </section>
-            
         </section>
     );
 }
