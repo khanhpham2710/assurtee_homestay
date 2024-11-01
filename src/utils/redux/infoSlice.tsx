@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { postImage } from '../axios/axios';
-import axios from 'axios';
+import { AxiosError } from 'axios';
 import { InfoType } from '../models/InfoType';
 import { ImageData, PostImageFailed } from '../models/ImageData';
 
@@ -13,13 +13,13 @@ export const postImageData = createAsyncThunk<
         const response = await postImage(image);
         return response.data;
     } catch (error) {
-        if (axios.isAxiosError(error) && error.response) {
+        if (error instanceof AxiosError) {
             const errorData = error.response?.data as PostImageFailed;
             return thunkAPI.rejectWithValue({
-                code: errorData.code || '',
+                code: errorData.code,
                 message: errorData.message || 'Axios error occurred',
-                path: errorData.path || '',
-                traceId: errorData.traceId || '',
+                path: errorData.path,
+                traceId: errorData.traceId,
                 timestamp: errorData.timestamp
                     ? new Date(errorData.timestamp)
                     : new Date(),

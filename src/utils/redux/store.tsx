@@ -11,7 +11,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export interface StatusRedux {
     error: unknown;
-    status: string | number;
+    status: string;
 }
 
 export default store;
