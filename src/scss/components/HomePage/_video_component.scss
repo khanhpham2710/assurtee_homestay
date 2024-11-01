@@ -1,0 +1,63 @@
+.video_component {
+    width: 100%;
+    height: auto;
+    margin-bottom: 33px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    p {
+        font-family: AppleSDGothicNeoB;
+        font-weight: 400;
+        font-size: 20px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000;
+    }
+}
+
+.video_description {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.thumbnail_container {
+    height: auto;
+    max-width: 400px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img:nth-child(1){
+        object-fit: cover;
+        width: 100%;
+
+        // min-height: 174px;
+        // max-height: 220px;
+        // height: 174px;
+        border-radius: 7px;
+        aspect-ratio: 16 / 9;
+    }
+
+    img:nth-child(2) {
+        object-fit: cover;
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .thumbnail_container {
+        img:nth-child(1) {
+        }
+    }
+}

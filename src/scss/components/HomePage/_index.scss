@@ -1,0 +1,35 @@
+@forward "./banner";
+@forward "./footer";
+@forward "./video_component";
+@forward "./title_main_component";
+
+
+
+
+
+
+
+.button_container {
+    // background-color: #fff;
+    height: 104px;
+    width: 100%;
+    padding: 32px 0px 16px;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top, #fff 70%, rgba(255, 255, 255, 0));
+    position: fixed;
+    bottom: 0;
+    .button_main {
+        background-color: #ea3062;
+        width: calc(100vw - 32px);
+        height: 56px;
+        border-radius: 8px;
+        z-index: 1;
+        cursor: pointer;
+        color: white;
+        // padding: 0 16px;
+    }
+}
+
+
