@@ -4,7 +4,9 @@ import Divider from '@mui/material/Divider';
 import images from '../../assets/images';
 import ScanImage_Main from '../../components/Options/scanImage_Main';
 import FillOption from '../../components/Options/FillOption';
-import MyModal, { ModalType } from '../../components/MyModal/MyModal';
+import FullPageModal, {
+    ModalType,
+} from '../../components/MyModals/FullPageModal';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../utils/redux/store';
 
@@ -117,7 +119,7 @@ const ScanOption: React.FC = () => {
                         </p>
                     </div>
                 </section>
-                <MyModal
+                <FullPageModal
                     open={open}
                     setOpen={setOpen}
                     title={modal.title}

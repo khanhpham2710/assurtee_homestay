@@ -68,7 +68,6 @@ export default function Banner_Video() {
                         justifyContent="center"
                         alignItems="center"
                     >
-                    
                         {videos_embbeded &&
                             videos_embbeded.map((video, index) => (
                                 <Grid

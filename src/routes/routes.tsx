@@ -68,7 +68,7 @@ const routes: RouteType[] = [
 
     { path: '/complete', component: CompletedPage, header: <Header1 /> },
     {
-        path: '/insurance-details/:success',
+        path: '/insurance-details/:isSuccess',
         component: InsuranceDetailsPage,
         header: <Header2 title="보험가입내역" backTo="/complete" />,
     },

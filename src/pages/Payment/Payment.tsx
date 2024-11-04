@@ -1,4 +1,3 @@
-import { Avatar } from '@mui/material';
 import images from '../../assets/images';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
 import GreyLabelInfoBox from '../../components/InfoBox/GreyLabelInfoBox';
@@ -6,7 +5,7 @@ import PaymentInfoBox from '../../components/InfoBox/PaymentInfoBox';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
-import Modal from '../../components/Modals/Modal';
+import SmallModal from '../../components/MyModals/SmallModal';
 
 type Fee = {
     name: string;
@@ -78,10 +77,10 @@ function Payment() {
             >
                 가입상품
             </p>
-            <Avatar
+            <img
                 src={images.InsuranceLogo}
                 alt=""
-                sx={{
+                style={{
                     margin: '16px 24px 0px',
                     objectFit: 'contain',
                 }}
@@ -138,20 +137,20 @@ function Payment() {
                 />
                 <p className="title_all_terms">일반 결제</p>
             </div>
-            <Modal
+            <SmallModal
                 open={modalOpen}
                 setOpen={setModalOpen}
                 description={
-                    <>
+                    <p>
                         계속해서 문제가 발생할 경우 <br />
                         어슈어티 고객센터 <a href="tel:1533-1291">1533-1291</a>
                         로 <br />
                         문의 주시기 바랍니다.
-                    </>
+                    </p>
                 }
                 title="사진을 추가해 주세요."
-                textButton='확인'
-                handleClick={()=>{}}
+                textButton="확인"
+                handleClick={() => {}}
             />
             <section className="dflex_center" style={{ width: '100%' }}>
                 <button

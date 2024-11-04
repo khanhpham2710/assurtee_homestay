@@ -1,18 +1,24 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
-import { SxProps, Typography } from '@mui/material';
+import { Box, SxProps } from '@mui/material';
 import { Theme } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import DialogActions from '@mui/material/DialogActions';
 
 const fontStyle: SxProps<Theme> = {
-    fontFamily: 'AppleSDGothicNeoM',
-    fontSize: 16,
-    lineHeight: 1.25,
-    textAlign: 'center',
-    color: '#000',
-    '& a': {
+    p: {
+        fontFamily: 'AppleSDGothicNeoM',
+        fontSize: 16,
+        lineHeight: 1.25,
+        textAlign: 'center',
+        color: '#000',
+    },
+    a: {
+        fontFamily: 'AppleSDGothicNeoM',
+        fontSize: 16,
+        lineHeight: 1.25,
+        textAlign: 'center',
         color: '#0068e2',
         textDecoration: 'underline',
     },
@@ -40,7 +46,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export default function UnpaidModal({
+export default function SmallModal({
     open,
     setOpen,
     title,
@@ -85,12 +91,7 @@ export default function UnpaidModal({
                         >
                             {title}
                         </p>
-                        <Typography
-                            id="transition-modal-description"
-                            sx={fontStyle}
-                        >
-                            {description}
-                        </Typography>
+                        <Box sx={fontStyle}>{description}</Box>
                     </div>
                 </DialogContent>
                 <DialogActions
