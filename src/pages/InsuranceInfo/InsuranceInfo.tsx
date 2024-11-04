@@ -1,16 +1,17 @@
 import { Avatar } from '@mui/material';
 import images from '../../assets/images';
-import FeeAccordion from '../../components/FeeAccordion/FeeAccordion';
+import FeeAccordion from '../../components/Accordion/FeeAccordion';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
 import InsuranceDetails from '../../components/InsuranceInfo/InsuranceDetails';
 import Download from '../../components/Download/Download';
-import WarningAccordion from '../../components/InsuranceInfo/WarningAccordion';
+import WarningAccordion from '../../components/Accordion/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
 import { useState, useEffect } from 'react';
 import MyModal from '../../components/MyModal/MyModal';
 import FillAllInfor from '../FilledAllInfor/FillAllInfor';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import WarningContent from './WarningContent';
 
 function InsuranceInfo() {
     const [checked, setChecked] = useState<boolean>(true);
@@ -70,6 +71,7 @@ function InsuranceInfo() {
                     display: 'flex',
                     justifyContent: 'flex-end',
                     marginTop: '8px',
+                    marginRight: '24px',
                 }}
             >
                 <button
@@ -81,7 +83,14 @@ function InsuranceInfo() {
                     내용수정
                 </button>
             </div>
-            <InsuranceDetails />
+            <section
+                style={{
+                    margin: '40px 0',
+                    padding: '0 24px',
+                }}
+            >
+                <InsuranceDetails />
+            </section>
             <section
                 className="dflex_center"
                 style={{
@@ -93,7 +102,10 @@ function InsuranceInfo() {
                 <Download text="보험약관(PDF)" href="" fileName="" />
             </section>
             <section style={{ padding: '0 24px' }}>
-                <WarningAccordion />
+                <WarningAccordion
+                    title="보험가입 전 유의사항"
+                    content={WarningContent}
+                />
             </section>
             <p
                 className="title_label"

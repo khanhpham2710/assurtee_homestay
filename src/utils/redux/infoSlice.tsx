@@ -62,6 +62,7 @@ const initialState: InfoType = {
     status: 'idle',
     startDate: new Date(),
     endDate: onYearLater(new Date()),
+    success: true,
 };
 
 const infoSlice = createSlice({
