@@ -44,10 +44,7 @@ export default function Banner_Video() {
                     padding: '0 24px',
                 }}
             >
-                <div
-                    className="title_video"
-                    style={{ marginTop: '90px', marginBottom: '40px' }}
-                >
+                <div className="title_video">
                     <p className="title_main_component">
                         외도민업 <br /> 전용보험
                     </p>
@@ -66,11 +63,12 @@ export default function Banner_Video() {
                 >
                     <Grid
                         container
-                        spacing={1}
+                        spacing={0}
                         columnSpacing={1}
                         justifyContent="center"
                         alignItems="center"
                     >
+                    
                         {videos_embbeded &&
                             videos_embbeded.map((video, index) => (
                                 <Grid
