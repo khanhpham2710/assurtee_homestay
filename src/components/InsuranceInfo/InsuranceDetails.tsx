@@ -1,4 +1,4 @@
-import InsuranceDetailsBox, { InfoProps } from './InsuranceDetailsBox';
+import InsuranceDetailsBox, { InfoProps } from '../InfoBox/InsuranceDetailsBox';
 
 function InsuranceDetails() {
     const infos: InfoProps[] = [

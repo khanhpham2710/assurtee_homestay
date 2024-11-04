@@ -3,6 +3,7 @@ import { postImage } from '../axios/axios';
 import { AxiosError, AxiosResponse } from 'axios';
 import { InfoType } from '../models/InfoType';
 import { ImageData, PostImageFailed } from '../models/ImageData';
+import { onYearLater } from '../validation/startAndEndDate';
 
 export const postImageData = createAsyncThunk<
     ImageData,
@@ -59,6 +60,8 @@ const initialState: InfoType = {
     area: 79,
     error: null,
     status: 'idle',
+    startDate: new Date(),
+    endDate: onYearLater(new Date()),
 };
 
 const infoSlice = createSlice({

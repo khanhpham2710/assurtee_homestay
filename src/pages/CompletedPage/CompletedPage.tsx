@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function CompletedPage() {
     const navigate = useNavigate();
 
-    const handleClick = () => {};
-
     return (
         <div
             className="dflex_center flexColumn_item"
@@ -42,7 +40,7 @@ function CompletedPage() {
             <button
                 className="button2 active"
                 style={{ marginTop: '32px' }}
-                onClick={handleClick}
+                onClick={() => navigate('/insurance-details')}
             >
                 가입내역 확인
             </button>

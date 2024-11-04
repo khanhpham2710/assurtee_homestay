@@ -29,8 +29,14 @@ export interface InsuranceAmountType {
     area: number;
 }
 
+export interface StartEndDate {
+    startDate: Date;
+    endDate: Date;
+}
+
 export interface InfoType
     extends PersonalType,
         BusinessType,
         StatusRedux,
+        StartEndDate,
         InsuranceAmountType {}

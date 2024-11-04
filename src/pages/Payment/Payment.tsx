@@ -1,12 +1,12 @@
 import { Avatar } from '@mui/material';
 import images from '../../assets/images';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
-import RegistrationInfoBox from '../../components/InsuranceInfo/RegistrationInfoBox';
-import PaymentInfoBox from './PaymentInfoBox';
+import GreyLabelInfoBox from '../../components/InfoBox/GreyLabelInfoBox';
+import PaymentInfoBox from '../../components/InfoBox/PaymentInfoBox';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import UnpaidModal from '../../components/UnpaidModal/UnpaidModal';
+import { useEffect, useMemo, useState } from 'react';
+import UnpaidModal from '../../components/Modals/Modal';
 
 type Fee = {
     name: string;
@@ -58,8 +58,12 @@ function Payment() {
         navigate('/loading');
     }
 
-    const totalFee =
-        fees.reduce((sum, item) => sum + item.fee, 0).toLocaleString() + '원';
+    const totalFee = useMemo(() => {
+        return (
+            fees.reduce((sum, item) => sum + item.fee, 0).toLocaleString() +
+            '원'
+        );
+    }, [fees]);
 
     const [annual, setAnnual] = useState<boolean>(true);
     const [modalOpen, setModalOpen] = useState<boolean>(false);
@@ -96,7 +100,7 @@ function Payment() {
                 결제 금액
             </p>
             <section style={{ margin: '0 24px' }}>
-                <RegistrationInfoBox title="총 보험료" info={totalFee} />
+                <GreyLabelInfoBox title="총 보험료" info={totalFee} />
                 {fees.map((fee, index) => {
                     return (
                         <PaymentInfoBox
