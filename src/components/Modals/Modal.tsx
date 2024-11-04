@@ -21,6 +21,10 @@ const fontStyle: SxProps<Theme> = {
 type DialogProps = {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    title: string;
+    description: React.ReactNode;
+    textButton: string;
+    handleClick: () => void;
 };
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -36,11 +40,14 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export default function UnpaidModal({ open, setOpen }: DialogProps) {
-    const handleCheck = () => {
-        setOpen(false);
-    };
-
+export default function UnpaidModal({
+    open,
+    setOpen,
+    title,
+    textButton,
+    handleClick,
+    description,
+}: DialogProps) {
     const handleClose = () => {
         setOpen(false);
     };
@@ -76,17 +83,13 @@ export default function UnpaidModal({ open, setOpen }: DialogProps) {
                                 color: '#000',
                             }}
                         >
-                            사진을 추가해 주세요.
+                            {title}
                         </p>
                         <Typography
                             id="transition-modal-description"
                             sx={fontStyle}
                         >
-                            계속해서 문제가 발생할 경우 <br />
-                            어슈어티 고객센터{' '}
-                            <a href="tel:1533-1291">1533-1291</a>
-                            로 <br />
-                            문의 주시기 바랍니다.
+                            {description}
                         </Typography>
                     </div>
                 </DialogContent>
@@ -96,7 +99,10 @@ export default function UnpaidModal({ open, setOpen }: DialogProps) {
                     }}
                 >
                     <button
-                        onClick={handleCheck}
+                        onClick={() => {
+                            setOpen(false);
+                            handleClick();
+                        }}
                         style={{
                             width: 312,
                             height: 50,
@@ -110,7 +116,7 @@ export default function UnpaidModal({ open, setOpen }: DialogProps) {
                             outline: 'none',
                         }}
                     >
-                        확인
+                        {textButton}
                     </button>
                 </DialogActions>
             </BootstrapDialog>

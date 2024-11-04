@@ -82,12 +82,16 @@ export default function Landing_Footer() {
                                 variant="fullWidth"
                                 sx={{
                                     height: '1px',
-                                    backgroundColor: '#3a3a3a'
+                                    backgroundColor: '#3a3a3a',
                                 }}
                             />
-                            <li>
+                            <li
+                                style={{
+                                    marginTop: '20px',
+                                }}
+                            >
                                 <a href="">
-                                    <span>HomeStay</span>
+                                    <span>번역하다</span>
                                 </a>
                             </li>
                         </ul>
