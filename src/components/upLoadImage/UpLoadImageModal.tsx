@@ -110,14 +110,14 @@ export default function UploadImageModal({
                         </p>
                         <div style={buttonStyle} onClick={handleLibraryClick}>
                             <div className="dflex_center" style={{ gap: 8 }}>
-                                <img src={images.Camera} />
+                                <img src={images.Library} />
                                 <p style={fontStyle}>사진 보관함</p>
                             </div>
                             <img src={images.ArrowIconRight} />
                         </div>
                         <div style={buttonStyle} onClick={handleCameraClick}>
                             <div className="dflex_center" style={{ gap: 8 }}>
-                                <img src={images.Picture} />
+                                <img src={images.Camera} />
                                 <p style={fontStyle}>사진 찍기</p>
                             </div>
                             <img src={images.ArrowIconRight} />

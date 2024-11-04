@@ -1,17 +1,15 @@
 import { useMemo } from 'react';
 import { BlueCustomInput, InputSection } from '../Input/CustomInput';
+import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import { formatDate } from '../../utils/validation/startAndEndDate';
 
 function DateInputs() {
-    const { current, next } = useMemo(() => {
-        const date = new Date(Date.now());
+    const state = useAppSelector((state) => state.info);
 
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const current = `${year}.${month}.${day}`;
-        const next = `${year + 1}.${month}.${day}`;
-        return { current, next };
-    }, []);
+    const { formatedStartDate, formatedEndDate } = useMemo(
+        () => formatDate(state.startDate),
+        [state.startDate, state.endDate]
+    );
 
     return (
         <form style={{ width: '100%' }}>
@@ -22,7 +20,7 @@ function DateInputs() {
                 <BlueCustomInput
                     id="start-date"
                     type="text"
-                    value={current}
+                    value={formatedStartDate}
                     readOnly
                 />
             </InputSection>
@@ -33,7 +31,7 @@ function DateInputs() {
                 <BlueCustomInput
                     id="end-date"
                     type="text"
-                    value={next}
+                    value={formatedEndDate}
                     readOnly
                 />
             </InputSection>
