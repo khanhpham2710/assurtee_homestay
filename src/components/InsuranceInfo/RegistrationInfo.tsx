@@ -1,22 +1,17 @@
 import { useSelector } from 'react-redux';
-import RegistrationInfoBox, { InfoProps } from './RegistrationInfoBox';
+import GreyLabelInfoBox, { InfoProps } from '../InfoBox/GreyLabelInfoBox';
 import { RootState } from '../../utils/redux/store';
 import { useMemo } from 'react';
 import { InfoType } from '../../utils/models/InfoType';
+import { formatDate } from '../../utils/validation/startAndEndDate';
 
 function RegistrationInfo() {
     const state: InfoType = useSelector((state: RootState) => state.info);
 
-    const { current, next } = useMemo(() => {
-        const date = new Date(Date.now());
-
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const current = `${year}.${month}.${day}`;
-        const next = `${year + 1}.${month}.${day}`;
-        return { current, next };
-    }, []);
+    const { formatedStartDate, formatedEndDate } = useMemo(
+        () => formatDate(state.startDate),
+        [state.startDate, state.endDate]
+    );
 
     const infos: InfoProps[] = [
         {
@@ -33,11 +28,11 @@ function RegistrationInfo() {
         },
         {
             title: '보험시작일',
-            info: `${current} / 00시 00분'`,
+            info: `${formatedStartDate} / 00시 00분'`,
         },
         {
             title: '보험종료일',
-            info: `${next} / 00시 00분'`,
+            info: `${formatedEndDate} / 00시 00분'`,
         },
         {
             title: '화재보험',
@@ -58,7 +53,7 @@ function RegistrationInfo() {
             <p className="title_label">가입정보</p>
             {infos.map((info, index) => {
                 return (
-                    <RegistrationInfoBox
+                    <GreyLabelInfoBox
                         key={index}
                         title={info.title}
                         info={info.info}

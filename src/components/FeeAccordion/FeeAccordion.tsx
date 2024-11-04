@@ -96,15 +96,9 @@ function FeeAccordion() {
                     >
                         <p style={fontStyle}>
                             <span
+                                className="bullet-L"
                                 style={{
-                                    display: 'inline-block',
-                                    width: '9px',
-                                    height: '9px',
-                                    margin: '0 8px 4px 6px',
                                     backgroundImage: `url(${images.blackL})`,
-                                    backgroundSize: 'contain',
-                                    backgroundRepeat: 'no-repeat',
-                                    backgroundPosition: 'center',
                                 }}
                             />
                             {item.name}

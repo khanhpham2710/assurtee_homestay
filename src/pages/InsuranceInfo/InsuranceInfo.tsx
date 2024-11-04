@@ -3,7 +3,7 @@ import images from '../../assets/images';
 import FeeAccordion from '../../components/FeeAccordion/FeeAccordion';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
 import InsuranceDetails from '../../components/InsuranceInfo/InsuranceDetails';
-import Download from '../../components/InsuranceInfo/Download';
+import Download from '../../components/Download/Download';
 import WarningAccordion from '../../components/InsuranceInfo/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
 import { useState, useEffect } from 'react';
@@ -89,8 +89,8 @@ function InsuranceInfo() {
                     gap: '12px',
                 }}
             >
-                <Download text="상품설명서(PDF)" />
-                <Download text="보험약관(PDF)" />
+                <Download text="상품설명서(PDF)" href="" fileName="" />
+                <Download text="보험약관(PDF)" href="" fileName="" />
             </section>
             <section style={{ padding: '0 24px' }}>
                 <WarningAccordion />

@@ -1,8 +1,16 @@
 import images from '../../assets/images';
 
-function Download({ text }: { text: string }) {
+type DownloadProps = {
+    text: string;
+    href: string;
+    fileName?: string;
+};
+
+function Download({ text, href, fileName }: DownloadProps) {
     return (
-        <div
+        <a
+            href={href}
+            download={fileName || null}
             className="dflex_center"
             style={{
                 width: '150px',
@@ -11,6 +19,7 @@ function Download({ text }: { text: string }) {
                 borderRadius: '50px',
                 gap: '8px',
                 cursor: 'pointer',
+                textDecoration: 'none',
             }}
         >
             <p
@@ -23,12 +32,13 @@ function Download({ text }: { text: string }) {
                     letterSpacing: 'normal',
                     textAlign: 'center',
                     color: '#333647',
+                    textDecoration: 'none',
                 }}
             >
                 {text}
             </p>
             <img src={images.ArrowIconDown} />
-        </div>
+        </a>
     );
 }
 

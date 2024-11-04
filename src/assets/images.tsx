@@ -3,7 +3,7 @@ import ArrowIconDown from '/Image/Icons/ArrowIconDown.png';
 import ArrowIconRight from '/Image/Icons/ArrowIconRight.png';
 import ImageIcon from '/Image/Icons/ImageIcon.png';
 import Camera from '/Image/Icons/Camera.png';
-import Picture from '/Image/Icons/Picture.png';
+import Library from '/Image/Icons/Library.png';
 
 import BackButton from '/Image/Buttons/BackButton.png';
 import chosedButton from '/Image/Buttons/ChosedButton.png';
@@ -49,6 +49,9 @@ import bottom_carousel_3 from '/Image/BottomCarousel/bottom_carousel_3.png';
 import Loading from '/Image/Gif/loading.gif';
 import Success from '/Image/success.png';
 
+import FailedRegistration from '/Image/Failed-Registration.png';
+import SuccessRegistration from '/Image/Success-Registration.png';
+
 const images = {
     AssurLogo,
     InsuranceLogo,
@@ -88,8 +91,10 @@ const images = {
     ScrollUp,
     ScrollDown,
     ImageIcon,
-    Picture,
+    Library,
     Camera,
+    FailedRegistration,
+    SuccessRegistration,
 };
 
 export default images;

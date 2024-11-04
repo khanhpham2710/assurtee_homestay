@@ -128,3 +128,35 @@
     text-align: center !important;
 }
 
+// Info boxes
+.grey_label {
+    @include ab.label;
+    font-size: 16px;
+    line-height: 1.75;
+    flex: 1 1 auto;
+    min-width: 0;
+    font-family: AppleSDGothicNeoH;
+    color: #b7c2d6;
+    text-align: left;
+}
+
+.medium_info {
+    @include ab.label;
+    font-size: 16px;
+    line-height: 1.75;
+    flex: 1 1 auto;
+    min-width: 0;
+    font-family: AppleSDGothicNeoM;
+    color: #000;
+    text-align: right;
+}
+
+span.bullet-L {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin: 0 8px 4px 6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

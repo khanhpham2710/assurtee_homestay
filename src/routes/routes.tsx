@@ -1,6 +1,6 @@
 import React from 'react';
 
-// components
+// page
 import HomePage from '../pages/HomePage/HomePage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
@@ -11,6 +11,7 @@ import SearchAddress from '../pages/SearchAddress/SearchAddress';
 import Payment from '../pages/Payment/Payment';
 import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmount';
 import LoadingPage from '../pages/Loading/Loading';
+import InsuranceDetailsPage from '../pages/InsuranceDetailsPage/InsuranceDetailsPage';
 
 // headers
 import Header1 from '../components/Headers/Header1';
@@ -66,6 +67,11 @@ const routes: RouteType[] = [
     },
 
     { path: '/complete', component: CompletedPage, header: <Header1 /> },
+    {
+        path: '/insurance-details',
+        component: InsuranceDetailsPage,
+        header: <Header2 title="보험가입내역" backTo="/complete" />,
+    },
 ];
 
 export default routes;
