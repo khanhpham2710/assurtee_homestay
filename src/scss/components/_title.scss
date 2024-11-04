@@ -128,38 +128,6 @@
     text-align: center !important;
 }
 
-.title_card_banner {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoH;
-    font-size: 20px;
-    line-height: 1.1;
-    text-align: left;
-    color: #ea3062;
-}
-
-.title_card_desc {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoSB;
-    font-size: 16px;
-    line-height: 1.38;
-    text-align: left;
-    color: #000;
-    margin-top: 8px;
-    margin-bottom: 2px;
-}
-
-.title_card_subdesc {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoSB;
-    font-size: 14px;
-    line-height: 1.57;
-    text-align: left;
-    color: #6c7db7;
-}
-
 // Info boxes
 .grey_label {
     @include ab.label;

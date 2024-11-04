@@ -15,7 +15,9 @@ export default function Landing_Fee() {
                 <p className="title_main_component">
                     전용보험 <br /> 보험료 산출 예시
                 </p>
-                <p>최적의 보험료를 분석 추천합니다.</p>
+                <p className="title_main_des">
+                    최적의 보험료를 분석 추천합니다.
+                </p>
             </div>
             <FeeLandingPage />
         </section>

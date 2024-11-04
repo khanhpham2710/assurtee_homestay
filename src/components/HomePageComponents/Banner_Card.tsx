@@ -3,7 +3,20 @@ import Card_Banner from '../../components/HomePageComponents/Card_Banner';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 import images from '../../assets/images';
+import { createTheme, ThemeProvider } from '@mui/material';
 export default function Banner_Card() {
+    const theme = createTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 700, // Custom breakpoint
+                lg: 1100,
+                xl: 1536,
+            },
+        },
+    });
+
     const cardBanner = [
         {
             title: 'Special',
@@ -35,21 +48,18 @@ export default function Banner_Card() {
     ];
 
     return (
-        <div>
+        <ThemeProvider theme={theme}>
             <section
                 className="dflex_center fullWidth_item flexColumn_item "
                 style={{
                     padding: '0 24px',
                 }}
             >
-                <div
-                    className="title_card"
-                    style={{ marginTop: '90px', marginBottom: '40px' }}
-                >
+                <div className="title_card">
                     <p className="title_main_component">
                         외도민업 <br /> 프로그램 특징
                     </p>
-                    <p>
+                    <p className="title_main_des">
                         운영자와 손님 모두를 위한
                         <br />
                         외국인관광 도시민박업주 전용 보험 <br />
@@ -92,6 +102,6 @@ export default function Banner_Card() {
                     </Grid>
                 </Box>
             </section>
-        </div>
+        </ThemeProvider>
     );
 }
