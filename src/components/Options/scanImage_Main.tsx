@@ -1,6 +1,6 @@
 import React from 'react';
 import images from '../../assets/images';
-import { ModalType } from '../MyModal/MyModal';
+import { ModalType } from '../MyModals/FullPageModal';
 import ScanImage_Process from './scanImage_Process';
 
 type Props = {

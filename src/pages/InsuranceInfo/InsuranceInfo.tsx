@@ -7,7 +7,7 @@ import Download from '../../components/Download/Download';
 import WarningAccordion from '../../components/Accordion/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
 import { useState, useEffect } from 'react';
-import MyModal from '../../components/MyModal/MyModal';
+import FullPageModal from '../../components/MyModals/FullPageModal';
 import FillAllInfor from '../FilledAllInfor/FillAllInfor';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
@@ -127,7 +127,7 @@ function InsuranceInfo() {
                     가입하기
                 </button>
             </section>
-            <MyModal
+            <FullPageModal
                 component={<FillAllInfor setOpen={setOpen} />}
                 open={open}
                 setOpen={setOpen}

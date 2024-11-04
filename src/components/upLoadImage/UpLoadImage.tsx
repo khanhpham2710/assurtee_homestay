@@ -56,15 +56,25 @@ export default function UploadImage() {
                     </div>
                 </div>
             ) : (
-                <img
-                    src={URL.createObjectURL(image)}
-                    alt="Uploaded"
+                <div
+                    className="dflex_center"
                     style={{
-                        maxWidth: '100%',
-                        maxHeight: '100%',
-                        display: 'block',
+                        width: '100%',
+                        aspectRatio: '20 / 9',
+                        overflow: 'hidden',
+                        borderRadius: '8px',
+                        border: 'solid 1px #e0e0e0',
                     }}
-                />
+                >
+                    <img
+                        src={URL.createObjectURL(image)}
+                        alt="Uploaded"
+                        style={{
+                            maxWidth: '100%',
+                            display: 'block',
+                        }}
+                    />
+                </div>
             )}
 
             <div

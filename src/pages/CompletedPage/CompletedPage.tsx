@@ -40,7 +40,7 @@ function CompletedPage() {
             <button
                 className="button2 active"
                 style={{ marginTop: '32px' }}
-                onClick={() => navigate('/insurance-details')}
+                onClick={() => navigate('/insurance-details/success')}
             >
                 가입내역 확인
             </button>

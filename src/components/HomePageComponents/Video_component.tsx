@@ -23,11 +23,9 @@ export default function Video_component({ title, video_id }: Props) {
 
     useEffect(() => {
         if (videoRef.current) {
-          
             resizeObserver.current = new ResizeObserver(updateTitleWidth);
             resizeObserver.current.observe(videoRef.current);
 
-           
             if (videoRef.current.complete) {
                 updateTitleWidth();
             }

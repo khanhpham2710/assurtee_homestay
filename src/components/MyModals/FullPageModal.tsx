@@ -26,7 +26,7 @@ export type MyModalProps = {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } & ModalType;
 
-export default function MyModal({
+export default function FullPageModal({
     open,
     setOpen,
     title,
