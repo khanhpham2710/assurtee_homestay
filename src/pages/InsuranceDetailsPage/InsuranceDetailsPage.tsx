@@ -71,7 +71,11 @@ function InsuranceDetailsPage() {
                     />
                 </div>
             </section>
-            <section>
+            <section
+                style={{
+                    marginTop: success ? 49 : 59,
+                }}
+            >
                 <img
                     src={images.InsuranceLogo}
                     alt=""

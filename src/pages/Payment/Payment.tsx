@@ -15,6 +15,10 @@ type Fee = {
 function Payment() {
     const location = useLocation();
     const { isPaid }: { isPaid: boolean } = location.state || {};
+    const navigate = useNavigate();
+    const state = useAppSelector((state) => state.info);
+    const [annual, setAnnual] = useState<boolean>(true);
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
 
     useEffect(() => {
         if (isPaid) {
@@ -42,21 +46,6 @@ function Payment() {
         color: '#fb5601',
     };
 
-    const navigate = useNavigate();
-    const state = useAppSelector((state) => state.info);
-
-    const allFieldsFilled = [
-        state.businessName,
-        state.businessNumber,
-        state.address,
-        state.fireInsurance,
-        state.area,
-    ].every((field) => field);
-
-    function handleClick() {
-        navigate('/loading');
-    }
-
     const totalFee = useMemo(() => {
         return (
             fees.reduce((sum, item) => sum + item.fee, 0).toLocaleString() +
@@ -64,8 +53,15 @@ function Payment() {
         );
     }, [fees]);
 
-    const [annual, setAnnual] = useState<boolean>(true);
-    const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const allFieldsFilled = useMemo(() => {
+        return [
+            state.businessName,
+            state.businessNumber,
+            state.address,
+            state.fireInsurance,
+            state.area,
+        ].every((field) => field);
+    }, [state]);
 
     return (
         <div>
@@ -150,13 +146,17 @@ function Payment() {
                 }
                 title="사진을 추가해 주세요."
                 textButton="확인"
-                handleClick={() => {}}
+                handleClick={() => {
+                    navigate('/insurance-details/failed');
+                }}
             />
             <section className="dflex_center" style={{ width: '100%' }}>
                 <button
                     className={allFieldsFilled ? 'button3 active' : 'button3'}
                     disabled={!allFieldsFilled}
-                    onClick={handleClick}
+                    onClick={() => {
+                        navigate('/loading');
+                    }}
                     style={{
                         position: 'fixed',
                         bottom: 0,
