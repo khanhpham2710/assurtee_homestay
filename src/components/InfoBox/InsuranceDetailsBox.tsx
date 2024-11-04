@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Divider } from '@mui/material';
 import MyToolTip from '../MyTooltip/MyToolTip';
 
@@ -9,46 +9,49 @@ export type InfoProps = {
 };
 
 function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
-    const fontStyle: React.CSSProperties = {
-        flex: '1 1 auto',
-        minWidth: '0',
-    };
-
     return (
         <>
             <div
-                className="dflex_spacebetween"
                 style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                     minHeight: '50px',
                     padding: '11px 0',
+                    gap: '20px',
                 }}
             >
                 <label
                     style={{
-                        ...fontStyle,
                         fontFamily: 'AppleSDGothicNeoM',
                         fontSize: '14px',
                         color: '#646464',
                         lineHeight: '1.21',
                         textAlign: 'left',
+                        overflowWrap: 'break-word',
                     }}
                 >
                     {title}
                 </label>
-                <div className="dflex_center" style={{ gap: '8px' }}>
+                <div
+                    className="dflex_center"
+                    style={{
+                        gap: '8px',
+                    }}
+                >
                     <p
                         style={{
-                            ...fontStyle,
                             fontFamily: 'AppleSDGothicNeoSB',
                             fontSize: '16px',
                             color: '#000',
                             lineHeight: '1.75',
                             textAlign: 'right',
+                            whiteSpace: 'nowrap',
                         }}
                     >
                         {info}
                     </p>
-                    <MyToolTip text={tooltip} align="left" />
+                    <MyToolTip align="left" text={tooltip} />
                 </div>
             </div>
             <Divider

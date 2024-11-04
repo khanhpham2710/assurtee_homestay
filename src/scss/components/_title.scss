@@ -173,7 +173,7 @@
 }
 
 .medium_info {
-    @include ab.label;
+    @include ab.title;
     font-size: 16px;
     line-height: 1.75;
     flex: 1 1 auto;

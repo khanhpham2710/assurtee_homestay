@@ -12,6 +12,7 @@ export type AppDispatch = typeof store.dispatch;
 export interface StatusRedux {
     error: unknown;
     status: string;
+    success?: boolean;
 }
 
 export default store;

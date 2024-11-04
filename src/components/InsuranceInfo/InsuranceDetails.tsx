@@ -86,11 +86,7 @@ function InsuranceDetails() {
     ];
 
     return (
-        <section
-            style={{
-                margin: '40px 24px',
-            }}
-        >
+        <>
             <p
                 className="title_label"
                 style={{
@@ -109,7 +105,7 @@ function InsuranceDetails() {
                     />
                 );
             })}
-        </section>
+        </>
     );
 }
 
