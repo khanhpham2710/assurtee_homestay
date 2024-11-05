@@ -25,12 +25,7 @@ const FilledBusinessInfo: React.FC = () => {
     };
 
     const allChecked: boolean = useMemo(() => {
-        const validate = validateBusinessField(form);
-        return (
-            validate &&
-            form.sprinkler === '설치되어 있습니다.' &&
-            form.image !== null
-        );
+        return validateBusinessField(form);
     }, [form]);
 
     const handleSubmit = async () => {
@@ -38,7 +33,8 @@ const FilledBusinessInfo: React.FC = () => {
             await dispatch(
                 updateInfo({
                     ...form,
-                    sameAddress: item === '예' ? true : false,
+                    sameAddress: item === '예',
+                    image: info.image,
                 })
             );
             navigate('/personal-infor');

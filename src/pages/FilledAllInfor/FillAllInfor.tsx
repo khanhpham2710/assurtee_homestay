@@ -39,11 +39,11 @@ function FillAllInfor({
             validateBusinessField(form) &&
             validatePersonalField(form)
         );
-    }, [form]);
+    }, [form, info]);
 
     const handleSubmit = async () => {
         if (allChecked) {
-            await dispatch(updateInfo(form));
+            await dispatch(updateInfo({ ...form, image: info.image }));
             setOpen(false);
         }
     };
