@@ -58,7 +58,7 @@ export default function FullPageModal({
             >
                 <p
                     id="modal-title"
-                    className="titleSmall"
+                    className="title-20"
                     style={{
                         color: appBarColor === '#fff' ? "'#000'" : '#fff',
                     }}

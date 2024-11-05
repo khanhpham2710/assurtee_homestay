@@ -43,7 +43,7 @@ export default function HomePage() {
             {/* Button Fixed */}
             <section className="button_container">
                 <Link to="/personal-infor">
-                    <button className="button_main titleMini">
+                    <button className="button_main title-18">
                         보험료 계산하기
                     </button>
                 </Link>

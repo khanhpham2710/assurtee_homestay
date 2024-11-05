@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -7,12 +7,14 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 type WarningAccordionType = {
     title: string;
     content: React.JSX.Element;
+    style: CSSProperties;
 };
 
-function WarningAccordion({ title, content }: WarningAccordionType) {
+function WarningAccordion({ title, content, style }: WarningAccordionType) {
     return (
         <div
             style={{
+                ...style,
                 border: 'solid 1px #e0e0e0',
                 borderRadius: '10px',
                 height: 'auto',

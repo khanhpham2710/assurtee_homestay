@@ -41,9 +41,9 @@
     color: var(--primary);
 }
 
-.info-modify-button {
+.small-button {
     height: 24px;
-    background: var(--secondary);
+    background-color: var(--secondary);
     padding: 1px 12px;
     font-family: AppleSDGothicNeoM;
     font-size: 12px;
@@ -51,6 +51,7 @@
     color: #fff;
     border-radius: 40px;
     border: none;
+    outline: none;
     cursor: pointer;
 }
 

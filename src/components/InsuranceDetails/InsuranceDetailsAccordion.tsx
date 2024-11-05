@@ -9,6 +9,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InsuranceInfo from './InsuranceInfo';
 import PaymentInfo from './PaymentInfo';
 import CoverageInfos from './CoverageInfos';
+import fees from '../../utils/models/Fee';
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
@@ -36,7 +37,7 @@ const panels: PanelType[] = [
     },
     {
         title: '결제 정보',
-        span: '(19,300원)',
+        span: `(${fees.total.toLocaleString()}원)`,
         content: <PaymentInfo />,
     },
 ];

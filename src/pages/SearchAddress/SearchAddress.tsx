@@ -1,7 +1,7 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { useDaumPostcodePopup } from 'react-daum-postcode';
+import { useDaumPostcodePopup, DaumPostcodeEmbed } from 'react-daum-postcode';
 
 type AddressData = {
     address: string;

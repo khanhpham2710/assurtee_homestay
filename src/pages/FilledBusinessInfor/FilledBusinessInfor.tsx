@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { validateBusinessField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { BusinessType } from '../../utils/models/InfoType';
-import UploadImage from '../../components/UpLoadImage/UpLoadImage';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useAppSelector((state) => state.info);
@@ -25,10 +24,14 @@ const FilledBusinessInfo: React.FC = () => {
         setForm((prev) => ({ ...prev, [key]: value }));
     };
 
-    const allChecked: boolean = useMemo(
-        () => validateBusinessField(form),
-        [form]
-    );
+    const allChecked: boolean = useMemo(() => {
+        const validate = validateBusinessField(form);
+        return (
+            validate &&
+            form.sprinkler === '설치되어 있습니다.' &&
+            form.image !== null
+        );
+    }, [form]);
 
     const handleSubmit = async () => {
         if (allChecked) {
@@ -52,19 +55,18 @@ const FilledBusinessInfo: React.FC = () => {
             />
             <Divider className="divider_1" />
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{ textAlign: 'left', marginBottom: '28px' }}
             >
                 건물/주택 정보를 입력해 주세요.
             </p>
-            <BusinessInputs form={form} handleChange={handleChange} />
-            <section
+            <BusinessInputs
+                form={form}
+                handleChange={handleChange}
                 style={{
                     marginBottom: 40,
                 }}
-            >
-                <UploadImage />
-            </section>
+            />
             <section
                 style={{ width: '100%', marginTop: '20px' }}
                 className="dflex_center"

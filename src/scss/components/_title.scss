@@ -1,22 +1,22 @@
 @use '../abstracts/index' as ab;
 
-.titleLarge {
+.title-24 {
     @include ab.label;
     font-size: 24px;
     line-height: 1.17 !important;
 }
 
-.titleMedium {
+.title-22 {
     @include ab.label;
     font-size: 22px !important;
 }
 
-.titleSmall {
+.title-20 {
     @include ab.label;
     font-size: 20px !important;
 }
 
-.titleMini {
+.title-18 {
     @include ab.label;
     font-size: 18px !important;
     text-align: center;
@@ -30,7 +30,7 @@
     font-size: 16px !important;
 }
 
-.titleMicro {
+.title-14 {
     @include ab.label;
     font-size: 14px !important;
     span {

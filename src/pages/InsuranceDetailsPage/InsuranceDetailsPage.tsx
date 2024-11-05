@@ -2,7 +2,7 @@ import images from '../../assets/images';
 import Download from '../../components/Download/Download';
 import InsuranceDetailsAccordion from '../../components/InsuranceDetails/InsuranceDetailsAccordion';
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import SmallModal from '../../components/MyModals/SmallModal';
 
 type StyledButtonProps = {
@@ -39,6 +39,7 @@ function InsuranceDetailsPage() {
 
     const { isSuccess } = useParams<{ isSuccess: string }>();
     const success: boolean = isSuccess === 'success';
+    const navigate = useNavigate();
 
     const [open, setOpen] = useState<boolean>(false);
 
@@ -85,7 +86,7 @@ function InsuranceDetailsPage() {
                     }}
                 />
                 <p
-                    className="titleMedium"
+                    className="title-22"
                     style={{
                         margin: '12px 24px 0',
                         textAlign: 'left',
@@ -150,7 +151,13 @@ function InsuranceDetailsPage() {
                 description={
                     <div className="dflex_center flexColumn_item">
                         <p>가입된 보험을 취소하시겠습니까?</p>
-                        <a style={{ marginTop: '16px', fontSize: 14 }}>
+                        <a
+                            style={{ marginTop: '16px', fontSize: 14 }}
+                            onClick={() => {
+                                navigate('/insurance-details/canceled');
+                                setOpen(false);
+                            }}
+                        >
                             취소하기
                         </a>
                     </div>

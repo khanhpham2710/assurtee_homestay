@@ -52,15 +52,13 @@ export default function FilledPersonalInfo() {
                     <span>1</span> / 2
                 </p>
                 <p
-                    className="titleMedium"
+                    className="title-22"
                     style={{ textAlign: 'left', marginTop: '17px' }}
                 >
                     보험 가입 정보를 입력해 주세요.
                 </p>
             </section>
-            <section>
-                <PersonalInputs form={form1} handleChange={handleChange1} />
-            </section>
+            <PersonalInputs form={form1} handleChange={handleChange1} />
             <section
                 style={{
                     width: '100%',
@@ -79,7 +77,7 @@ export default function FilledPersonalInfo() {
             {isBusinessInfoVisible && (
                 <>
                     <p
-                        className="titleMedium"
+                        className="title-22"
                         style={{ textAlign: 'left', marginTop: '38px' }}
                     >
                         건물/주택 정보

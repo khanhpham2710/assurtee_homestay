@@ -4,16 +4,19 @@ import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
 import { TextField } from '@mui/material';
 import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
+import { CSSProperties } from 'react';
+import UploadImage from '../UpLoadImage/UpLoadImage';
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
+    style?: CSSProperties;
 };
 
-function BusinessInputs({ form, handleChange }: InputsProps) {
+function BusinessInputs({ form, handleChange, style }: InputsProps) {
     const { handleClick } = usePostcodePopup({ handleChange });
 
     return (
-        <form className="dflex-column" style={{ width: '100%' }}>
+        <form className="dflex-column" style={{ ...style, width: '100%' }}>
             <InputSection>
                 <label className="title_label" htmlFor="division">
                     구분
@@ -153,6 +156,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     title="스프링쿨러 유무를 선택해 주세요."
                 />
             </InputSection>
+            <UploadImage />
         </form>
     );
 }
