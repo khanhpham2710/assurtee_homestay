@@ -12,7 +12,7 @@ type DialogProps = {
 };
 
 const buttonStyle: React.CSSProperties = {
-    width: 264,
+    width: '100%',
     height: 50,
     display: 'flex',
     justifyContent: 'space-between',
@@ -32,7 +32,8 @@ const fontStyle: React.CSSProperties = {
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
-        borderRadius: '8px',
+        borderRadius: 8,
+        margin: 0,
         boxShadow: 'none',
     },
     '& .MuiDialogContent-root': {
@@ -55,10 +56,6 @@ export default function UpLoadImageModal({
         setOpen(false);
     };
 
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     const handleLibraryClick = () => {
         libraryInputRef.current?.click();
     };
@@ -78,7 +75,7 @@ export default function UpLoadImageModal({
     return (
         <React.Fragment>
             <BootstrapDialog
-                onClose={handleClose}
+                onClose={() => setOpen(false)}
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
@@ -91,7 +88,8 @@ export default function UpLoadImageModal({
                     <div
                         className="dflex_center flexColumn_item"
                         style={{
-                            width: 312,
+                            minWidth: 312,
+                            width: '100%',
                             height: 230,
                             padding: '40px 24px 32px',
                             gap: '12px',
@@ -99,11 +97,9 @@ export default function UpLoadImageModal({
                         }}
                     >
                         <p
+                            className="title-22"
                             style={{
-                                fontFamily: 'AppleSDGothicNeoH',
-                                fontSize: 22,
                                 lineHeight: '1.27',
-                                color: '#000',
                             }}
                         >
                             사진을 추가해 주세요.
@@ -147,7 +143,7 @@ export default function UpLoadImageModal({
                     <button
                         onClick={handleCheck}
                         style={{
-                            width: 312,
+                            minWidth: 312,
                             height: 50,
                             backgroundColor: '#333647',
                             fontSize: 16,

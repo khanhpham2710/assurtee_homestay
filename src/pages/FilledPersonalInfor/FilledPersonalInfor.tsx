@@ -14,6 +14,7 @@ export default function FilledPersonalInfo() {
     const info = useAppSelector((state) => state.info);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
     const [form1, setForm1] = useState<PersonalType>(info);
     const [form2, setForm2] = useState<BusinessType>(info);
 
@@ -25,14 +26,8 @@ export default function FilledPersonalInfo() {
         setForm2((prev) => ({ ...prev, [key]: value }));
     };
 
-    const allChecked1: boolean = useMemo(
-        () => validatePersonalField(form1),
-        [form1]
-    );
-    const allChecked2: boolean = useMemo(
-        () => validateBusinessField(form2),
-        [form2]
-    );
+    const allChecked1 = useMemo(() => validatePersonalField(form1), [form1]);
+    const allChecked2 = useMemo(() => validateBusinessField(form2), [form2]);
 
     const handleSubmit1 = async () => {
         if (allChecked1) {
@@ -43,9 +38,12 @@ export default function FilledPersonalInfo() {
 
     const handleSubmit2 = async () => {
         if (allChecked2) {
+            await dispatch(updateInfo(form2));
             navigate('/insurance-amount');
         }
     };
+
+    const isBusinessInfoVisible = form2.businessName || form2.businessNumber;
 
     return (
         <div style={{ padding: '8px 24px 0' }}>
@@ -54,17 +52,18 @@ export default function FilledPersonalInfo() {
                     <span>1</span> / 2
                 </p>
                 <p
-                    className="titleMedium"
+                    className="title-22"
                     style={{ textAlign: 'left', marginTop: '17px' }}
                 >
                     보험 가입 정보를 입력해 주세요.
                 </p>
             </section>
-            <section>
-                <PersonalInputs form={form1} handleChange={handleChange1} />
-            </section>
+            <PersonalInputs form={form1} handleChange={handleChange1} />
             <section
-                style={{ width: '100%', marginTop: '40px' }}
+                style={{
+                    width: '100%',
+                    marginTop: '40px',
+                }}
                 className="dflex_center"
             >
                 <button
@@ -75,20 +74,16 @@ export default function FilledPersonalInfo() {
                     주택 정보 입력
                 </button>
             </section>
-            {form2.address !== '' && (
-                <div
-                    style={{
-                        marginBottom: '70px',
-                    }}
-                >
+            {isBusinessInfoVisible && (
+                <>
                     <p
-                        className="titleMedium"
+                        className="title-22"
                         style={{ textAlign: 'left', marginTop: '38px' }}
                     >
                         건물/주택 정보
                     </p>
                     <BusinessInputs form={form2} handleChange={handleChange2} />
-                </div>
+                </>
             )}
             <section className="dflex_center" style={{ width: '100%' }}>
                 <button
@@ -98,15 +93,18 @@ export default function FilledPersonalInfo() {
                             : 'button3'
                     }
                     disabled={!allChecked2 || !allChecked1}
-                    style={{
-                        position: 'fixed',
-                        bottom: 0,
-                    }}
+                    style={{ position: 'fixed', bottom: 0 }}
                     onClick={handleSubmit2}
+                    aria-label="Submit business information"
                 >
                     수정
                 </button>
             </section>
+            <section
+                style={{
+                    height: 70,
+                }}
+            ></section>
         </div>
     );
 }

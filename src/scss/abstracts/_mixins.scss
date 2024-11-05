@@ -23,14 +23,14 @@
     height: 50px;
 
     &.active {
-        background-color: #333647 !important;
+        background-color: var(--secondary) !important;
         cursor: pointer;
     }
 }
 
 @mixin title {
     font-stretch: normal !important;
-    // font-style: normal !important;
+    font-style: normal !important;
     letter-spacing: normal;
 }
 

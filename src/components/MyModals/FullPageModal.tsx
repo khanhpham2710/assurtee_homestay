@@ -26,7 +26,7 @@ export type MyModalProps = {
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } & ModalType;
 
-export default function MyModal({
+export default function FullPageModal({
     open,
     setOpen,
     title,
@@ -58,7 +58,7 @@ export default function MyModal({
             >
                 <p
                     id="modal-title"
-                    className="titleSmall"
+                    className="title-20"
                     style={{
                         color: appBarColor === '#fff' ? "'#000'" : '#fff',
                     }}

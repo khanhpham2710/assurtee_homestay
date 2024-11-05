@@ -3,6 +3,7 @@ import { numberOnly } from '../../utils/validation/number';
 import OptionInput from '../Input/OptionInput';
 import SliderInput from '../Input/SliderInput';
 import { InsuranceAmountType } from '../../utils/models/InfoType';
+import { CSSProperties } from 'react';
 
 type PropsType = {
     form: InsuranceAmountType;
@@ -10,11 +11,12 @@ type PropsType = {
         key: keyof InsuranceAmountType,
         value: string | number
     ) => void;
+    style?: CSSProperties;
 };
 
-function InsuranceAmount({ form, handleChange }: PropsType) {
+function InsuranceAmount({ form, handleChange, style }: PropsType) {
     return (
-        <form style={{ width: '100%' }}>
+        <form style={{ ...style, width: '100%' }}>
             <SliderInput<InsuranceAmountType>
                 variable="construction"
                 value={form.construction}
@@ -44,7 +46,7 @@ function InsuranceAmount({ form, handleChange }: PropsType) {
             />
 
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{ textAlign: 'left', margin: '7px 0 8px' }}
             >
                 영업배상 책임보험 가입면적을 선택해 주세요.

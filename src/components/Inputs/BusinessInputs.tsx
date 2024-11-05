@@ -1,25 +1,22 @@
 import { CustomInput, InputSection } from '../Input/CustomInput';
-import { Link } from 'react-router-dom';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
-import { Box, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
-import { useAppSelector } from '../../utils/hooks/reduxHooks';
-import { RootState } from '../../utils/redux/store';
-import { useEffect } from 'react';
+import { CSSProperties } from 'react';
+import UploadImage from '../upLoadImage/UpLoadImage';
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
+    style?: CSSProperties;
 };
 
-function BusinessInputs({ form, handleChange }: InputsProps) {
-    const { address } = useAppSelector((state: RootState) => state.info);
-
+function BusinessInputs({ form, handleChange, style }: InputsProps) {
     const { handleClick } = usePostcodePopup({ handleChange });
 
     return (
-        <form className="dflex-column" style={{ width: '100%' }}>
+        <form className="dflex-column" style={{ ...style, width: '100%' }}>
             <InputSection>
                 <label className="title_label" htmlFor="division">
                     구분
@@ -109,8 +106,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                         value={form.address}
                     />
 
-                    <Box
-                        // to="/search-address"
+                    <div
                         style={{
                             minHeight: '50px',
                             textDecoration: 'none',
@@ -123,7 +119,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                         >
                             주소검색
                         </button>
-                    </Box>
+                    </div>
                 </section>
             </InputSection>
             <InputSection>
@@ -160,6 +156,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     title="스프링쿨러 유무를 선택해 주세요."
                 />
             </InputSection>
+            <UploadImage />
         </form>
     );
 }

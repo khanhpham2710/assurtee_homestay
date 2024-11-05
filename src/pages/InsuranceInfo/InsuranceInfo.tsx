@@ -1,4 +1,3 @@
-import { Avatar } from '@mui/material';
 import images from '../../assets/images';
 import FeeAccordion from '../../components/Accordion/FeeAccordion';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
@@ -7,7 +6,7 @@ import Download from '../../components/Download/Download';
 import WarningAccordion from '../../components/Accordion/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
 import { useState, useEffect } from 'react';
-import MyModal from '../../components/MyModal/MyModal';
+import FullPageModal from '../../components/MyModals/FullPageModal';
 import FillAllInfor from '../FilledAllInfor/FillAllInfor';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
@@ -50,22 +49,27 @@ function InsuranceInfo() {
 
     return (
         <div className="dflex-column">
-            <Avatar
+            <img
                 src={images.InsuranceLogo}
                 alt=""
-                sx={{
+                style={{
+                    width: 40,
+                    height: 40,
                     margin: '16px 206px 0px 24px',
-                    objectFit: 'contain',
                 }}
             />
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{ margin: '12px 24px 52px', textAlign: 'left' }}
             >
                 현대해상화재보험 외국인관광도시민박보험
             </p>
             <FeeAccordion />
-            <RegistrationInfo />
+            <RegistrationInfo
+                style={{
+                    margin: '40px 24px 0',
+                }}
+            />
             <div
                 style={{
                     display: 'flex',
@@ -75,7 +79,7 @@ function InsuranceInfo() {
                 }}
             >
                 <button
-                    className="info-modify-button"
+                    className="small-button"
                     onClick={() => {
                         setOpen(true);
                     }}
@@ -83,14 +87,12 @@ function InsuranceInfo() {
                     내용수정
                 </button>
             </div>
-            <section
+            <InsuranceDetails
                 style={{
                     margin: '40px 0',
                     padding: '0 24px',
                 }}
-            >
-                <InsuranceDetails />
-            </section>
+            />
             <section
                 className="dflex_center"
                 style={{
@@ -101,12 +103,11 @@ function InsuranceInfo() {
                 <Download text="상품설명서(PDF)" href="" fileName="" />
                 <Download text="보험약관(PDF)" href="" fileName="" />
             </section>
-            <section style={{ padding: '0 24px' }}>
-                <WarningAccordion
-                    title="보험가입 전 유의사항"
-                    content={WarningContent}
-                />
-            </section>
+            <WarningAccordion
+                title="보험가입 전 유의사항"
+                content={WarningContent}
+                style={{ padding: '0 24px' }}
+            />
             <p
                 className="title_label"
                 style={{
@@ -127,7 +128,7 @@ function InsuranceInfo() {
                     가입하기
                 </button>
             </section>
-            <MyModal
+            <FullPageModal
                 component={<FillAllInfor setOpen={setOpen} />}
                 open={open}
                 setOpen={setOpen}

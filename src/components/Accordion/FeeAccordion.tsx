@@ -1,29 +1,12 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import images from '../../assets/images';
+import fees from '../../utils/models/Fee';
 
-type Fee = {
-    name: string;
-    fee: number;
-};
-
-function FeeAccordion() {
-    const fees: Fee[] = [
-        {
-            name: '화재보장 부문',
-            fee: 9300,
-        },
-        {
-            name: '영업배상 보장 부문',
-            fee: 10000,
-        },
-    ];
-
-    const totalFee = fees.reduce((sum, item) => sum + item.fee, 0);
-
+function FeeAccordion({ style }: { style?: CSSProperties }) {
     const fontStyle: React.CSSProperties = {
         fontFamily: 'AppleSDGothicNeoM',
         fontSize: '16px',
@@ -38,6 +21,7 @@ function FeeAccordion() {
             disableGutters
             elevation={0}
             sx={{
+                ...style,
                 boxShadow: 'none',
                 '&::before': {
                     display: 'none',
@@ -72,11 +56,11 @@ function FeeAccordion() {
                             color: '#fb5601',
                         }}
                     >
-                        {totalFee.toLocaleString()}원
+                        {fees.total.toLocaleString()}원
                     </p>
                 </div>
             </AccordionSummary>
-            {fees.map((item, index) => (
+            {fees.fees.map((item, index) => (
                 <AccordionDetails
                     key={index}
                     sx={{

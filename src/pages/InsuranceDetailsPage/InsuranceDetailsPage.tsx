@@ -1,9 +1,9 @@
 import images from '../../assets/images';
-import { Avatar } from '@mui/material';
 import Download from '../../components/Download/Download';
 import InsuranceDetailsAccordion from '../../components/InsuranceDetails/InsuranceDetailsAccordion';
-import React, { useMemo } from 'react';
-// import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import SmallModal from '../../components/MyModals/SmallModal';
 
 type StyledButtonProps = {
     children: React.ReactNode;
@@ -37,9 +37,11 @@ function StyledButton({ children, style, onClick }: StyledButtonProps) {
 function InsuranceDetailsPage() {
     // const { success } = useAppSelector((state) => state.info);
 
-    const success: boolean = useMemo(() => {
-        return Math.floor(Math.random() * 2) === 0 ? true : false;
-    }, []);
+    const { isSuccess } = useParams<{ isSuccess: string }>();
+    const success: boolean = isSuccess === 'success';
+    const navigate = useNavigate();
+
+    const [open, setOpen] = useState<boolean>(false);
 
     return (
         <div>
@@ -70,20 +72,28 @@ function InsuranceDetailsPage() {
                     />
                 </div>
             </section>
-            <section>
-                <Avatar
+            <section
+                style={{
+                    marginTop: success ? 49 : 59,
+                }}
+            >
+                <img
                     src={images.InsuranceLogo}
                     alt=""
-                    sx={{
+                    style={{
                         margin: '16px 206px 0px 24px',
                         objectFit: 'contain',
                     }}
                 />
                 <p
-                    className="titleMedium"
-                    style={{ margin: '12px 24px 0', textAlign: 'left' }}
+                    className="title-22"
+                    style={{
+                        margin: '12px 24px 0',
+                        textAlign: 'left',
+                        lineHeight: 1.27,
+                    }}
                 >
-                    현대해상화재보험 해외장기체류단체보험
+                    현대해상화재보험 외국인관광도시민박보험
                 </p>
             </section>
             {success && (
@@ -114,7 +124,6 @@ function InsuranceDetailsPage() {
                         backgroundColor: '#f1d607',
                         color: '#372020',
                         gap: 8,
-                        width: success ? 150 : 312,
                     }}
                     onClick={() => {}}
                 >
@@ -127,12 +136,35 @@ function InsuranceDetailsPage() {
                             backgroundColor: '#ffeef1',
                             color: '#fa4c00',
                         }}
-                        onClick={() => {}}
+                        onClick={() => {
+                            setOpen(true);
+                        }}
                     >
                         가입 취소
                     </StyledButton>
                 )}
             </section>
+            <SmallModal
+                open={open}
+                setOpen={setOpen}
+                title="가입 취소"
+                description={
+                    <div className="dflex_center flexColumn_item">
+                        <p>가입된 보험을 취소하시겠습니까?</p>
+                        <a
+                            style={{ marginTop: '16px', fontSize: 14 }}
+                            onClick={() => {
+                                navigate('/insurance-details/canceled');
+                                setOpen(false);
+                            }}
+                        >
+                            취소하기
+                        </a>
+                    </div>
+                }
+                textButton="유지하기"
+                handleClick={() => {}}
+            />
         </div>
     );
 }

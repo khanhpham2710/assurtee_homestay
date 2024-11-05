@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { validateBusinessField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { BusinessType } from '../../utils/models/InfoType';
-import UploadImage from '../../components/upLoadImage/UpLoadImage';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useAppSelector((state) => state.info);
@@ -25,17 +24,17 @@ const FilledBusinessInfo: React.FC = () => {
         setForm((prev) => ({ ...prev, [key]: value }));
     };
 
-    const allChecked: boolean = useMemo(
-        () => validateBusinessField(form),
-        [form]
-    );
+    const allChecked: boolean = useMemo(() => {
+        return validateBusinessField(form);
+    }, [form]);
 
     const handleSubmit = async () => {
         if (allChecked) {
             await dispatch(
                 updateInfo({
                     ...form,
-                    sameAddress: item === '예' ? true : false,
+                    sameAddress: item === '예',
+                    image: info.image,
                 })
             );
             navigate('/personal-infor');
@@ -52,19 +51,18 @@ const FilledBusinessInfo: React.FC = () => {
             />
             <Divider className="divider_1" />
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{ textAlign: 'left', marginBottom: '28px' }}
             >
                 건물/주택 정보를 입력해 주세요.
             </p>
-            <BusinessInputs form={form} handleChange={handleChange} />
-            <section
+            <BusinessInputs
+                form={form}
+                handleChange={handleChange}
                 style={{
                     marginBottom: 40,
                 }}
-            >
-                <UploadImage />
-            </section>
+            />
             <section
                 style={{ width: '100%', marginTop: '20px' }}
                 className="dflex_center"

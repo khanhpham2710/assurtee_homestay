@@ -1,11 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import MyToolTip from '../../components/MyTooltip/MyToolTip';
-import {
-    Accordion,
-    AccordionSummary,
-    Divider,
-    AccordionDetails,
-} from '@mui/material';
+import { Accordion, AccordionSummary, Divider } from '@mui/material';
 
 import CloseIcon from '@mui/icons-material/Close';
 import images from '../../assets/images';

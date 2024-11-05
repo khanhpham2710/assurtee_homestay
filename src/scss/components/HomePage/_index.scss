@@ -15,13 +15,12 @@
     position: fixed;
     bottom: 0;
     .button_main {
-        background-color: #ea3062;
+        background-color: var(--primary);
         width: calc(100vw - 32px);
         height: 56px;
         border-radius: 8px;
         z-index: 1;
         cursor: pointer;
         color: white;
-        // padding: 0 16px;
     }
 }

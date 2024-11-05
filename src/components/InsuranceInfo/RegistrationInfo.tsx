@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import GreyLabelInfoBox, { InfoProps } from '../InfoBox/GreyLabelInfoBox';
 import { RootState } from '../../utils/redux/store';
-import { useMemo } from 'react';
+import { CSSProperties, useMemo } from 'react';
 import { InfoType } from '../../utils/models/InfoType';
 import { formatDate } from '../../utils/validation/startAndEndDate';
 
-function RegistrationInfo() {
+function RegistrationInfo({ style }: { style?: CSSProperties }) {
     const state: InfoType = useSelector((state: RootState) => state.info);
 
     const { formatedStartDate, formatedEndDate } = useMemo(
@@ -45,11 +45,7 @@ function RegistrationInfo() {
     ];
 
     return (
-        <section
-            style={{
-                margin: '40px 24px 0',
-            }}
-        >
+        <section style={style}>
             <p className="title_label">가입정보</p>
             {infos.map((info, index) => {
                 return (

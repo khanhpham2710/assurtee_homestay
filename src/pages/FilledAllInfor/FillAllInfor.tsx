@@ -39,11 +39,11 @@ function FillAllInfor({
             validateBusinessField(form) &&
             validatePersonalField(form)
         );
-    }, [form]);
+    }, [form, info]);
 
     const handleSubmit = async () => {
         if (allChecked) {
-            await dispatch(updateInfo(form));
+            await dispatch(updateInfo({ ...form, image: info.image }));
             setOpen(false);
         }
     };
@@ -51,33 +51,34 @@ function FillAllInfor({
     return (
         <div
             style={{
-                marginTop: '8px',
+                marginTop: 8,
                 padding: '0 24px',
             }}
             className="dflex_center flexColumn_item"
         >
             <PersonalInputs form={form} handleChange={handleChange} />
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{
                     textAlign: 'left',
-                    marginTop: '20px',
-                    marginBottom: '28px',
+                    marginTop: 20,
+                    marginBottom: 28,
                 }}
             >
                 건물/주택 정보
             </p>
 
             <BusinessInputs form={form} handleChange={handleChange} />
-            <DateInputs />
+            <DateInputs style={{ marginTop: 36, marginBottom: 24 }} />
             <Question<'1억' | '3억' | '5억'>
                 title="화재보험 가입금액을 선택해 주세요."
                 item={item}
                 items={items}
                 setItem={setItem}
+                style={{ marginBottom: 30 }}
             />
             <InsuranceAmount form={form} handleChange={handleChange} />
-            <section style={{ marginTop: '20px', marginBottom: '40px' }}>
+            <section style={{ marginTop: 20, marginBottom: 40 }}>
                 <button
                     className={allChecked ? 'button2 active' : 'button2'}
                     onClick={handleSubmit}

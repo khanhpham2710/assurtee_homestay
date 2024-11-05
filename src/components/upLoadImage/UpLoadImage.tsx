@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import images from '../../assets/images';
-import UpLoadImageModal from './UpLoadImageModal';
+import UploadImageModal from './UpLoadImageModal';
+import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
+import { updateInfo } from '../../utils/redux/infoSlice';
 
-export default function UploadImage() {
-    const [image, setImage] = useState<File | null>(null);
+export default function UploadImage({ style }: { style?: CSSProperties }) {
+    const info = useAppSelector((state) => state.info);
+    const dispatch = useAppDispatch();
+    const [image, setImage] = useState<File | null>(info.image || null);
     const [open, setOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        dispatch(updateInfo({ image }));
+    }, [image]);
 
     const fontStyle: React.CSSProperties = {
         fontFamily: 'AppleSDGothicNeoB',
@@ -25,7 +33,7 @@ export default function UploadImage() {
     };
 
     return (
-        <>
+        <div style={style}>
             {image === null ? (
                 <div
                     style={{
@@ -56,15 +64,25 @@ export default function UploadImage() {
                     </div>
                 </div>
             ) : (
-                <img
-                    src={URL.createObjectURL(image)}
-                    alt="Uploaded"
+                <div
+                    className="dflex_center"
                     style={{
-                        maxWidth: '100%',
-                        maxHeight: '100%',
-                        display: 'block',
+                        width: '100%',
+                        aspectRatio: '20 / 9',
+                        overflow: 'hidden',
+                        borderRadius: '8px',
+                        border: 'solid 1px #e0e0e0',
                     }}
-                />
+                >
+                    <img
+                        src={URL.createObjectURL(image)}
+                        alt="Uploaded"
+                        style={{
+                            maxWidth: '100%',
+                            display: 'block',
+                        }}
+                    />
+                </div>
             )}
 
             <div
@@ -88,11 +106,11 @@ export default function UploadImage() {
                     항목제거
                 </button>
             </div>
-            <UpLoadImageModal
+            <UploadImageModal
                 open={open}
                 setOpen={setOpen}
                 setImage={setImage}
             />
-        </>
+        </div>
     );
 }

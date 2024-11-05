@@ -1,8 +1,15 @@
 import CloseIcon from '@mui/icons-material/Close';
 import { Divider } from '@mui/material';
-import { useNavigate, useLocation } from 'react-router-dom';
-import DaumPostcodeEmbed from 'react-daum-postcode';
-import { useDaumPostcodePopup } from 'react-daum-postcode';
+import { useNavigate } from 'react-router-dom';
+import { useDaumPostcodePopup, DaumPostcodeEmbed } from 'react-daum-postcode';
+
+type AddressData = {
+    address: string;
+    addressType: string;
+    bname: string;
+    buildingName: string;
+};
+
 function SearchAddress() {
     const navigate = useNavigate();
 
@@ -14,7 +21,7 @@ function SearchAddress() {
         '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
     const open = useDaumPostcodePopup(scriptUrl);
 
-    const handleComplete = (data: any) => {
+    const handleComplete = (data: AddressData) => {
         let fullAddress = data.address;
         let extraAddress = '';
 

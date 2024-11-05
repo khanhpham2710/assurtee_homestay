@@ -1,4 +1,5 @@
 import GreyLabelInfoBox, { InfoProps } from '../InfoBox/GreyLabelInfoBox';
+import fees from '../../utils/models/Fee';
 
 export default function InsuranceInfo() {
     const infos: InfoProps[] = [
@@ -39,7 +40,7 @@ export default function InsuranceInfo() {
                 <p className="medium_info" style={{ textAlign: 'center' }}>
                     1974.10.11
                 </p>
-                <p className="medium_info">19,300원</p>
+                <p className="medium_info">{fees.total.toLocaleString()}원</p>
             </div>
             {infos?.map((info, index) => {
                 return (

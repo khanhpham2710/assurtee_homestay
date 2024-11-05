@@ -1,18 +1,24 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
-import { SxProps, Typography } from '@mui/material';
+import { Box, SxProps } from '@mui/material';
 import { Theme } from '@mui/system';
 import { styled } from '@mui/material/styles';
 import DialogActions from '@mui/material/DialogActions';
 
 const fontStyle: SxProps<Theme> = {
-    fontFamily: 'AppleSDGothicNeoM',
-    fontSize: 16,
-    lineHeight: 1.25,
-    textAlign: 'center',
-    color: '#000',
-    '& a': {
+    p: {
+        fontFamily: 'AppleSDGothicNeoM',
+        fontSize: 16,
+        lineHeight: 1.25,
+        textAlign: 'center',
+        color: '#000',
+    },
+    a: {
+        fontFamily: 'AppleSDGothicNeoM',
+        fontSize: 16,
+        lineHeight: 1.25,
+        textAlign: 'center',
         color: '#0068e2',
         textDecoration: 'underline',
     },
@@ -29,7 +35,8 @@ type DialogProps = {
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
-        borderRadius: '8px',
+        borderRadius: 8,
+        margin: 0,
         boxShadow: 'none',
     },
     '& .MuiDialogContent-root': {
@@ -40,7 +47,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export default function UnpaidModal({
+export default function SmallModal({
     open,
     setOpen,
     title,
@@ -48,14 +55,10 @@ export default function UnpaidModal({
     handleClick,
     description,
 }: DialogProps) {
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     return (
         <React.Fragment>
             <BootstrapDialog
-                onClose={handleClose}
+                onClose={() => setOpen(false)}
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
@@ -76,21 +79,14 @@ export default function UnpaidModal({
                         }}
                     >
                         <p
+                            className="title-22"
                             style={{
-                                fontFamily: 'AppleSDGothicNeoH',
-                                fontSize: 22,
                                 lineHeight: '1.27',
-                                color: '#000',
                             }}
                         >
                             {title}
                         </p>
-                        <Typography
-                            id="transition-modal-description"
-                            sx={fontStyle}
-                        >
-                            {description}
-                        </Typography>
+                        <Box sx={fontStyle}>{description}</Box>
                     </div>
                 </DialogContent>
                 <DialogActions

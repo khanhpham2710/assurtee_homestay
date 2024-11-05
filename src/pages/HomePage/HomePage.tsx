@@ -1,6 +1,3 @@
-import HeaderMain from '../../components/Headers/HeaderMain';
-import Slider from 'react-slick';
-import images from '../../assets/images';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import Banner_Video from '../../components/HomePageComponents/Banner_Video';
@@ -51,7 +48,7 @@ export default function HomePage() {
             {/* Button Fixed */}
             <section className="button_container">
                 <Link to="/personal-infor">
-                    <button className="button_main titleMini">
+                    <button className="button_main title-18">
                         보험료 계산하기
                     </button>
                 </Link>
