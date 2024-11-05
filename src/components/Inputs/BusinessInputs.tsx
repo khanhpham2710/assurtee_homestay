@@ -2,7 +2,7 @@ import { CustomInput, InputSection } from '../Input/CustomInput';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
-import { Box, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
 type InputsProps = {
     form: BusinessType;
@@ -103,8 +103,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                         value={form.address}
                     />
 
-                    <Box
-                        // to="/search-address"
+                    <div
                         style={{
                             minHeight: '50px',
                             textDecoration: 'none',
@@ -117,7 +116,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                         >
                             주소검색
                         </button>
-                    </Box>
+                    </div>
                 </section>
             </InputSection>
             <InputSection>

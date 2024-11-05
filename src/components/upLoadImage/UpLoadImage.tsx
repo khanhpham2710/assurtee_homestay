@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import images from '../../assets/images';
 import UploadImageModal from './UpLoadImageModal';
+import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
+import { updateInfo } from '../../utils/redux/infoSlice';
 
 export default function UploadImage() {
-    const [image, setImage] = useState<File | null>(null);
+    const info = useAppSelector((state) => state.info);
+    const dispatch = useAppDispatch();
+    const [image, setImage] = useState<File | null>(info.image || null);
     const [open, setOpen] = useState<boolean>(false);
+
+    useEffect(() => {
+        dispatch(updateInfo({ image }));
+    }, [image]);
 
     const fontStyle: React.CSSProperties = {
         fontFamily: 'AppleSDGothicNeoB',

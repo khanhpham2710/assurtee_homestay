@@ -12,6 +12,7 @@ import {
 } from '../../utils/validation/validatefields';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { InfoType } from '../../utils/models/InfoType';
+import UploadImage from '../../components/UpLoadImage/UpLoadImage';
 
 function FillAllInfor({
     setOpen,
@@ -51,7 +52,7 @@ function FillAllInfor({
     return (
         <div
             style={{
-                marginTop: '8px',
+                marginTop: 8,
                 padding: '0 24px',
             }}
             className="dflex_center flexColumn_item"
@@ -61,15 +62,16 @@ function FillAllInfor({
                 className="titleMedium"
                 style={{
                     textAlign: 'left',
-                    marginTop: '20px',
-                    marginBottom: '28px',
+                    marginTop: 20,
+                    marginBottom: 28,
                 }}
             >
                 건물/주택 정보
             </p>
 
             <BusinessInputs form={form} handleChange={handleChange} />
-            <DateInputs />
+            <UploadImage />
+            <DateInputs style={{ marginTop: 36, marginBottom: 24 }} />
             <Question<'1억' | '3억' | '5억'>
                 title="화재보험 가입금액을 선택해 주세요."
                 item={item}
@@ -77,7 +79,7 @@ function FillAllInfor({
                 setItem={setItem}
             />
             <InsuranceAmount form={form} handleChange={handleChange} />
-            <section style={{ marginTop: '20px', marginBottom: '40px' }}>
+            <section style={{ marginTop: 20, marginBottom: 40 }}>
                 <button
                     className={allChecked ? 'button2 active' : 'button2'}
                     onClick={handleSubmit}

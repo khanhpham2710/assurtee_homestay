@@ -2,8 +2,13 @@ import { useMemo } from 'react';
 import { BlueCustomInput, InputSection } from '../Input/CustomInput';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import { formatDate } from '../../utils/validation/startAndEndDate';
+import { CSSProperties } from 'styled-components';
 
-function DateInputs() {
+type DateInputProps = {
+    style?: CSSProperties;
+};
+
+function DateInputs({ style }: DateInputProps) {
     const state = useAppSelector((state) => state.info);
 
     const { formatedStartDate, formatedEndDate } = useMemo(
@@ -12,7 +17,7 @@ function DateInputs() {
     );
 
     return (
-        <form style={{ width: '100%' }}>
+        <form style={{ ...style, width: '100%' }}>
             <InputSection>
                 <label className="title_label" htmlFor="start-date">
                     보험 시작일
