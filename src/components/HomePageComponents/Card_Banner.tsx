@@ -17,7 +17,7 @@ export default function Card_Banner({
 }: Props) {
     return (
         <div
-            className="dflex_center card_banner"
+            className="card_banner"
             style={{ backgroundColor: `${color}` }}
         >
             <div className="card_item_left">

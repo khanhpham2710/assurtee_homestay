@@ -33,6 +33,7 @@ import item_1 from '/Image/Banner/item_1.png';
 import item_2 from '/Image/Banner/item_2.png';
 import item_3 from '/Image/Banner/item_3.png';
 import item_4 from '/Image/Banner/item_4.png';
+import item_5 from "/Image/Banner/item_5@3x.png";
 
 import KeyDown from '/Image/KeyDown.png';
 
@@ -84,6 +85,7 @@ const images = {
     item_2,
     item_3,
     item_4,
+    item_5,
     KeyDown,
     bottom_carousel_1,
     bottom_carousel_2,
