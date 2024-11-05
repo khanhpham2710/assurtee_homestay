@@ -89,15 +89,15 @@ function InsuranceInfo() {
             </div>
             <InsuranceDetails
                 style={{
-                    margin: '40px 0',
+                    marginTop: '40px',
                     padding: '0 24px',
                 }}
             />
             <section
                 className="dflex_center"
                 style={{
-                    margin: '20px 0',
-                    gap: '12px',
+                    gap: 12,
+                    marginTop: 12,
                 }}
             >
                 <Download text="상품설명서(PDF)" href="" fileName="" />
@@ -106,7 +106,7 @@ function InsuranceInfo() {
             <WarningAccordion
                 title="보험가입 전 유의사항"
                 content={WarningContent}
-                style={{ padding: '0 24px' }}
+                style={{ padding: '0 24px', marginTop: 20 }}
             />
             <p
                 className="title_label"

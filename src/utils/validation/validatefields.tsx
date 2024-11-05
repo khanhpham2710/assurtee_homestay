@@ -3,7 +3,6 @@ import {
     PersonalType,
     InsuranceAmountType,
 } from '../models/InfoType';
-import { useAppSelector } from '../hooks/reduxHooks';
 
 export const validatePersonalField = (form: PersonalType): boolean => {
     const {
@@ -50,9 +49,7 @@ export const validatePersonalField = (form: PersonalType): boolean => {
 };
 
 export const validateBusinessField = (form: BusinessType): boolean => {
-    const { businessNumber, businessName, address, extra, hanok, sprinkler } =
-        form;
-    const image = useAppSelector((state) => state.info.image);
+    const { businessNumber, businessName, address, extra, hanok } = form;
 
     if (!businessNumber || !businessName || !address || !extra || !hanok) {
         return false;
@@ -61,10 +58,6 @@ export const validateBusinessField = (form: BusinessType): boolean => {
     const businessNumberRegex = /^\d{3}-\d{2}-\d{5}$/;
     if (!businessNumberRegex.test(businessNumber)) {
         return false;
-    }
-
-    if (sprinkler == '설치되어 있습니다.') {
-        return image !== null;
     }
 
     return true;

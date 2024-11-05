@@ -34,11 +34,14 @@ function FillAllInfor({
     }, [item]);
 
     const allChecked: boolean = useMemo(() => {
-        return (
+        const validate =
             validateAmountField(form) &&
             validateBusinessField(form) &&
-            validatePersonalField(form)
-        );
+            validatePersonalField(form);
+        if (form.sprinkler == '설치되어 있습니다.') {
+            return validate && info.image != null;
+        }
+        return validate;
     }, [form, info]);
 
     const handleSubmit = async () => {

@@ -25,8 +25,12 @@ const FilledBusinessInfo: React.FC = () => {
     };
 
     const allChecked: boolean = useMemo(() => {
-        return validateBusinessField(form);
-    }, [form]);
+        const validate = validateBusinessField(form);
+        if (form.sprinkler == '설치되어 있습니다.') {
+            return validate && info.image != null;
+        }
+        return validate;
+    }, [form, info]);
 
     const handleSubmit = async () => {
         if (allChecked) {
