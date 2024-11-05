@@ -7,7 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 type WarningAccordionType = {
     title: string;
     content: React.JSX.Element;
-    style: CSSProperties;
+    style?: CSSProperties;
 };
 
 function WarningAccordion({ title, content, style }: WarningAccordionType) {
