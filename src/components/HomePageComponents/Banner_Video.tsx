@@ -1,8 +1,6 @@
-import React from 'react';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 import Video_component from '../../components/HomePageComponents/Video_component';
-import images from '../../assets/images';
 import { createTheme, ThemeProvider } from '@mui/material';
 export default function Banner_Video() {
     const theme = createTheme({
