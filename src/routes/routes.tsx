@@ -16,6 +16,7 @@ import InsuranceDetailsPage from '../pages/InsuranceDetailsPage/InsuranceDetails
 // headers
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
+import EmailPage from '../pages/EmailPage/EmailPage';
 
 type RouteType = {
     path: string;
@@ -71,6 +72,11 @@ const routes: RouteType[] = [
         path: '/insurance-details/:success',
         component: InsuranceDetailsPage,
         header: <Header2 title="보험가입내역" backTo="/complete" />,
+    },
+    {
+        path: '/EmailPage',
+        component: EmailPage,
+        header: null,
     },
 ];
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import images from '../../assets/images';
-import UploadImageModal from './UpLoadImageModal';
+import UpLoadImageModal from './UpLoadImageModal';
 
 export default function UploadImage() {
     const [image, setImage] = useState<File | null>(null);
@@ -88,7 +88,7 @@ export default function UploadImage() {
                     항목제거
                 </button>
             </div>
-            <UploadImageModal
+            <UpLoadImageModal
                 open={open}
                 setOpen={setOpen}
                 setImage={setImage}

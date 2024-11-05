@@ -9,11 +9,16 @@ import Landing_Fee from '../../components/HomePageComponents/Landing_Fee';
 import Landing_Footer from '../../components/HomePageComponents/Landing_Footer';
 import Banner_Header from '../../components/HomePageComponents/Banner_Header';
 import Carousel_Bottom from '../../components/HomePageComponents/Carousel_Bottom';
+
 export default function HomePage() {
     const video_ref = useRef<HTMLDivElement>(null);
 
+    
+
+
     return (
         <section className="fullWidth_item fullHeightView_item">
+        
             <section>
                 <Banner_Header video_ref={video_ref} />
             </section>

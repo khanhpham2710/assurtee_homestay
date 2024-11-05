@@ -89,6 +89,7 @@ export default function Banner_Card() {
                                     key={index}
                                     size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
                                     className="dflex_center"
+                                    sx={{width: "100%"}}
                                 >
                                     <Card_Banner
                                         title={card.title}

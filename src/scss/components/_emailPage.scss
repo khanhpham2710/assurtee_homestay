@@ -1,0 +1,64 @@
+.EmailPage_Header {
+    img {
+        width: 150px;
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+    margin-bottom: 33px;
+}
+
+.EmailBannerBackGround {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 78 / 25;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 32px;
+    margin-bottom: 64px;
+    div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        img {
+            width: 40px;
+            height: 40px;
+        }
+        p:first-of-type {
+            font-size: 30px;
+            font-family: AppleSDGothicNeoH;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.93;
+            letter-spacing: normal;
+            text-align: left;
+            color: #303145;
+        }
+        > p:nth-of-type(2) {
+            font-size: 30px;
+            font-family: AppleSDGothicNeoH;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 0.93;
+            letter-spacing: normal;
+            text-align: left;
+            color: #ea3062;
+        }
+    }
+}
+.EmailPage_Content {
+    padding: 0 32px;
+
+    div {
+        span:first-of-type {
+            font-family: AppleSDGothicNeoH;
+            font-size: 18px;
+        }
+    }
+
+
+}
+

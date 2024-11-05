@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MyToolTip from '../../components/MyTooltip/MyToolTip';
 import {
     Accordion,
@@ -18,6 +18,32 @@ export default function Landing_Footer() {
             behavior: 'smooth',
         });
     };
+    const footerInfoRef = useRef<HTMLDivElement>(null);
+    const siteListRef = useRef<HTMLUListElement>(null);
+
+
+    const updateSiteListWidht = ()=> {
+        if (footerInfoRef.current && siteListRef.current) {
+            siteListRef.current.style.width = `${footerInfoRef.current.offsetWidth}px`;
+        }
+    }
+
+    useEffect(() => {
+        const resizeObserver = new ResizeObserver(updateSiteListWidht);
+
+        // Observe the footerInfo element
+        if (footerInfoRef.current) {
+            resizeObserver.observe(footerInfoRef.current);
+        }
+
+        // Cleanup the observer on component unmount
+        return () => {
+            if (footerInfoRef.current) {
+                resizeObserver.unobserve(footerInfoRef.current);
+            }
+            resizeObserver.disconnect();
+        };
+    }, [expanded, siteListRef.current ]);
 
     return (
         <section>
@@ -53,12 +79,13 @@ export default function Landing_Footer() {
 
             <section id="footer">
                 <div className="footer_container">
+
                     <div className="footer-logo">
                         <img src={images.mainLogo} alt="" />
                         <img src={images.ScrollUp} alt="" onClick={onTop} />
                     </div>
 
-                    <div className="footer-info">
+                    <div  ref={footerInfoRef} className="footer-info">
                         <p>
                             주식회사 어슈어티 <br />
                             대표 : 김영환 <br />
@@ -72,29 +99,31 @@ export default function Landing_Footer() {
                     </div>
 
                     {expanded && (
-                        <ul className="siteList">
-                            <li style={{ marginBottom: '10px' }}>
-                                <a href="">
-                                    <span>어슈어티</span>
-                                </a>
-                            </li>
-                            <Divider
-                                variant="fullWidth"
-                                sx={{
-                                    height: '1px',
-                                    backgroundColor: '#3a3a3a',
-                                }}
-                            />
-                            <li
-                                style={{
-                                    marginTop: '20px',
-                                }}
-                            >
-                                <a href="">
-                                    <span>번역하다</span>
-                                </a>
-                            </li>
-                        </ul>
+                     
+                            <ul className="siteList"  ref={siteListRef}>
+                                <li style={{ marginBottom: '10px' }}>
+                                    <a href="">
+                                        <span>어슈어티</span>
+                                    </a>
+                                </li>
+                                <Divider
+                                    variant="fullWidth"
+                                    sx={{
+                                        height: '1px',
+                                        backgroundColor: '#3a3a3a',
+                                    }}
+                                />
+                                <li
+                                    style={{
+                                        marginTop: '20px',
+                                    }}
+                                >
+                                    <a href="">
+                                        <span>번역하다</span>
+                                    </a>
+                                </li>
+                            </ul>
+                    
                     )}
 
                     <Accordion
