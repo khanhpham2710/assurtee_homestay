@@ -5,7 +5,7 @@ import { BusinessType } from '../../utils/models/InfoType';
 import { TextField } from '@mui/material';
 import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
 import { CSSProperties } from 'react';
-import UploadImage from '../upLoadImage/UpLoadImage';
+import UploadImage from '../UpLoadImage/UpLoadImage';
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
