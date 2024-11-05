@@ -1,6 +1,6 @@
 import { CustomInput, InputSection } from '../Input/CustomInput';
 import { numberOnly } from '../../utils/validation/number';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import styled from 'styled-components';
 import { PersonalType } from '../../utils/models/InfoType';
 import OptionInput from '../Input/OptionInput';
@@ -20,9 +20,10 @@ const RegistrationInput = styled(CustomInput)`
 type InputsProps = {
     form: PersonalType;
     handleChange: (key: keyof PersonalType, value: string) => void;
+    style?: CSSProperties;
 };
 
-function PersonalInputs({ form, handleChange }: InputsProps) {
+function PersonalInputs({ form, handleChange, style }: InputsProps) {
     function handleRegistrationInput(
         e: React.ChangeEvent<HTMLInputElement>
     ): void {
@@ -40,7 +41,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
     }
 
     return (
-        <form className="dflex-column" style={{ width: '100%' }}>
+        <form className="dflex-column" style={{ ...style, width: '100%' }}>
             <InputSection>
                 <label className="title_label" htmlFor="contractor">
                     계약자

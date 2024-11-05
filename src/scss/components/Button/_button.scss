@@ -29,8 +29,8 @@
     height: 30px;
     object-fit: contain;
     border-radius: 15px;
-    border: solid 1px #ea3062;
-    background-color: #f6f7f9;
+    border: solid 1px var(--primary);
+    background-color: var(--base-background);
     cursor: pointer;
 
     @include ab.button;
@@ -38,12 +38,12 @@
     font-family: AppleSDGothicNeoM;
     font-size: 14px;
     font-weight: 500;
-    color: #ea3062;
+    color: var(--primary);
 }
 
-.info-modify-button {
+.small-button {
     height: 24px;
-    background: #333647;
+    background-color: var(--secondary);
     padding: 1px 12px;
     font-family: AppleSDGothicNeoM;
     font-size: 12px;
@@ -51,6 +51,7 @@
     color: #fff;
     border-radius: 40px;
     border: none;
+    outline: none;
     cursor: pointer;
 }
 

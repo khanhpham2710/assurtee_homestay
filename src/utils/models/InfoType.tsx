@@ -18,7 +18,7 @@ export interface BusinessType {
     extra: string;
     image: File | null;
     hanok: '예' | '아니요' | '';
-    sprinkler: '설치되어 있지 않습니다' | '설치되어 있지 않습니다.';
+    sprinkler: '설치되어 있습니다.' | '설치되어 있지 않습니다.';
 }
 
 export interface InsuranceAmountType {

@@ -35,7 +35,8 @@ type DialogProps = {
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialog-paper': {
-        borderRadius: '8px',
+        borderRadius: 8,
+        margin: 0,
         boxShadow: 'none',
     },
     '& .MuiDialogContent-root': {
@@ -54,14 +55,10 @@ export default function SmallModal({
     handleClick,
     description,
 }: DialogProps) {
-    const handleClose = () => {
-        setOpen(false);
-    };
-
     return (
         <React.Fragment>
             <BootstrapDialog
-                onClose={handleClose}
+                onClose={() => setOpen(false)}
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
@@ -82,11 +79,9 @@ export default function SmallModal({
                         }}
                     >
                         <p
+                            className="title-22"
                             style={{
-                                fontFamily: 'AppleSDGothicNeoH',
-                                fontSize: 22,
                                 lineHeight: '1.27',
-                                color: '#000',
                             }}
                         >
                             {title}

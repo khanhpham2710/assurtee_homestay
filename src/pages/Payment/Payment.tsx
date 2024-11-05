@@ -6,11 +6,7 @@ import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useMemo, useState } from 'react';
 import SmallModal from '../../components/MyModals/SmallModal';
-
-type Fee = {
-    name: string;
-    fee: number;
-};
+import fees from '../../utils/models/Fee';
 
 function Payment() {
     const location = useLocation();
@@ -28,30 +24,12 @@ function Payment() {
         }
     }, [isPaid]);
 
-    const fees: Fee[] = [
-        {
-            name: '화재보장 부문',
-            fee: 9300,
-        },
-        {
-            name: '영업배상 보장 부문',
-            fee: 10000,
-        },
-    ];
-
     const orangeFont = {
         fontFamily: 'AppleSDGothicNeoH',
         fontSize: '22px',
         lineHeight: '1.27',
         color: '#fb5601',
     };
-
-    const totalFee = useMemo(() => {
-        return (
-            fees.reduce((sum, item) => sum + item.fee, 0).toLocaleString() +
-            '원'
-        );
-    }, [fees]);
 
     const allFieldsFilled = useMemo(() => {
         return [
@@ -82,12 +60,12 @@ function Payment() {
                 }}
             />
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{ margin: '12px 24px 0', textAlign: 'left' }}
             >
                 현대해상화재보험 외국인관광도시민박보험
             </p>
-            <RegistrationInfo />
+            <RegistrationInfo style={{ margin: '40px 24px 0' }} />
             <p
                 className="title_label"
                 style={{ margin: '40px 24px 0', textAlign: 'left' }}
@@ -95,8 +73,11 @@ function Payment() {
                 결제 금액
             </p>
             <section style={{ margin: '0 24px' }}>
-                <GreyLabelInfoBox title="총 보험료" info={totalFee} />
-                {fees.map((fee, index) => {
+                <GreyLabelInfoBox
+                    title="총 보험료"
+                    info={fees.total.toLocaleString() + '원'}
+                />
+                {fees.fees.map((fee, index) => {
                     return (
                         <PaymentInfoBox
                             key={index}
@@ -113,7 +94,7 @@ function Payment() {
                 }}
             >
                 <p className="title-16">총 결제금액</p>
-                <p style={orangeFont}>{totalFee}</p>
+                <p style={orangeFont}>{fees.total.toLocaleString() + '원'}</p>
             </section>
             <p
                 className="title_label"

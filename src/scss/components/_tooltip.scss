@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as m;
+
 .tooltip {
     position: relative;
     display: inline-block;
@@ -13,16 +15,15 @@
         z-index: 1;
         right: 0;
 
+        @include m.title;
+
         font-family: AppleSDGothicNeoM;
         font-size: 12px;
-        font-stretch: normal;
-        font-style: normal;
         line-height: 1.33;
-        letter-spacing: normal;
         color: #fff;
 
         span {
-            background-color: #26272e;
+            background-color: black;
         }
 
         &::after {

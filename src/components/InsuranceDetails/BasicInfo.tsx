@@ -1,11 +1,20 @@
-import React from 'react';
 import GreyLabelInfoBox, { InfoProps } from '../InfoBox/GreyLabelInfoBox';
+import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import { formatDate, formatTime } from '../../utils/validation/startAndEndDate';
+import { useMemo } from 'react';
 
 function BasicInfo() {
+    const info = useAppSelector((state) => state.info);
+
+    const { formatedStartDate, formatedEndDate } = useMemo(
+        () => formatDate(info.startDate),
+        []
+    );
+
     const infos: InfoProps[] = [
         {
             title: '가입일시',
-            info: '2024.04.12 / 15시 16분',
+            info: formatTime(new Date()),
         },
         {
             title: '가입번호',
@@ -13,11 +22,11 @@ function BasicInfo() {
         },
         {
             title: '보험시작일',
-            info: '2024.04.14 / 00시 00분',
+            info: `${formatedStartDate} / 00시 00분`,
         },
         {
             title: '보험종료일',
-            info: '2025.04.14 / 00시 00분',
+            info: `${formatedEndDate} / 00시 00분`,
         },
         {
             title: '납입 보험료',

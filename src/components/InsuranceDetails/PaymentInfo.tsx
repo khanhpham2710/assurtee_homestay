@@ -1,15 +1,16 @@
 import GreyLabelInfoBox, { InfoProps } from '../InfoBox/GreyLabelInfoBox';
 import { Divider } from '@mui/material';
+import fees from '../../utils/models/Fee';
 
 export default function PaymentInfo() {
     const infos: InfoProps[] = [
         {
             title: '총 상품금액',
-            info: '19,300원',
+            info: `${fees.total.toLocaleString()}원`,
         },
         {
             title: '총 결제금액',
-            info: '19,300원',
+            info: `${fees.total.toLocaleString()}원`,
         },
         {
             title: '결제 수단',
@@ -37,7 +38,7 @@ export default function PaymentInfo() {
                 }}
             >
                 <p className="grey_label">영수증</p>
-                <button className="info-modify-button" onClick={handleClick}>
+                <button className="small-button" onClick={handleClick}>
                     영수증 보기
                 </button>
             </div>

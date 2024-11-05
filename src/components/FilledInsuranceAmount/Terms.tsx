@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import images from '../../assets/images';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -9,6 +9,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 type TermsProp = {
     checkAll: boolean;
     setCheckAll: React.Dispatch<React.SetStateAction<boolean>>;
+    style?: CSSProperties;
 };
 
 type TermType = {
@@ -21,7 +22,7 @@ type TermTypeGroup = {
     subTerms?: TermType[];
 };
 
-function Terms({ checkAll, setCheckAll }: TermsProp) {
+function Terms({ checkAll, setCheckAll, style }: TermsProp) {
     const [terms, setTerms] = useState<TermTypeGroup[]>([
         {
             main: { term: '자격 및 전자서명 동의(필수)', check: true },
@@ -114,7 +115,7 @@ function Terms({ checkAll, setCheckAll }: TermsProp) {
     };
 
     return (
-        <div>
+        <div style={style}>
             <section
                 className="dflex_item"
                 style={{ marginBottom: '21px', gap: '10px' }}

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
 import images from '../../assets/images';
 import UploadImageModal from './UpLoadImageModal';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 
-export default function UploadImage() {
+export default function UploadImage({ style }: { style?: CSSProperties }) {
     const info = useAppSelector((state) => state.info);
     const dispatch = useAppDispatch();
     const [image, setImage] = useState<File | null>(info.image || null);
@@ -33,7 +33,7 @@ export default function UploadImage() {
     };
 
     return (
-        <>
+        <div style={style}>
             {image === null ? (
                 <div
                     style={{
@@ -111,6 +111,6 @@ export default function UploadImage() {
                 setOpen={setOpen}
                 setImage={setImage}
             />
-        </>
+        </div>
     );
 }

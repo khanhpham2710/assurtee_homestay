@@ -1,6 +1,7 @@
+import { CSSProperties } from 'react';
 import InsuranceDetailsBox, { InfoProps } from '../InfoBox/InsuranceDetailsBox';
 
-function InsuranceDetails() {
+function InsuranceDetails({ style }: { style?: CSSProperties }) {
     const infos: InfoProps[] = [
         {
             title: '화재/붕괴/침강/사태 손해(주택)',
@@ -86,7 +87,7 @@ function InsuranceDetails() {
     ];
 
     return (
-        <>
+        <div style={style}>
             <p
                 className="title_label"
                 style={{
@@ -105,7 +106,7 @@ function InsuranceDetails() {
                     />
                 );
             })}
-        </>
+        </div>
     );
 }
 

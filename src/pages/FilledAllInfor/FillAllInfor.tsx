@@ -12,7 +12,6 @@ import {
 } from '../../utils/validation/validatefields';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { InfoType } from '../../utils/models/InfoType';
-import UploadImage from '../../components/UpLoadImage/UpLoadImage';
 
 function FillAllInfor({
     setOpen,
@@ -59,7 +58,7 @@ function FillAllInfor({
         >
             <PersonalInputs form={form} handleChange={handleChange} />
             <p
-                className="titleMedium"
+                className="title-22"
                 style={{
                     textAlign: 'left',
                     marginTop: 20,
@@ -70,13 +69,13 @@ function FillAllInfor({
             </p>
 
             <BusinessInputs form={form} handleChange={handleChange} />
-            <UploadImage />
             <DateInputs style={{ marginTop: 36, marginBottom: 24 }} />
             <Question<'1억' | '3억' | '5억'>
                 title="화재보험 가입금액을 선택해 주세요."
                 item={item}
                 items={items}
                 setItem={setItem}
+                style={{ marginBottom: 30 }}
             />
             <InsuranceAmount form={form} handleChange={handleChange} />
             <section style={{ marginTop: 20, marginBottom: 40 }}>

@@ -55,12 +55,16 @@ function FilledInsuranceAmount() {
                 items={items}
                 setItem={setItem}
             />
-            <section style={{ marginTop: '40px' }}>
-                <InsuranceAmount form={form} handleChange={handleChange} />
-            </section>
-            <section style={{ marginTop: '40px' }}>
-                <Terms checkAll={checkAll} setCheckAll={setCheckAll} />
-            </section>
+            <InsuranceAmount
+                form={form}
+                handleChange={handleChange}
+                style={{ marginTop: '40px' }}
+            />
+            <Terms
+                checkAll={checkAll}
+                setCheckAll={setCheckAll}
+                style={{ marginTop: '40px' }}
+            />
             <section className="dflex_center" style={{ marginTop: '40px' }}>
                 <Link to="/personal-infor" className="button-back dflex_center">
                     이전
