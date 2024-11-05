@@ -77,6 +77,7 @@ function FillAllInfor({
                 item={item}
                 items={items}
                 setItem={setItem}
+                style={{ marginBottom: 30 }}
             />
             <InsuranceAmount form={form} handleChange={handleChange} />
             <section style={{ marginTop: 20, marginBottom: 40 }}>

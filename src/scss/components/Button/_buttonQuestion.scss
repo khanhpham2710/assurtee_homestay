@@ -1,3 +1,5 @@
+@use '../../abstracts/mixins' as m;
+
 .buttonQuestion {
     width: calc(300px / var(--items-count));
     height: 50px;
@@ -5,31 +7,20 @@
     border: solid 3px #e0e0e0;
     background-color: #f6f7f9;
 
+    @include m.title;
+
     font-family: AppleSDGothicNeoH;
     font-size: 16px;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.75;
-    letter-spacing: normal;
     color: #cfcfcf;
     text-decoration: none;
 }
 
 .buttonQuestion.active {
-    width: calc(300px / var(--items-count));
-    height: 50px;
-    border-radius: 35px;
-    border: solid 3px #333647;
-    background-color: #f6f7f9;
+    border: solid 3px var(--secondary);
+    background-color: var(--base-background);
 
-    font-family: AppleSDGothicNeoH;
-    font-size: 16px;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.75;
-    letter-spacing: normal;
     color: #000000;
-    text-decoration: none;
 }
 
 .dflex_item_inline {

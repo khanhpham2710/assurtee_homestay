@@ -143,7 +143,7 @@
             font-size: 13px;
         }
         .slick-active button::before {
-            color: #ea3062;
+            color: var(--primary);
         }
     }
 }
@@ -189,7 +189,7 @@
         font-size: 20px;
         line-height: 1.1;
         text-align: left;
-        color: #ea3062;
+        color: var(--primary);
     }
     .title_card_desc {
         @include ab.title;

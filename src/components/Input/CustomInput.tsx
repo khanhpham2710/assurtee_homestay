@@ -6,7 +6,7 @@ export const InputSection = styled.section`
     transition: border-color 0.3s ease;
 
     &:focus-within {
-        border-bottom: 1px solid #ea3062;
+        border-bottom: 1px solid var(--primary);
     }
 `;
 
