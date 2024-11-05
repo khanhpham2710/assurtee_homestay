@@ -44,7 +44,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-export default function UploadImageModal({
+export default function UpLoadImageModal({
     open,
     setOpen,
     setImage,

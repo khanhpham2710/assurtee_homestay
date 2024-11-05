@@ -1,6 +1,6 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
 import images from '../../assets/images';
-import UploadImageModal from './UpLoadImageModal';
+import UpLoadImageModal from './UpLoadImageModal';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 
@@ -106,7 +106,7 @@ export default function UploadImage({ style }: { style?: CSSProperties }) {
                     항목제거
                 </button>
             </div>
-            <UploadImageModal
+            <UpLoadImageModal
                 open={open}
                 setOpen={setOpen}
                 setImage={setImage}
