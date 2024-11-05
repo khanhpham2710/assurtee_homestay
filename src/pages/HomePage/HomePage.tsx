@@ -1,6 +1,3 @@
-import HeaderMain from '../../components/Headers/HeaderMain';
-import Slider from 'react-slick';
-import images from '../../assets/images';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import Banner_Video from '../../components/HomePageComponents/Banner_Video';

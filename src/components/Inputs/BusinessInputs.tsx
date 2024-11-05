@@ -1,21 +1,15 @@
 import { CustomInput, InputSection } from '../Input/CustomInput';
-import { Link } from 'react-router-dom';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
 import { Box, TextField } from '@mui/material';
 import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
-import { useAppSelector } from '../../utils/hooks/reduxHooks';
-import { RootState } from '../../utils/redux/store';
-import { useEffect } from 'react';
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
 };
 
 function BusinessInputs({ form, handleChange }: InputsProps) {
-    const { address } = useAppSelector((state: RootState) => state.info);
-
     const { handleClick } = usePostcodePopup({ handleChange });
 
     return (
