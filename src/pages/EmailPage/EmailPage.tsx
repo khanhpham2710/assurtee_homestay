@@ -9,18 +9,23 @@ import axios from 'axios';
 export default function EmailPage() {
     const form = useRef<HTMLFormElement>();
 
-    import.meta.env.VITE_PUBLIC_KEY
+    import.meta.env.VITE_PUBLIC_KEY;
     console.log('.meta.env.VITE_PUBLIC_KEY: ', import.meta.env.VITE_PUBLIC_KEY);
-    import.meta.env.VITE_EMAIL_SERVICE_ID
-    console.log('import.meta.env.VITE_EMAIL_SERVICE_ID: ', import.meta.env.VITE_EMAIL_ID);
+    import.meta.env.VITE_EMAIL_SERVICE_ID;
+    console.log(
+        'import.meta.env.VITE_EMAIL_SERVICE_ID: ',
+        import.meta.env.VITE_EMAIL_ID
+    );
     import.meta.env.VITE_TEMPLATE_ID,
-    console.log('import.meta.env.VITE_TEMPLATE_ID,: ', import.meta.env.VITE_TEMPLATE_ID,);
+        console.log(
+            'import.meta.env.VITE_TEMPLATE_ID,: ',
+            import.meta.env.VITE_TEMPLATE_ID
+        );
 
     const handleSendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-
-        const templateParams : any = {
+        const templateParams: any = {
             // Replace these with the actual parameters your template requires
             to_name: 'Recipient Name',
             message: 'Your message here',
@@ -51,7 +56,11 @@ export default function EmailPage() {
             className="dflex_center fullWidth_item"
             style={{ backgroundColor: 'yellow' }}
         >
-            <button   onClick={handleSendEmail} type="submit" style={{ backgroundColor: 'green' }}>
+            <button
+                onClick={handleSendEmail}
+                type="submit"
+                style={{ backgroundColor: 'green' }}
+            >
                 Send Email
             </button>
         </section>
