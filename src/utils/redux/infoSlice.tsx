@@ -49,6 +49,7 @@ const initialState: InfoType = {
     businessName: '',
     sameAddress: true,
     address: '',
+    image: null,
     extra: '',
     hanok: '아니요',
     sprinkler: '설치되어 있지 않습니다.',

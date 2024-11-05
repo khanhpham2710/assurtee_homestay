@@ -10,17 +10,19 @@ type InputsProps = {
     handleChange: (key: keyof BusinessType, value: string) => void;
 };
 
+type DataType = {
+    address: string;
+    addressType: string;
+    bname: string;
+    buildingName: string;
+};
+
 export const usePostcodePopup = ({ handleChange }: InputsProps) => {
     const open = useDaumPostcodePopup(scriptUrl);
     const dispatch = useAppDispatch();
     const [fullAddress, setFullAddress] = useState<string | null>(null);
-    // useEffect({
-    //     dispatch(updateInfo({
-    //         address : fullAddress
-    //     }))
-    // },dispatch)
 
-    const handleComplete = (data: any) => {
+    const handleComplete = (data: DataType) => {
         let fullAddress = data.address;
         let extraAddress = '';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import routes from './routes/routes';
 import { useLocation } from 'react-router-dom';

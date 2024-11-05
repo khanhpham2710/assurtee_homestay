@@ -86,9 +86,13 @@ function InsuranceDetailsPage() {
                 />
                 <p
                     className="titleMedium"
-                    style={{ margin: '12px 24px 0', textAlign: 'left' }}
+                    style={{
+                        margin: '12px 24px 0',
+                        textAlign: 'left',
+                        lineHeight: 1.27,
+                    }}
                 >
-                    현대해상화재보험 해외장기체류단체보험
+                    현대해상화재보험 외국인관광도시민박보험
                 </p>
             </section>
             {success && (
@@ -119,7 +123,6 @@ function InsuranceDetailsPage() {
                         backgroundColor: '#f1d607',
                         color: '#372020',
                         gap: 8,
-                        width: success ? 150 : 312,
                     }}
                     onClick={() => {}}
                 >
