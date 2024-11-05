@@ -28,7 +28,7 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
         slidesToScroll: 1,
         fade: true,
     };
-    
+
     const carouselImages = [
         images.BackGroundBanner1,
         images.BackGroundBanner2,

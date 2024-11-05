@@ -178,10 +178,10 @@
     height: 138px;
     padding: 28px 15px;
     border-radius: 8px;
-    gap:15px;
+    gap: 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
 }
 
 .card_item_left {
@@ -218,7 +218,7 @@
 .card_item_right {
     img {
         width: 66px;
-       
+
         aspect-ratio: 1/1.02;
     }
 }

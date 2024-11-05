@@ -16,10 +16,7 @@ export default function Card_Banner({
     icon,
 }: Props) {
     return (
-        <div
-            className="card_banner"
-            style={{ backgroundColor: `${color}` }}
-        >
+        <div className="card_banner" style={{ backgroundColor: `${color}` }}>
             <div className="card_item_left">
                 <p className="title_card_banner">{title}</p>
                 <p className="title_card_desc">{description}</p>
