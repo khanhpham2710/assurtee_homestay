@@ -36,9 +36,7 @@ export default function Banner_Video() {
 
     return (
         <ThemeProvider theme={theme}>
-            <section
-                className="dflex_center fullWidth_item flexColumn_item "
-            >
+            <section className="dflex_center fullWidth_item flexColumn_item ">
                 <div className="title_video">
                     <p className="title_main_component">
                         외도민업 <br /> 전용보험
@@ -66,10 +64,7 @@ export default function Banner_Video() {
                     >
                         {videos_embbeded &&
                             videos_embbeded.map((video, index) => (
-                                <Grid
-                                    size={{ md: 6, sm: 12 }}
-                                    key={index}
-                                >
+                                <Grid size={{ md: 6, sm: 12 }} key={index}>
                                     <Video_component
                                         title={video.title}
                                         video_id={video.video_id}

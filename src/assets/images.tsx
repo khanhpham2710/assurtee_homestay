@@ -14,7 +14,6 @@ import ScrollDown from '/Image/Buttons/ScrollDown.png';
 import CloseButton from '/Image/Buttons/CloseButton.png';
 import PNextButton from '/Image/Buttons/pink_NextButton.png';
 
-
 import blackL from '/Image/Bullets/BlackL.png';
 import greyL from '/Image/Bullets/GreyL.png';
 import whiteL from '/Image/Bullets/WhiteL.png';
@@ -99,7 +98,7 @@ const images = {
     Camera,
     FailedRegistration,
     SuccessRegistration,
-    PNextButton
+    PNextButton,
 };
 
 export default images;

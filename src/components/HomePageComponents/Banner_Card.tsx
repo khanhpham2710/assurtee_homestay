@@ -49,9 +49,7 @@ export default function Banner_Card() {
 
     return (
         <ThemeProvider theme={theme}>
-            <section
-                className="dflex_center fullWidth_item flexColumn_item "
-            >
+            <section className="dflex_center fullWidth_item flexColumn_item ">
                 <div className="title_card">
                     <p className="title_main_component">
                         외도민업 <br /> 프로그램 특징
