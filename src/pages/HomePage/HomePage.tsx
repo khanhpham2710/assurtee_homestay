@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
+import images from '../../assets/images';
 import Banner_Video from '../../components/HomePageComponents/Banner_Video';
 import Banner_Card from '../../components/HomePageComponents/Banner_Card';
 import Landing_Fee from '../../components/HomePageComponents/Landing_Fee';
@@ -10,44 +11,56 @@ import Carousel_Bottom from '../../components/HomePageComponents/Carousel_Bottom
 export default function HomePage() {
     const video_ref = useRef<HTMLDivElement>(null);
 
+    const onTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
-        <section className="fullWidth_item fullHeightView_item">
+        <section
+            className="fullWidth_item fullHeightView_item"
+            style={{ display: 'relative' }}
+        >
             <section>
                 <Banner_Header video_ref={video_ref} />
             </section>
+            <div
+                className="fullWidth_item dflex_center dflex-column"
+                style={{
+                    maxWidth: '636px',
+                    margin: '0 auto',
+                    overflow: 'hidden',
+                    padding: "0 24px"
+                }}
+            >
+                {/* banner video */}
+                <section ref={video_ref}>
+                    <Banner_Video />
+                </section>
 
-            {/* banner video */}
-            <section ref={video_ref}>
-                <Banner_Video />
-            </section>
-
-            {/* banner card */}
-            <section>
                 <Banner_Card />
-            </section>
 
-            {/* Landing Fee */}
-            <section>
+                {/* Landing Fee */}
+
                 <Landing_Fee />
-            </section>
 
-            {/* Bottom Carousel */}
-            <section>
+                {/* Bottom Carousel */}
+
                 <Carousel_Bottom />
-            </section>
+            </div>
 
             {/* footer section */}
             <section>
                 <Landing_Footer />
             </section>
-
             {/* Button Fixed */}
             <section className="button_container">
-                <Link to="/personal-infor">
-                    <button className="button_main title-18">
-                        보험료 계산하기
-                    </button>
-                </Link>
+                <button className="button_main title-18" onClick={onTop}>
+                    보험료 계산하기
+                    <img src={images.PNextButton} alt="" />
+                </button>
             </section>
         </section>
     );

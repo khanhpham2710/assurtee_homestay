@@ -12,6 +12,8 @@ import videoButton from '/Image/Buttons/videoButton.png';
 import ScrollUp from '/Image/Buttons/ScrollUp.png';
 import ScrollDown from '/Image/Buttons/ScrollDown.png';
 import CloseButton from '/Image/Buttons/CloseButton.png';
+import PNextButton from '/Image/Buttons/pink_NextButton.png';
+
 
 import blackL from '/Image/Bullets/BlackL.png';
 import greyL from '/Image/Bullets/GreyL.png';
@@ -25,9 +27,9 @@ import AssurLogo from '/Image/Logos/AssureteeLogo.png';
 import mainLogo from '/Image/Logos/ci.png';
 import InsuranceLogo from '/Image/Logos/HLogo.png';
 
-import BackGroundBanner1 from '/Image/MainCarousel/img@3x.png';
-import BackGroundBanner2 from '/Image/MainCarousel/img_2@3x.png';
-import BackGroundBanner3 from '/Image/MainCarousel/img_3@3x.png';
+import BackGroundBanner1 from '/Image/MainCarousel/img_PC@3x.png';
+import BackGroundBanner2 from '/Image/MainCarousel/img_2PC@3x.png';
+import BackGroundBanner3 from '/Image/MainCarousel/img_3PC@3x.png';
 
 import item_1 from '/Image/Banner/item_1.png';
 import item_2 from '/Image/Banner/item_2.png';
@@ -97,6 +99,7 @@ const images = {
     Camera,
     FailedRegistration,
     SuccessRegistration,
+    PNextButton
 };
 
 export default images;
