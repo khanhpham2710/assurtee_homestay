@@ -7,7 +7,7 @@ function BasicInfo() {
     const info = useAppSelector((state) => state.info);
 
     const { formatedStartDate, formatedEndDate } = useMemo(
-        () => formatDate(info.startDate),
+        () => formatDate(new Date(info.startDate)),
         []
     );
 

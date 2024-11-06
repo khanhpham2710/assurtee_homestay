@@ -40,7 +40,7 @@ export default function FeeLandingPage() {
     return (
         <section
             className="flexColumn_item dflex_center"
-            style={{ marginBottom: '16px', width:"100%"}}
+            style={{ marginBottom: '16px', width: '100%' }}
         >
             <Box
                 sx={{

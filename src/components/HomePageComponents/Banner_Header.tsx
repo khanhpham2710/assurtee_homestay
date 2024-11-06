@@ -49,10 +49,7 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
             <Slider {...settings}>
                 {carouselImages.map((image, index) => (
                     <div key={index}>
-                        <div
-                            className="banner_image"
-                            style={image}
-                        >
+                        <div className="banner_image" style={image}>
                             <div className="overlayer"></div>
                             <HeaderMain />
                             <div className="banner_text">

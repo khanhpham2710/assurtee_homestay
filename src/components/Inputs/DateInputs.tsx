@@ -12,7 +12,7 @@ function DateInputs({ style }: DateInputProps) {
     const state = useAppSelector((state) => state.info);
 
     const { formatedStartDate, formatedEndDate } = useMemo(
-        () => formatDate(state.startDate),
+        () => formatDate(new Date(state.startDate)),
         [state.startDate, state.endDate]
     );
 
