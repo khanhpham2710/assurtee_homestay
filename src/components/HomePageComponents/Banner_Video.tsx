@@ -38,9 +38,6 @@ export default function Banner_Video() {
         <ThemeProvider theme={theme}>
             <section
                 className="dflex_center fullWidth_item flexColumn_item "
-                style={{
-                    padding: '0 24px',
-                }}
             >
                 <div className="title_video">
                     <p className="title_main_component">
@@ -62,14 +59,15 @@ export default function Banner_Video() {
                     <Grid
                         container
                         spacing={0}
-                        columnSpacing={1}
+                        columnSpacing={3}
+                        rowSpacing={3}
                         justifyContent="center"
                         alignItems="center"
                     >
                         {videos_embbeded &&
                             videos_embbeded.map((video, index) => (
                                 <Grid
-                                    size={{ xl: 3, lg: 3, md: 6, sm: 12 }}
+                                    size={{ md: 6, sm: 12 }}
                                     key={index}
                                 >
                                     <Video_component

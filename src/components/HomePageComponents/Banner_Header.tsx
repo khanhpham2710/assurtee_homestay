@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import Slider from 'react-slick';
 import images from '../../assets/images';
 import HeaderMain from '../../components/Headers/HeaderMain';
@@ -29,11 +29,21 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
         fade: true,
     };
 
-    const carouselImages = [
-        images.BackGroundBanner1,
-        images.BackGroundBanner2,
-        images.BackGroundBanner3,
+    const carouselImages: CSSProperties[] = [
+        {
+            backgroundImage: `url(${images.BackGroundBanner1})`,
+            backgroundPosition: '35% 30%',
+        },
+        {
+            backgroundImage: `url(${images.BackGroundBanner2})`,
+            backgroundPosition: '55% 30%',
+        },
+        {
+            backgroundImage: `url(${images.BackGroundBanner3})`,
+            backgroundPosition: '65% 30%',
+        },
     ];
+
     return (
         <section className="banner_header">
             <Slider {...settings}>
@@ -41,9 +51,7 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
                     <div key={index}>
                         <div
                             className="banner_image"
-                            style={{
-                                backgroundImage: `url(${image})`,
-                            }}
+                            style={image}
                         >
                             <div className="overlayer"></div>
                             <HeaderMain />
