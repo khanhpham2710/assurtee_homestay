@@ -21,7 +21,7 @@ export default [
             ...pluginJs.configs.recommended.rules,
             ...tseslint.configs.recommended.rules,
             ...pluginReact.configs.flat.recommended.rules,
-            'prettier/prettier': 'error',
+            'prettier/prettier': 'warn',
             'react/react-in-jsx-scope': 'off',
         },
         settings: {
