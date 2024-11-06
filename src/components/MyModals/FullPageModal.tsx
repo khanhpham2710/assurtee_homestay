@@ -45,6 +45,11 @@ export default function FullPageModal({
             TransitionComponent={Transition}
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
+            sx={{
+                width: '100%',
+                maxWidth: '620px',
+                margin: '0 auto',
+            }}
         >
             <AppBar
                 className="dflex_center"

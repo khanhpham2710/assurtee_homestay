@@ -4,7 +4,6 @@
     @include ab.inactive-button;
 
     border-radius: 25px;
-    width: 312px;
 
     line-height: 1.22;
 }
@@ -14,18 +13,39 @@
 
     border-radius: 8px;
     width: 312px;
-
     font-family: AppleSDGothicNeoH;
     line-height: 1.75;
 }
 
 .button3 {
     @include ab.inactive-button;
-    width: 360px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 620px;
+}
+
+.option-button {
+    position: relative;
+    margin-top: 40px;
+    bottom: auto;
+    width: 100%;
+    padding: 0 24px;
+    @media only screen and (max-width: 620px) {
+        position: absolute;
+        bottom: 30px;
+    }
+}
+
+.fixed-button {
+    position: fixed;
+    bottom: 0;
+    max-width: 620px;
+    width: 100%;
 }
 
 .address-button {
-    width: 79px;
+    width: 79px !important;
     height: 30px;
     object-fit: contain;
     border-radius: 15px;
@@ -55,20 +75,27 @@
     cursor: pointer;
 }
 
-.button-back {
-    width: 94px;
-    height: 50px;
-    background-color: #e6ebf4;
-    cursor: pointer;
+// Insurance Amount page buttons
+$first-button: 26.5%;
 
-    @include ab.button;
-    font-family: AppleSDGothicNeoEB;
-    font-size: 16px;
-    color: #989898;
-}
+.insurance-amount-buttons {
+    display: flex;
 
-.button-calculate {
-    width: 266px;
+    > :first-child {
+        width: $first-button !important;
+        height: 50px;
+        background-color: #e6ebf4;
+        cursor: pointer;
 
-    @include ab.inactive-button;
+        @include ab.button;
+        font-family: AppleSDGothicNeoEB;
+        font-size: 16px;
+        color: #989898;
+    }
+
+    > :last-child {
+        width: calc(100% - $first-button) !important;
+
+        @include ab.inactive-button;
+    }
 }

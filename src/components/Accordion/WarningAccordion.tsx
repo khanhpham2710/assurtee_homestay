@@ -18,7 +18,7 @@ function WarningAccordion({ title, content, style }: WarningAccordionType) {
                 border: 'solid 1px #e0e0e0',
                 borderRadius: '10px',
                 height: 'auto',
-                overflow: 'hidden',
+                width: '100%',
             }}
         >
             <Accordion id="warning_accordion" disableGutters elevation={0}>

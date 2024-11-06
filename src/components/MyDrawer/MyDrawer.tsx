@@ -6,7 +6,7 @@ type Props<T> = {
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     window?: () => Window;
-    items: string[];
+    items: [string, string];
     handleChange: (key: keyof T, value: string) => void;
     variable: keyof T;
     title: string;
@@ -96,6 +96,9 @@ function MyDrawer<T>({
                 '& .MuiDrawer-paper': {
                     borderTopLeftRadius: '8px',
                     borderTopRightRadius: '8px',
+                    width: '100%',
+                    maxWidth: 620,
+                    margin: '0 auto',
                 },
                 zIndex: 2000,
             }}

@@ -1,6 +1,7 @@
 @mixin header {
     height: 68px;
     width: 100%;
+    position: relative;
 }
 
 @mixin button {
@@ -9,6 +10,7 @@
     letter-spacing: normal;
     text-align: center;
     color: #fff;
+    width: 100%;
 }
 
 @mixin inactive-button {
@@ -21,6 +23,7 @@
     font-size: 16px;
     font-family: AppleSDGothicNeoEB;
     height: 50px;
+    width: 100%;
 
     &.active {
         background-color: var(--secondary) !important;

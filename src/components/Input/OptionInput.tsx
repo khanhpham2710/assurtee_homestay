@@ -8,7 +8,7 @@ type InputProps<T> = {
     value: string;
     placeholder?: string;
     handleChange: (key: keyof T, value: string) => void;
-    items: string[];
+    items: [string, string];
     title: string;
 };
 

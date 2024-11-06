@@ -38,6 +38,18 @@
     }
 }
 
+.orange-font {
+    font-family: SFProText;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: -0.41px;
+    text-align: left;
+    color: #ff5400;
+}
+
 .title_all_terms {
     @include ab.title;
 

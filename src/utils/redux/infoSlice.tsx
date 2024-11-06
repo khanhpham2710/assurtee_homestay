@@ -61,8 +61,8 @@ const initialState: InfoType = {
     area: 79,
     error: null,
     status: 'idle',
-    startDate: new Date(),
-    endDate: onYearLater(new Date()),
+    startDate: new Date().toISOString(),
+    endDate: onYearLater(new Date()).toISOString(),
     success: true,
 };
 

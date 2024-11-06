@@ -46,65 +46,68 @@ export default function FilledPersonalInfo() {
     const isBusinessInfoVisible = form2.businessName || form2.businessNumber;
 
     return (
-        <div style={{ padding: '8px 24px 0' }}>
-            <section className="dflex-column" style={{ marginBottom: '28px' }}>
-                <p className="titleNumber">
-                    <span>1</span> / 2
-                </p>
-                <p
-                    className="title-22"
-                    style={{ textAlign: 'left', marginTop: '17px' }}
+        <>
+            <div style={{ padding: '8px 24px 0' }}>
+                <section
+                    className="dflex-column"
+                    style={{ marginBottom: '28px' }}
                 >
-                    보험 가입 정보를 입력해 주세요.
-                </p>
-            </section>
-            <PersonalInputs form={form1} handleChange={handleChange1} />
-            <section
-                style={{
-                    width: '100%',
-                    marginTop: '40px',
-                }}
-                className="dflex_center"
-            >
-                <button
-                    className={allChecked1 ? 'button1 active' : 'button1'}
-                    onClick={handleSubmit1}
-                    disabled={!allChecked1}
-                >
-                    주택 정보 입력
-                </button>
-            </section>
-            {isBusinessInfoVisible && (
-                <>
+                    <p className="titleNumber">
+                        <span>1</span> / 2
+                    </p>
                     <p
                         className="title-22"
-                        style={{ textAlign: 'left', marginTop: '38px' }}
+                        style={{ textAlign: 'left', marginTop: '17px' }}
                     >
-                        건물/주택 정보
+                        보험 가입 정보를 입력해 주세요.
                     </p>
-                    <BusinessInputs form={form2} handleChange={handleChange2} />
-                </>
-            )}
-            <section className="dflex_center" style={{ width: '100%' }}>
-                <button
-                    className={
-                        allChecked1 && allChecked2
-                            ? 'button3 active'
-                            : 'button3'
-                    }
-                    disabled={!allChecked2 || !allChecked1}
-                    style={{ position: 'fixed', bottom: 0 }}
-                    onClick={handleSubmit2}
-                    aria-label="Submit business information"
+                </section>
+                <PersonalInputs form={form1} handleChange={handleChange1} />
+                <section
+                    style={{
+                        width: '100%',
+                        marginTop: '40px',
+                    }}
+                    className="dflex_center"
                 >
-                    수정
-                </button>
-            </section>
-            <section
-                style={{
-                    height: 70,
-                }}
-            ></section>
-        </div>
+                    <button
+                        className={allChecked1 ? 'button1 active' : 'button1'}
+                        onClick={handleSubmit1}
+                        disabled={!allChecked1}
+                    >
+                        주택 정보 입력
+                    </button>
+                </section>
+                {isBusinessInfoVisible && (
+                    <>
+                        <p
+                            className="title-22"
+                            style={{ textAlign: 'left', marginTop: '38px' }}
+                        >
+                            건물/주택 정보
+                        </p>
+                        <BusinessInputs
+                            form={form2}
+                            handleChange={handleChange2}
+                        />
+                    </>
+                )}
+                <section
+                    style={{
+                        height: 70,
+                    }}
+                ></section>
+            </div>
+            <button
+                className={
+                    allChecked1 && allChecked2 ? 'button3 active' : 'button3'
+                }
+                disabled={!allChecked2 || !allChecked1}
+                onClick={handleSubmit2}
+                aria-label="Submit business information"
+            >
+                수정
+            </button>
+        </>
     );
 }

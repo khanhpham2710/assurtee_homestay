@@ -1,7 +1,7 @@
 @use '../../abstracts/mixins' as m;
 
 .buttonQuestion {
-    width: calc(300px / var(--items-count));
+    width: calc(100% / var(--items-count));
     height: 50px;
     border-radius: 35px;
     border: solid 3px #e0e0e0;
