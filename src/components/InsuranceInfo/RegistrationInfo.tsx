@@ -9,7 +9,7 @@ function RegistrationInfo({ style }: { style?: CSSProperties }) {
     const state: InfoType = useSelector((state: RootState) => state.info);
 
     const { formatedStartDate, formatedEndDate } = useMemo(
-        () => formatDate(state.startDate),
+        () => formatDate(new Date(state.startDate)),
         [state.startDate, state.endDate]
     );
 

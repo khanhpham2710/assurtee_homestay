@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import images from '../../assets/images';
 import Banner_Video from '../../components/HomePageComponents/Banner_Video';
@@ -32,7 +31,7 @@ export default function HomePage() {
                     maxWidth: '636px',
                     margin: '0 auto',
                     overflow: 'hidden',
-                    padding: "0 24px"
+                    padding: '0 24px',
                 }}
             >
                 {/* banner video */}

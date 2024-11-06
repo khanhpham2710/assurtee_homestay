@@ -73,9 +73,6 @@
         }
     }
 
-
-
-
     img {
         animation-name: lay_up;
         animation-duration: 1s;
@@ -131,12 +128,12 @@
     overflow-x: hidden;
     margin: 0 auto 100px;
     border-radius: 10px !important;
-        img {
-            border-radius: 10px;
-            max-width: 588px;
-            height: 350px;
-        }
-  
+    img {
+        border-radius: 10px;
+        max-width: 588px;
+        height: 350px;
+    }
+
     .slick-dots {
         position: static;
         button::before {
@@ -197,6 +194,3 @@
         aspect-ratio: 1/1.02;
     }
 }
-
-
-
