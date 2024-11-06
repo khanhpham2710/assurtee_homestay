@@ -42,16 +42,7 @@ function ConfirmCheckbox({ checked, handleCheck }: Props) {
                 src={checked ? images.CheckBoxBlack : images.UnCheckBoxGrey}
                 style={{ cursor: 'pointer' }}
             />
-            <p
-                style={{
-                    fontFamily: 'SFProText',
-                    fontSize: '12px',
-                    lineHeight: '1.33',
-                    letterSpacing: '-0.41px',
-                    textAlign: 'left',
-                    color: '#ff5400',
-                }}
-            >
+            <p className="orange-font">
                 가입하는 보험의 보장내용/상품설명서, 보험약관, 주요내용을 모두
                 확인하였습니다.
             </p>

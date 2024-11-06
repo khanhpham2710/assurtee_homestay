@@ -56,14 +56,15 @@ export default function ScanText() {
                     value={text}
                 />
             </InputSection>
-            <button
-                className={`button1 ${isValid ? 'active' : ''}`}
-                style={{ position: 'absolute', bottom: '30px' }}
-                onClick={handleSubmit}
-                disabled={!isValid}
-            >
-                확인
-            </button>
+            <div className="option-button">
+                <button
+                    className={`button1 ${isValid ? 'active' : ''}`}
+                    onClick={handleSubmit}
+                    disabled={!isValid}
+                >
+                    확인
+                </button>
+            </div>
         </div>
     );
 }

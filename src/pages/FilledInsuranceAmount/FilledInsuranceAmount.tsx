@@ -43,45 +43,54 @@ function FilledInsuranceAmount() {
     }, [item]);
 
     return (
-        <div style={{ padding: '8px 24px 0' }}>
-            <section className="dflex-column" style={{ marginBottom: '17px' }}>
-                <p className="titleNumber">
-                    <span>2</span> / 2
+        <>
+            <div style={{ padding: '8px 24px 0' }}>
+                <section
+                    className="dflex-column"
+                    style={{ marginBottom: '17px' }}
+                >
+                    <p className="titleNumber">
+                        <span>2</span> / 2
+                    </p>
+                </section>
+                <Question<'1억' | '3억' | '5억'>
+                    title="화재보험 가입금액을 선택해 주세요."
+                    item={item}
+                    items={items}
+                    setItem={setItem}
+                />
+                <InsuranceAmount
+                    form={form}
+                    handleChange={handleChange}
+                    style={{ marginTop: '40px' }}
+                />
+                <p className="orange-font">
+                    행정안전부에서 제공받은 주택 연면적이 다동으로 입력되어
+                    있습니다. 정상적인 보상을 위해 사업신고시 기입한 주택
+                    연면적과 맞는지 반드시 확인 필요!
                 </p>
-            </section>
-            <Question<'1억' | '3억' | '5억'>
-                title="화재보험 가입금액을 선택해 주세요."
-                item={item}
-                items={items}
-                setItem={setItem}
-            />
-            <InsuranceAmount
-                form={form}
-                handleChange={handleChange}
+                <Terms
+                    checkAll={checkAll}
+                    setCheckAll={setCheckAll}
+                    style={{ marginTop: '40px' }}
+                />
+            </div>
+            <section
+                className="insurance-amount-buttons"
                 style={{ marginTop: '40px' }}
-            />
-            <Terms
-                checkAll={checkAll}
-                setCheckAll={setCheckAll}
-                style={{ marginTop: '40px' }}
-            />
-            <section className="dflex_center" style={{ marginTop: '40px' }}>
-                <Link to="/personal-infor" className="button-back dflex_center">
+            >
+                <Link to="/personal-infor" className="dflex_center">
                     이전
                 </Link>
                 <button
-                    className={
-                        buttonActive
-                            ? 'button-calculate active'
-                            : 'button-calculate'
-                    }
+                    className={buttonActive ? 'active' : ''}
                     disabled={!buttonActive}
                     onClick={handleSubmit}
                 >
                     보험료 계산
                 </button>
             </section>
-        </div>
+        </>
     );
 }
 

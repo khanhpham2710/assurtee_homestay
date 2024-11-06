@@ -14,13 +14,10 @@ function CompletedPage() {
         >
             <img src={images.Success} />
             <p
+                className="title-22"
                 style={{
                     margin: '38px 0 12px',
-                    fontFamily: 'AppleSDGothicNeoH',
-                    fontSize: '22px',
                     lineHeight: '1.27',
-                    color: '#000',
-                    textAlign: 'center',
                 }}
             >
                 보험 가입이 완료 되었습니다.
@@ -30,7 +27,6 @@ function CompletedPage() {
                     fontFamily: 'AppleSDGothicNeoM',
                     fontSize: '16px',
                     lineHeight: '1.27',
-                    color: '#000',
                     textAlign: 'center',
                 }}
             >

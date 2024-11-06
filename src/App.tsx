@@ -1,25 +1,13 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import routes from './routes/routes';
-import { useLocation } from 'react-router-dom';
-function App() {
-    const location = useLocation();
-    const getBackgroundColor = (pathname: string) => {
-        switch (pathname) {
-            case '/':
-                return '#ffffff';
-            default:
-                return '#f6f7f9';
-        }
-    };
+import HomePage from './pages/HomePage/HomePage';
+import WebForm from './components/WebForm/WebForm';
 
+function App() {
     return (
-        <div
-            style={{
-                backgroundColor: getBackgroundColor(location.pathname),
-                minHeight: '100vh',
-            }}
-        >
+        <div>
             <Routes>
+                <Route path="/" element={<HomePage />} />
                 {routes.map((route) => {
                     const Page = route.component;
                     const Header = route.header;
@@ -29,10 +17,10 @@ function App() {
                             key={route.path}
                             path={route.path}
                             element={
-                                <>
+                                <WebForm>
                                     {Header}
                                     <Page />
-                                </>
+                                </WebForm>
                             }
                         />
                     );

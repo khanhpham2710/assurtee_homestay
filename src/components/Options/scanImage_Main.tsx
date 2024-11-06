@@ -33,20 +33,20 @@ export default function ScanImage_Main({ setModal }: Props) {
             <div className="" style={{ marginTop: '50px' }}>
                 <img src={images.ScanDoc} alt="" />
             </div>
-
-            <button
-                className="button1 active"
-                style={{ position: 'absolute', bottom: '30px' }}
-                onClick={() => {
-                    setModal({
-                        title: '사업자등록증 촬영',
-                        appBarColor: '#000',
-                        component: <ScanImage_Process />,
-                    });
-                }}
-            >
-                사업자등록증 촬영하기
-            </button>
+            <div className="option-button">
+                <button
+                    className="button1 active"
+                    onClick={() => {
+                        setModal({
+                            title: '사업자등록증 촬영',
+                            appBarColor: '#000',
+                            component: <ScanImage_Process />,
+                        });
+                    }}
+                >
+                    사업자등록증 촬영하기
+                </button>
+            </div>
         </div>
     );
 }

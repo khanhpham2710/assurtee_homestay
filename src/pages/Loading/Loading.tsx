@@ -21,8 +21,9 @@ function LoadingPage() {
         <div
             className="dflex_center flexColumn_item"
             style={{
-                height: '100%',
                 width: '100%',
+                maxWidth: 620,
+                height: '100%',
                 backgroundColor: '#f6f7f9',
                 zIndex: '1',
                 position: 'absolute',
