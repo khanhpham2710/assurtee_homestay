@@ -1,7 +1,6 @@
 import React from 'react';
 
 // page
-import HomePage from '../pages/HomePage/HomePage';
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/TwoOptions/TwoOptions';
@@ -17,6 +16,7 @@ import InsuranceDetailsPage from '../pages/InsuranceDetailsPage/InsuranceDetails
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
 import EmailPage from '../pages/EmailPage/EmailPage';
+import TermCondition from '../pages/TermCondition/TermCondition';
 
 type RouteType = {
     path: string;
@@ -25,8 +25,6 @@ type RouteType = {
 };
 
 const routes: RouteType[] = [
-    { path: '/', component: HomePage, header: null },
-
     {
         path: '/personal-infor',
         component: FilledPersonalInfor,
@@ -45,6 +43,11 @@ const routes: RouteType[] = [
         path: '/business-infor',
         component: FilledBusinessInfor,
         header: <Header2 title="주택 정보 입력" backTo="/scan-option" />,
+    },
+    {
+        path: '/term-condition',
+        component: TermCondition,
+        header: <Header2 title="전자서명 동의 안내" backTo="" />,
     },
     {
         path: '/search-address',

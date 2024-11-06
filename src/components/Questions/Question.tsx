@@ -28,7 +28,13 @@ function Question<T = string>({
             >
                 {title}
             </p>
-            <div className="dflex_item_inline" data-items={items.length}>
+            <div
+                className="dflex_item_inline"
+                data-items={items.length}
+                style={{
+                    width: '100%',
+                }}
+            >
                 {items.map((item1, index) => (
                     <button
                         key={index}

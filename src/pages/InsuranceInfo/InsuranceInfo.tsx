@@ -103,11 +103,12 @@ function InsuranceInfo() {
                 <Download text="상품설명서(PDF)" href="" fileName="" />
                 <Download text="보험약관(PDF)" href="" fileName="" />
             </section>
-            <WarningAccordion
-                title="보험가입 전 유의사항"
-                content={WarningContent}
-                style={{ padding: '0 24px', marginTop: 20 }}
-            />
+            <div style={{ padding: '0 24px', marginTop: 20 }}>
+                <WarningAccordion
+                    title="보험가입 전 유의사항"
+                    content={WarningContent}
+                />
+            </div>
             <p
                 className="title_label"
                 style={{

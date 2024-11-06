@@ -31,8 +31,8 @@ export interface InsuranceAmountType {
 }
 
 export interface StartEndDate {
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
 }
 
 export interface InfoType
