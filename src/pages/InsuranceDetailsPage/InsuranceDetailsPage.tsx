@@ -86,7 +86,7 @@ function InsuranceDetailsPage() {
                     }}
                 />
                 <p
-                    className="title-22"
+                    className="titleH-22"
                     style={{
                         margin: '12px 24px 0',
                         textAlign: 'left',

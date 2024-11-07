@@ -14,7 +14,7 @@ function CompletedPage() {
         >
             <img src={images.Success} />
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{
                     margin: '38px 0 12px',
                     lineHeight: '1.27',

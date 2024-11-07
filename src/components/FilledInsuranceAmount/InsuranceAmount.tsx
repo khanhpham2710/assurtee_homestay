@@ -46,7 +46,7 @@ function InsuranceAmount({ form, handleChange, style }: PropsType) {
             />
 
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{ textAlign: 'left', margin: '7px 0 8px' }}
             >
                 영업배상 책임보험 가입면적을 선택해 주세요.

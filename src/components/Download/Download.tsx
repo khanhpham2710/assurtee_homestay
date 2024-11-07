@@ -32,7 +32,6 @@ function Download({ text, href, fileName }: DownloadProps) {
                     letterSpacing: 'normal',
                     textAlign: 'center',
                     color: '#333647',
-                    textDecoration: 'none',
                 }}
             >
                 {text}

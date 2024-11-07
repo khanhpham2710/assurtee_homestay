@@ -61,7 +61,7 @@ function FillAllInfor({
         >
             <PersonalInputs form={form} handleChange={handleChange} />
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{
                     textAlign: 'left',
                     marginTop: 20,

@@ -3,23 +3,19 @@ import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import emailjs from '@emailjs/browser';
 
 export default function EmailPage() {
+    const { email, contractor } = useAppSelector((state) => state.info);
 
-
-    const {email, contractor} = useAppSelector((state) => state.info)
-
-
-    const to_name: string =  "nguyendeptrai"
-    const to_email : string  = "nguyenndev037@gmail.com"
+    const to_name: string = 'nguyendeptrai';
+    const to_email: string = 'nguyenndev037@gmail.com';
 
     const handleSendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
         const templateParams: any = {
-          
             to_name: to_name,
-            to_email : to_email,
+            to_email: to_email,
             message: 'Your message here',
-            title: "Confirm successful order payment"
+            title: 'Confirm successful order payment',
         };
 
         emailjs
