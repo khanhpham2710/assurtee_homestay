@@ -6,15 +6,21 @@ import Landing_Fee from '../../components/HomePageComponents/Landing_Fee';
 import Landing_Footer from '../../components/HomePageComponents/Landing_Footer';
 import Banner_Header from '../../components/HomePageComponents/Banner_Header';
 import Carousel_Bottom from '../../components/HomePageComponents/Carousel_Bottom';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomePage() {
     const video_ref = useRef<HTMLDivElement>(null);
+    const naviagate = useNavigate();
 
-    const onTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
+    // const onTop = () => {
+    //     window.scrollTo({
+    //         top: 0,
+    //         behavior: 'smooth',
+    //     });
+    // };
+
+    const handleClick = () => {
+        naviagate('/personal-infor');
     };
 
     return (
@@ -58,16 +64,23 @@ export default function HomePage() {
             {/* Button Fixed */}
 
             <section className="button_container">
-                <button className="button_main title-18" onClick={onTop}>
+                <button
+                    className="button_main titleH-18"
+                    onClick={handleClick}
+                    // onClick={onTop}
+                >
                     보험료 계산하기
                 </button>
             </section>
             {/* <section className="button_container_2"> */}
-                <button className="button_main_2 title-18" onClick={onTop}>
-                    보험료 계산하기
-                    <img src={images.PNextButton} alt="" />
-                </button>
-
+            <button
+                className="button_main_2 titleH-18"
+                onClick={handleClick}
+                // onClick={onTop}
+            >
+                보험 비교 견적
+                <img src={images.PNextButton} alt="" />
+            </button>
         </section>
     );
 }

@@ -127,7 +127,7 @@ export default function Landing_Footer() {
                         }}
                         onClick={() => {
                             setExpanded(!expanded);
-                            console.log("expanded", expanded)
+                            console.log('expanded', expanded);
                         }}
                     >
                         <AccordionSummary
@@ -148,9 +148,9 @@ export default function Landing_Footer() {
                             </p>
                         </AccordionSummary>
                     </Accordion>
-                <p className="footer-end">
-                    © assuretee Inc. All Rights Reserved.
-                </p>
+                    <p className="footer-end">
+                        © assuretee Inc. All Rights Reserved.
+                    </p>
                 </div>
 
                 <Divider

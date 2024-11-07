@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import images from '../../assets/images';
 
 export default function WebForm({ children }: { children: React.ReactNode }) {
     const location = useLocation();
@@ -22,6 +23,19 @@ export default function WebForm({ children }: { children: React.ReactNode }) {
                 minHeight: '100vh',
             }}
         >
+            <img
+                src={images.BackGroundBanner1}
+                alt=""
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    height: '100vh',
+                    width: '100vw',
+                    zIndex: -1000,
+                    objectFit: 'cover',
+                }}
+            />
             {children}
         </div>
     );
