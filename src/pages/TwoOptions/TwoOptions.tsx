@@ -106,6 +106,7 @@ function ItemDetailBox({ imgSrc, title, onClick }: ItemDetailBoxProps) {
                 width: '151px',
                 height: '151px',
                 backgroundColor: '#e7ecf3',
+                cursor: 'pointer',
             }}
             onClick={onClick}
         >

@@ -72,13 +72,13 @@ export default function FullPageModal({
                     position: 'relative',
                     boxShadow: 'none',
                     backgroundColor: appBarColor,
-                    height: '68px',
+                    height: 'var(--header-height)',
                     padding: '0px !important',
                 }}
             >
                 <p
                     id="modal-title"
-                    className="title-20"
+                    className="titleH-20"
                     style={{
                         color: appBarColor === '#fff' ? '#000' : '#fff',
                     }}

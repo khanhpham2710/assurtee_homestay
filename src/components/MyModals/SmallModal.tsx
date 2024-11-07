@@ -74,7 +74,7 @@ export default function SmallModal({
                             width: 312,
                             height: 162,
                             padding: '32px 24px 30px',
-                            gap: '12px',
+                            gap: 12,
                             textAlign: 'center',
                         }}
                     >
@@ -99,15 +99,9 @@ export default function SmallModal({
                             setOpen(false);
                             handleClick();
                         }}
-                        className="titleH-16"
+                        className="button1 active"
                         style={{
-                            width: 312,
-                            height: 50,
-                            backgroundColor: '#333647',
-                            cursor: 'pointer',
-                            lineHeight: 1.75,
-                            border: 'none',
-                            outline: 'none',
+                            borderRadius: 0,
                         }}
                     >
                         {textButton}

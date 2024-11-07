@@ -1,6 +1,6 @@
 .webcam-component {
     width: 100%;
-    height: auto;
+    height: calc(100vh - var(--header-height));
     padding: 0 !important;
     position: relative;
     display: flex;

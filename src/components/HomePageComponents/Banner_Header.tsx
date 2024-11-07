@@ -69,6 +69,7 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
                                     style={{
                                         width: '44px',
                                         height: '22px',
+                                        cursor: 'pointer',
                                     }}
                                 />
                             </div>

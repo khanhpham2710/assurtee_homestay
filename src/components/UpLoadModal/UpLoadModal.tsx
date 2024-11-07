@@ -21,6 +21,7 @@ const buttonStyle: React.CSSProperties = {
     padding: '6px 20px',
     borderRadius: 120,
     backgroundColor: '#e7ecf3',
+    cursor: 'pointer',
 };
 
 const fontStyle: React.CSSProperties = {

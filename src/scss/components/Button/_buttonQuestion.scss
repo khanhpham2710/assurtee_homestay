@@ -7,13 +7,12 @@
     border: solid 3px #e0e0e0;
     background-color: #f6f7f9;
 
-    @include m.title;
+    @include m.titleH;
 
-    font-family: AppleSDGothicNeoH;
     font-size: 16px;
     line-height: 1.75;
     color: #cfcfcf;
-    text-decoration: none;
+    cursor: pointer;
 }
 
 .buttonQuestion.active {

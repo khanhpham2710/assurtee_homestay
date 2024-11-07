@@ -75,7 +75,14 @@ export default function Landing_Footer() {
                 <div className="footer_container">
                     <div className="footer-logo">
                         <img src={images.mainLogo} alt="" />
-                        <img src={images.ScrollUp} alt="" onClick={onTop} />
+                        <img
+                            src={images.ScrollUp}
+                            alt=""
+                            onClick={onTop}
+                            style={{
+                                cursor: 'pointer',
+                            }}
+                        />
                     </div>
 
                     <div ref={footerInfoRef} className="footer-info">
