@@ -32,15 +32,15 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
     const carouselImages: CSSProperties[] = [
         {
             backgroundImage: `url(${images.BackGroundBanner1})`,
-            backgroundPosition: '35% 30%',
+            backgroundPosition: '30% 0%',
         },
         {
             backgroundImage: `url(${images.BackGroundBanner2})`,
-            backgroundPosition: '55% 30%',
+            backgroundPosition: '30% 0',
         },
         {
             backgroundImage: `url(${images.BackGroundBanner3})`,
-            backgroundPosition: '65% 30%',
+            backgroundPosition: '55% 0',
         },
     ];
 

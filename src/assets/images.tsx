@@ -26,9 +26,9 @@ import AssurLogo from '/Image/Logos/AssureteeLogo.png';
 import mainLogo from '/Image/Logos/ci.png';
 import InsuranceLogo from '/Image/Logos/HLogo.png';
 
-import BackGroundBanner1 from '/Image/MainCarousel/img_PC@3x.png';
-import BackGroundBanner2 from '/Image/MainCarousel/img_2PC@3x.png';
-import BackGroundBanner3 from '/Image/MainCarousel/img_3PC@3x.png';
+import BackGroundBanner1 from '/Image/MainCarousel/img_PC3x.png';
+import BackGroundBanner2 from '/Image/MainCarousel/img_2PC3x.png';
+import BackGroundBanner3 from '/Image/MainCarousel/img_3PC3x.png';
 
 import item_1 from '/Image/Banner/item_1.png';
 import item_2 from '/Image/Banner/item_2.png';

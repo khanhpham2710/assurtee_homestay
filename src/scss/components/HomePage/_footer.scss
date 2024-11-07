@@ -34,7 +34,7 @@
     background-color: #000;
     z-index: 0;
     width: 100%;
-    height: 530px;
+    height: 520px;
     position: relative;
     .footer_container {
         max-width: 620px;
@@ -62,11 +62,11 @@
             padding: 30px 0;
             p {
                 font-size: 14px;
-                line-height: 20px;
+                line-height: 22px;
                 color: #ffffff;
                 font-family: AppleSDGothicNeoSB;
             }
-            margin-bottom: 30px;
+            
         }
 
         .footer-accordion {
@@ -75,12 +75,10 @@
             border-radius: 4px;
             box-shadow: none;
             margin-bottom: 30px;
-            margin-top: 25px;
             .MuiAccordionSummary-root {
                 background-color: #343434;
                 height: 38px;
                 color: #fff !important;
-                // flex-direction: column-reverse;
             }
             .MuiAccordionSummary-expandIconWrapper {
                 transform: rotate(45deg);
@@ -95,9 +93,8 @@
 
         .siteList {
             position: absolute;
-            top: 50%;
+            top: 51%;
             left: 50%;
-            // max-width: 560px;
             width: 100%;
             transform: translate(-50%);
             background-color: #333;
@@ -133,17 +130,20 @@
     }
     .MuiDivider-root {
         position: absolute;
-        top: 13%;
+        top: 70px;
         width: 100%;
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 850px) {
     .footer_warning {
         .footer_warning_container {
             .footer_warning_descr {
                 font-size: 14px;
             }
         }
+    }
+    #footer  {
+        height: 450px;
     }
 }

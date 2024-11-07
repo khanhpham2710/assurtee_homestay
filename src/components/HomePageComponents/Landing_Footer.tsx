@@ -122,12 +122,12 @@ export default function Landing_Footer() {
                         elevation={0}
                         className="footer-accordion"
                         sx={{
-                            marginTop: '30px',
                             position: 'relative',
                             width: '100%',
                         }}
                         onClick={() => {
                             setExpanded(!expanded);
+                            console.log("expanded", expanded)
                         }}
                     >
                         <AccordionSummary
@@ -143,19 +143,15 @@ export default function Landing_Footer() {
                                     fontSize: '14px',
                                     width: '100%',
                                 }}
-                                onClick={() => {
-                                    setExpanded(!expanded);
-                                    console.log('expanded', expanded);
-                                }}
                             >
                                 관련사이트
                             </p>
                         </AccordionSummary>
                     </Accordion>
-                </div>
                 <p className="footer-end">
                     © assuretee Inc. All Rights Reserved.
                 </p>
+                </div>
 
                 <Divider
                     variant="fullWidth"
