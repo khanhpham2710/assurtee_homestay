@@ -8,6 +8,7 @@ import FullPageModal, {
     ModalType,
 } from '../../components/MyModals/FullPageModal';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import { Box } from '@mui/material';
 
 const ScanOption: React.FC = () => {
     const { sameAddress } = useAppSelector((state) => state.info);
@@ -63,7 +64,8 @@ const ScanOption: React.FC = () => {
             >
                 <ItemDetailBox
                     imgSrc={images.FillOption}
-                    title="사업자등록번호 직접입력"
+                    line1="사업자등록번호"
+                    line2="직접입력"
                     onClick={() =>
                         openModal(<FillOption />, '사업자등록번호 입력')
                     }
@@ -71,7 +73,8 @@ const ScanOption: React.FC = () => {
 
                 <ItemDetailBox
                     imgSrc={images.ScanOption}
-                    title="사업자등증 촬영(스캔)입력"
+                    line1="사업자등증"
+                    line2="촬영(스캔)입력"
                     onClick={() =>
                         openModal(
                             <ScanImage_Main setModal={setModal} />,
@@ -94,30 +97,35 @@ const ScanOption: React.FC = () => {
 
 interface ItemDetailBoxProps {
     imgSrc: string;
-    title: string;
+    line1: string;
+    line2: string;
     onClick: () => void;
 }
 
-function ItemDetailBox({ imgSrc, title, onClick }: ItemDetailBoxProps) {
+function ItemDetailBox({ imgSrc, line1, line2, onClick }: ItemDetailBoxProps) {
     return (
-        <div
+        <Box
             className="item-detail-box"
-            style={{
-                width: '151px',
+            sx={{
+                width: {
+                    xs: '151px',
+                    sm: '100%',
+                },
                 height: '151px',
                 backgroundColor: '#e7ecf3',
                 cursor: 'pointer',
+                padding: '0 20px',
             }}
             onClick={onClick}
         >
-            <img src={imgSrc} alt={title} />
+            <img src={imgSrc} />
             <p
                 className="titleH-18"
                 style={{ backgroundColor: 'transparent', lineHeight: '22px' }}
             >
-                <span>{title}</span>
+                {line1} <br /> {line2}
             </p>
-        </div>
+        </Box>
     );
 }
 

@@ -7,12 +7,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { validateAmountField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { InsuranceAmountType } from '../../utils/models/InfoType';
+import FullPageModal from '../../components/MyModals/FullPageModal';
+import TermCondition from '../TermCondition/TermCondition';
 
 function FilledInsuranceAmount() {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const items: Array<'1억' | '3억' | '5억'> = ['1억', '3억', '5억'];
     const [item, setItem] = useState<'1억' | '3억' | '5억'>(items[0]);
+    const [open, setOpen] = useState<boolean>(false);
 
     const info = useAppSelector((state) => state.info);
 
@@ -90,6 +93,12 @@ function FilledInsuranceAmount() {
                     보험료 계산
                 </button>
             </section>
+            <FullPageModal
+                open={open}
+                setOpen={setOpen}
+                title="전자서명 동의 안내"
+                component={<TermCondition />}
+            />
         </>
     );
 }
