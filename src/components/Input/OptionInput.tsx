@@ -94,7 +94,7 @@ function OptionInput<T>({
                     readOnly
                     autoComplete="off"
                 />
-                <img src={images.KeyDown} alt="Toggle" />
+                <img src={images.KeyDown} style={{ cursor: 'pointer' }} />
             </div>
 
             <SwipeableDrawer

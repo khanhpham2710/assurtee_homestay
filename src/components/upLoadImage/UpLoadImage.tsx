@@ -25,11 +25,12 @@ export default function UploadImage({ style }: { style?: CSSProperties }) {
     const buttonStyle: React.CSSProperties = {
         width: 150,
         height: 50,
-        borderRadius: '120px',
+        borderRadius: 120,
         backgroundColor: '#e7ecf3',
         fontFamily: 'AppleSDGothicNeoB',
         fontSize: 14,
         color: '#333647',
+        cursor: 'pointer',
     };
 
     return (

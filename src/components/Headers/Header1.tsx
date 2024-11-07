@@ -12,7 +12,11 @@ function Header1() {
 
     return (
         <Box className="header1">
-            <img src={images.HomeIcon} onClick={handleClick} />
+            <img
+                src={images.HomeIcon}
+                onClick={handleClick}
+                style={{ cursor: 'pointer' }}
+            />
             <MyToolTip
                 text={[
                     '본 사이트에서 안내되는 보험료는 보험사의',

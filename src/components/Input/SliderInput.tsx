@@ -1,4 +1,5 @@
 import Slider from '@mui/material/Slider';
+import { CSSProperties } from 'react';
 
 type SliderType<T> = {
     variable: keyof T;
@@ -10,7 +11,7 @@ type SliderType<T> = {
     step?: number;
 };
 
-const buttonStyle = {
+const buttonStyle: CSSProperties = {
     color: '#ffffff',
     backgroundColor: '#090909',
     padding: '0px',
@@ -19,6 +20,7 @@ const buttonStyle = {
     lineHeight: '24px',
     fontSize: '20px',
     borderRadius: '50px',
+    cursor: 'pointer',
 };
 
 function SliderInput<T>({

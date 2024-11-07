@@ -152,7 +152,11 @@ function InsuranceDetailsPage() {
                     <div className="dflex_center flexColumn_item">
                         <p>가입된 보험을 취소하시겠습니까?</p>
                         <a
-                            style={{ marginTop: '16px', fontSize: 14 }}
+                            style={{
+                                marginTop: '16px',
+                                fontSize: 14,
+                                cursor: 'pointer',
+                            }}
                             onClick={() => {
                                 navigate('/insurance-details/canceled');
                                 setOpen(false);

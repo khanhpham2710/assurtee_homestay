@@ -5,7 +5,11 @@ function Header3({ title }: { title: string }) {
         <div className="header0 dflex_center">
             <h2 className="titleSmall">{title}</h2>
             <div className="close_icon_header">
-                <img src={images.CloseButton} alt="" />
+                <img
+                    src={images.CloseButton}
+                    alt=""
+                    style={{ cursor: 'pointer' }}
+                />
             </div>
         </div>
     );

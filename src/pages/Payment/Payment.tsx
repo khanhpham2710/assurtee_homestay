@@ -111,6 +111,7 @@ function Payment() {
                     onClick={() => {
                         setAnnual((prev) => !prev);
                     }}
+                    style={{ cursor: 'pointer' }}
                 />
                 <p className="title_all_terms">일반 결제</p>
             </div>

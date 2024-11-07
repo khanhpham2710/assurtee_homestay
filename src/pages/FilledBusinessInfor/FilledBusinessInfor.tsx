@@ -55,7 +55,7 @@ const FilledBusinessInfo: React.FC = () => {
             />
             <Divider className="divider_1" />
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{ textAlign: 'left', marginBottom: '28px' }}
             >
                 건물/주택 정보를 입력해 주세요.
