@@ -2,7 +2,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import routes from './routes/routes';
 import HomePage from './pages/HomePage/HomePage';
 import WebForm from './components/WebForm/WebForm';
-
+import { createTheme, ThemeProvider } from '@mui/material';
 function App() {
     return (
         <div>
@@ -32,9 +32,22 @@ function App() {
 }
 
 function AppWrapper() {
+    const theme = createTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 620,
+                md: 700,
+                lg: 1100,
+                xl: 1536,
+            },
+        },
+    });
     return (
         <Router>
-            <App />
+            <ThemeProvider theme={theme}>
+                <App />
+            </ThemeProvider>
         </Router>
     );
 }

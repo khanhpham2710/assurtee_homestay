@@ -1,35 +1,25 @@
 import React, { useRef } from 'react';
-import images from '../../assets/images';
-import Download from '../../components/Download/Download';
-import Grid from '@mui/material/Grid2';
-import Box from '@mui/material/Box';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import emailjs from '@emailjs/browser';
-import { Divider } from '@mui/material';
-import axios from 'axios';
-export default function EmailPage() {
-    const form = useRef<HTMLFormElement>();
 
-    import.meta.env.VITE_PUBLIC_KEY;
-    console.log('.meta.env.VITE_PUBLIC_KEY: ', import.meta.env.VITE_PUBLIC_KEY);
-    import.meta.env.VITE_EMAIL_SERVICE_ID;
-    console.log(
-        'import.meta.env.VITE_EMAIL_SERVICE_ID: ',
-        import.meta.env.VITE_EMAIL_ID
-    );
-    import.meta.env.VITE_TEMPLATE_ID,
-        console.log(
-            'import.meta.env.VITE_TEMPLATE_ID,: ',
-            import.meta.env.VITE_TEMPLATE_ID
-        );
+export default function EmailPage() {
+
+
+    const {email, contractor} = useAppSelector((state) => state.info)
+
+
+    const to_name: string =  "nguyendeptrai"
+    const to_email : string  = "nguyenndev037@gmail.com"
 
     const handleSendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
         const templateParams: any = {
-            // Replace these with the actual parameters your template requires
-            to_name: 'Recipient Name',
+          
+            to_name: to_name,
+            to_email : to_email,
             message: 'Your message here',
-            // ...any other params
+            title: "Confirm successful order payment"
         };
 
         emailjs
