@@ -20,11 +20,12 @@ export default function HomePage() {
     return (
         <section
             className="fullWidth_item fullHeightView_item"
-            style={{ display: 'relative' }}
+            style={{ position: 'relative' }}
         >
             <section>
                 <Banner_Header video_ref={video_ref} />
             </section>
+
             <div
                 className="fullWidth_item dflex_center dflex-column"
                 style={{
@@ -55,12 +56,18 @@ export default function HomePage() {
                 <Landing_Footer />
             </section>
             {/* Button Fixed */}
+
             <section className="button_container">
                 <button className="button_main title-18" onClick={onTop}>
                     보험료 계산하기
-                    <img src={images.PNextButton} alt="" />
                 </button>
             </section>
+            {/* <section className="button_container_2"> */}
+                <button className="button_main_2 title-18" onClick={onTop}>
+                    보험료 계산하기
+                    <img src={images.PNextButton} alt="" />
+                </button>
+
         </section>
     );
 }
