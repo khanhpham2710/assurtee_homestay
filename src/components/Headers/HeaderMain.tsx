@@ -18,7 +18,7 @@ function HeaderMain() {
             <Link
                 to="/personal-infor"
                 className="dflex_center mainLogo_2 header_item_right"
-                style={{ textDecoration: 'none', gap: '3px' }}
+                style={{ textDecoration: 'none', gap: '5px' }}
             >
                 <p className="titleH-14">가입확인</p>
                 <img src={images.ArrowIconRight} alt="" />
