@@ -111,7 +111,7 @@ function ItemDetailBox({ imgSrc, title, onClick }: ItemDetailBoxProps) {
         >
             <img src={imgSrc} alt={title} />
             <p
-                className="title-18"
+                className="titleH-18"
                 style={{ backgroundColor: 'transparent', lineHeight: '22px' }}
             >
                 <span>{title}</span>

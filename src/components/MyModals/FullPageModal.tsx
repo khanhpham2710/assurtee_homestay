@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
+import { SxProps, Theme } from '@mui/material';
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -19,6 +20,7 @@ export type ModalType = {
     title: string;
     appBarColor?: '#fff' | '#000';
     component: React.ReactNode;
+    style?: SxProps<Theme>;
 };
 
 export type MyModalProps = {
@@ -32,6 +34,7 @@ export default function FullPageModal({
     title,
     appBarColor = '#fff',
     component,
+    style,
 }: MyModalProps) {
     const handleClose = () => {
         setOpen(false);
@@ -46,9 +49,21 @@ export default function FullPageModal({
             aria-labelledby="modal-title"
             aria-describedby="modal-description"
             sx={{
+                ...style,
                 width: '100%',
                 maxWidth: '620px',
                 margin: '0 auto',
+                boxShadow: 'none',
+            }}
+            BackdropProps={{
+                style: {
+                    backgroundColor: 'transparent',
+                },
+            }}
+            PaperProps={{
+                sx: {
+                    boxShadow: 'none',
+                },
             }}
         >
             <AppBar
@@ -65,7 +80,7 @@ export default function FullPageModal({
                     id="modal-title"
                     className="title-20"
                     style={{
-                        color: appBarColor === '#fff' ? "'#000'" : '#fff',
+                        color: appBarColor === '#fff' ? '#000' : '#fff',
                     }}
                 >
                     {title}

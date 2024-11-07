@@ -13,7 +13,7 @@ export default function Header2({
             <Link className="back_icon_header" to={backTo}>
                 <img src={images.BackButton} alt="" />
             </Link>
-            <p className="title-20">{title}</p>
+            <p className="titleH-20">{title}</p>
         </div>
     );
 }

@@ -23,7 +23,7 @@ function Question<T = string>({
     return (
         <div className="dflex_center flexColumn_item" style={style}>
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{ marginBottom: '30px', textAlign: 'left' }}
             >
                 {title}

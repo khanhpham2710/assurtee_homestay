@@ -14,7 +14,7 @@ export default function ScanImage_Main({ setModal }: Props) {
             style={{ marginTop: '30px' }}
         >
             <p
-                className="title-24"
+                className="titleH-24"
                 style={{ marginBottom: '17px', lineHeight: '28px' }}
             >
                 촬영을 위해 사업자등록증을 <br /> 준비해 주세요.

@@ -12,20 +12,11 @@ const MyToolTip: React.FC<MyToolTipProps> = ({
     color = 'grey',
 }) => {
     return (
-        <div className="tooltip">
+        <div id="tooltip">
             <p
+                className={`tooltip-icon`}
                 style={{
-                    width: '16px',
-                    height: '16px',
-                    padding: '2px',
-                    borderRadius: '50%',
                     backgroundColor: color == 'black' ? color : '#aeb0b3',
-                    color: 'white',
-                    textAlign: 'center',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '12px',
                 }}
             >
                 !

@@ -60,7 +60,7 @@ function Payment() {
                 }}
             />
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{ margin: '12px 24px 0', textAlign: 'left' }}
             >
                 현대해상화재보험 외국인관광도시민박보험
@@ -93,7 +93,7 @@ function Payment() {
                     margin: '19px 24px 0',
                 }}
             >
-                <p className="title-16">총 결제금액</p>
+                <p className="titleH-16">총 결제금액</p>
                 <p style={orangeFont}>{fees.total.toLocaleString() + '원'}</p>
             </section>
             <p
