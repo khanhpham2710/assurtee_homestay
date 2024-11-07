@@ -79,7 +79,7 @@ export default function SmallModal({
                         }}
                     >
                         <p
-                            className="title-22"
+                            className="titleH-22"
                             style={{
                                 lineHeight: '1.27',
                             }}
@@ -99,15 +99,13 @@ export default function SmallModal({
                             setOpen(false);
                             handleClick();
                         }}
+                        className="titleH-16"
                         style={{
                             width: 312,
                             height: 50,
                             backgroundColor: '#333647',
-                            fontSize: 16,
-                            fontFamily: 'AppleSDGothicNeoH',
                             cursor: 'pointer',
                             lineHeight: 1.75,
-                            color: '#fff',
                             border: 'none',
                             outline: 'none',
                         }}

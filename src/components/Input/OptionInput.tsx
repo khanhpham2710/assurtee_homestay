@@ -111,7 +111,10 @@ function OptionInput<T>({
                         margin: '0 auto',
                     },
                     zIndex: 2000,
-                    transform: 'translateX(0)',
+                    transform: {
+                        sm: 'translateX(-8px)',
+                        xs: 'translateX(0px)',
+                    },
                 }}
             >
                 {list()}

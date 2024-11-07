@@ -33,7 +33,7 @@ export default function ScanText() {
             style={{ marginTop: '30px' }}
         >
             <p
-                className="title-24"
+                className="titleH-24"
                 style={{
                     marginBottom: '17px',
                     lineHeight: '28px',

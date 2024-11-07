@@ -2,33 +2,32 @@
 
 .button1 {
     @include ab.inactive-button;
-
     border-radius: 25px;
-
     line-height: 1.22;
 }
 
 .button2 {
     @include ab.inactive-button;
-
     border-radius: 8px;
     width: 312px;
     font-family: AppleSDGothicNeoH;
     line-height: 1.75;
 }
 
+.insurance-info-button {
+    @include ab.inactive-button;
+}
+
 .button3 {
     @include ab.inactive-button;
     position: fixed;
     bottom: 0;
-    width: 100%;
     max-width: 620px;
 }
 
 .option-button {
     position: relative;
     margin-top: 40px;
-    bottom: auto;
     width: 100%;
     padding: 0 24px;
     @media only screen and (max-width: 620px) {
@@ -45,34 +44,31 @@
 }
 
 .address-button {
+    @include ab.button;
     width: 79px !important;
     height: 30px;
     object-fit: contain;
     border-radius: 15px;
-    border: solid 1px var(--primary);
     background-color: var(--base-background);
     cursor: pointer;
-
-    @include ab.button;
+    border: solid 1px var(--primary);
 
     font-family: AppleSDGothicNeoM;
     font-size: 14px;
-    font-weight: 500;
     color: var(--primary);
 }
 
 .small-button {
+    @include ab.button;
     height: 24px;
     background-color: var(--secondary);
     padding: 1px 12px;
     font-family: AppleSDGothicNeoM;
     font-size: 12px;
     line-height: 1.83;
-    color: #fff;
     border-radius: 40px;
-    border: none;
-    outline: none;
     cursor: pointer;
+    width: auto;
 }
 
 // Insurance Amount page buttons

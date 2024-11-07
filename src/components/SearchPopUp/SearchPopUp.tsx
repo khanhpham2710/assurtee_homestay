@@ -48,7 +48,7 @@ export const usePostcodePopup = ({ handleChange }: InputsProps) => {
             // dispatch(updateInfo({ address: fullAddress }));
             handleChange('address', fullAddress);
         }
-        console.log('useEffect ', fullAddress);
+        // console.log('useEffect ', fullAddress);
     }, [fullAddress, dispatch]);
 
     const handleClick = () => {

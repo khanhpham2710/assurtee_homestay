@@ -124,15 +124,14 @@ export default function Landing_Footer() {
                         sx={{
                             marginTop: '30px',
                             position: 'relative',
-                            width: "100%"
+                            width: '100%',
                         }}
-                        onClick = {() => {
+                        onClick={() => {
                             setExpanded(!expanded);
                         }}
-                        
                     >
                         <AccordionSummary
-                            expandIcon={<CloseIcon/>}
+                            expandIcon={<CloseIcon />}
                             aria-controls="panel1-content"
                             id="panel1-header"
                         >
@@ -142,11 +141,11 @@ export default function Landing_Footer() {
                                     fontWeight: '500',
                                     lineHeight: '25px',
                                     fontSize: '14px',
-                                    width: "100%"
+                                    width: '100%',
                                 }}
-                                onClick={()=>{
-                                    setExpanded(!expanded)
-                                    console.log("expanded", expanded)
+                                onClick={() => {
+                                    setExpanded(!expanded);
+                                    console.log('expanded', expanded);
                                 }}
                             >
                                 관련사이트

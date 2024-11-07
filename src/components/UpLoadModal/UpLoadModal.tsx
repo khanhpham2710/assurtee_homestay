@@ -93,7 +93,7 @@ export default function UpLoadModal({ open, setOpen, setImage }: DialogProps) {
                         }}
                     >
                         <p
-                            className="title-22"
+                            className="titleH-22"
                             style={{
                                 lineHeight: '1.27',
                             }}

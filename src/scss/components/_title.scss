@@ -1,23 +1,23 @@
 @use '../abstracts/index' as ab;
 
-.title-24 {
-    @include ab.label;
+.titleH-24 {
+    @include ab.titleH;
     font-size: 24px;
     line-height: 1.17 !important;
 }
 
-.title-22 {
-    @include ab.label;
+.titleH-22 {
+    @include ab.titleH;
     font-size: 22px !important;
 }
 
-.title-20 {
-    @include ab.label;
+.titleH-20 {
+    @include ab.titleH;
     font-size: 20px !important;
 }
 
-.title-18 {
-    @include ab.label;
+.titleH-18 {
+    @include ab.titleH;
     font-size: 18px !important;
     text-align: center;
     span {
@@ -25,13 +25,13 @@
     }
 }
 
-.title-16 {
-    @include ab.label;
+.titleH-16 {
+    @include ab.titleH;
     font-size: 16px !important;
 }
 
-.title-14 {
-    @include ab.label;
+.titleH-14 {
+    @include ab.titleH;
     font-size: 14px !important;
     span {
         background-color: transparent !important;
@@ -39,30 +39,17 @@
 }
 
 .orange-font {
-    font-family: SFProText;
-    font-size: 12px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.33;
-    letter-spacing: -0.41px;
-    text-align: left;
+    @include ab.SFProText;
     color: #ff5400;
 }
 
 .title_all_terms {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoM;
+    @include ab.titleM;
     font-size: 16px;
-    line-height: 1.25;
-    color: #000;
 }
 
 .title_terms {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoM;
+    @include ab.titleM;
     font-size: 14px;
     line-height: 1.43;
     color: #646464;
@@ -72,94 +59,63 @@
     @include ab.title;
     font-size: 14px;
     line-height: 2;
-    text-align: left;
-    color: #000;
     font-family: AppleSDGothicNeoB;
     span {
         color: var(--primary);
     }
 }
 
-@mixin titleLable {
-    font-family: AppleSDGothicNeoM;
-    font-size: 16px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000;
-}
-
 .title_label {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoM;
+    @include ab.titleM;
     font-size: 12px;
     line-height: 1;
-    text-align: left;
-    color: #000;
 }
 
 .title_label-2 {
-    @include ab.title;
-
-    font-family: AppleSDGothicNeoH;
-    font-size: 16px;
+    @extend .titleH-16;
     line-height: 0.75;
-    color: #000;
 }
 
 .title-amount {
-    @include titleLable;
+    @include ab.titleM;
+    font-size: 16px;
     line-height: 1.75;
 }
 
-.subtitle {
-    @include ab.title;
-
-    font-family: SFProText;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.33;
-    letter-spacing: -0.41px;
-    text-align: left;
-    color: #6d6d6d;
-}
-
 .title_drawer {
-    @include ab.title;
+    @extend .titleH-20;
 
-    font-family: AppleSDGothicNeoH;
-    font-size: 20px;
     line-height: 1.4;
-    text-align: left;
     color: var(--primary);
 }
 
+.subtitle {
+    @include ab.SFProText;
+    color: #6d6d6d;
+}
+
 .title_description {
-    @include titleLable;
+    @include ab.titleM;
+    font-size: 16px;
     text-align: center !important;
 }
 
 // Info boxes
 .grey_label {
-    @include ab.label;
+    @include ab.titleH;
     font-size: 16px;
     line-height: 1.75;
     flex: 1 1 auto;
     min-width: 0;
-    font-family: AppleSDGothicNeoH;
     color: #b7c2d6;
-    text-align: left;
 }
 
 .medium_info {
-    @include ab.title;
+    @include ab.titleM;
     font-size: 16px;
     line-height: 1.75;
     flex: 1 1 auto;
     min-width: 0;
-    font-family: AppleSDGothicNeoM;
-    color: #000;
     text-align: right;
 }
 

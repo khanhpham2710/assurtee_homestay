@@ -59,7 +59,7 @@ function InsuranceInfo() {
                 }}
             />
             <p
-                className="title-22"
+                className="titleH-22"
                 style={{ margin: '12px 24px 52px', textAlign: 'left' }}
             >
                 현대해상화재보험 외국인관광도시민박보험
@@ -122,7 +122,7 @@ function InsuranceInfo() {
             <ConfirmCheckbox checked={checked} handleCheck={handleCheck} />
             <section className="dflex_center">
                 <button
-                    className={`button3 ${checked && allFilled ? 'active' : ''}`}
+                    className={`insurance-info-button ${checked && allFilled ? 'active' : ''}`}
                     disabled={!checked && !allFilled}
                     onClick={handleSubmit}
                 >
@@ -134,6 +134,11 @@ function InsuranceInfo() {
                 open={open}
                 setOpen={setOpen}
                 title="가입 내용 수정"
+                style={{
+                    transform: {
+                        sm: 'translateX(-8px)',
+                    },
+                }}
             />
         </div>
     );

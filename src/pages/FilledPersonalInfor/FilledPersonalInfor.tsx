@@ -56,7 +56,7 @@ export default function FilledPersonalInfo() {
                         <span>1</span> / 2
                     </p>
                     <p
-                        className="title-22"
+                        className="titleH-22"
                         style={{ textAlign: 'left', marginTop: '17px' }}
                     >
                         보험 가입 정보를 입력해 주세요.
@@ -81,7 +81,7 @@ export default function FilledPersonalInfo() {
                 {isBusinessInfoVisible && (
                     <>
                         <p
-                            className="title-22"
+                            className="titleH-22"
                             style={{ textAlign: 'left', marginTop: '38px' }}
                         >
                             건물/주택 정보
