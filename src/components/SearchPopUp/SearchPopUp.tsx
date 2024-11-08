@@ -1,8 +1,7 @@
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 import { useEffect, useState } from 'react';
-const scriptUrl =
-    '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
-import { useAppDispatch } from '../../utils/hooks/reduxHooks';
+
+import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { BusinessType } from '../../utils/models/InfoType';
 
@@ -17,25 +16,31 @@ type DataType = {
     buildingName: string;
 };
 
-export const usePostcodePopup = ({ handleChange }: InputsProps) => {
-    const open = useDaumPostcodePopup(scriptUrl);
+export const PostCode = ({ handleChange }: InputsProps) => {
+
+
+    const open = useDaumPostcodePopup();
     const dispatch = useAppDispatch();
     const [fullAddress, setFullAddress] = useState<string | null>(null);
+    const {address} = useAppSelector(state => state.info);
+
 
     const handleComplete = (data: DataType) => {
+        console.log(data);
         let fullAddress = data.address;
         let extraAddress = '';
 
         if (data.addressType === 'R') {
             if (data.bname !== '') extraAddress += data.bname;
-            if (data.buildingName !== '')
+            if (data.buildingName !== '') {
                 extraAddress += extraAddress
                     ? `, ${data.buildingName}`
                     : data.buildingName;
+            }
             fullAddress += extraAddress ? ` (${extraAddress})` : '';
-            setFullAddress(fullAddress);
         }
-
+        console.log(fullAddress);
+        setFullAddress(fullAddress);
         dispatch(
             updateInfo({
                 address: extraAddress,
@@ -45,15 +50,19 @@ export const usePostcodePopup = ({ handleChange }: InputsProps) => {
 
     useEffect(() => {
         if (fullAddress) {
-            // dispatch(updateInfo({ address: fullAddress }));
             handleChange('address', fullAddress);
         }
-        // console.log('useEffect ', fullAddress);
-    }, [fullAddress, dispatch]);
+    }, [fullAddress, address]);
 
-    const handleClick = () => {
-        open({ onComplete: handleComplete });
+    const handleClick = async () => {
+        await open({onComplete: handleComplete, width: "80%", autoClose: true,});
     };
-
-    return { handleClick };
+    return (
+        <button
+            onClick={handleClick}
+            className="address-button"
+        >
+            주소검색
+        </button>
+    );
 };
