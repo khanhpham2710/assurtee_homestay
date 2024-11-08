@@ -1,9 +1,11 @@
 import { useDaumPostcodePopup } from 'react-daum-postcode';
-import { useEffect, useState } from 'react';
+import {useEffect, useLayoutEffect, useState} from 'react';
 
 import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { BusinessType } from '../../utils/models/InfoType';
+import {Simulate} from "react-dom/test-utils";
+
 
 type InputsProps = {
     handleChange: (key: keyof BusinessType, value: string) => void;
@@ -47,8 +49,8 @@ export const PostCode = ({ handleChange }: InputsProps) => {
             })
         );
     };
-
-    useEffect(() => {
+    
+    useLayoutEffect(() => {
         if (fullAddress) {
             handleChange('address', fullAddress);
         }
