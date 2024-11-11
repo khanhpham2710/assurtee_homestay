@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
 import Slider from 'react-slick';
 import images from '../../assets/images';
-import HeaderMain from '../../components/Headers/HeaderMain';
 
 type BannerHeaderProps = {
     video_ref: React.RefObject<HTMLDivElement>;

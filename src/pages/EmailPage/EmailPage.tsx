@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import emailjs from '@emailjs/browser';
@@ -11,7 +12,7 @@ export default function EmailPage() {
     const handleSendEmail = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
 
-        const templateParams: any = {
+        const templateParams = {
             to_name: to_name,
             to_email: to_email,
             message: 'Your message here',

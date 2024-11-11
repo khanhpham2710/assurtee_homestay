@@ -64,7 +64,8 @@ export default function FilledPersonalBusinessInfor() {
                 <section
                     style={{
                         width: '100%',
-                        marginTop: '40px',
+                        marginTop: 40,
+                        marginBottom: 70,
                     }}
                     className="dflex_center"
                 >
@@ -76,7 +77,7 @@ export default function FilledPersonalBusinessInfor() {
                         주택 정보 입력
                     </button>
                 </section>
-                <section style={{ marginBottom: 70 }}>
+                <section>
                     <p
                         className="titleH-22"
                         style={{ textAlign: 'left', marginTop: '38px' }}
@@ -86,16 +87,21 @@ export default function FilledPersonalBusinessInfor() {
                     <BusinessInputs form={form2} handleChange={handleChange2} />
                 </section>
             </div>
-            <button
-                className={
-                    allChecked1 && allChecked2 ? 'button3 active' : 'button3'
-                }
-                disabled={!allChecked2 || !allChecked1}
-                onClick={handleSubmit2}
-                aria-label="Submit business information"
-            >
-                수정
-            </button>
+            <section className="dflex_center" style={{ width: '100%' }}>
+                <button
+                    className={
+                        allChecked1 && allChecked2
+                            ? 'button3 active'
+                            : 'button3'
+                    }
+                    disabled={!allChecked2 || !allChecked1}
+                    onClick={handleSubmit2}
+                    aria-label="Submit business information"
+                >
+                    수정
+                </button>
+                <div style={{ height: 70 }}></div>
+            </section>
         </>
     );
 }

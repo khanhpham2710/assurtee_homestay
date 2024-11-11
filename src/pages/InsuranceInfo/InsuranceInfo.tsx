@@ -110,6 +110,7 @@ function InsuranceInfo() {
                     lineHeight: 'normal',
                     color: '#646464',
                     margin: '34px auto 47px',
+                    marginBottom: 165,
                 }}
             >
                 준법감시확인필 제202325412호 2024.5.25~2025.5.25
