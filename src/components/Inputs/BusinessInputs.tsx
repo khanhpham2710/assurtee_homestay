@@ -3,9 +3,11 @@ import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
 import { TextField } from '@mui/material';
-import { usePostcodePopup } from '../../components/SearchPopUp/SearchPopUp';
+import { PostCode } from '../SearchPopUp/SearchPopUp';
 import { CSSProperties } from 'react';
 import UploadImage from '../UpLoadImage/UpLoadImage';
+
+
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
@@ -13,8 +15,7 @@ type InputsProps = {
 };
 
 function BusinessInputs({ form, handleChange, style }: InputsProps) {
-    const { handleClick } = usePostcodePopup({ handleChange });
-
+    
     return (
         <form className="dflex-column" style={{ ...style, width: '100%' }}>
             <InputSection>
@@ -113,12 +114,7 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                         }}
                         className="dflex_center"
                     >
-                        <button
-                            onClick={handleClick}
-                            className="address-button"
-                        >
-                            주소검색
-                        </button>
+                      <PostCode handleChange={handleChange} />
                     </div>
                 </section>
             </InputSection>
