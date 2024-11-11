@@ -27,7 +27,7 @@ export default function FilledPersonalInfo() {
     const handleSubmit1 = async () => {
         if (allChecked1) {
             await dispatch(updateInfo(form1));
-            navigate('/scan-option');
+            navigate('/options');
         }
     };
 

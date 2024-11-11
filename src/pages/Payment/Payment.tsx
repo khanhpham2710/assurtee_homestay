@@ -137,7 +137,7 @@ function Payment() {
                     className={allFieldsFilled ? 'button3 active' : 'button3'}
                     disabled={!allFieldsFilled}
                     onClick={() => {
-                        navigate('/loading');
+                        navigate('/inprogress');
                     }}
                     style={{
                         position: 'fixed',
