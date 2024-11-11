@@ -119,11 +119,16 @@ function PersonalInputs({ form, handleChange, style }: InputsProps) {
             </InputSection>
             <InputSection>
                 <OptionInput<PersonalType>
-                    variable="email"
+                    variable="delivery"
                     handleChange={handleChange}
-                    items={['직접입력', 'other']}
+                    items={[
+                        '이메일 선택1',
+                        '이메일 선택2',
+                        '이메일 선택3',
+                        '직접입력',
+                    ]}
                     value={form.delivery}
-                    title="직접 선택하시거나 보내주세요"
+                    title="이메일을 선택해 주세요."
                 />
             </InputSection>
         </form>

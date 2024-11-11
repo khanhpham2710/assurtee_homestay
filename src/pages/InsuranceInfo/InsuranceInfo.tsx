@@ -13,7 +13,6 @@ import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import WarningContent from './WarningContent';
 
 function InsuranceInfo() {
-    const [checked, setChecked] = useState<boolean>(true);
     const [allFilled, setAllFilled] = useState<boolean>(false);
     const [open, setOpen] = useState<boolean>(false);
     const navigate = useNavigate();
@@ -37,12 +36,8 @@ function InsuranceInfo() {
         setAllFilled(checkAllFilled());
     }, [state]);
 
-    const handleCheck = () => {
-        setChecked((prev) => !prev);
-    };
-
     function handleSubmit() {
-        if (allFilled && checked) {
+        if (allFilled) {
             navigate('/payment');
         }
     }
@@ -119,16 +114,10 @@ function InsuranceInfo() {
             >
                 준법감시확인필 제202325412호 2024.5.25~2025.5.25
             </p>
-            <ConfirmCheckbox checked={checked} handleCheck={handleCheck} />
-            <section className="dflex_center">
-                <button
-                    className={`insurance-info-button ${checked && allFilled ? 'active' : ''}`}
-                    disabled={!checked && !allFilled}
-                    onClick={handleSubmit}
-                >
-                    가입하기
-                </button>
-            </section>
+            <ConfirmCheckbox
+                handleSubmit={handleSubmit}
+                allFilled={allFilled}
+            />
             <FullPageModal
                 component={<FillAllInfor setOpen={setOpen} />}
                 open={open}

@@ -41,7 +41,7 @@ const FilledBusinessInfo: React.FC = () => {
                     image: info.image,
                 })
             );
-            navigate('/personal-infor');
+            navigate('/personal-business-infor');
         }
     };
 

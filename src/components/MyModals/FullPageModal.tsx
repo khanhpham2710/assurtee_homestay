@@ -55,9 +55,11 @@ export default function FullPageModal({
                 margin: '0 auto',
                 boxShadow: 'none',
             }}
-            BackdropProps={{
-                style: {
-                    backgroundColor: 'transparent',
+            slotProps={{
+                backdrop: {
+                    style: {
+                        backgroundColor: 'transparent',
+                    },
                 },
             }}
             PaperProps={{

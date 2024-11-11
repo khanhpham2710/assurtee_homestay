@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import PersonalInputs from '../../components/Inputs/PersonalInputs';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { useNavigate } from 'react-router-dom';
+import BusinessInputs from '../../components/Inputs/BusinessInputs';
 import {
     validateBusinessField,
     validatePersonalField,
@@ -9,16 +10,20 @@ import {
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { BusinessType, PersonalType } from '../../utils/models/InfoType';
 
-export default function FilledPersonalInfo() {
+export default function FilledPersonalBusinessInfor() {
     const info = useAppSelector((state) => state.info);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     const [form1, setForm1] = useState<PersonalType>(info);
-    const form2: BusinessType = info;
+    const [form2, setForm2] = useState<BusinessType>(info);
 
     const handleChange1 = (key: keyof PersonalType, value: string) => {
         setForm1((prev) => ({ ...prev, [key]: value }));
+    };
+
+    const handleChange2 = (key: keyof BusinessType, value: string) => {
+        setForm2((prev) => ({ ...prev, [key]: value }));
     };
 
     const allChecked1 = useMemo(() => validatePersonalField(form1), [form1]);
@@ -40,7 +45,7 @@ export default function FilledPersonalInfo() {
 
     return (
         <>
-            <div style={{ padding: '8px 24px 0', marginBottom: 70 }}>
+            <div style={{ padding: '8px 24px 0' }}>
                 <section
                     className="dflex-column"
                     style={{ marginBottom: '28px' }}
@@ -70,6 +75,15 @@ export default function FilledPersonalInfo() {
                     >
                         주택 정보 입력
                     </button>
+                </section>
+                <section style={{ marginBottom: 70 }}>
+                    <p
+                        className="titleH-22"
+                        style={{ textAlign: 'left', marginTop: '38px' }}
+                    >
+                        건물/주택 정보
+                    </p>
+                    <BusinessInputs form={form2} handleChange={handleChange2} />
                 </section>
             </div>
             <button
