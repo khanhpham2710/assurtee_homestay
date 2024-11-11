@@ -16,8 +16,8 @@ export const saveToCookiesMiddleware: Middleware = (storeAPI) => (next) => (acti
     
     const infoState = state.info;
 
- 
-    Cookies.set('info', JSON.stringify(infoState), { expires: 0.05 }); // Expires in 7 days
+    const expirationDate = new Date(new Date().getTime() + 5 * 60 * 1000);
+    Cookies.set('info', JSON.stringify(infoState), { expires: expirationDate, secure: true, sameSite: 'Strict' });
 
     return result;
 };
