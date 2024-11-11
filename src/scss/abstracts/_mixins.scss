@@ -1,7 +1,10 @@
 @mixin header {
     height: var(--header-height);
     width: 100%;
-    position: relative;
+    position: fixed;
+    top: 0;
+    max-width: 620px;
+    background-color: #f6f7f9;
 }
 
 @mixin button {

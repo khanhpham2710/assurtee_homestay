@@ -7,7 +7,6 @@ import { PostCode } from '../SearchPopUp/SearchPopUp';
 import { CSSProperties } from 'react';
 import UploadImage from '../UpLoadImage/UpLoadImage';
 
-
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;
@@ -15,7 +14,6 @@ type InputsProps = {
 };
 
 function BusinessInputs({ form, handleChange, style }: InputsProps) {
-    
     return (
         <form className="dflex-column" style={{ ...style, width: '100%' }}>
             <InputSection>
@@ -114,7 +112,7 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                         }}
                         className="dflex_center"
                     >
-                      <PostCode handleChange={handleChange} />
+                        <PostCode handleChange={handleChange} />
                     </div>
                 </section>
             </InputSection>

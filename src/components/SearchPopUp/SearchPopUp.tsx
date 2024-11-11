@@ -1,7 +1,7 @@
 import { useDaumPostcodePopup } from 'react-daum-postcode';
-import {useEffect, useLayoutEffect, useState} from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
-import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { BusinessType } from '../../utils/models/InfoType';
 
@@ -17,13 +17,10 @@ type DataType = {
 };
 
 export const PostCode = ({ handleChange }: InputsProps) => {
-
-
     const open = useDaumPostcodePopup();
     const dispatch = useAppDispatch();
     const [fullAddress, setFullAddress] = useState<string | null>(null);
-    const {address} = useAppSelector(state => state.info);
-
+    const { address } = useAppSelector((state) => state.info);
 
     const handleComplete = (data: DataType) => {
         console.log(data);
@@ -54,17 +51,14 @@ export const PostCode = ({ handleChange }: InputsProps) => {
         }
     }, [fullAddress, address]);
 
-    const handleClick = async() => {
-        setTimeout(()=>{open({onComplete: handleComplete, width: "80%", autoClose: true,})}, 1000);
+    const handleClick = async () => {
+        setTimeout(() => {
+            open({ onComplete: handleComplete, width: '80%', autoClose: true });
+        }, 1000);
     };
 
-
-
     return (
-        <button
-            onClick={handleClick}
-            className="address-button"
-        >
+        <button onClick={handleClick} className="address-button">
             주소검색
         </button>
     );
