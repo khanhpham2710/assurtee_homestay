@@ -5,7 +5,9 @@ import {updateInfo} from '../../utils/redux/infoSlice';
 import {BusinessType} from '../../utils/models/InfoType';
 import FullPageModal from "../MyModals/FullPageModal";
 
-
+type InputsProps = {
+    handleChange: (key: keyof BusinessType, value: string) => void;
+};
 
 type DataType = {
     address: string;
@@ -14,16 +16,11 @@ type DataType = {
     buildingName: string;
 };
 
-export const PostCode = ({handleChange}: InputsProps) => {
-
-    const scriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
-
-
+export const PostCode = ({ handleChange }: InputsProps) => {
     const dispatch = useAppDispatch();
 
     const [fullAddress, setFullAddress] = useState<string | null>(null);
-    const {address} = useAppSelector((state) => state.info);
-    const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+    const { address } = useAppSelector((state) => state.info);
     const [expand, setExpanded] = useState(false);
 
 
@@ -46,8 +43,7 @@ export const PostCode = ({handleChange}: InputsProps) => {
         dispatch(
             updateInfo({
                 address: extraAddress,
-            }),
-          
+            })
         );
     };
 
@@ -55,20 +51,28 @@ export const PostCode = ({handleChange}: InputsProps) => {
         if (fullAddress) {
             handleChange('address', fullAddress);
         }
-        setExpanded(false)
+        setExpanded(false);
     }, [fullAddress, address]);
 
     const handleClick_2 = () => {
-        setExpanded(true)
-    }
+        setExpanded(true);
+    };
     return (
         <>
             <button onClick={handleClick_2} className="address-button">
                 주소검색
             </button>
 
-            <FullPageModal open={expand} setOpen={setExpanded} title="주소검색" component=
-                {<DaumPostcodeEmbed onComplete={handleComplete} style={{height:"100%"}}/>}
+            <FullPageModal
+                open={expand}
+                setOpen={setExpanded}
+                title="주소검색"
+                component={
+                    <DaumPostcodeEmbed
+                        onComplete={handleComplete}
+                        style={{ height: '100%' }}
+                    />
+                }
             />
         </>
     );

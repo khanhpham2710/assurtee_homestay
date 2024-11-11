@@ -27,7 +27,7 @@ export default function FilledPersonalInfo() {
     const handleSubmit1 = async () => {
         if (allChecked1) {
             await dispatch(updateInfo(form1));
-            navigate('/scan-option');
+            navigate('/options');
         }
     };
 
@@ -40,7 +40,7 @@ export default function FilledPersonalInfo() {
 
     return (
         <>
-            <div style={{ padding: '8px 24px 0', marginBottom: 70 }}>
+            <div style={{ padding: '8px 24px 0' }}>
                 <section
                     className="dflex-column"
                     style={{ marginBottom: '28px' }}
@@ -60,6 +60,7 @@ export default function FilledPersonalInfo() {
                     style={{
                         width: '100%',
                         marginTop: '40px',
+                        marginBottom: '70px',
                     }}
                     className="dflex_center"
                 >
@@ -72,16 +73,20 @@ export default function FilledPersonalInfo() {
                     </button>
                 </section>
             </div>
-            <button
-                className={
-                    allChecked1 && allChecked2 ? 'button3 active' : 'button3'
-                }
-                disabled={!allChecked2 || !allChecked1}
-                onClick={handleSubmit2}
-                aria-label="Submit business information"
-            >
-                수정
-            </button>
+            <section className="dflex_center" style={{ width: '100%' }}>
+                <button
+                    className={
+                        allChecked1 && allChecked2
+                            ? 'button3 active'
+                            : 'button3'
+                    }
+                    disabled={!allChecked2 || !allChecked1}
+                    onClick={handleSubmit2}
+                    aria-label="Submit business information"
+                >
+                    수정
+                </button>
+            </section>
         </>
     );
 }
