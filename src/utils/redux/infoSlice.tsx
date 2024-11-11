@@ -4,7 +4,6 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { InfoType } from '../models/InfoType';
 import { ImageData, PostImageFailed } from '../models/ImageData';
 import { onYearLater } from '../validation/startAndEndDate';
-import Cookies from 'js-cookie';
 import { Middleware } from '@reduxjs/toolkit';
 
 const persistedState = sessionStorage.getItem('info');

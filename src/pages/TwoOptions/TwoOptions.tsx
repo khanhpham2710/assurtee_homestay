@@ -7,11 +7,13 @@ import FillOption from '../../components/Options/FillOption';
 import FullPageModal, {
     ModalType,
 } from '../../components/MyModals/FullPageModal';
-import { useAppSelector } from '../../utils/hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { Box } from '@mui/material';
+import { updateInfo } from '../../utils/redux/infoSlice';
 
 const ScanOption: React.FC = () => {
     const { sameAddress } = useAppSelector((state) => state.info);
+    const dispatch = useAppDispatch();
 
     const [item, setItem] = useState<string>(sameAddress ? '예' : '아니오');
     const [open, setOpen] = useState<boolean>(false);
@@ -22,12 +24,11 @@ const ScanOption: React.FC = () => {
     });
 
     useEffect(() => {
-        const temp = sessionStorage.getItem('sameAddress');
-        if (temp) setItem(temp);
-    }, []);
-
-    useEffect(() => {
-        sessionStorage.setItem('sameAddress', item);
+        dispatch(
+            updateInfo({
+                sameAddress: item == '예' ? true : false,
+            })
+        );
     }, [item]);
 
     const openModal = useCallback(
