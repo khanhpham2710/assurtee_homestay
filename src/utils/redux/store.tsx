@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import infoReducer from './infoSlice';
-import { saveToCookiesMiddleware } from './infoSlice';
+import  { saveToSessionStorageMiddleware } from "./infoSlice";
 
 const store = configureStore({
     reducer: {
         info: infoReducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(saveToCookiesMiddleware),
+        getDefaultMiddleware().concat(saveToSessionStorageMiddleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
