@@ -6,7 +6,7 @@ import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/TwoOptions/TwoOptions';
 import FilledPersonalInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
 import FilledBusinessInfor from '../pages/FilledBusinessInfor/FilledBusinessInfor';
-import SearchAddress from '../pages/SearchAddress/SearchAddress';
+// import SearchAddress from '../pages/SearchAddress/SearchAddress';
 import Payment from '../pages/Payment/Payment';
 import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmount';
 import LoadingPage from '../pages/Loading/Loading';
@@ -50,11 +50,11 @@ const routes: RouteType[] = [
         component: TermCondition,
         header: <Header2 title="전자서명 동의 안내" backTo="" />,
     },
-    {
-        path: '/search-address',
-        component: SearchAddress,
-        header: null,
-    },
+    // {
+    //     path: '/search-address',
+    //     component: SearchAddress,
+    //     header: null,
+    // },
     {
         path: '/insurance-amount',
         component: InsuranceAmount,
