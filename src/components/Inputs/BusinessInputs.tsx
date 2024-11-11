@@ -6,6 +6,8 @@ import { TextField } from '@mui/material';
 import { PostCode } from '../SearchPopUp/SearchPopUp';
 import { CSSProperties } from 'react';
 import UploadImage from '../UpLoadImage/UpLoadImage';
+
+
 type InputsProps = {
     form: BusinessType;
     handleChange: (key: keyof BusinessType, value: string) => void;

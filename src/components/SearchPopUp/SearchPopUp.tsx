@@ -4,8 +4,6 @@ import {useEffect, useLayoutEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import { BusinessType } from '../../utils/models/InfoType';
-import {Simulate} from "react-dom/test-utils";
-
 
 type InputsProps = {
     handleChange: (key: keyof BusinessType, value: string) => void;
@@ -50,15 +48,18 @@ export const PostCode = ({ handleChange }: InputsProps) => {
         );
     };
     
-    useLayoutEffect(() => {
+    useEffect(() => {
         if (fullAddress) {
             handleChange('address', fullAddress);
         }
     }, [fullAddress, address]);
 
-    const handleClick = async () => {
-        await open({onComplete: handleComplete, width: "80%", autoClose: true,});
+    const handleClick = async() => {
+         setTimeout(()=>{open({onComplete: handleComplete, width: "80%", autoClose: true,})}, 1000);
     };
+    
+   
+    
     return (
         <button
             onClick={handleClick}
