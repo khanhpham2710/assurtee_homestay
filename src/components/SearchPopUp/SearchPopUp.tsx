@@ -47,7 +47,7 @@ export const PostCode = ({ handleChange }: InputsProps) => {
             })
         );
     };
-    
+
     useEffect(() => {
         if (fullAddress) {
             handleChange('address', fullAddress);
@@ -55,11 +55,11 @@ export const PostCode = ({ handleChange }: InputsProps) => {
     }, [fullAddress, address]);
 
     const handleClick = async() => {
-         setTimeout(()=>{open({onComplete: handleComplete, width: "80%", autoClose: true,})}, 1000);
+        setTimeout(()=>{open({onComplete: handleComplete, width: "80%", autoClose: true,})}, 1000);
     };
-    
-   
-    
+
+
+
     return (
         <button
             onClick={handleClick}
