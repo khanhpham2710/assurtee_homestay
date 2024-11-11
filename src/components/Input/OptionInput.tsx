@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import { CustomInput } from './CustomInput';
 import images from '../../assets/images';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import { Button } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 type InputProps<T> = {
     variable: keyof T;
     value: string;
     placeholder?: string;
     handleChange: (key: keyof T, value: string) => void;
-    items: [string, string];
+    items: string[];
     title: string;
 };
 
@@ -21,6 +23,7 @@ function OptionInput<T>({
     title,
 }: InputProps<T>) {
     const [open, setOpen] = useState<boolean>(false);
+    const location = useLocation();
 
     const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
@@ -58,26 +61,32 @@ function OptionInput<T>({
                 />
             </div>
             <div
-                style={{ height: 133, padding: '24px 14px 24px 23px' }}
+                style={{ minHeight: 133, padding: '24px 14px 24px 23px' }}
                 className="dflex-column"
             >
                 {items.map((item, index) => (
-                    <button
+                    <Button
                         key={index}
-                        style={{
-                            height: '50%',
+                        sx={{
+                            height: '50px',
                             fontFamily: 'AppleSDGothicNeoM',
                             fontSize: '16px',
-                            textAlign: 'left',
                             color: '#000',
                             backgroundColor: '#fff',
-                            border: 'none',
                             cursor: 'pointer',
+                            width: '100%',
+                            borderRadius: 0,
+                            '&:hover': {
+                                backgroundColor: '#ededed',
+                            },
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-start',
                         }}
                         onClick={() => handleClick(item)}
                     >
                         {item}
-                    </button>
+                    </Button>
                 ))}
             </div>
         </div>
@@ -94,7 +103,14 @@ function OptionInput<T>({
                     readOnly
                     autoComplete="off"
                 />
-                <img src={images.KeyDown} style={{ cursor: 'pointer' }} />
+                <img
+                    src={images.KeyDown}
+                    style={{
+                        cursor: 'pointer',
+                        transform: open ? 'rotate(180deg)' : '',
+                        transition: 'transform 0.3s',
+                    }}
+                />
             </div>
 
             <SwipeableDrawer
@@ -112,8 +128,19 @@ function OptionInput<T>({
                     },
                     zIndex: 2000,
                     transform: {
-                        sm: 'translateX(-8px)',
+                        sm:
+                            location.pathname === '/personal-infor'
+                                ? 'translateX(0px)'
+                                : 'translateX(-8px)',
                         xs: 'translateX(0px)',
+                    },
+                    '& .MuiBackdrop-root': {
+                        transform: {
+                            sm:
+                                location.pathname === '/personal-infor'
+                                    ? 'translateX(0px)'
+                                    : 'translateX(8px)',
+                        },
                     },
                 }}
             >

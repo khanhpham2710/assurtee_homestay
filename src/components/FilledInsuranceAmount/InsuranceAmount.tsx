@@ -54,11 +54,16 @@ function InsuranceAmount({ form, handleChange, style }: PropsType) {
             <InputSection>
                 <label className="title_label">주택 유형</label>
                 <OptionInput<InsuranceAmountType>
-                    items={['단독', 'test']}
+                    items={[
+                        '주택 유형1',
+                        '주택 유형2',
+                        '주택 유형3',
+                        '주택 유형4',
+                    ]}
                     value={form.housingType}
                     handleChange={handleChange}
                     variable="housingType"
-                    title="some thing"
+                    title="주택 유형을 선택해 주세요."
                 />
             </InputSection>
             <InputSection>

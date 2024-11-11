@@ -14,8 +14,39 @@
     line-height: 1.75;
 }
 
-.insurance-info-button {
-    @include ab.inactive-button;
+#insurance-info-button {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 620px;
+
+    > :first-child {
+        width: 312px;
+        height: 68px;
+        margin: 0 auto;
+        padding: 18px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.12);
+        position: relative;
+        gap: 10px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #fff0f3 transparent transparent transparent;
+            z-index: 1;
+        }
+    }
+
+    button {
+        width: 100%;
+        @include ab.inactive-button;
+    }
 }
 
 .button3 {

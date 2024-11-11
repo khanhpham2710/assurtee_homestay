@@ -6,7 +6,7 @@ export interface PersonalType {
     registrationNumber: string;
     phoneNumber: string;
     email: string;
-    delivery: '직접입력' | string;
+    delivery: '직접입력' | '이메일 선택1' | '이메일 선택2' | '이메일 선택3';
 }
 
 export interface BusinessType {
@@ -26,7 +26,12 @@ export interface InsuranceAmountType {
     construction: number;
     facilities: number;
     inventory: number;
-    housingType: string | '단독';
+    housingType:
+        | '주택 유형1'
+        | '주택 유형2'
+        | '주택 유형3'
+        | '주택 유형4'
+        | '단독';
     area: number;
 }
 

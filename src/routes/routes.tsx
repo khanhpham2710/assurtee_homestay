@@ -17,6 +17,7 @@ import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
 import EmailPage from '../pages/EmailPage/EmailPage';
 import TermCondition from '../pages/TermCondition/TermCondition';
+import FilledPersonalBusinessInfor from '../pages/FilledPersonalBusinessInfor/FilledPersonalBusinessInfor';
 
 type RouteType = {
     path: string;
@@ -46,9 +47,16 @@ const routes: RouteType[] = [
         header: <Header2 title="주택 정보 입력" backTo="/scan-option" />,
     },
     {
+        path: '/personal-business-infor',
+        component: FilledPersonalBusinessInfor,
+        header: <Header1 />,
+    },
+    {
         path: '/term-condition',
         component: TermCondition,
-        header: <Header2 title="전자서명 동의 안내" backTo="" />,
+        header: (
+            <Header2 title="전자서명 동의 안내" backTo="/insurance-amount" />
+        ),
     },
     {
         path: '/search-address',

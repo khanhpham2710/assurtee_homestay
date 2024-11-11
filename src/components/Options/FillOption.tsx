@@ -23,7 +23,13 @@ export default function ScanText() {
                     businessNumber: text,
                 })
             );
-            navigate('/business-infor');
+
+            const screenWidth = window.innerWidth;
+            if (screenWidth <= 620) {
+                navigate('/business-infor');
+            } else {
+                navigate('/personal-business-infor');
+            }
         }
     }
 
