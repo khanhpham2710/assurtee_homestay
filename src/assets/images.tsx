@@ -54,6 +54,8 @@ import Success from '/Image/success.png';
 import FailedRegistration from '/Image/Failed-Registration.png';
 import SuccessRegistration from '/Image/Success-Registration.png';
 
+import FormBackground from '/Image/Form-Background.jpg';
+
 const images = {
     AssurLogo,
     InsuranceLogo,
@@ -99,6 +101,7 @@ const images = {
     FailedRegistration,
     SuccessRegistration,
     PNextButton,
+    FormBackground,
 };
 
 export default images;

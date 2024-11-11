@@ -9,7 +9,7 @@ function HeaderMain() {
     }
 
     return (
-        <Box className="header1" sx={{ backgroundColor: 'transparent' }}>
+        <Box className="header1" sx={{ backgroundColor: 'transparent !impor' }}>
             <img
                 className="mainLogo"
                 src={images.AssurLogo}
