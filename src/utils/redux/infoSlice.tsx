@@ -8,19 +8,23 @@ import Cookies from 'js-cookie';
 import { Middleware } from '@reduxjs/toolkit';
 
 const persistedState = Cookies.get('info');
-export const saveToCookiesMiddleware: Middleware = (storeAPI) => (next) => (action) => {
-    const result = next(action);
+export const saveToCookiesMiddleware: Middleware =
+    (storeAPI) => (next) => (action) => {
+        const result = next(action);
 
-    const state = storeAPI.getState();
+        const state = storeAPI.getState();
 
-    
-    const infoState = state.info;
+        const infoState = state.info;
 
-    const expirationDate = new Date(new Date().getTime() + 5 * 60 * 1000);
-    Cookies.set('info', JSON.stringify(infoState), { expires: expirationDate, secure: true, sameSite: 'Strict' });
+        const expirationDate = new Date(new Date().getTime() + 5 * 60 * 1000);
+        Cookies.set('info', JSON.stringify(infoState), {
+            expires: expirationDate,
+            secure: true,
+            sameSite: 'Strict',
+        });
 
-    return result;
-};
+        return result;
+    };
 
 export const postImageData = createAsyncThunk<
     ImageData,
@@ -57,33 +61,33 @@ export const postImageData = createAsyncThunk<
 const initialState: InfoType = persistedState
     ? JSON.parse(persistedState)
     : {
-    contractor: '',
-    dob: '',
-    registrationNumber: '',
-    phoneNumber: '',
-    email: '',
-    delivery: '직접입력',
-    division: '',
-    businessNumber: '',
-    businessName: '',
-    sameAddress: true,
-    address: '',
-    image: null,
-    extra: '',
-    hanok: '아니요',
-    sprinkler: '설치되어 있지 않습니다.',
-    fireInsurance: '1억',
-    construction: 3,
-    facilities: 4,
-    inventory: 2,
-    housingType: '단독',
-    area: 79,
-    error: null,
-    status: 'idle',
-    startDate: new Date().toISOString(),
-    endDate: onYearLater(new Date()).toISOString(),
-    success: true,
-};
+          contractor: '',
+          dob: '',
+          registrationNumber: '',
+          phoneNumber: '',
+          email: '',
+          delivery: '직접입력',
+          division: '',
+          businessNumber: '',
+          businessName: '',
+          sameAddress: true,
+          address: '',
+          image: null,
+          extra: '',
+          hanok: '아니요',
+          sprinkler: '설치되어 있지 않습니다.',
+          fireInsurance: '1억',
+          construction: 3,
+          facilities: 4,
+          inventory: 2,
+          housingType: '단독',
+          area: 79,
+          error: null,
+          status: 'idle',
+          startDate: new Date().toISOString(),
+          endDate: onYearLater(new Date()).toISOString(),
+          success: true,
+      };
 
 const infoSlice = createSlice({
     name: 'info',
