@@ -1,8 +1,10 @@
+import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import routes from './routes/routes';
 import HomePage from './pages/HomePage/HomePage';
 import WebForm from './components/WebForm/WebForm';
 import { createTheme, ThemeProvider } from '@mui/material';
+
 function App() {
     return (
         <div>
@@ -17,7 +19,15 @@ function App() {
                             key={route.path}
                             path={route.path}
                             element={
-                                <WebForm>
+                                <WebForm
+                                    style={{
+                                        width: '100%',
+                                        maxWidth: 620,
+                                        margin: '0 auto',
+                                        backgroundColor: '#f6f7f9',
+                                        minHeight: '100vh',
+                                    }}
+                                >
                                     {Header}
                                     <Page />
                                 </WebForm>
@@ -31,6 +41,7 @@ function App() {
     );
 }
 
+// Define AppWrapper component with theme
 function AppWrapper() {
     const theme = createTheme({
         breakpoints: {
@@ -43,6 +54,7 @@ function AppWrapper() {
             },
         },
     });
+
     return (
         <Router>
             <ThemeProvider theme={theme}>

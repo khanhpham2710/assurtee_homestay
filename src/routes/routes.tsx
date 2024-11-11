@@ -1,6 +1,6 @@
 import React from 'react';
 
-// page
+// page imports
 import CompletedPage from '../pages/CompletedPage/CompletedPage';
 import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/TwoOptions/TwoOptions';
@@ -12,7 +12,7 @@ import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmoun
 import LoadingPage from '../pages/Loading/Loading';
 import InsuranceDetailsPage from '../pages/InsuranceDetailsPage/InsuranceDetailsPage';
 
-// headers
+// header imports
 import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
 import EmailPage from '../pages/EmailPage/EmailPage';
@@ -30,15 +30,16 @@ const routes: RouteType[] = [
         component: FilledPersonalInfor,
         header: <Header1 />,
     },
-
-    { path: '/insurance-infor', component: InsuranceInfo, header: <Header1 /> },
-
+    {
+        path: '/insurance-infor',
+        component: InsuranceInfo,
+        header: <Header1 />,
+    },
     {
         path: '/scan-option',
         component: ScanOption,
         header: <Header2 title="주택 정보 입력" backTo="/" />,
     },
-
     {
         path: '/business-infor',
         component: FilledBusinessInfor,
@@ -69,8 +70,11 @@ const routes: RouteType[] = [
         component: LoadingPage,
         header: null,
     },
-
-    { path: '/complete', component: CompletedPage, header: <Header1 /> },
+    {
+        path: '/complete',
+        component: CompletedPage,
+        header: <Header1 />,
+    },
     {
         path: '/insurance-details/:isSuccess',
         component: InsuranceDetailsPage,
