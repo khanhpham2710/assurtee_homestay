@@ -15,7 +15,7 @@ const FilledBusinessInfo: React.FC = () => {
     const navigate = useNavigate();
     const [form, setForm] = useState<BusinessType>(info);
     const [item, setItem] = useState<string>(
-        sessionStorage.getItem('sameAddress') || '예'
+        info.sameAddress ? '예' : '아니오'
     );
 
     const items = ['예', '아니오'];

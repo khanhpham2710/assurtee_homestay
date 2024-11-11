@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import infoReducer from './infoSlice';
-import  { saveToCookiesMiddleware } from "./infoSlice";
+import { saveToCookiesMiddleware } from './infoSlice';
 
 const store = configureStore({
     reducer: {
