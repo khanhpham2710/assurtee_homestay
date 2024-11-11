@@ -11,7 +11,7 @@ function HeaderMain() {
 
     return (
         <Box className="header1"
-             sx={{display: 'flex', justifyContent: 'space-between', position: "fixed", top: "0", zIndex: '1000',}}>
+             sx={{backgroundColor:"transparent" , display: 'flex', justifyContent: 'space-between', position: "fixed", top: "0", zIndex: '1000', maxWidth: "100%"}}>
             <img
                 className="mainLogo"
                 src={images.AssurLogo}
