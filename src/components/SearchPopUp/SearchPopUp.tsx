@@ -1,13 +1,11 @@
-import {DaumPostcodeEmbed} from "react-daum-postcode";
+import DaumPostcodeEmbed from 'react-daum-postcode';
 import {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
 import {updateInfo} from '../../utils/redux/infoSlice';
 import {BusinessType} from '../../utils/models/InfoType';
 import FullPageModal from "../MyModals/FullPageModal";
 
-type InputsProps = {
-    handleChange: (key: keyof BusinessType, value: string) => void;
-};
+
 
 type DataType = {
     address: string;
