@@ -7,8 +7,8 @@ import { onYearLater } from '../validation/startAndEndDate';
 import Cookies from 'js-cookie';
 import { Middleware } from '@reduxjs/toolkit';
 
-const persistedState = Cookies.get('info');
-export const saveToCookiesMiddleware: Middleware = (storeAPI) => (next) => (action) => {
+const persistedState = sessionStorage.getItem('info');
+export const saveToSessionStorageMiddleware: Middleware = (storeAPI) => (next) => (action) => {
     const result = next(action);
 
     const state = storeAPI.getState();
@@ -16,8 +16,10 @@ export const saveToCookiesMiddleware: Middleware = (storeAPI) => (next) => (acti
     
     const infoState = state.info;
 
-    const expirationDate = new Date(new Date().getTime() + 5 * 60 * 1000);
-    Cookies.set('info', JSON.stringify(infoState), { expires: expirationDate, secure: true, sameSite: 'Strict' });
+    // const expirationDate = new Date(new Date().getTime() + 5 * 60 * 1000);
+    // Cookies.set('info', JSON.stringify(infoState), { expires: expirationDate, secure: true, sameSite: 'Strict' });
+
+    sessionStorage.setItem('info', JSON.stringify(infoState));
 
     return result;
 };
@@ -94,7 +96,7 @@ const infoSlice = createSlice({
         },
         resetInfo() {
             // Clear the cookie when resetting the state
-            Cookies.remove('info');
+            sessionStorage.removeItem('info');
             return initialState;
         },
     },
