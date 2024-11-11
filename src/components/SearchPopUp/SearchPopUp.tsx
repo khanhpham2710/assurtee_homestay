@@ -1,9 +1,9 @@
-import { DaumPostcodeEmbed } from 'react-daum-postcode';
-import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
-import { updateInfo } from '../../utils/redux/infoSlice';
-import { BusinessType } from '../../utils/models/InfoType';
-import FullPageModal from '../MyModals/FullPageModal';
+import DaumPostcodeEmbed from 'react-daum-postcode';
+import {useEffect, useState} from 'react';
+import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
+import {updateInfo} from '../../utils/redux/infoSlice';
+import {BusinessType} from '../../utils/models/InfoType';
+import FullPageModal from "../MyModals/FullPageModal";
 
 type InputsProps = {
     handleChange: (key: keyof BusinessType, value: string) => void;
@@ -22,6 +22,7 @@ export const PostCode = ({ handleChange }: InputsProps) => {
     const [fullAddress, setFullAddress] = useState<string | null>(null);
     const { address } = useAppSelector((state) => state.info);
     const [expand, setExpanded] = useState(false);
+
 
     const handleComplete = (data: DataType) => {
         console.log(data);

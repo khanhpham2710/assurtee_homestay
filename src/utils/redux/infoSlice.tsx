@@ -4,6 +4,23 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { InfoType } from '../models/InfoType';
 import { ImageData, PostImageFailed } from '../models/ImageData';
 import { onYearLater } from '../validation/startAndEndDate';
+import Cookies from 'js-cookie';
+import { Middleware } from '@reduxjs/toolkit';
+
+const persistedState = Cookies.get('info');
+export const saveToCookiesMiddleware: Middleware = (storeAPI) => (next) => (action) => {
+    const result = next(action);
+
+    const state = storeAPI.getState();
+
+    
+    const infoState = state.info;
+
+    const expirationDate = new Date(new Date().getTime() + 5 * 60 * 1000);
+    Cookies.set('info', JSON.stringify(infoState), { expires: expirationDate, secure: true, sameSite: 'Strict' });
+
+    return result;
+};
 
 export const postImageData = createAsyncThunk<
     ImageData,
@@ -37,7 +54,9 @@ export const postImageData = createAsyncThunk<
     }
 });
 
-const initialState: InfoType = {
+const initialState: InfoType = persistedState
+    ? JSON.parse(persistedState)
+    : {
     contractor: '',
     dob: '',
     registrationNumber: '',
@@ -74,6 +93,8 @@ const infoSlice = createSlice({
             Object.assign(state, action.payload);
         },
         resetInfo() {
+            // Clear the cookie when resetting the state
+            Cookies.remove('info');
             return initialState;
         },
     },
