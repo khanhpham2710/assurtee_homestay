@@ -51,7 +51,7 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
                     <div key={index}>
                         <div className="banner_image" style={image}>
                             <div className="overlayer"></div>
-                          
+
                             <div className="banner_text">
                                 <div>
                                     <p className="title_1">(외도민업)</p>
