@@ -158,7 +158,7 @@ function InsuranceDetailsPage() {
                                 cursor: 'pointer',
                             }}
                             onClick={() => {
-                                navigate('/insurance-details/canceled');
+                                navigate('/detail/canceled');
                                 setOpen(false);
                             }}
                         >

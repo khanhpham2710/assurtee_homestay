@@ -6,7 +6,6 @@ import InsuranceInfo from '../pages/InsuranceInfo/InsuranceInfo';
 import ScanOption from '../pages/TwoOptions/TwoOptions';
 import FilledPersonalInfor from '../pages/FilledPersonalInfor/FilledPersonalInfor';
 import FilledBusinessInfor from '../pages/FilledBusinessInfor/FilledBusinessInfor';
-// import SearchAddress from '../pages/SearchAddress/SearchAddress';
 import Payment from '../pages/Payment/Payment';
 import InsuranceAmount from '../pages/FilledInsuranceAmount/FilledInsuranceAmount';
 import LoadingPage from '../pages/Loading/Loading';
@@ -37,14 +36,14 @@ const routes: RouteType[] = [
         header: <Header1 />,
     },
     {
-        path: '/scan-option',
+        path: '/options',
         component: ScanOption,
         header: <Header2 title="주택 정보 입력" backTo="/" />,
     },
     {
         path: '/business-infor',
         component: FilledBusinessInfor,
-        header: <Header2 title="주택 정보 입력" backTo="/scan-option" />,
+        header: <Header2 title="주택 정보 입력" backTo="/options" />,
     },
     {
         path: '/personal-business-infor',
@@ -52,17 +51,12 @@ const routes: RouteType[] = [
         header: <Header1 />,
     },
     {
-        path: '/term-condition',
+        path: '/terms',
         component: TermCondition,
         header: (
             <Header2 title="전자서명 동의 안내" backTo="/insurance-amount" />
         ),
     },
-    // {
-    //     path: '/search-address',
-    //     component: SearchAddress,
-    //     header: null,
-    // },
     {
         path: '/insurance-amount',
         component: InsuranceAmount,
@@ -74,7 +68,7 @@ const routes: RouteType[] = [
         header: <Header2 title="결제" backTo="/insurance-infor" />,
     },
     {
-        path: '/loading',
+        path: '/inprogress',
         component: LoadingPage,
         header: null,
     },
@@ -84,7 +78,7 @@ const routes: RouteType[] = [
         header: <Header1 />,
     },
     {
-        path: '/insurance-details/:isSuccess',
+        path: '/detail/:isSuccess',
         component: InsuranceDetailsPage,
         header: <Header2 title="보험가입내역" backTo="/complete" />,
     },

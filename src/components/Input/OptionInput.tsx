@@ -107,7 +107,7 @@ function OptionInput<T>({
                     src={images.KeyDown}
                     style={{
                         cursor: 'pointer',
-                        transform: open ? 'rotate(180deg)' : '',
+                        transform: open ? 'rotate(-180deg)' : '',
                         transition: 'transform 0.3s',
                     }}
                 />
