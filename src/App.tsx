@@ -19,15 +19,7 @@ function App() {
                             key={route.path}
                             path={route.path}
                             element={
-                                <WebForm
-                                    style={{
-                                        width: '100%',
-                                        maxWidth: 620,
-                                        margin: '0 auto',
-                                        backgroundColor: '#f6f7f9',
-                                        minHeight: '100vh',
-                                    }}
-                                >
+                                <WebForm>
                                     {Header}
                                     <Page />
                                 </WebForm>

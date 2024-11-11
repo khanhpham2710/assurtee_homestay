@@ -1,17 +1,19 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import images from '../../assets/images';
 
-export default function WebForm({
-    children,
-    style,
-}: {
-    children: React.ReactNode;
-    style?: CSSProperties;
-}) {
+export default function WebForm({ children }: { children: React.ReactNode }) {
     return (
-        <div style={style}>
+        <div
+            style={{
+                width: '100%',
+                maxWidth: 620,
+                margin: '0 auto',
+                backgroundColor: '#f6f7f9',
+                minHeight: '100vh',
+            }}
+        >
             <img
-                src={images.BackGroundBanner1}
+                src={images.FormBackground}
                 alt=""
                 style={{
                     position: 'fixed',

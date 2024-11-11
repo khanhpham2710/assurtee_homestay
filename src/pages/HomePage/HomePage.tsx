@@ -7,7 +7,7 @@ import Landing_Footer from '../../components/HomePageComponents/Landing_Footer';
 import Banner_Header from '../../components/HomePageComponents/Banner_Header';
 import Carousel_Bottom from '../../components/HomePageComponents/Carousel_Bottom';
 import { useNavigate } from 'react-router-dom';
-import HeaderMain from "../../components/Headers/HeaderMain";
+import HeaderMain from '../../components/Headers/HeaderMain';
 
 export default function HomePage() {
     const video_ref = useRef<HTMLDivElement>(null);
@@ -29,9 +29,8 @@ export default function HomePage() {
             className="fullWidth_item fullHeightView_item"
             style={{ position: 'relative' }}
         >
-
             <HeaderMain />
-            
+
             <section>
                 <Banner_Header video_ref={video_ref} />
             </section>
