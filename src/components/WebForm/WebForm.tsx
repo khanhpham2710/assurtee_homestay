@@ -9,7 +9,7 @@ export default function WebForm({ children }: { children: React.ReactNode }) {
                 maxWidth: 620,
                 margin: '0 auto',
                 backgroundColor: '#f6f7f9',
-                minHeight: '100vh',
+                minHeight: 'calc(100vh - var(--header-height))',
             }}
         >
             <img
