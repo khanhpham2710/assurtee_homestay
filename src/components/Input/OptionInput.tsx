@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CustomInput } from './CustomInput';
 import images from '../../assets/images';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { Button } from '@mui/material';
-import { useLocation } from 'react-router-dom';
 
 type InputProps<T> = {
     variable: keyof T;
@@ -23,7 +22,6 @@ function OptionInput<T>({
     title,
 }: InputProps<T>) {
     const [open, setOpen] = useState<boolean>(false);
-    const location = useLocation();
 
     const toggleDrawer = (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
@@ -41,6 +39,21 @@ function OptionInput<T>({
         handleChange(variable, value);
         setOpen(false);
     };
+
+    const [scrollBar, setScrollBar] = useState<boolean>(false);
+
+    useEffect(() => {
+        const checkScrollBar = () => {
+            setScrollBar(document.body.clientHeight > window.innerHeight);
+        };
+
+        checkScrollBar();
+        window.addEventListener('resize', checkScrollBar);
+
+        return () => {
+            window.removeEventListener('resize', checkScrollBar);
+        };
+    }, []);
 
     const list = () => (
         <div role="presentation">
@@ -127,20 +140,13 @@ function OptionInput<T>({
                         margin: '0 auto',
                     },
                     zIndex: 2000,
-                    transform: {
-                        sm:
-                            location.pathname === '/personal-infor'
-                                ? 'translateX(0px)'
-                                : 'translateX(-8px)',
-                        xs: 'translateX(0px)',
-                    },
+                    transform: scrollBar
+                        ? 'translateX(-8px)'
+                        : 'translateX(0px)',
                     '& .MuiBackdrop-root': {
-                        transform: {
-                            sm:
-                                location.pathname === '/personal-infor'
-                                    ? 'translateX(0px)'
-                                    : 'translateX(8px)',
-                        },
+                        transform: scrollBar
+                            ? 'translateX(8px)'
+                            : 'translateX(0px)',
                     },
                 }}
             >
