@@ -5,7 +5,6 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import './css/jquery-ui.min.css';
 import './css/style.css';
 import './css/swiper-bundle.min.css';
-import HeaderNull from './components/Headers/HeaderNull';
 
 function App() {
     return (
@@ -21,15 +20,21 @@ function App() {
                             key={route.path}
                             path={route.path}
                             element={
-                                <>
-                                    {Header}
-                                    <Page />
-                                </>
+                                <div className="wrap">
+                                    <div className="wrap-inner">
+                                        {Header}
+                                        <div
+                                            className="container container-page"
+                                            id="container"
+                                        >
+                                            <Page />
+                                        </div>
+                                    </div>
+                                </div>
                             }
                         />
                     );
                 })}
-                <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
         </div>
     );
