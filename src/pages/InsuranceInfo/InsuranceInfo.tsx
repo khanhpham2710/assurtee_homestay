@@ -1,4 +1,3 @@
-import images from '../../assets/images';
 import FeeAccordion from '../../components/Accordion/FeeAccordion';
 import RegistrationInfo from '../../components/InsuranceInfo/RegistrationInfo';
 import InsuranceDetails from '../../components/InsuranceInfo/InsuranceDetails';
@@ -45,21 +44,19 @@ function InsuranceInfo() {
     return (
         <>
             <div className="section">
-                <img
-                    src={images.InsuranceLogo}
-                    alt=""
-                    style={{
-                        width: 40,
-                        height: 40,
-                        margin: '16px 206px 0px 24px',
-                    }}
-                />
-                <p
-                    className="titleH-22"
-                    style={{ margin: '12px 24px 52px', textAlign: 'left' }}
-                >
-                    현대해상화재보험 외국인관광도시민박보험
-                </p>
+                <div className="title-box">
+                    <div className="title-labels">
+                        <span className="ci-img">
+                            <img
+                                src="images/ci/logo_hyundai.png"
+                                alt="현대해상"
+                            />
+                        </span>
+                    </div>
+                    <p className="title">
+                        현대해상화재보험 외국인관광도시민박보험
+                    </p>
+                </div>
                 <FeeAccordion />
                 <RegistrationInfo
                     style={{
