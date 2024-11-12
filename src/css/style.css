@@ -3390,7 +3390,7 @@ body.header-shadow .header {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url(../../images/bg_wrap.jpg) no-repeat 50% 100%/cover;
+    background: url(../../public/images/bg_wrap.jpg) no-repeat 50% 100%/cover;
     overflow-x: auto;
     overflow-y: scroll;
   }

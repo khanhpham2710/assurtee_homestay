@@ -17,11 +17,12 @@ import Header2 from '../components/Headers/Header2';
 import EmailPage from '../pages/EmailPage/EmailPage';
 import TermCondition from '../pages/TermCondition/TermCondition';
 import FilledPersonalBusinessInfor from '../pages/FilledPersonalBusinessInfor/FilledPersonalBusinessInfor';
+import HeaderNull from '../components/Headers/HeaderNull';
 
 type RouteType = {
     path: string;
     component: React.FC;
-    header: React.ReactNode | null;
+    header: React.ReactNode;
 };
 
 const routes: RouteType[] = [
@@ -70,7 +71,7 @@ const routes: RouteType[] = [
     {
         path: '/inprogress',
         component: LoadingPage,
-        header: null,
+        header: <HeaderNull />,
     },
     {
         path: '/complete',
