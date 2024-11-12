@@ -18,35 +18,12 @@ function LoadingPage() {
     }, [navigate]);
 
     return (
-        <div
-            className="dflex_center flexColumn_item"
-            style={{
-                width: '100%',
-                maxWidth: 620,
-                height: '100%',
-                backgroundColor: '#f6f7f9',
-                zIndex: '1',
-                position: 'absolute',
-                top: 0,
-            }}
-        >
-            <img
-                src={images.Loading}
-                style={{ width: '64px', height: '64px' }}
-                alt="Loading"
-            />
-            <h3
-                style={{
-                    fontFamily: 'AppleSDGothicNeoH',
-                    fontSize: '22px',
-                    lineHeight: '1.27',
-                    textAlign: 'center',
-                    color: '#000',
-                }}
-            >
-                결제가 진행 중입니다.
-            </h3>
-        </div>
+        <>
+            <div className="loading" style={{ display: 'flex' }}>
+                <img src={images.Loading} alt="" className="loading-img" />
+                <p className="loading-text">결제가 진행 중입니다.</p>
+            </div>
+        </>
     );
 }
 

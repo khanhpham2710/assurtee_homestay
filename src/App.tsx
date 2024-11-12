@@ -1,12 +1,11 @@
-import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import routes from './routes/routes';
 import HomePage from './pages/HomePage/HomePage';
-import WebForm from './components/WebForm/WebForm';
 import { createTheme, ThemeProvider } from '@mui/material';
 import './css/jquery-ui.min.css';
 import './css/style.css';
 import './css/swiper-bundle.min.css';
+import HeaderNull from './components/Headers/HeaderNull';
 
 function App() {
     return (
@@ -22,10 +21,10 @@ function App() {
                             key={route.path}
                             path={route.path}
                             element={
-                                <WebForm>
+                                <>
                                     {Header}
                                     <Page />
-                                </WebForm>
+                                </>
                             }
                         />
                     );
