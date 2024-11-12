@@ -4,6 +4,9 @@ import routes from './routes/routes';
 import HomePage from './pages/HomePage/HomePage';
 import WebForm from './components/WebForm/WebForm';
 import { createTheme, ThemeProvider } from '@mui/material';
+import './css/jquery-ui.min.css';
+import './css/style.css';
+import './css/swiper-bundle.min.css';
 
 function App() {
     return (
