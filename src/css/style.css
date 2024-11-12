@@ -86,8 +86,8 @@ button,
 textarea,
 pre,
 a {
-    font-family: 'Apple SD Gothic Neo', 'Pretendard', sans-serif;
-    color: inherit;
+    font-family: 'Apple SD Gothic Neo', 'Pretendard', sans-serif !important;
+    color: inherit !important;
 }
 
 body {
@@ -1722,7 +1722,7 @@ body {
     top: calc(100% + 8px);
     right: 0;
     width: max-content;
-    max-width: calc(100vw - 48px);
+    max-width: calc(var(--webContainerWidth) - 48px);
     padding: 10px 12px;
     background: #000;
     color: #fff;

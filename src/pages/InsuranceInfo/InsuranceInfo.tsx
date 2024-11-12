@@ -43,94 +43,91 @@ function InsuranceInfo() {
     }
 
     return (
-        <div className="dflex-column">
-            <img
-                src={images.InsuranceLogo}
-                alt=""
-                style={{
-                    width: 40,
-                    height: 40,
-                    margin: '16px 206px 0px 24px',
-                }}
-            />
-            <p
-                className="titleH-22"
-                style={{ margin: '12px 24px 52px', textAlign: 'left' }}
-            >
-                현대해상화재보험 외국인관광도시민박보험
-            </p>
-            <FeeAccordion />
-            <RegistrationInfo
-                style={{
-                    margin: '40px 24px 0',
-                }}
-            />
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                    marginTop: '8px',
-                    marginRight: '24px',
-                }}
-            >
-                <button
-                    className="small-button"
-                    onClick={() => {
-                        setOpen(true);
+        <>
+            <div className="section">
+                <img
+                    src={images.InsuranceLogo}
+                    alt=""
+                    style={{
+                        width: 40,
+                        height: 40,
+                        margin: '16px 206px 0px 24px',
+                    }}
+                />
+                <p
+                    className="titleH-22"
+                    style={{ margin: '12px 24px 52px', textAlign: 'left' }}
+                >
+                    현대해상화재보험 외국인관광도시민박보험
+                </p>
+                <FeeAccordion />
+                <RegistrationInfo
+                    style={{
+                        margin: '40px 24px 0',
+                    }}
+                />
+                <div
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        marginTop: '8px',
+                        marginRight: '24px',
                     }}
                 >
-                    내용수정
-                </button>
-            </div>
-            <InsuranceDetails
-                style={{
-                    marginTop: '40px',
-                    padding: '0 24px',
-                }}
-            />
-            <section
-                className="dflex_center"
-                style={{
-                    gap: 12,
-                    marginTop: 12,
-                }}
-            >
-                <Download text="상품설명서(PDF)" href="" fileName="" />
-                <Download text="보험약관(PDF)" href="" fileName="" />
-            </section>
-            <div style={{ padding: '0 24px', marginTop: 20 }}>
-                <WarningAccordion
-                    title="보험가입 전 유의사항"
-                    content={WarningContent}
+                    <button
+                        className="small-button"
+                        onClick={() => {
+                            setOpen(true);
+                        }}
+                    >
+                        내용수정
+                    </button>
+                </div>
+                <InsuranceDetails />
+                <section
+                    className="dflex_center"
+                    style={{
+                        gap: 12,
+                        marginTop: 12,
+                    }}
+                >
+                    <Download text="상품설명서(PDF)" href="" fileName="" />
+                    <Download text="보험약관(PDF)" href="" fileName="" />
+                </section>
+                <div style={{ padding: '0 24px', marginTop: 20 }}>
+                    <WarningAccordion
+                        title="보험가입 전 유의사항"
+                        content={WarningContent}
+                    />
+                </div>
+                <p
+                    className="title_label"
+                    style={{
+                        lineHeight: 'normal',
+                        color: '#646464',
+                        margin: '34px auto 47px',
+                        marginBottom: 165,
+                    }}
+                >
+                    준법감시확인필 제202325412호 2024.5.25~2025.5.25
+                </p>
+                <ConfirmCheckbox
+                    handleSubmit={handleSubmit}
+                    allFilled={allFilled}
+                />
+                <FullPageModal
+                    component={<FillAllInfor setOpen={setOpen} />}
+                    open={open}
+                    setOpen={setOpen}
+                    title="가입 내용 수정"
+                    style={{
+                        transform: {
+                            sm: 'translateX(-8px)',
+                        },
+                    }}
                 />
             </div>
-            <p
-                className="title_label"
-                style={{
-                    lineHeight: 'normal',
-                    color: '#646464',
-                    margin: '34px auto 47px',
-                    marginBottom: 165,
-                }}
-            >
-                준법감시확인필 제202325412호 2024.5.25~2025.5.25
-            </p>
-            <ConfirmCheckbox
-                handleSubmit={handleSubmit}
-                allFilled={allFilled}
-            />
-            <FullPageModal
-                component={<FillAllInfor setOpen={setOpen} />}
-                open={open}
-                setOpen={setOpen}
-                title="가입 내용 수정"
-                style={{
-                    transform: {
-                        sm: 'translateX(-8px)',
-                    },
-                }}
-            />
-        </div>
+        </>
     );
 }
 
