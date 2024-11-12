@@ -1,8 +1,8 @@
 import DaumPostcodeEmbed from 'react-daum-postcode';
-import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
-import { updateInfo } from '../../utils/redux/infoSlice';
-import { BusinessType } from '../../utils/models/InfoType';
+import {useEffect, useState, useRef} from 'react';
+import {useAppDispatch, useAppSelector} from '../../utils/hooks/reduxHooks';
+import {updateInfo} from '../../utils/redux/infoSlice';
+import {BusinessType} from '../../utils/models/InfoType';
 import FullPageModal from '../MyModals/FullPageModal';
 
 type InputsProps = {
@@ -16,13 +16,16 @@ type DataType = {
     buildingName: string;
 };
 
-export const PostCode = ({ handleChange }: InputsProps) => {
+export const PostCode = ({handleChange}: InputsProps) => {
     const dispatch = useAppDispatch();
 
     const [fullAddress, setFullAddress] = useState<string | null>(null);
-    const { address } = useAppSelector((state) => state.info);
+    const {address} = useAppSelector((state) => state.info);
     const [expand, setExpanded] = useState(false);
 
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
+    
+    
     const handleComplete = (data: DataType) => {
         console.log(data);
         let fullAddress = data.address;
@@ -56,9 +59,17 @@ export const PostCode = ({ handleChange }: InputsProps) => {
     const handleClick_2 = () => {
         setExpanded(true);
     };
+
+    useEffect(() => {
+        buttonRef.current?.click();
+        setExpanded(false);
+        console.log("test reload");
+    }, [])
+
+
     return (
         <>
-            <button onClick={handleClick_2} className="address-button">
+            <button onClick={handleClick_2} className="address-button" ref={buttonRef}>
                 주소검색
             </button>
 
@@ -69,7 +80,7 @@ export const PostCode = ({ handleChange }: InputsProps) => {
                 component={
                     <DaumPostcodeEmbed
                         onComplete={handleComplete}
-                        style={{ height: '100%' }}
+                        style={{height: '100%'}}
                     />
                 }
             />
