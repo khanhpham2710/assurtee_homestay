@@ -1,4 +1,3 @@
-import images from '../../assets/images';
 import { Link } from 'react-router-dom';
 
 export default function Header2({
@@ -9,11 +8,15 @@ export default function Header2({
     backTo: string;
 }) {
     return (
-        <div className="header0 dflex_center">
-            <Link className="back_icon_header" to={backTo}>
-                <img src={images.BackButton} alt="" />
-            </Link>
-            <p className="titleH-20">{title}</p>
-        </div>
+        <header id="header" className="header">
+            <div className="header-inner">
+                <Link
+                    to={backTo}
+                    className="header-button-prev"
+                    aria-label="이전"
+                ></Link>
+                <h1 className="header-title">{title}</h1>
+            </div>
+        </header>
     );
 }

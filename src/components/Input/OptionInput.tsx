@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { CustomInput } from './CustomInput';
 import images from '../../assets/images';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
@@ -39,21 +39,6 @@ function OptionInput<T>({
         handleChange(variable, value);
         setOpen(false);
     };
-
-    const [scrollBar, setScrollBar] = useState<boolean>(false);
-
-    useEffect(() => {
-        const checkScrollBar = () => {
-            setScrollBar(document.body.clientHeight > window.innerHeight);
-        };
-
-        checkScrollBar();
-        window.addEventListener('resize', checkScrollBar);
-
-        return () => {
-            window.removeEventListener('resize', checkScrollBar);
-        };
-    }, []);
 
     const list = () => (
         <div role="presentation">
@@ -140,13 +125,9 @@ function OptionInput<T>({
                         margin: '0 auto',
                     },
                     zIndex: 2000,
-                    transform: scrollBar
-                        ? 'translateX(-8px)'
-                        : 'translateX(0px)',
+                    transform: 'translateX(-8px)',
                     '& .MuiBackdrop-root': {
-                        transform: scrollBar
-                            ? 'translateX(8px)'
-                            : 'translateX(0px)',
+                        transform: 'translateX(0px)',
                     },
                 }}
             >

@@ -28,7 +28,7 @@ export default function ScanText() {
             if (screenWidth <= 620) {
                 navigate('/business-infor');
             } else {
-                navigate('/personal-business-infor');
+                navigate('/personal-infor');
             }
         }
     }

@@ -1,5 +1,4 @@
 import images from '../../assets/images';
-import { Box } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
 
 function HeaderMain() {
@@ -10,9 +9,9 @@ function HeaderMain() {
     }
 
     return (
-        <Box
+        <header
             className="header1"
-            sx={{
+            style={{
                 backgroundColor: 'transparent',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -21,6 +20,7 @@ function HeaderMain() {
                 zIndex: '1000',
                 maxWidth: '100%',
             }}
+            id="header"
         >
             <img
                 className="mainLogo"
@@ -36,7 +36,7 @@ function HeaderMain() {
                 <p className="titleH-14">가입확인</p>
                 <img src={images.ArrowIconRight} alt="" />
             </Link>
-        </Box>
+        </header>
     );
 }
 
