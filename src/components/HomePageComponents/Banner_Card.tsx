@@ -21,7 +21,7 @@ export default function Banner_Card() {
         {
             title: 'Consulting',
             description:
-                '10초면 끝! 사업자등록증 촬영 및 입력 정보 만으로 가입 가능!',
+                '10초면 끝! 사업자등록증 촬영 및 입력 정보 만으로 가입 가능!',
             color: '#cee9ff',
             icon: images.item_3,
         },
@@ -38,12 +38,12 @@ export default function Banner_Card() {
         <section className="dflex_center fullWidth_item flexColumn_item ">
             <div className="title_card">
                 <p className="title_main_component">
-                    외도민업 <br /> 프로그램 특징
+                    전용보험 <br /> 프로그램 특징
                 </p>
                 <p className="title_main_des">
                     운영자와 손님 모두를 위한
                     <br />
-                    외국인관광 도시민박업주 전용 보험 <br />
+                    외국인관광 도시민박업주 전용 보험 
                     프로그램 특징
                 </p>
             </div>
@@ -51,37 +51,21 @@ export default function Banner_Card() {
             <Box
                 className="card_component"
                 sx={{
-                    marginTop: '30px',
                     flexGrow: 1,
-                    marginBottom: '90px',
+                    // marginBottom: '90px',
                 }}
             >
-                <Grid
-                    container
-                    spacing={1}
-                    columnSpacing={3}
-                    rowSpacing={2}
-                    justifyContent="left"
-                    alignItems="center"
-                >
+                <ul className="program-list">
                     {cardBanner &&
                         cardBanner.map((card, index) => (
-                            <Grid
-                                key={index}
-                                size={12}
-                                className="dflex_center"
-                                sx={{ width: '100%' }}
-                            >
-                                <Card_Banner
-                                    title={card.title}
-                                    description={card.description}
-                                    subdesc={card.subdesc}
-                                    color={card.color}
-                                    icon={card.icon}
-                                />
-                            </Grid>
+                            <li className={`program-0${index+1}`} key={index}>
+                                <strong className="program-title">{card.title}</strong>
+                                <p className="program-description">
+                                    {card.description}
+                                </p>
+                            </li>
                         ))}
-                </Grid>
+                </ul>
             </Box>
         </section>
     );

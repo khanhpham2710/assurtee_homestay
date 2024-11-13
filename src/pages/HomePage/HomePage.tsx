@@ -38,14 +38,17 @@ export default function HomePage() {
             <div
                 className="fullWidth_item dflex_center dflex-column"
                 style={{
-                    maxWidth: '636px',
+                    maxWidth: '684px',
                     margin: '0 auto',
                     overflow: 'hidden',
                     padding: '0 24px',
                 }}
             >
                 {/* banner video */}
-                <section ref={video_ref}>
+                <section ref={video_ref}   style={{
+                    margin: '0 auto',
+                    width: "100%",
+                }}>
                     <Banner_Video />
                 </section>
 
