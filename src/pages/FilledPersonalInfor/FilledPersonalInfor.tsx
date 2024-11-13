@@ -8,6 +8,7 @@ import {
 } from '../../utils/validation/validatefields';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { BusinessType, PersonalType } from '../../utils/models/InfoType';
+import BusinessInputs from '../../components/Inputs/BusinessInputs';
 
 export default function FilledPersonalInfo() {
     const info = useAppSelector((state) => state.info);
@@ -15,12 +16,15 @@ export default function FilledPersonalInfo() {
     const navigate = useNavigate();
 
     const [form1, setForm1] = useState<PersonalType>(info);
-    const form2: BusinessType = info;
+    const [form2, setForm2] = useState<BusinessType>(info);
 
     const handleChange1 = (key: keyof PersonalType, value: string) => {
         setForm1((prev) => ({ ...prev, [key]: value }));
     };
 
+    const handleChange2 = (key: keyof BusinessType, value: string) => {
+        setForm2((prev) => ({ ...prev, [key]: value }));
+    };
     const allChecked1 = useMemo(() => validatePersonalField(form1), [form1]);
     const allChecked2 = useMemo(() => validateBusinessField(form2), [form2]);
 
@@ -37,6 +41,8 @@ export default function FilledPersonalInfo() {
             navigate('/insurance-amount');
         }
     };
+
+    const isBusinessInfoVisible = form2.businessName || form2.businessNumber;
 
     return (
         <>
@@ -73,6 +79,17 @@ export default function FilledPersonalInfo() {
                     </button>
                 </section>
             </div>
+            {isBusinessInfoVisible && (
+                <>
+                    <p
+                        className="titleH-22"
+                        style={{ textAlign: 'left', marginTop: '38px' }}
+                    >
+                        건물/주택 정보
+                    </p>
+                    <BusinessInputs form={form2} handleChange={handleChange2} />
+                </>
+            )}
             <section className="dflex_center" style={{ width: '100%' }}>
                 <button
                     className={

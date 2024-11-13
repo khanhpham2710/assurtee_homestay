@@ -12,28 +12,28 @@ import LoadingPage from '../pages/Loading/Loading';
 import InsuranceDetailsPage from '../pages/InsuranceDetailsPage/InsuranceDetailsPage';
 
 // header imports
-import Header1 from '../components/Headers/Header1';
 import Header2 from '../components/Headers/Header2';
 import EmailPage from '../pages/EmailPage/EmailPage';
 import TermCondition from '../pages/TermCondition/TermCondition';
-import FilledPersonalBusinessInfor from '../pages/FilledPersonalBusinessInfor/FilledPersonalBusinessInfor';
+import HeaderNull from '../components/Headers/HeaderNull';
+import HomeHeader from '../components/Headers/HomeHeader';
 
 type RouteType = {
     path: string;
     component: React.FC;
-    header: React.ReactNode | null;
+    header: React.ReactNode;
 };
 
 const routes: RouteType[] = [
     {
         path: '/personal-infor',
         component: FilledPersonalInfor,
-        header: <Header1 />,
+        header: <HomeHeader />,
     },
     {
         path: '/insurance-infor',
         component: InsuranceInfo,
-        header: <Header1 />,
+        header: <HomeHeader />,
     },
     {
         path: '/options',
@@ -46,11 +46,6 @@ const routes: RouteType[] = [
         header: <Header2 title="주택 정보 입력" backTo="/options" />,
     },
     {
-        path: '/personal-business-infor',
-        component: FilledPersonalBusinessInfor,
-        header: <Header1 />,
-    },
-    {
         path: '/terms',
         component: TermCondition,
         header: (
@@ -60,7 +55,7 @@ const routes: RouteType[] = [
     {
         path: '/insurance-amount',
         component: InsuranceAmount,
-        header: <Header1 />,
+        header: <HomeHeader />,
     },
     {
         path: '/payment',
@@ -70,12 +65,12 @@ const routes: RouteType[] = [
     {
         path: '/inprogress',
         component: LoadingPage,
-        header: null,
+        header: <HeaderNull />,
     },
     {
         path: '/complete',
         component: CompletedPage,
-        header: <Header1 />,
+        header: <HomeHeader />,
     },
     {
         path: '/detail/:isSuccess',
