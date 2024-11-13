@@ -45,48 +45,56 @@ export default function FilledPersonalInfo() {
     const isBusinessInfoVisible = form2.businessName || form2.businessNumber;
 
     return (
-        <div className="container container-page container-fx" id="container">
-            <section className="section">
-                <div className="step-num">
-                    <span className="num">
-                        <em>1</em>
-                    </span>
-                    <span className="mid">/</span>
-                    <span className="num">2</span>
-                </div>
-                <h2 className="sect-title">보험 가입 정보를 입력해 주세요.</h2>
-                <PersonalInputs form={form1} handleChange={handleChange1} />
+        <>
+            <div
+                className="container container-page container-fx"
+                id="container"
+            >
+                <section className="section">
+                    <div className="step-num">
+                        <span className="num">
+                            <em>1</em>
+                        </span>
+                        <span className="mid">/</span>
+                        <span className="num">2</span>
+                    </div>
+                    <h2 className="sect-title">
+                        보험 가입 정보를 입력해 주세요.
+                    </h2>
+                    <PersonalInputs form={form1} handleChange={handleChange1} />
+                    <div className="btn-wrap">
+                        <button
+                            type="button"
+                            className={allChecked1 ? 'btn active' : 'btn'}
+                            disabled={!allChecked1}
+                            onClick={handleSubmit1}
+                        >
+                            주택 정보 입력
+                        </button>
+                    </div>
+                </section>
+                {isBusinessInfoVisible && (
+                    <section className="section section-2nd">
+                        <h2 className="sect-title">건물/주택 정보</h2>
+                        <BusinessInputs
+                            form={form2}
+                            handleChange={handleChange2}
+                        />
+                    </section>
+                )}
+            </div>
+            <div className="btm-fixed">
                 <div className="btn-wrap">
                     <button
                         type="button"
-                        className={allChecked1 ? 'btn active' : 'btn'}
-                        disabled={!allChecked1}
-                        onClick={handleSubmit1}
+                        className="btn"
+                        disabled={!allChecked2 || !allChecked1}
+                        onClick={handleSubmit2}
                     >
-                        주택 정보 입력
+                        다음
                     </button>
                 </div>
-            </section>
-            {isBusinessInfoVisible && (
-                <section className="section section-2nd">
-                    <h2 className="sect-title">건물/주택 정보</h2>
-                    <BusinessInputs form={form2} handleChange={handleChange2} />
-                </section>
-            )}
-            <section className="dflex_center" style={{ width: '100%' }}>
-                <button
-                    className={
-                        allChecked1 && allChecked2
-                            ? 'button3 active'
-                            : 'button3'
-                    }
-                    disabled={!allChecked2 || !allChecked1}
-                    onClick={handleSubmit2}
-                    aria-label="Submit business information"
-                >
-                    수정
-                </button>
-            </section>
-        </div>
+            </div>
+        </>
     );
 }

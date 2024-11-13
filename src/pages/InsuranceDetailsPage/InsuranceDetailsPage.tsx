@@ -68,6 +68,9 @@ function InsuranceDetailsPage() {
                                     <a
                                         href="#"
                                         className="btn--underline btn--blue"
+                                        onClick={() =>
+                                            navigate('/detail/failed')
+                                        }
                                     >
                                         취소하기
                                     </a>
@@ -75,7 +78,7 @@ function InsuranceDetailsPage() {
                             </>
                         }
                         textButton="유지하기"
-                        handleClick={() => navigate('/detail/failed')}
+                        handleClick={() => {}}
                     />
                     <div className="btn-wrap last type-col">
                         <a

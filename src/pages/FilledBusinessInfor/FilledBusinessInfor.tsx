@@ -45,39 +45,44 @@ const FilledBusinessInfo: React.FC = () => {
     };
 
     return (
-        <div className="container container-page container-fx" id="container">
-            <section className="section">
-                <Question
-                    item={item}
-                    items={items}
-                    setItem={setItem}
-                    title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
-                />
-            </section>
+        <>
+            <div
+                className="container container-page container-fx"
+                id="container"
+            >
+                <section className="section">
+                    <Question
+                        item={item}
+                        items={items}
+                        setItem={setItem}
+                        title="사업자등록 주소지와 보험 가입 대상 민박업 운영 주소지가 동일하나요?"
+                    />
+                </section>
 
-            <section className="section">
-                <h2 className="sect-title">건물/주택 정보</h2>
-                <BusinessInputs
-                    form={form}
-                    handleChange={handleChange}
-                    style={{
-                        marginBottom: 40,
-                    }}
-                />
-            </section>
+                <section className="section">
+                    <h2 className="sect-title">건물/주택 정보</h2>
+                    <BusinessInputs
+                        form={form}
+                        handleChange={handleChange}
+                        style={{
+                            marginBottom: 40,
+                        }}
+                    />
+                </section>
+            </div>
             <div className="btm-fixed">
                 <div className="btn-wrap">
                     <button
                         type="button"
                         className="btn"
-                        disabled
+                        disabled={!allChecked}
                         onClick={handleSubmit}
                     >
                         다음
                     </button>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

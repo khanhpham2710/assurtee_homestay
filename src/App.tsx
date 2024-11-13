@@ -7,22 +7,18 @@ import './css/style.css';
 import './css/swiper-bundle.min.css';
 import { createContext, useContext, useState } from 'react';
 
-// Global context type definition
 export type GlobalContent = {
     global: boolean;
     setGlobal: (c: boolean) => void;
 };
 
-// Global context creation
 export const MyGlobalContext = createContext<GlobalContent>({
     global: false,
     setGlobal: () => {},
 });
 
-// Custom hook for accessing the global context
 export const useGlobalContext = () => useContext(MyGlobalContext);
 
-// Combined AppWrapper and App logic
 function App() {
     const theme = createTheme({
         breakpoints: {
@@ -53,7 +49,11 @@ function App() {
                                     key={route.path}
                                     path={route.path}
                                     element={
-                                        <div>
+                                        <div
+                                            className={
+                                                global ? 'popup-active' : ''
+                                            }
+                                        >
                                             <div className="wrap">
                                                 <div
                                                     className={

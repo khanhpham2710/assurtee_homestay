@@ -38,7 +38,7 @@ function FillAllInfor({
             validateAmountField(form) &&
             validateBusinessField(form) &&
             validatePersonalField(form);
-        if (form.sprinkler == '설치되어 있습니다.') {
+        if (form.equip == '설치되어 있습니다.') {
             return validate && info.image != null;
         }
         return validate;
@@ -78,7 +78,6 @@ function FillAllInfor({
                 item={item}
                 items={items}
                 setItem={setItem}
-                style={{ marginBottom: 30 }}
             />
             <InsuranceAmount form={form} handleChange={handleChange} />
             <section style={{ marginTop: 20, marginBottom: 40 }}>

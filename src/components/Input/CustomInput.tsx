@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { handleBusinessNumber } from '../../utils/validation/number';
+import { numberOnly } from '../../utils/validation/number';
 
 export const InputSection = styled.section`
     margin-bottom: 20px;
@@ -42,7 +42,9 @@ type InputProps<T> = {
     value: string;
     placeholder?: string;
     handleChange: (key: keyof T, value: string) => void;
-    title: string;
+    title?: string;
+    maxLength?: number;
+    number?: boolean;
 };
 
 function NewCustomInput<T>({
@@ -51,6 +53,8 @@ function NewCustomInput<T>({
     placeholder,
     handleChange,
     title,
+    maxLength,
+    number = false,
 }: InputProps<T>) {
     const [focusedField, setFocusedField] = useState<string | null>(null);
 
@@ -60,23 +64,24 @@ function NewCustomInput<T>({
     return (
         <div className="form-list">
             <strong className="form-title">{title}</strong>
-            <div className="form-cont">
-                <div
-                    className={`form-item ${focusedField === variable ? 'is-input' : ''}`}
-                >
+            <div
+                className={`form-cont ${focusedField === (variable as string) ? 'is-input' : ''}`}
+            >
+                <div className="form-item">
                     <input
                         type="text"
                         className="txt-input"
-                        maxLength={12}
+                        maxLength={maxLength}
                         placeholder={placeholder}
                         value={value}
                         onFocus={() => handleFocus(variable as string)}
                         onBlur={handleBlur}
                         onChange={(e) => {
-                            handleChange(
-                                variable,
-                                handleBusinessNumber(e, value)
-                            );
+                            if (number) {
+                                handleChange(variable, numberOnly(e));
+                            } else {
+                                handleChange(variable, e.target.value);
+                            }
                         }}
                     />
                 </div>

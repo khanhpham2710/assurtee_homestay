@@ -22,7 +22,7 @@ export default function SmallModal({
 
     React.useEffect(() => {
         setGlobal(open);
-    }, []);
+    }, [open]);
 
     return (
         <div
