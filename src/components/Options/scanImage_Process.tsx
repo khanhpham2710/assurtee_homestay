@@ -45,7 +45,7 @@ export default function ScanImage_Process() {
     useEffect(() => {
         if (
             info.address != '' &&
-            info.registrationNumber != '' &&
+            info.businessNumber != '' &&
             info.businessName != ''
         ) {
             navigate('/business-infor');
@@ -93,7 +93,7 @@ export default function ScanImage_Process() {
     };
 
     return (
-        <div>
+        <div className="wrap-camera">
             <section
                 style={{
                     overflow: 'hidden',
@@ -109,10 +109,15 @@ export default function ScanImage_Process() {
                         videoConstraints={videoConstraints}
                     />
                     <div className="scan_title">
-                        <p>
-                            카메라로 사업자등록증을 자동 활영합니다. 사각형에
-                            맞게 놓아주세요.
-                        </p>
+                        <h2
+                            className="sect-title"
+                            style={{
+                                padding: 0,
+                            }}
+                        >
+                            카메라로 사업자등록증을 자동 활영합니다. <br />
+                            사각형에 맞게 놓아주세요.
+                        </h2>
                     </div>
                     <div className="overlay"></div>
                     <div className="bright-area"></div>

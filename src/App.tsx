@@ -54,7 +54,12 @@ function App() {
                                                 global ? 'popup-active' : ''
                                             }
                                         >
-                                            <div className="wrap">
+                                            <div
+                                                className="wrap"
+                                                style={{
+                                                    height: '100vh',
+                                                }}
+                                            >
                                                 <div
                                                     className={
                                                         global

@@ -29,13 +29,9 @@ export default function FilledPersonalInfo() {
     const allChecked2 = useMemo(() => validateBusinessField(form2), [form2]);
 
     const handleSubmit1 = async () => {
+        console.log(form1)
         if (allChecked1) {
             dispatch(updateInfo(form1));
-            dispatch(
-                updateInfo({
-                    registrationNumber: '',
-                })
-            );
             navigate('/options');
         }
     };
