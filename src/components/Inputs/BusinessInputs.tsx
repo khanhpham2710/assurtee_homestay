@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import NewCustomInput, { InputSection } from '../Input/CustomInput';
+import NewCustomInput from '../Input/CustomInput';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
@@ -13,12 +12,51 @@ type InputsProps = {
     style?: CSSProperties;
 };
 
+function TextArea({
+    value,
+    key,
+    handleChange,
+    placeholder,
+}: {
+    value: string;
+    key: keyof BusinessType;
+    handleChange: (key: keyof BusinessType, value: string) => void;
+    placeholder?: string;
+}) {
+    return (
+        <TextField
+            multiline
+            fullWidth
+            placeholder={placeholder}
+            onChange={(e) => handleChange(key, e.target.value)}
+            variant="standard"
+            value={value}
+            sx={{
+                backgroundColor: 'transparent',
+                outline: 'none',
+                width: '100%',
+                '& .MuiInputBase-input::placeholder': {
+                    color: '#cfcfcf',
+                    opacity: 1,
+                },
+            }}
+            slotProps={{
+                input: {
+                    disableUnderline: true,
+                    style: {
+                        fontFamily: 'AppleSDGothicNeoH',
+                        fontSize: '16px',
+                        lineHeight: '1.75',
+                        color: '#000',
+                        padding: 0,
+                    },
+                },
+            }}
+        />
+    );
+}
+
 function BusinessInputs({ form, handleChange, style }: InputsProps) {
-    const [focusedField, setFocusedField] = useState<string | null>(null);
-
-    const handleFocus = (fieldName: string) => setFocusedField(fieldName);
-    const handleBlur = () => setFocusedField(null);
-
     return (
         <form className="dflex-column" style={{ ...style, width: '100%' }}>
             <div className="form-list">
@@ -32,126 +70,56 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                     title="개인/법인을 선택해 주세요."
                 />
             </div>
-            <NewCustomInput<BusinessType>
-                value={form.businessNumber}
-                variable="businessNumber"
-                placeholder="사업자등록번호를 입력해 주세요."
-                handleChange={(e) =>
-                    handleBusinessNumber(e, form.businessNumber)
-                }
-                title="등록번호"
-            />
             <div className="form-list">
-                <strong className="form-title">상호(법인)명</strong>
+                <strong className="form-title">등록번호</strong>
                 <div className="form-cont">
-                    <div
-                        className={`form-item ${focusedField === 'businessName' ? 'is-input' : ''}`}
-                    >
+                    <div className="form-item">
                         <input
                             type="text"
                             className="txt-input"
-                            placeholder="상호명 또는 법인명을 입력해 주세요."
-                            maxLength={11}
-                            value={form.businessName}
-                            onFocus={() => handleFocus('businessName')}
-                            onBlur={handleBlur}
+                            placeholder="사업자등록번호를 입력해 주세요."
+                            maxLength={12}
+                            value={form.businessNumber}
                             onChange={(e) =>
-                                handleChange('businessName', e.target.value)
+                                handleChange(
+                                    'businessNumber',
+                                    handleBusinessNumber(e, form.businessNumber)
+                                )
                             }
                         />
                     </div>
                 </div>
             </div>
-
-            <InputSection>
-                <label className="title_label" htmlFor="address">
-                    사업장 소재지
-                </label>
-                <section
-                    className="dflex_center"
-                    style={{
-                        gap: '19px',
-                    }}
-                >
-                    <TextField
-                        id="address"
-                        multiline
-                        fullWidth
-                        placeholder="주소를 입력해 주세요."
-                        onFocus={() => handleFocus('address')}
-                        onBlur={handleBlur}
-                        onChange={(e) =>
-                            handleChange('address', e.target.value)
-                        }
-                        variant="standard"
-                        sx={{
-                            backgroundColor: 'transparent',
-                            outline: 'none',
-                            width: '100%',
-                            '& .MuiInputBase-input::placeholder': {
-                                color: '#cfcfcf',
-                                opacity: 1,
-                            },
-                        }}
-                        slotProps={{
-                            input: {
-                                disableUnderline: true,
-                                style: {
-                                    fontFamily: 'AppleSDGothicNeoH',
-                                    fontSize: '16px',
-                                    lineHeight: '1.75',
-                                    color: '#000',
-                                    padding: 0,
-                                },
-                            },
-                        }}
-                        value={form.address}
-                    />
-
-                    <div
-                        style={{
-                            minHeight: '50px',
-                            textDecoration: 'none',
-                        }}
-                        className="dflex_center"
-                    >
+            <NewCustomInput<BusinessType>
+                value={form.businessName}
+                placeholder="상호명 또는 법인명을 입력해 주세요."
+                title="상호(법인)명"
+                handleChange={handleChange}
+                variable="businessName"
+            />
+            <div className="form-list">
+                <strong className="form-title">사업장 소재지</strong>
+                <div className="form-item">
+                    <div className="form-cont">
+                        <TextArea
+                            value={form.address}
+                            key="address"
+                            handleChange={handleChange}
+                            placeholder="주소를 입력해 주세요."
+                        />
                         <PostCode handleChange={handleChange} />
                     </div>
-                </section>
-            </InputSection>
-            <div className="form-cont">
-                <TextField
-                    id="extra"
-                    multiline
-                    placeholder="상세주소 입력(건물명, 동/호수, 단독주택 등)"
-                    value={form.extra}
-                    onFocus={() => handleFocus('extra')}
-                    onBlur={handleBlur}
-                    onChange={(e) => handleChange('extra', e.target.value)}
-                    autoComplete="off"
-                    variant="standard"
-                    sx={{
-                        backgroundColor: 'transparent',
-                        outline: 'none',
-                        width: '100%',
-                        '& .MuiInputBase-input::placeholder': {
-                            color: '#cfcfcf',
-                            opacity: 1,
-                        },
-                    }}
-                    slotProps={{
-                        input: {
-                            disableUnderline: true,
-                            style: {
-                                fontFamily: 'AppleSDGothicNeoH',
-                                fontSize: '16px',
-                                lineHeight: '1.75',
-                                color: '#000',
-                                padding: 0,
-                            },
-                        },
-                    }}
-                />
+                    <div className="form-cont">
+                        <div className="form-item">
+                            <TextArea
+                                value={form.extra}
+                                key="extra"
+                                handleChange={handleChange}
+                                placeholder="상세주소 입력(건물명, 동/호수, 단독주택 등)"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className="form-list">
                 <strong className="form-title">한옥 여부</strong>

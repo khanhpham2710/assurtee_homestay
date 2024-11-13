@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { numberOnly } from '../../utils/validation/number';
 import { PersonalType } from '../../utils/models/InfoType';
 import OptionInput from '../Input/OptionInput';
+import NewCustomInput from '../Input/CustomInput';
 
 type InputsProps = {
     form: PersonalType;
@@ -29,28 +30,13 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
 
     return (
         <div className="form-wrap">
-            <div className="form-list">
-                <strong className="form-title">계약자</strong>
-                <div
-                    className={`form-cont ${
-                        focusedField === 'contractor' ? 'is-input' : ''
-                    }`}
-                >
-                    <div className="form-item">
-                        <input
-                            type="text"
-                            className="txt-input"
-                            value={form.contractor}
-                            onFocus={() => setFocusedField('contractor')}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={(e) =>
-                                handleChange('contractor', e.target.value)
-                            }
-                            placeholder="이름을 입력해 주세요."
-                        />
-                    </div>
-                </div>
-            </div>
+            <NewCustomInput<PersonalType>
+                title="계약자"
+                value={form.contractor}
+                handleChange={handleChange}
+                variable="contractor"
+                placeholder="이름을 입력해 주세요."
+            />
             <div className="form-list">
                 <strong className="form-title">주민등록번호</strong>
                 <div
@@ -76,7 +62,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     <span className="form-item dash"></span>
                     <div className="form-item">
                         <input
-                            type="password"
+                            type="text"
                             className="txt-input first"
                             maxLength={7}
                             placeholder="●●●●●●"
@@ -88,51 +74,24 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                     </div>
                 </div>
             </div>
+            <NewCustomInput<PersonalType>
+                title="휴대폰번호"
+                maxLength={12}
+                value={form.phoneNumber}
+                handleChange={handleChange}
+                variable="phoneNumber"
+                placeholder="'-' 없이 입력하세요."
+                number
+            />
+            <NewCustomInput<PersonalType>
+                title="이메일"
+                value={form.phoneNumber}
+                handleChange={handleChange}
+                variable="mail"
+                placeholder="이메일을 입력해 주세요."
+                number
+            />
             <div className="form-list">
-                <strong className="form-title">휴대폰번호</strong>
-                <div
-                    className={`form-cont ${
-                        focusedField === 'phoneNumber' ? 'is-input' : ''
-                    }`}
-                >
-                    <div className="form-item">
-                        <input
-                            type="tel"
-                            className="txt-input"
-                            placeholder="'-' 없이 입력하세요."
-                            maxLength={11}
-                            value={form.phoneNumber}
-                            onFocus={() => setFocusedField('phoneNumber')}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={(e) =>
-                                handleChange('phoneNumber', numberOnly(e))
-                            }
-                        />
-                    </div>
-                </div>
-            </div>
-
-            <div className="form-list">
-                <strong className="form-title">이메일</strong>
-                <div
-                    className={`form-cont ${
-                        focusedField === 'mail' ? 'is-input' : ''
-                    }`}
-                >
-                    <div className="form-item">
-                        <input
-                            type="text"
-                            placeholder="이메일을 입력해 주세요."
-                            className="txt-input"
-                            value={form.mail}
-                            onFocus={() => setFocusedField('mail')}
-                            onBlur={() => setFocusedField(null)}
-                            onChange={(e) =>
-                                handleChange('mail', e.target.value)
-                            }
-                        />
-                    </div>
-                </div>
                 <OptionInput<PersonalType>
                     variable="email"
                     value={form.email}

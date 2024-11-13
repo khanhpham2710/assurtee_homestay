@@ -29,7 +29,6 @@ function OptionInput<T>({
 
     return (
         <div className="form-cont">
-            {isOpen && <div className="scroll-dimmed" />}
             <div className={isOpen ? 'selbox-wrap open' : 'selbox-wrap'}>
                 <div className="openSelect able">
                     <button

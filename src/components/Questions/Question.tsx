@@ -32,6 +32,7 @@ function Question<T = string>({
                                 type="radio"
                                 className="rdo-input"
                                 name="rdo-group01"
+                                readOnly
                                 checked={item1 == item}
                             />
                             <span className="label">
