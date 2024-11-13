@@ -1,5 +1,4 @@
 import GreyLabelInfoBox, { InfoProps } from '../InfoBox/GreyLabelInfoBox';
-import { Divider } from '@mui/material';
 import fees from '../../utils/models/Fee';
 
 export default function PaymentInfo() {
@@ -31,22 +30,18 @@ export default function PaymentInfo() {
                     />
                 );
             })}
-            <div
-                className="dflex_center"
-                style={{
-                    height: 50,
-                }}
-            >
-                <p className="grey_label">영수증</p>
-                <button className="small-button" onClick={handleClick}>
-                    영수증 보기
-                </button>
+            <div className="form-cont flex-wrap">
+                <p className="item-title">영수증</p>
+                <p className="item-text">
+                    <button
+                        type="button"
+                        className="btn btn--small"
+                        onClick={handleClick}
+                    >
+                        영수증 보기
+                    </button>
+                </p>
             </div>
-            <Divider
-                sx={{
-                    color: '#fff',
-                }}
-            />
         </>
     );
 }

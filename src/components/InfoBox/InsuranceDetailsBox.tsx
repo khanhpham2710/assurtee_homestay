@@ -1,5 +1,4 @@
 import { Divider } from '@mui/material';
-import MyToolTip from '../MyTooltip/MyToolTip';
 
 export type InfoProps = {
     title: string;
@@ -7,50 +6,34 @@ export type InfoProps = {
     tooltip?: string[];
 };
 
-function InsuranceDetailsBox({ title, info, tooltip }: InfoProps) {
+function InsuranceDetailsBox({ title, info, tooltip = ['도움말'] }: InfoProps) {
     return (
         <>
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    minHeight: '50px',
-                    padding: '11px 0',
-                    gap: '20px',
-                }}
-            >
-                <label
-                    style={{
-                        fontFamily: 'AppleSDGothicNeoM',
-                        fontSize: '14px',
-                        color: '#646464',
-                        lineHeight: '1.21',
-                        textAlign: 'left',
-                        overflowWrap: 'break-word',
-                    }}
-                >
-                    {title}
-                </label>
-                <div
-                    className="dflex_center"
-                    style={{
-                        gap: '8px',
-                    }}
-                >
-                    <p
-                        style={{
-                            fontFamily: 'AppleSDGothicNeoSB',
-                            fontSize: '16px',
-                            color: '#000',
-                            lineHeight: '1.75',
-                            textAlign: 'right',
-                            whiteSpace: 'nowrap',
-                        }}
-                    >
+            <div className="row">
+                <div className="inner">
+                    <div className="box-tit">{title}</div>
+                    <div className="box-cont">
                         {info}
-                    </p>
-                    <MyToolTip align="left" text={tooltip} />
+                        <div className="tooltip">
+                            <button
+                                type="button"
+                                className="tooltip-btn bg-gray"
+                                aria-label="도움말"
+                            ></button>
+                            {tooltip && (
+                                <div className="tooltip-content">
+                                    <span>
+                                        {tooltip.map((line, index) => (
+                                            <span key={index}>
+                                                {line}
+                                                <br />
+                                            </span>
+                                        ))}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
             <Divider

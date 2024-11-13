@@ -22,6 +22,7 @@ type RouteType = {
     path: string;
     component: React.FC;
     header: React.ReactNode;
+    fixedItem?: React.FC;
 };
 
 const routes: RouteType[] = [

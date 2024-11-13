@@ -1,5 +1,3 @@
-import images from '../../assets/images';
-
 type DownloadProps = {
     text: string;
     href: string;
@@ -11,32 +9,10 @@ function Download({ text, href, fileName }: DownloadProps) {
         <a
             href={href}
             download={fileName || null}
-            className="dflex_center"
-            style={{
-                width: '150px',
-                height: '50px',
-                backgroundColor: '#e7ecf3',
-                borderRadius: '50px',
-                gap: '8px',
-                cursor: 'pointer',
-                textDecoration: 'none',
-            }}
+            className="btn btn--round w-sm"
         >
-            <p
-                style={{
-                    fontFamily: 'AppleSDGothicNeoB',
-                    fontSize: '14px',
-                    fontStretch: 'normal',
-                    fontStyle: 'normal',
-                    lineHeight: 'normal',
-                    letterSpacing: 'normal',
-                    textAlign: 'center',
-                    color: '#333647',
-                }}
-            >
-                {text}
-            </p>
-            <img src={images.ArrowIconDown} />
+            {text}
+            <i className="ico ico-down"></i>
         </a>
     );
 }

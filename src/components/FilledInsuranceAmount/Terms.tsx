@@ -1,15 +1,8 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
-import images from '../../assets/images';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import React, { useState, useEffect } from 'react';
 
 type TermsProp = {
     checkAll: boolean;
     setCheckAll: React.Dispatch<React.SetStateAction<boolean>>;
-    style?: CSSProperties;
 };
 
 type TermType = {
@@ -22,7 +15,7 @@ type TermTypeGroup = {
     subTerms?: TermType[];
 };
 
-function Terms({ checkAll, setCheckAll, style }: TermsProp) {
+function Terms({ checkAll, setCheckAll }: TermsProp) {
     const [terms, setTerms] = useState<TermTypeGroup[]>([
         {
             main: { term: '자격 및 전자서명 동의(필수)', check: true },
@@ -115,98 +108,90 @@ function Terms({ checkAll, setCheckAll, style }: TermsProp) {
     };
 
     return (
-        <div style={style}>
-            <section
-                className="dflex_item"
-                style={{ marginBottom: '21px', gap: '10px' }}
-            >
-                <img
-                    src={
-                        checkAll ? images.CheckBoxBlack : images.UnCheckBoxWhite
-                    }
-                    alt="Checkbox"
-                    style={{ cursor: 'pointer' }}
-                    onClick={handleCheckAll}
-                />
-                <p className="title_all_terms">전체 동의</p>
-            </section>
-            <section>
+        <div className="agree-list-wrap">
+            <div className="agree-all">
+                <label className="chk-box type-bg">
+                    <input
+                        type="checkbox"
+                        className="chk-input"
+                        name="chk-group"
+                        checked={checkAll}
+                        onClick={handleCheckAll}
+                    />
+                    <span className="label">
+                        <em>전체 동의</em>
+                    </span>
+                </label>
+            </div>
+            <ul className="agree-list">
                 {terms.map((term, index) => (
-                    <Accordion
+                    <li
+                        data-role="accordion-item"
+                        className="is-active"
                         key={index}
-                        disableGutters
-                        elevation={0}
-                        sx={{
-                            backgroundColor: '#f6f7f9',
-                            '&:not(:last-child)': { borderBottom: 0 },
-                            '&::before': { display: 'none' },
-                        }}
                     >
-                        <AccordionSummary
-                            aria-controls={`panel${index}-content`}
-                            id={`panel${index}-header`}
-                            expandIcon={<ExpandMoreIcon />}
-                            sx={{ p: 0 }}
-                        >
-                            <img
-                                src={
-                                    term.main.check
-                                        ? images.CheckBoxWhite
-                                        : images.UnCheckBoxWhite
-                                }
-                                style={{
-                                    marginRight: '10px',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    toggleMainCheck(index);
-                                }}
-                            />
-                            <p
-                                className="title_terms"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                {term.main.term}
-                            </p>
-                        </AccordionSummary>
-                        <AccordionDetails sx={{ pr: '16px' }}>
-                            {term.subTerms?.map((sub, id) => (
-                                <div
-                                    key={id}
-                                    className="dflex_spacebetween"
-                                    style={{
-                                        height: '40px',
-                                        paddingLeft: '24px',
+                        <div className="agree-holder">
+                            <label className="chk-box">
+                                <input
+                                    type="checkbox"
+                                    className="chk-input"
+                                    name="chk-group"
+                                    checked={term.main.check}
+                                    onClick={() => {
+                                        toggleMainCheck(index);
                                     }}
-                                >
-                                    <div className="dflex_item">
-                                        <img
-                                            src={
-                                                sub.check
-                                                    ? images.CheckBoxWhite
-                                                    : images.UnCheckBoxWhite
-                                            }
-                                            style={{
-                                                marginRight: '10px',
-                                                cursor: 'pointer',
-                                            }}
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                toggleSubCheck(index, id);
-                                            }}
-                                        />
-                                        <p className="title_terms">
-                                            {sub.term}
-                                        </p>
-                                    </div>
-                                    <KeyboardArrowRightIcon />
-                                </div>
-                            ))}
-                        </AccordionDetails>
-                    </Accordion>
+                                />
+                                <span className="label">
+                                    <em>{term.main.term}</em>
+                                </span>
+                            </label>
+                            <button
+                                type="button"
+                                className="btn-open"
+                                aria-label="열기/닫기"
+                                data-role="accordion-title"
+                            ></button>
+                        </div>
+                        {term.subTerms && (
+                            <ul
+                                className="agree-depth"
+                                data-role="accordion-content"
+                            >
+                                {term.subTerms.map((subTerm, i) => {
+                                    return (
+                                        <li key={i}>
+                                            <div className="agree-holder">
+                                                <label className="chk-box">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="chk-input"
+                                                        name="chk-group"
+                                                        checked={subTerm.check}
+                                                        onClick={() => {
+                                                            toggleSubCheck(
+                                                                index,
+                                                                i
+                                                            );
+                                                        }}
+                                                    />
+                                                    <span className="label">
+                                                        <em>{subTerm.term}</em>
+                                                    </span>
+                                                </label>
+                                                <button
+                                                    type="button"
+                                                    className="btn-link"
+                                                    aria-label="상세보기"
+                                                ></button>
+                                            </div>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        )}
+                    </li>
                 ))}
-            </section>
+            </ul>
         </div>
     );
 }

@@ -68,7 +68,7 @@ export const PostCode = ({ handleChange }: InputsProps) => {
         <>
             <button
                 onClick={handleClick_2}
-                className="address-button"
+                className="btn btn--medium"
                 ref={buttonRef}
             >
                 주소검색

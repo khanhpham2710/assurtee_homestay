@@ -45,50 +45,33 @@ export default function FilledPersonalInfo() {
     const isBusinessInfoVisible = form2.businessName || form2.businessNumber;
 
     return (
-        <>
-            <div style={{ padding: '8px 24px 0'}}>
-                <section
-                    className="dflex-column"
-                    style={{ marginBottom: '28px' }}
-                >
-                    <p className="titleNumber">
-                        <span>1</span> / 2
-                    </p>
-                    <p
-                        className="titleH-22"
-                        style={{ textAlign: 'left', marginTop: '17px' }}
-                    >
-                        보험 가입 정보를 입력해 주세요.
-                    </p>
-                </section>
+        <div className="container container-page container-fx" id="container">
+            <section className="section">
+                <div className="step-num">
+                    <span className="num">
+                        <em>1</em>
+                    </span>
+                    <span className="mid">/</span>
+                    <span className="num">2</span>
+                </div>
+                <h2 className="sect-title">보험 가입 정보를 입력해 주세요.</h2>
                 <PersonalInputs form={form1} handleChange={handleChange1} />
-                <section
-                    style={{
-                        width: '100%',
-                        marginTop: '40px',
-                        marginBottom: '70px',
-                    }}
-                    className="dflex_center"
-                >
+                <div className="btn-wrap">
                     <button
-                        className={allChecked1 ? 'button1 active' : 'button1'}
-                        onClick={handleSubmit1}
+                        type="button"
+                        className={allChecked1 ? 'btn active' : 'btn'}
                         disabled={!allChecked1}
+                        onClick={handleSubmit1}
                     >
                         주택 정보 입력
                     </button>
-                </section>
-            </div>
+                </div>
+            </section>
             {isBusinessInfoVisible && (
-                <>
-                    <p
-                        className="titleH-22"
-                        style={{ textAlign: 'left', marginTop: '38px' }}
-                    >
-                        건물/주택 정보
-                    </p>
+                <section className="section section-2nd">
+                    <h2 className="sect-title">건물/주택 정보</h2>
                     <BusinessInputs form={form2} handleChange={handleChange2} />
-                </>
+                </section>
             )}
             <section className="dflex_center" style={{ width: '100%' }}>
                 <button
@@ -104,6 +87,6 @@ export default function FilledPersonalInfo() {
                     수정
                 </button>
             </section>
-        </>
+        </div>
     );
 }
