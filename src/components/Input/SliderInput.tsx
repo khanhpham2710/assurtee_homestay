@@ -1,5 +1,4 @@
 import Slider from '@mui/material/Slider';
-import { CSSProperties } from 'react';
 
 type SliderType<T> = {
     variable: keyof T;
@@ -9,18 +8,6 @@ type SliderType<T> = {
     min?: number;
     max?: number;
     step?: number;
-};
-
-const buttonStyle: CSSProperties = {
-    color: '#ffffff',
-    backgroundColor: '#090909',
-    padding: '0px',
-    height: '24px',
-    width: '24px',
-    lineHeight: '24px',
-    fontSize: '20px',
-    borderRadius: '50px',
-    cursor: 'pointer',
 };
 
 function SliderInput<T>({
@@ -47,17 +34,66 @@ function SliderInput<T>({
         <div className="range-section">
             <p className="title-s">{label}</p>
             <div className="range-box">
-                <button type="button" className="btn-minus">
+                <button
+                    type="button"
+                    className="btn-minus"
+                    onClick={() => {
+                        const temp = value - step;
+                        if (temp >= min) {
+                            handleChange(variable, temp);
+                        }
+                    }}
+                >
                     <i className="hidden">빼기</i>
                 </button>
-                <button type="button" className="btn-plus">
+                <button
+                    type="button"
+                    className="btn-plus"
+                    onClick={() => {
+                        const temp = value + step;
+                        if (temp <= max) {
+                            handleChange(variable, temp);
+                        }
+                    }}
+                >
                     <i className="hidden">더하기</i>
                 </button>
-                <span className="range-text">3천만원</span>
-                <div
-                    className="range-bar ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                    id="slider-range3"
-                ></div>
+                <span className="range-text">{value}천만원</span>
+                <Slider
+                    step={step}
+                    min={min}
+                    max={max}
+                    value={value}
+                    onChange={handleSlider}
+                    sx={{
+                        color: '#ea3062',
+                        boxShadow: 'none',
+                        '& .MuiSlider-thumb': {
+                            height: 18,
+                            width: 18,
+                            backgroundColor: '#ea3062',
+                            '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible':
+                                {
+                                    boxShadow: 'none',
+                                    outline: 'none',
+                                    '@media (hover: none)': {
+                                        boxShadow: 'none',
+                                    },
+                                },
+                            '&:before': {
+                                display: 'none',
+                            },
+                        },
+                        '& .MuiSlider-track': {
+                            border: 'none',
+                            height: 4,
+                        },
+                        '& .MuiSlider-rail': {
+                            opacity: 0.5,
+                            backgroundColor: '#e0e0e0',
+                        },
+                    }}
+                />
             </div>
             <p className="desc">최대 5천만원까지 선택할 수 있어요.</p>
         </div>

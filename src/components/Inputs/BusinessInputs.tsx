@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CustomInput, InputSection } from '../Input/CustomInput';
+import NewCustomInput, { InputSection } from '../Input/CustomInput';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
@@ -32,30 +32,13 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                     title="개인/법인을 선택해 주세요."
                 />
             </div>
-            <div className="form-list">
-                <strong className="form-title">등록번호</strong>
-                <div className="form-cont">
-                    <div
-                        className={`form-item ${focusedField === 'businessNumber' ? 'is-input' : ''}`}
-                    >
-                        <input
-                            type="text"
-                            className="txt-input"
-                            maxLength={12}
-                            placeholder="사업자등록번호를 입력해 주세요."
-                            value={form.businessNumber}
-                            onFocus={() => handleFocus('businessNumber')}
-                            onBlur={handleBlur}
-                            onChange={(e) =>
-                                handleChange(
-                                    'businessNumber',
-                                    handleBusinessNumber(e, form.businessNumber)
-                                )
-                            }
-                        />
-                    </div>
-                </div>
-            </div>
+            <NewCustomInput<BusinessType>
+                value={form.businessNumber}
+                variable="businessNumber"
+                placeholder="사업자등록번호를 입력해 주세요."
+                handleChange={(e)=>handleBusinessNumber(e, form.businessNumber)}
+                title="등록번호"
+            />
             <div className="form-list">
                 <strong className="form-title">상호(법인)명</strong>
                 <div className="form-cont">
@@ -134,17 +117,40 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                     </div>
                 </section>
             </InputSection>
-            <InputSection>
-                <CustomInput
+            <div className="form-cont">
+                <TextField
                     id="extra"
+                    multiline
                     placeholder="상세주소 입력(건물명, 동/호수, 단독주택 등)"
                     value={form.extra}
                     onFocus={() => handleFocus('extra')}
                     onBlur={handleBlur}
                     onChange={(e) => handleChange('extra', e.target.value)}
                     autoComplete="off"
+                    variant="standard"
+                    sx={{
+                        backgroundColor: 'transparent',
+                        outline: 'none',
+                        width: '100%',
+                        '& .MuiInputBase-input::placeholder': {
+                            color: '#cfcfcf',
+                            opacity: 1,
+                        },
+                    }}
+                    slotProps={{
+                        input: {
+                            disableUnderline: true,
+                            style: {
+                                fontFamily: 'AppleSDGothicNeoH',
+                                fontSize: '16px',
+                                lineHeight: '1.75',
+                                color: '#000',
+                                padding: 0,
+                            },
+                        },
+                    }}
                 />
-            </InputSection>
+            </div>
             <div className="form-list">
                 <strong className="form-title">한옥 여부</strong>
                 <OptionInput<BusinessType>

@@ -13,18 +13,18 @@ type InputProps<T> = {
 function OptionInput<T>({
     variable,
     value,
-    placeholder = '이메일을 입력해 주세요.',
+    placeholder,
     handleChange,
     items,
     title,
 }: InputProps<T>) {
     const [isOpen, setIsOpen] = useState(false);
-    const { setCopy } = useGlobalContext();
+    const { setGlobal } = useGlobalContext();
 
     const handleClick = (itemValue: string) => {
         handleChange(variable, itemValue);
         setIsOpen(false);
-        setCopy(false);
+        setGlobal(false);
     };
 
     return (
@@ -37,7 +37,7 @@ function OptionInput<T>({
                         className="btn-sel"
                         onClick={() => {
                             setIsOpen(true);
-                            setCopy(true);
+                            setGlobal(true);
                         }}
                     >
                         <span
@@ -63,7 +63,7 @@ function OptionInput<T>({
                                 aria-label="닫기"
                                 onClick={() => {
                                     setIsOpen(false);
-                                    setCopy(false);
+                                    setGlobal(false);
                                 }}
                             ></button>
                         </div>
