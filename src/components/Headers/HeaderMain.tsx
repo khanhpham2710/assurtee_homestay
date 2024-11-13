@@ -1,6 +1,6 @@
 import images from '../../assets/images';
-import {Box} from '@mui/material';
-import {useNavigate, Link} from 'react-router-dom';
+import { Box } from '@mui/material';
+import { useNavigate, Link } from 'react-router-dom';
 
 function HeaderMain() {
     const navigate = useNavigate();
@@ -12,11 +12,12 @@ function HeaderMain() {
     return (
         <div
             style={{
-                background: "linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%)",
-                position: "fixed",
+                background:
+                    'linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%)',
+                position: 'fixed',
                 width: '100%',
-                zIndex: "1",
-                height: '68px'
+                zIndex: '1',
+                height: '68px',
             }}
         >
             <Box
@@ -40,10 +41,12 @@ function HeaderMain() {
                 <Link
                     to="/personal-infor"
                     className="dflex_center mainLogo_2 header_item_right"
-                    style={{textDecoration: 'none', gap: '5px'}}
+                    style={{ textDecoration: 'none', gap: '5px' }}
                 >
-                    <p className="titleH-14" style={{color: "black"}}>가입확인</p>
-                    <img src={images.ArrowIconRight} alt=""/>
+                    <p className="titleH-14" style={{ color: 'black' }}>
+                        가입확인
+                    </p>
+                    <img src={images.ArrowIconRight} alt="" />
                 </Link>
             </Box>
         </div>

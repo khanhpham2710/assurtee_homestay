@@ -46,10 +46,10 @@
         transform: translateX(-50%);
         @keyframes lay_up {
             from {
-                bottom: 20%
+                bottom: 20%;
             }
             to {
-                bottom: 15%
+                bottom: 15%;
             }
         }
     }
@@ -202,15 +202,15 @@
     }
 }
 
-//responsive 
+//responsive
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 769px) {
     .banner_text {
         bottom: 50%;
         transform: translateY(50%);
         div:nth-child(1) {
             .title_1 {
-               font-size: 30px;
+                font-size: 30px;
             }
             .title_2 {
                 font-size: 50px;

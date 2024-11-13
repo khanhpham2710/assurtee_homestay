@@ -36,7 +36,9 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                 value={form.businessNumber}
                 variable="businessNumber"
                 placeholder="사업자등록번호를 입력해 주세요."
-                handleChange={(e)=>handleBusinessNumber(e, form.businessNumber)}
+                handleChange={(e) =>
+                    handleBusinessNumber(e, form.businessNumber)
+                }
                 title="등록번호"
             />
             <div className="form-list">

@@ -28,12 +28,11 @@ export default function Card_Banner({
         //     </div>
         // </div>
 
-    <li className="program-01">
-        <strong className="program-title">Special</strong>
-        <p className="program-description">
-            (사)외국인관광도시민박업협회 회원사만 가입가능
-        </p>
-    </li>
-)
-    ;
+        <li className="program-01">
+            <strong className="program-title">Special</strong>
+            <p className="program-description">
+                (사)외국인관광도시민박업협회 회원사만 가입가능
+            </p>
+        </li>
+    );
 }

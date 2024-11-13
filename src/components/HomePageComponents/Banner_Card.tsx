@@ -43,8 +43,7 @@ export default function Banner_Card() {
                 <p className="title_main_des">
                     운영자와 손님 모두를 위한
                     <br />
-                    외국인관광 도시민박업주 전용 보험 
-                    프로그램 특징
+                    외국인관광 도시민박업주 전용 보험 프로그램 특징
                 </p>
             </div>
 
@@ -58,8 +57,10 @@ export default function Banner_Card() {
                 <ul className="program-list">
                     {cardBanner &&
                         cardBanner.map((card, index) => (
-                            <li className={`program-0${index+1}`} key={index}>
-                                <strong className="program-title">{card.title}</strong>
+                            <li className={`program-0${index + 1}`} key={index}>
+                                <strong className="program-title">
+                                    {card.title}
+                                </strong>
                                 <p className="program-description">
                                     {card.description}
                                 </p>

@@ -56,12 +56,12 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
                                     <p className="title_1">(외도민업)</p>
 
                                     <p className="title_2">
-                                        외국인관광도시민박 <br/>
+                                        외국인관광도시민박 <br />
                                         전용보험
                                     </p>
                                 </div>
                             </div>
-                            
+
                             <img
                                 src={images.ScrollDown}
                                 onClick={handleScrollDown}
@@ -72,7 +72,6 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
                                     cursor: 'pointer',
                                 }}
                             />
-                            
                         </div>
                     </div>
                 ))}

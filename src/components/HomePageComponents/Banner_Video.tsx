@@ -30,8 +30,8 @@ export default function Banner_Video() {
                 </p>
                 <p className="title_main_des">
                     외도민업을 운영하는 사업주들의 <br />
-                    사고로 인해 입을 수 있는 피해와 보상을 
-                    전용보험으로 커버 받을 수 있습니다.
+                    사고로 인해 입을 수 있는 피해와 보상을 전용보험으로 커버
+                    받을 수 있습니다.
                 </p>
             </div>
 
