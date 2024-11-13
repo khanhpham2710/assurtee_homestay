@@ -42,6 +42,7 @@ export default function Video_component({ title, video_id }: Props) {
                 style={{
                     marginBottom: '13px',
                 }}
+                className= "video-title"
             >
                 {title}
             </p>

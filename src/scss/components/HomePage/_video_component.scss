@@ -26,7 +26,8 @@
 
 .thumbnail_container {
     height: auto;
-    max-width: 400px;
+    //max-width: 400px;
+    width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;

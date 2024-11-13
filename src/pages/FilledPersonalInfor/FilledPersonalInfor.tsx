@@ -40,7 +40,7 @@ export default function FilledPersonalInfo() {
 
     return (
         <>
-            <div style={{ padding: '8px 24px 0' }}>
+            <div style={{ padding: '8px 24px 0'}}>
                 <section
                     className="dflex-column"
                     style={{ marginBottom: '28px' }}

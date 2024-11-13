@@ -31,8 +31,9 @@
 }
 
 .titleH-14 {
-    @include ab.titleH;
+    //@include ab.titleH;
     font-size: 14px !important;
+    font-family: AppleSDGothicNeoB;
     span {
         background-color: transparent !important;
     }

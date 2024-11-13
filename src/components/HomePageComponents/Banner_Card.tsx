@@ -37,13 +37,13 @@ export default function Banner_Card() {
     return (
         <section className="dflex_center fullWidth_item flexColumn_item ">
             <div className="title_card">
-                <p className="title_main_component">
+                <p className="main-section-title">
                     외도민업 <br /> 프로그램 특징
                 </p>
-                <p className="title_main_des">
+                <p className="main-section-description">
                     운영자와 손님 모두를 위한
                     <br />
-                    외국인관광 도시민박업주 전용 보험 <br />
+                    외국인관광 도시민박업주 전용 보험 
                     프로그램 특징
                 </p>
             </div>

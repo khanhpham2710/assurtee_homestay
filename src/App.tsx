@@ -40,7 +40,7 @@ function AppWrapper() {
             values: {
                 xs: 0,
                 sm: 620,
-                md: 700,
+                md: 769,
                 lg: 1100,
                 xl: 1536,
             },

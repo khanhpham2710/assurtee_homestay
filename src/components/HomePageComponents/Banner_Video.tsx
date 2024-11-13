@@ -25,12 +25,12 @@ export default function Banner_Video() {
     return (
         <section className="dflex_center fullWidth_item flexColumn_item ">
             <div className="title_video">
-                <p className="title_main_component">
+                <p className="main-section-title">
                     외도민업 <br /> 전용보험
                 </p>
-                <p className="title_main_des">
+                <p className="main-section-description">
                     외도민업을 운영하는 사업주들의 <br />
-                    사고로 인해 입을 수 있는 피해와 보상을 <br />
+                    사고로 인해 입을 수 있는 피해와 보상을 
                     전용보험으로 커버 받을 수 있습니다.
                 </p>
             </div>

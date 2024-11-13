@@ -45,7 +45,10 @@ export default function HomePage() {
                 }}
             >
                 {/* banner video */}
-                <section ref={video_ref}>
+                <section ref={video_ref}   style={{
+                    margin: '0 auto',
+                    width: "100%",
+                }}>
                     <Banner_Video />
                 </section>
 
