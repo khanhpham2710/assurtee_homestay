@@ -1,8 +1,4 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
 import MyToolTip from '../MyTooltip/MyToolTip';
-import images from '../../assets/images';
 
 type ItemType = {
     label: string;
@@ -39,137 +35,48 @@ const details: InsuranceDetail[] = [
 export default function FeeLandingPage() {
     return (
         <section
-            className="flexColumn_item dflex_center"
+            className="sample-list"
             style={{ marginBottom: '16px', width: '100%' }}
         >
-            <Box
-                sx={{
-                    width: '100%',
-                    height: 'auto',
-                    padding: '20px 14px 30px',
-                    backgroundColor: '#2d2d2d',
-                    color: 'white',
-                    borderRadius: '8px',
-                }}
-            >
-                {details &&
-                    details?.map((detail, index) => {
-                        return (
-                            <div key={index}>
-                                <Typography
-                                    sx={{
-                                        fontSize: '20px',
-                                        marginTop: '12px',
-                                        marginBottom: '19px',
-                                        fontFamily: 'AppleSDGothicNeoH',
-                                    }}
-                                >
-                                    {detail.title}
-                                </Typography>
-                                <Divider
-                                    sx={{
-                                        height: '2px',
-                                        backgroundColor: '#e0e0e0',
-                                        marginBottom: '30px',
-                                    }}
-                                />
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        justifyContent: 'space-between',
-                                        marginBottom: '19px',
-                                    }}
-                                >
-                                    <Typography
-                                        sx={{
-                                            fontSize: '18px',
-                                            fontFamily: 'AppleSDGothicNeoEB',
-                                        }}
-                                    >
+            {details &&
+                details?.map((detail, index) => {
+                    return (
+                        <div key={index} className="info-list">
+                            <strong className="form-title">
+                                {detail.title}
+                            </strong>
+
+                            <div className="row row--large">
+                                <div className="inner">
+                                    <div className="box-tit">
                                         {detail.main.label}
-                                    </Typography>
+                                    </div>
 
-                                    <Typography
-                                        sx={{
-                                            fontSize: '20px',
-                                            fontFamily: 'AppleSDGothicNeoEB',
-                                        }}
-                                    >
+                                    <div className="box-cont">
                                         {detail.main.value}
-                                    </Typography>
-                                </Box>
-                                <Divider
-                                    sx={{
-                                        height: '1px',
-                                        backgroundColor: '#6d6d6d',
-                                        marginBottom: '30px',
-                                    }}
-                                />
-                                {detail?.items.map((item, index) => {
-                                    return (
-                                        <div key={index}>
-                                            <Box
-                                                sx={{
-                                                    display: 'flex',
-                                                    justifyContent:
-                                                        'space-between',
-                                                    marginBottom: '24px',
-                                                }}
-                                            >
-                                                <div
-                                                    className="dflex_center"
-                                                    style={{ gap: '7px' }}
-                                                >
-                                                    <img
-                                                        src={images.whiteL}
-                                                        alt=""
-                                                        style={{
-                                                            transform:
-                                                                'translateY(-5px)',
-                                                        }}
-                                                    />
-                                                    <Typography
-                                                        sx={{
-                                                            fontSize: '14px',
-                                                            fontFamily:
-                                                                'AppleSDGothicNeoM',
-                                                            color: '#ffffff',
-                                                        }}
-                                                    >
-                                                        {item.label}
-                                                    </Typography>
-                                                </div>
-
-                                                <div
-                                                    className="dflex_center"
-                                                    style={{ gap: '3px' }}
-                                                >
-                                                    <Typography
-                                                        sx={{
-                                                            fontSize: '16px',
-                                                            fontFamily:
-                                                                'AppleSDGothicNeoM',
-                                                        }}
-                                                    >
-                                                        {item.value}
-                                                    </Typography>
-                                                    <MyToolTip align="left" />
-                                                </div>
-                                            </Box>
-                                            <Divider
-                                                sx={{
-                                                    height: '1px',
-                                                    backgroundColor: '#6d6d6d',
-                                                    marginBottom: '30px',
-                                                }}
-                                            />
-                                        </div>
-                                    );
-                                })}
+                                    </div>
+                                </div>
                             </div>
-                        );
-                    })}
-            </Box>
+
+                            {detail?.items.map((item, index) => {
+                                return (
+                                    <div key={index} className="row">
+                                        <div className="inner">
+                                            <div className="box-tit">
+                                                {item.label}
+                                            </div>
+
+                                            <div className="box-cont">
+                                                {item.value}
+                                                <MyToolTip />
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    );
+                })}
         </section>
     );
 }

@@ -13,20 +13,25 @@ export default function HomePage() {
     const video_ref = useRef<HTMLDivElement>(null);
     const naviagate = useNavigate();
 
-    // const onTop = () => {
-    //     window.scrollTo({
-    //         top: 0,
-    //         behavior: 'smooth',
-    //     });
-    // };
+    const onTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+        console.log('update');
+    };
 
     const handleClick = () => {
         naviagate('/personal-infor');
     };
 
     return (
-        <div className="wrap wrap-main">
-            <div className="wrap-inner">
+        <section className="wrap wrap-main">
+            <div
+                // className="fullWidth_item fullHeightView_item"
+                // style={{ position: 'relative' }}
+                className="wrap-inner"
+            >
                 <HeaderMain />
 
                 <section>
@@ -66,7 +71,7 @@ export default function HomePage() {
 
                 {/* footer section */}
                 <section>
-                    <Landing_Footer />
+                    <Landing_Footer onTop={onTop} />
                 </section>
                 {/* Button Fixed */}
 
@@ -89,6 +94,6 @@ export default function HomePage() {
                     <img src={images.PNextButton} alt="" />
                 </button>
             </div>
-        </div>
+        </section>
     );
 }

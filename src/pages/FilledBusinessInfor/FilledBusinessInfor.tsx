@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { validateBusinessField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { BusinessType } from '../../utils/models/InfoType';
+import UploadImage from '../../components/UpLoadImage/UpLoadImage';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useAppSelector((state) => state.info);
@@ -40,7 +41,7 @@ const FilledBusinessInfo: React.FC = () => {
                     image: info.image,
                 })
             );
-            navigate('/personal-business-infor');
+            navigate('/personal-infor');
         }
     };
 
@@ -65,9 +66,12 @@ const FilledBusinessInfo: React.FC = () => {
                         form={form}
                         handleChange={handleChange}
                         style={{
-                            marginBottom: 40,
+                            marginBottom: '20px',
                         }}
                     />
+                </section>
+                <section className="section">
+                    <UploadImage />
                 </section>
             </div>
             <div className="btm-fixed">
