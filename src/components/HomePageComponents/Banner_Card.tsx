@@ -1,8 +1,7 @@
 import React from 'react';
-import Card_Banner from '../../components/HomePageComponents/Card_Banner';
-import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 import images from '../../assets/images';
+
 export default function Banner_Card() {
     const cardBanner = [
         {
@@ -51,7 +50,7 @@ export default function Banner_Card() {
                 className="card_component"
                 sx={{
                     flexGrow: 1,
-                    // marginBottom: '90px',
+                    width: '100%',
                 }}
             >
                 <ul className="program-list">
