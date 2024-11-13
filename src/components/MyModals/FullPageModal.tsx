@@ -4,7 +4,6 @@ import AppBar from '@mui/material/AppBar';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import { IconButton, SxProps, Theme } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -91,17 +90,23 @@ export default function FullPageModal({
                             {title}
                         </h1>
                         <IconButton
-                            edge="start"
-                            color="inherit"
                             onClick={handleClose}
                             aria-label="close"
                             sx={{
-                                color: appBarColor === '#fff' ? '#000' : '#fff',
                                 position: 'absolute',
-                                right: '24px',
+                                right: '10px',
                             }}
+                            className={
+                                appBarColor === '#fff'
+                                    ? ''
+                                    : 'wrap-camera bg-none'
+                            }
                         >
-                            <CloseIcon />
+                            <button
+                                type="button"
+                                className="header-button-close"
+                                aria-label="닫기"
+                            ></button>
                         </IconButton>
                     </div>
                 </header>

@@ -18,12 +18,10 @@ function LoadingPage() {
     }, [navigate]);
 
     return (
-        <>
-            <div className="loading" style={{ display: 'flex' }}>
-                <img src={images.Loading} alt="" className="loading-img" />
-                <p className="loading-text">결제가 진행 중입니다.</p>
-            </div>
-        </>
+        <div className="loading" style={{ display: 'flex' }}>
+            <img src={images.Loading} alt="" className="loading-img" />
+            <p className="loading-text">결제가 진행 중입니다.</p>
+        </div>
     );
 }
 

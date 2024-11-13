@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import images from '../../assets/images';
 import Banner_Video from '../../components/HomePageComponents/Banner_Video';
 import Banner_Card from '../../components/HomePageComponents/Banner_Card';
 import Landing_Fee from '../../components/HomePageComponents/Landing_Fee';
@@ -74,25 +73,18 @@ export default function HomePage() {
                     <Landing_Footer onTop={onTop} />
                 </section>
                 {/* Button Fixed */}
-
-                <section className="button_container">
-                    <button
-                        className="button_main titleH-18"
-                        onClick={handleClick}
-                        // onClick={onTop}
+                <div className="btn-wrap btn-floating">
+                    <a
+                        href="#"
+                        className="btn"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleClick();
+                        }}
                     >
                         보험료 계산하기
-                    </button>
-                </section>
-                {/* <section className="button_container_2"> */}
-                <button
-                    className="button_main_2 titleH-18"
-                    onClick={handleClick}
-                    // onClick={onTop}
-                >
-                    보험 비교 견적
-                    <img src={images.PNextButton} alt="" />
-                </button>
+                    </a>
+                </div>
             </div>
         </section>
     );
