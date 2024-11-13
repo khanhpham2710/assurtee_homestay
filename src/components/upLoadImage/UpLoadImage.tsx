@@ -1,5 +1,4 @@
 import React, { CSSProperties, useEffect, useState } from 'react';
-import images from '../../assets/images';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import UpLoadModal from '../UpLoadModal/UpLoadModal';
@@ -14,59 +13,24 @@ export default function UploadImage({ style }: { style?: CSSProperties }) {
         dispatch(updateInfo({ image }));
     }, [image]);
 
-    const fontStyle: React.CSSProperties = {
-        fontFamily: 'AppleSDGothicNeoB',
-        fontSize: 14,
-        lineHeight: 1.29,
-        textAlign: 'center',
-        color: '#000',
-    };
-
-    const buttonStyle: React.CSSProperties = {
-        width: 150,
-        height: 50,
-        borderRadius: 120,
-        backgroundColor: '#e7ecf3',
-        fontFamily: 'AppleSDGothicNeoB',
-        fontSize: 14,
-        color: '#333647',
-        cursor: 'pointer',
-    };
-
     return (
-        <div style={style}>
+        <div style={{ marginTop: '0px' }}>
             {image === null ? (
-                <div
-                    style={{
-                        height: '136px',
-                        width: '100%',
-                        borderRadius: '8px',
-                        border: 'solid 1px #e0e0e0',
-                        backgroundColor: '#fff',
-                        flexDirection: 'column',
-                    }}
-                    className="dflex_center"
-                >
-                    <div>
-                        <p style={fontStyle}>설치 되어 있는</p>
-                        <p style={fontStyle}>
-                            스프링쿨러 사진을 추가해 주세요.
-                        </p>
-                        <img
-                            src={images.ImageIcon}
-                            alt=""
-                            style={{
-                                maxWidth: '100%',
-                                maxHeight: '100%',
-                                display: 'block',
-                                margin: '8px auto',
-                            }}
-                        />
-                    </div>
+                <div className="equip-photo">
+                    <button
+                        type="button"
+                        className="equip-photo-btn"
+                        onClick={() => {
+                            setOpen(true);
+                        }}
+                    >
+                        설치되어 있는 <br />
+                        스프링쿨러 사진을 추가해 주세요.
+                    </button>
                 </div>
             ) : (
                 <div
-                    className="dflex_center"
+                    className="equip-photo-btn"
                     style={{
                         width: '100%',
                         aspectRatio: '20 / 9',
@@ -86,19 +50,81 @@ export default function UploadImage({ style }: { style?: CSSProperties }) {
                 </div>
             )}
 
-            <div
-                className="dflex_center"
-                style={{
-                    gap: '12px',
-                    width: '100%',
-                    marginTop: 16,
-                }}
-            >
-                <button style={buttonStyle} onClick={() => setOpen(true)}>
+            <div className="equip-photo">
+                <ul className="equip-photo-list">
+                    <li>
+                        <label className="rdo-box">
+                            <input
+                                type="checkbox"
+                                className="rdo-input"
+                                name="chk-group"
+                            />
+                            <span className="label img">
+                                <img src="images/thumb_temp.png" alt="" />
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="rdo-box">
+                            <input
+                                type="checkbox"
+                                className="rdo-input"
+                                name="chk-group"
+                            />
+                            <span className="label img">
+                                <img src="images/thumb_temp_wide.png" alt="" />
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="rdo-box">
+                            <input
+                                type="checkbox"
+                                className="rdo-input"
+                                name="chk-group"
+                            />
+                            <span className="label img">
+                                <img src="images/thumb_temp.png" alt="" />
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="rdo-box">
+                            <input
+                                type="checkbox"
+                                className="rdo-input"
+                                name="chk-group"
+                            />
+                            <span className="label img">
+                                <img src="images/thumb_temp.png" alt="" />
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <label className="rdo-box">
+                            <input
+                                type="checkbox"
+                                className="rdo-input"
+                                name="chk-group"
+                            />
+                            <span className="label img">
+                                <img src="images/thumb_temp.png" alt="" />
+                            </span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            {/*list button*/}
+            <div className="btn-wrap type-col">
+                <button
+                    className="btn btn--round"
+                    onClick={() => setOpen(true)}
+                >
                     사진추가
                 </button>
                 <button
-                    style={buttonStyle}
+                    className="btn btn--round"
                     onClick={() => {
                         setImage(null);
                         setOpen(false);
