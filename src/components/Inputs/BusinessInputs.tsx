@@ -62,9 +62,9 @@ function CustomTextField({
     );
 }
 
-function BusinessInputs({ form, handleChange, style }: InputsProps) {
+function BusinessInputs({ form, handleChange }: InputsProps) {
     return (
-        <form className="dflex-column" style={{ ...style, width: '100%' }}>
+        <>
             <div className="form-list">
                 <strong className="form-title">구분</strong>
                 <OptionInput<BusinessType>
@@ -152,7 +152,7 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                     title="스프링클러 유무를 선택해 주세요."
                 />
             </div>
-        </form>
+        </>
     );
 }
 

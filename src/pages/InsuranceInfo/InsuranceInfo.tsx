@@ -5,15 +5,15 @@ import Download from '../../components/Download/Download';
 import WarningAccordion from '../../components/Accordion/WarningAccordion';
 import ConfirmCheckbox from '../../components/InsuranceInfo/ConfirmCheckbox';
 import { useState, useEffect } from 'react';
-import FullPageModal from '../../components/MyModals/FullPageModal';
-import FillAllInfor from '../FilledAllInfor/FillAllInfor';
+// import FullPageModal from '../../components/MyModals/FullPageModal';
+// import FillAllInfor from '../FilledAllInfor/FillAllInfor';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
 import NewWarningContent from './NewWarningContent';
 
 function InsuranceInfo() {
     const [allFilled, setAllFilled] = useState<boolean>(false);
-    const [open, setOpen] = useState<boolean>(false);
+    // const [open, setOpen] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const state = useAppSelector((state) => state.info);
@@ -67,7 +67,8 @@ function InsuranceInfo() {
                                 className="btn btn--small btn--dark"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    setOpen(true);
+                                    // setOpen(true);
+                                    navigate('/all-infor');
                                 }}
                             >
                                 내용수정
@@ -96,7 +97,7 @@ function InsuranceInfo() {
                         준법감시확인필 제202325412호 2024.5.25~2025.5.25
                     </p>
 
-                    <FullPageModal
+                    {/* <FullPageModal
                         component={<FillAllInfor setOpen={setOpen} />}
                         open={open}
                         setOpen={setOpen}
@@ -106,7 +107,7 @@ function InsuranceInfo() {
                                 sm: 'translateX(-8px)',
                             },
                         }}
-                    />
+                    /> */}
                 </div>
             </div>
             <ConfirmCheckbox

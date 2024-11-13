@@ -61,7 +61,7 @@ function OptionInput<T>({
                         className="base-input"
                     />
                 </div>
-                <div className="layer">
+                <div className={`layer ${variable as string}-layer`}>
                     <div className="layer-header">
                         <strong className="title">{title}</strong>
                         <button
