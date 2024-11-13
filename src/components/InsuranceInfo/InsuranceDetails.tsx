@@ -1,7 +1,6 @@
-import { CSSProperties } from 'react';
 import InsuranceDetailsBox, { InfoProps } from '../InfoBox/InsuranceDetailsBox';
 
-function InsuranceDetails({ style }: { style?: CSSProperties }) {
+function InsuranceDetails() {
     const infos: InfoProps[] = [
         {
             title: '화재/붕괴/침강/사태 손해(주택)',
@@ -87,15 +86,8 @@ function InsuranceDetails({ style }: { style?: CSSProperties }) {
     ];
 
     return (
-        <div style={style}>
-            <p
-                className="title_label"
-                style={{
-                    marginBottom: '13px',
-                }}
-            >
-                보장내용
-            </p>
+        <div className="info-list mt35">
+            <strong className="form-title">보장내용</strong>
             {infos.map((info, index) => {
                 return (
                     <InsuranceDetailsBox

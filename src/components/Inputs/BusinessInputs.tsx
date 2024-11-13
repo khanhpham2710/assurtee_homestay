@@ -1,11 +1,11 @@
-import { CustomInput, InputSection } from '../Input/CustomInput';
+import React, { useState } from 'react';
+import NewCustomInput, { InputSection } from '../Input/CustomInput';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
 import { TextField } from '@mui/material';
 import { PostCode } from '../SearchPopUp/SearchPopUp';
 import { CSSProperties } from 'react';
-import UploadImage from '../upLoadImage/UpLoadImage';
 
 type InputsProps = {
     form: BusinessType;
@@ -14,54 +14,53 @@ type InputsProps = {
 };
 
 function BusinessInputs({ form, handleChange, style }: InputsProps) {
+    const [focusedField, setFocusedField] = useState<string | null>(null);
+
+    const handleFocus = (fieldName: string) => setFocusedField(fieldName);
+    const handleBlur = () => setFocusedField(null);
+
     return (
         <form className="dflex-column" style={{ ...style, width: '100%' }}>
-            <InputSection>
-                <label className="title_label" htmlFor="division">
-                    구분
-                </label>
+            <div className="form-list">
+                <strong className="form-title">구분</strong>
                 <OptionInput<BusinessType>
-                    variable="division"
-                    value={form.division}
+                    variable="company"
+                    value={form.company}
                     placeholder="개인/법인을 선택해 주세요."
                     handleChange={handleChange}
                     items={['개인', '법인']}
                     title="개인/법인을 선택해 주세요."
                 />
-            </InputSection>
-            <InputSection>
-                <label className="title_label" htmlFor="businessNumber">
-                    등록번호
-                </label>
-                <CustomInput
-                    id="businessNumber"
-                    maxLength={12}
-                    placeholder="사업자등록번호를 입력해 주세요."
-                    value={form.businessNumber}
-                    onChange={(e) =>
-                        handleChange(
-                            'businessNumber',
-                            handleBusinessNumber(e, form.businessNumber)
-                        )
-                    }
-                    autoComplete="off"
-                />
-            </InputSection>
-            <InputSection>
-                <label className="title_label" htmlFor="businessName">
-                    상호(법인)명
-                </label>
-                <CustomInput
-                    id="businessName"
-                    placeholder="상호명 또는 법인명을 입력해 주세요."
-                    maxLength={11}
-                    value={form.businessName}
-                    onChange={(e) =>
-                        handleChange('businessName', e.target.value)
-                    }
-                    autoComplete="off"
-                />
-            </InputSection>
+            </div>
+            <NewCustomInput<BusinessType>
+                value={form.businessNumber}
+                variable="businessNumber"
+                placeholder="사업자등록번호를 입력해 주세요."
+                handleChange={(e)=>handleBusinessNumber(e, form.businessNumber)}
+                title="등록번호"
+            />
+            <div className="form-list">
+                <strong className="form-title">상호(법인)명</strong>
+                <div className="form-cont">
+                    <div
+                        className={`form-item ${focusedField === 'businessName' ? 'is-input' : ''}`}
+                    >
+                        <input
+                            type="text"
+                            className="txt-input"
+                            placeholder="상호명 또는 법인명을 입력해 주세요."
+                            maxLength={11}
+                            value={form.businessName}
+                            onFocus={() => handleFocus('businessName')}
+                            onBlur={handleBlur}
+                            onChange={(e) =>
+                                handleChange('businessName', e.target.value)
+                            }
+                        />
+                    </div>
+                </div>
+            </div>
+
             <InputSection>
                 <label className="title_label" htmlFor="address">
                     사업장 소재지
@@ -77,6 +76,8 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                         multiline
                         fullWidth
                         placeholder="주소를 입력해 주세요."
+                        onFocus={() => handleFocus('address')}
+                        onBlur={handleBlur}
                         onChange={(e) =>
                             handleChange('address', e.target.value)
                         }
@@ -116,41 +117,62 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                     </div>
                 </section>
             </InputSection>
-            <InputSection>
-                <CustomInput
+            <div className="form-cont">
+                <TextField
                     id="extra"
+                    multiline
                     placeholder="상세주소 입력(건물명, 동/호수, 단독주택 등)"
                     value={form.extra}
+                    onFocus={() => handleFocus('extra')}
+                    onBlur={handleBlur}
                     onChange={(e) => handleChange('extra', e.target.value)}
                     autoComplete="off"
+                    variant="standard"
+                    sx={{
+                        backgroundColor: 'transparent',
+                        outline: 'none',
+                        width: '100%',
+                        '& .MuiInputBase-input::placeholder': {
+                            color: '#cfcfcf',
+                            opacity: 1,
+                        },
+                    }}
+                    slotProps={{
+                        input: {
+                            disableUnderline: true,
+                            style: {
+                                fontFamily: 'AppleSDGothicNeoH',
+                                fontSize: '16px',
+                                lineHeight: '1.75',
+                                color: '#000',
+                                padding: 0,
+                            },
+                        },
+                    }}
                 />
-            </InputSection>
-            <InputSection>
-                <label className="title_label" htmlFor="hanok">
-                    한옥 여부
-                </label>
+            </div>
+            <div className="form-list">
+                <strong className="form-title">한옥 여부</strong>
                 <OptionInput<BusinessType>
-                    variable="hanok"
+                    variable="building"
                     placeholder="해당 건물이 한옥인가요?"
-                    value={form.hanok}
+                    value={form.building}
                     handleChange={handleChange}
                     title="예/아니요 선택해 주세요."
                     items={['예', '아니요']}
                 />
-            </InputSection>
-            <InputSection>
-                <label className="title_label" htmlFor="hanok">
-                    한옥 여부
-                </label>
+            </div>
+            <div className="form-list">
+                <strong className="form-title">스프링클러 설치 여부</strong>
                 <OptionInput<BusinessType>
-                    variable="sprinkler"
-                    value={form.sprinkler}
+                    variable="equip"
+                    value={form.equip}
+                    placeholder="스프링클러 설치 유무를 선택해 주세요."
                     handleChange={handleChange}
                     items={['설치되어 있습니다.', '설치되어 있지 않습니다.']}
-                    title="스프링쿨러 유무를 선택해 주세요."
+                    title="스프링클러 유무를 선택해 주세요."
                 />
-            </InputSection>
-            <UploadImage />
+            </div>
         </form>
     );
 }

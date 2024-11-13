@@ -1,4 +1,4 @@
-import { CustomInput, InputSection } from '../Input/CustomInput';
+// import { CustomInput, InputSection } from '../Input/CustomInput';
 import { numberOnly } from '../../utils/validation/number';
 import OptionInput from '../Input/OptionInput';
 import SliderInput from '../Input/SliderInput';
@@ -14,9 +14,9 @@ type PropsType = {
     style?: CSSProperties;
 };
 
-function InsuranceAmount({ form, handleChange, style }: PropsType) {
+function InsuranceAmount({ form, handleChange }: PropsType) {
     return (
-        <form style={{ ...style, width: '100%' }}>
+        <>
             <SliderInput<InsuranceAmountType>
                 variable="construction"
                 value={form.construction}
@@ -44,50 +44,51 @@ function InsuranceAmount({ form, handleChange, style }: PropsType) {
                 max={5}
                 step={1}
             />
-
-            <p
-                className="titleH-22"
-                style={{ textAlign: 'left', margin: '7px 0 8px' }}
-            >
+            <h2 className="sect-title mt40">
                 영업배상 책임보험 가입면적을 선택해 주세요.
-            </p>
-            <InputSection>
-                <label className="title_label">주택 유형</label>
-                <OptionInput<InsuranceAmountType>
-                    items={[
-                        '주택 유형1',
-                        '주택 유형2',
-                        '주택 유형3',
-                        '주택 유형4',
-                    ]}
-                    value={form.housingType}
-                    handleChange={handleChange}
-                    variable="housingType"
-                    title="주택 유형을 선택해 주세요."
-                />
-            </InputSection>
-            <InputSection>
-                <label className="title_label">공급면적(전용면적이 아님)</label>
-                <div className="dflex_center">
-                    <CustomInput
-                        maxLength={10}
-                        value={form.area.toString()}
-                        onChange={(e) => handleChange('area', numberOnly(e))}
+            </h2>
+            <div className="form-wrap">
+                <div className="form-list">
+                    <strong className="form-title">주택 유형</strong>
+                    <OptionInput<InsuranceAmountType>
+                        variable="housingType"
+                        value={form.housingType}
+                        handleChange={handleChange}
+                        items={[
+                            '주택 유형1',
+                            '주택 유형2',
+                            '주택 유형3',
+                            '주택 유형4',
+                        ]}
+                        title="주택 유형"
                     />
-                    <p
-                        style={{
-                            fontFamily: 'AppleSDGothicNeoH',
-                            fontSize: '16px',
-                            lineHeight: 1.75,
-                            textAlign: 'right',
-                            color: '#cfcfcf',
-                        }}
-                    >
-                        m²
+                </div>
+                <div className="form-list">
+                    <strong className="form-title">
+                        공급면적(전용면적이 아님)
+                    </strong>
+                    <div className="form-cont">
+                        <div className="form-item fx-holder">
+                            <input
+                                type="text"
+                                placeholder="공급면적을 입력해 주세요."
+                                className="txt-input"
+                                onChange={(e) =>
+                                    handleChange('area', numberOnly(e))
+                                }
+                                value={form.area}
+                            />
+                            <span className="side fc-gray">m²</span>
+                        </div>
+                    </div>
+                    <p className="form-text">
+                        행정안전부에서 제공받은 주택 연면적이 다동으로 입력되어
+                        있습니다. 정상적인 보상을 위해 사업신고시 기입한 주택
+                        연면적과 맞는지 반드시 확인 필요!
                     </p>
                 </div>
-            </InputSection>
-        </form>
+            </div>
+        </>
     );
 }
 

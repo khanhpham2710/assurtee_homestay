@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { handleBusinessNumber } from '../../utils/validation/number';
 
 export const InputSection = styled.section`
     margin-bottom: 20px;
@@ -34,3 +36,53 @@ export const CustomInput = styled.input`
 export const BlueCustomInput = styled(CustomInput)`
     color: #9faae5;
 `;
+
+type InputProps<T> = {
+    variable: keyof T;
+    value: string;
+    placeholder?: string;
+    handleChange: (key: keyof T, value: string) => void;
+    title: string;
+};
+
+function NewCustomInput<T>({
+    value,
+    variable,
+    placeholder,
+    handleChange,
+    title,
+}: InputProps<T>) {
+    const [focusedField, setFocusedField] = useState<string | null>(null);
+
+    const handleFocus = (fieldName: string) => setFocusedField(fieldName);
+    const handleBlur = () => setFocusedField(null);
+
+    return (
+        <div className="form-list">
+            <strong className="form-title">{title}</strong>
+            <div className="form-cont">
+                <div
+                    className={`form-item ${focusedField === variable ? 'is-input' : ''}`}
+                >
+                    <input
+                        type="text"
+                        className="txt-input"
+                        maxLength={12}
+                        placeholder={placeholder}
+                        value={value}
+                        onFocus={() => handleFocus(variable as string)}
+                        onBlur={handleBlur}
+                        onChange={(e) => {
+                            handleChange(
+                                variable,
+                                handleBusinessNumber(e, value)
+                            );
+                        }}
+                    />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default NewCustomInput;

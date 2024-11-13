@@ -1,5 +1,4 @@
 import Slider from '@mui/material/Slider';
-import { CSSProperties } from 'react';
 
 type SliderType<T> = {
     variable: keyof T;
@@ -9,18 +8,6 @@ type SliderType<T> = {
     min?: number;
     max?: number;
     step?: number;
-};
-
-const buttonStyle: CSSProperties = {
-    color: '#ffffff',
-    backgroundColor: '#090909',
-    padding: '0px',
-    height: '24px',
-    width: '24px',
-    lineHeight: '24px',
-    fontSize: '20px',
-    borderRadius: '50px',
-    cursor: 'pointer',
 };
 
 function SliderInput<T>({
@@ -44,21 +31,12 @@ function SliderInput<T>({
     };
 
     return (
-        <section
-            style={{
-                marginBottom: '33px',
-            }}
-        >
-            <label className="title_label-2">{label}</label>
-            <div
-                className="dflex_spacebetween"
-                style={{
-                    marginTop: '21.5px',
-                }}
-            >
+        <div className="range-section">
+            <p className="title-s">{label}</p>
+            <div className="range-box">
                 <button
-                    style={buttonStyle}
-                    className="dflex_center"
+                    type="button"
+                    className="btn-minus"
                     onClick={() => {
                         const temp = value - step;
                         if (temp >= min) {
@@ -66,18 +44,11 @@ function SliderInput<T>({
                         }
                     }}
                 >
-                    <span
-                        style={{
-                            transform: 'translateY(-10.5px)',
-                        }}
-                    >
-                        _
-                    </span>
+                    <i className="hidden">빼기</i>
                 </button>
-                <p className="title-amount">{value}천만원</p>
                 <button
-                    style={buttonStyle}
-                    className="dflex_center"
+                    type="button"
+                    className="btn-plus"
                     onClick={() => {
                         const temp = value + step;
                         if (temp <= max) {
@@ -85,45 +56,47 @@ function SliderInput<T>({
                         }
                     }}
                 >
-                    +
+                    <i className="hidden">더하기</i>
                 </button>
-            </div>
-            <Slider
-                step={step}
-                min={min}
-                max={max}
-                value={value}
-                onChange={handleSlider}
-                sx={{
-                    color: '#ea3062',
-                    boxShadow: 'none',
-                    '& .MuiSlider-thumb': {
-                        height: 18,
-                        width: 18,
-                        backgroundColor: '#ea3062',
-                        '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-                            boxShadow: 'none',
-                            outline: 'none',
-                            '@media (hover: none)': {
-                                boxShadow: 'none',
+                <span className="range-text">{value}천만원</span>
+                <Slider
+                    step={step}
+                    min={min}
+                    max={max}
+                    value={value}
+                    onChange={handleSlider}
+                    sx={{
+                        color: '#ea3062',
+                        boxShadow: 'none',
+                        '& .MuiSlider-thumb': {
+                            height: 18,
+                            width: 18,
+                            backgroundColor: '#ea3062',
+                            '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible':
+                                {
+                                    boxShadow: 'none',
+                                    outline: 'none',
+                                    '@media (hover: none)': {
+                                        boxShadow: 'none',
+                                    },
+                                },
+                            '&:before': {
+                                display: 'none',
                             },
                         },
-                        '&:before': {
-                            display: 'none',
+                        '& .MuiSlider-track': {
+                            border: 'none',
+                            height: 4,
                         },
-                    },
-                    '& .MuiSlider-track': {
-                        border: 'none',
-                        height: 4,
-                    },
-                    '& .MuiSlider-rail': {
-                        opacity: 0.5,
-                        backgroundColor: '#e0e0e0',
-                    },
-                }}
-            />
-            <p className="subtitle">최대 5천만원까지 선택할 수 있어요.</p>
-        </section>
+                        '& .MuiSlider-rail': {
+                            opacity: 0.5,
+                            backgroundColor: '#e0e0e0',
+                        },
+                    }}
+                />
+            </div>
+            <p className="desc">최대 5천만원까지 선택할 수 있어요.</p>
+        </div>
     );
 }
 

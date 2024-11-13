@@ -2,17 +2,6 @@
 @use './components/index' as c;
 @use 'sass:list';
 
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style-type: none;
-    -webkit-text-size-adjust: 100%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
 $font-styles: (
     'AppleSDGothicNeoB',
     'AppleSDGothicNeoEB',

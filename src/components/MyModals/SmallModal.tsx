@@ -1,28 +1,5 @@
 import * as React from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import { Box, SxProps } from '@mui/material';
-import { Theme } from '@mui/system';
-import { styled } from '@mui/material/styles';
-import DialogActions from '@mui/material/DialogActions';
-
-const fontStyle: SxProps<Theme> = {
-    p: {
-        fontFamily: 'AppleSDGothicNeoM',
-        fontSize: 16,
-        lineHeight: 1.25,
-        textAlign: 'center',
-        color: '#000',
-    },
-    a: {
-        fontFamily: 'AppleSDGothicNeoM',
-        fontSize: 16,
-        lineHeight: 1.25,
-        textAlign: 'center',
-        color: '#0068e2',
-        textDecoration: 'underline',
-    },
-};
+import { useGlobalContext } from '../../App';
 
 type DialogProps = {
     open: boolean;
@@ -33,20 +10,6 @@ type DialogProps = {
     handleClick: () => void;
 };
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialog-paper': {
-        borderRadius: 8,
-        margin: 0,
-        boxShadow: 'none',
-    },
-    '& .MuiDialogContent-root': {
-        padding: theme.spacing(2),
-    },
-    '& .MuiDialogActions-root': {
-        padding: theme.spacing(1),
-    },
-}));
-
 export default function SmallModal({
     open,
     setOpen,
@@ -55,59 +18,38 @@ export default function SmallModal({
     handleClick,
     description,
 }: DialogProps) {
+    const { setGlobal } = useGlobalContext();
+
+    React.useEffect(() => {
+        setGlobal(open);
+    }, []);
+
     return (
-        <React.Fragment>
-            <BootstrapDialog
-                onClose={() => setOpen(false)}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-            >
-                <DialogContent
-                    dividers
-                    sx={{
-                        padding: '0 !important',
-                    }}
-                >
-                    <div
-                        className="dflex_center flexColumn_item"
-                        style={{
-                            width: 312,
-                            height: 162,
-                            padding: '32px 24px 30px',
-                            gap: 12,
-                            textAlign: 'center',
-                        }}
-                    >
-                        <p
-                            className="titleH-22"
-                            style={{
-                                lineHeight: '1.27',
-                            }}
-                        >
-                            {title}
-                        </p>
-                        <Box sx={fontStyle}>{description}</Box>
-                    </div>
-                </DialogContent>
-                <DialogActions
-                    sx={{
-                        padding: '0 !important',
-                    }}
-                >
-                    <button
-                        onClick={() => {
-                            setOpen(false);
+        <div
+            className={open ? 'popup-wrap is-active' : 'popup-wrap'}
+            data-popup-type="layer"
+        >
+            <div className="popup-inner">
+                <div className="popup-content">
+                    <h1 className="popup-title">{title}</h1>
+                    <div className="popup-text">{description}</div>
+                </div>
+                <div className="popup-btn-wrap">
+                    <a
+                        href="#"
+                        className="btn"
+                        data-role="layer-close"
+                        onClick={(e) => {
+                            e.preventDefault();
                             handleClick();
-                        }}
-                        className="button1 active"
-                        style={{
-                            borderRadius: 0,
+                            setOpen(false);
+                            setGlobal(false);
                         }}
                     >
                         {textButton}
-                    </button>
-                </DialogActions>
-            </BootstrapDialog>
-        </React.Fragment>
+                    </a>
+                </div>
+            </div>
+        </div>
     );
 }

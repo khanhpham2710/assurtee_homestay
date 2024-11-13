@@ -1,20 +1,9 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import BasicInfo from './BasicInfo';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import InsuranceInfo from './InsuranceInfo';
 import PaymentInfo from './PaymentInfo';
 import CoverageInfos from './CoverageInfos';
 import fees from '../../utils/models/Fee';
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    padding: theme.spacing(2),
-    borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
 
 type PanelType = {
     title: string;
@@ -43,67 +32,34 @@ const panels: PanelType[] = [
 ];
 
 export default function InsuranceDetailsAccordion() {
-    const [expanded, setExpanded] = React.useState<string | false>(false);
-
-    const handleChange =
-        (panel: string) =>
-        (event: React.SyntheticEvent, newExpanded: boolean) => {
-            setExpanded(newExpanded ? panel : false);
-        };
-
     return (
-        <>
+        <div
+            className="accordion type-sp w-wide"
+            data-role="accordion-wrap"
+            data-accordion-type="multiple"
+        >
             {panels.map((panel, index) => (
-                <MuiAccordion
-                    disableGutters
-                    elevation={0}
+                <div
+                    className="accordion-item"
+                    data-role="accordion-item"
                     key={index}
-                    expanded={expanded === `panel${index}`}
-                    onChange={handleChange(`panel${index}`)}
-                    sx={{
-                        '& .MuiDivider-root': {
-                            backgroundColor: '#fff',
-                        },
-                    }}
                 >
-                    <MuiAccordionSummary
-                        aria-controls={`panel${index}d-content`}
-                        id={`panel${index}d-header`}
-                        sx={{
-                            height: '74px',
-                            p: '24px 24px 0',
-                            backgroundColor: '#f6f7f9',
-                        }}
-                        expandIcon={<ExpandMoreIcon />}
+                    <a
+                        href="#"
+                        className="accordion-title"
+                        data-role="accordion-title"
                     >
-                        <Typography
-                            sx={{
-                                fontFamily: 'AppleSDGothicNeoM',
-                                fontSize: 16,
-                                lineHeight: 1.25,
-                                textAlign: 'left',
-                                color: '#000',
-                                '& span': {
-                                    color: '#646464',
-                                    ml: '8px',
-                                },
-                            }}
-                        >
-                            {panel.title}
-                            <span>{panel.span}</span>
-                        </Typography>
-                    </MuiAccordionSummary>
-                    <AccordionDetails
-                        sx={{
-                            backgroundColor: '#fff',
-                            padding: '16px 24px 0',
-                            marginBottom: '48px',
-                        }}
+                        <em>{panel.title}</em>
+                        <span className="sub-text">{panel.span}</span>
+                    </a>
+                    <div
+                        className="accordion-content bg-wh"
+                        data-role="accordion-content"
                     >
                         {panel.content}
-                    </AccordionDetails>
-                </MuiAccordion>
+                    </div>
+                </div>
             ))}
-        </>
+        </div>
     );
 }
