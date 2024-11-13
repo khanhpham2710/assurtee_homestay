@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import { useGlobalContext } from '../../App';
 
 type InputProps<T> = {
@@ -18,26 +18,35 @@ function OptionInput<T>({
     items,
     title,
 }: InputProps<T>) {
-    const [isOpen, setIsOpen] = useState(false);
+    const selboxWrapRef = useRef<HTMLDivElement | null>(null);
     const { setGlobal } = useGlobalContext();
 
     const handleClick = (itemValue: string) => {
         handleChange(variable, itemValue);
-        setIsOpen(false);
+    };
+
+    const handleOpen = () => {
+        if (selboxWrapRef.current) {
+            selboxWrapRef.current.classList.add('open');
+        }
+        setGlobal(true);
+    };
+
+    const handleClose = () => {
+        if (selboxWrapRef.current) {
+            selboxWrapRef.current.classList.remove('open');
+        }
         setGlobal(false);
     };
 
     return (
         <div className="form-cont">
-            <div className={isOpen ? 'selbox-wrap open' : 'selbox-wrap'}>
+            <div ref={selboxWrapRef} className="selbox-wrap">
                 <div className="openSelect able">
                     <button
                         type="button"
                         className="btn-sel"
-                        onClick={() => {
-                            setIsOpen(true);
-                            setGlobal(true);
-                        }}
+                        onClick={handleOpen}
                     >
                         <span
                             className={value ? 'sel-val selected' : 'sel-val'}
@@ -52,51 +61,42 @@ function OptionInput<T>({
                         className="base-input"
                     />
                 </div>
-                {isOpen && (
-                    <div className={`layer ${variable as string}-layer`}>
-                        <div className="layer-header">
-                            <strong className="title">{title}</strong>
-                            <button
-                                type="button"
-                                className="layer-close"
-                                aria-label="닫기"
-                                onClick={() => {
-                                    setIsOpen(false);
-                                    setGlobal(false);
-                                }}
-                            ></button>
-                        </div>
-                        <div className="layer-content">
-                            <div className="scroll">
-                                <div className="scroller">
-                                    <ul>
-                                        {items.map((item, index) => (
-                                            <li
-                                                key={index}
-                                                onClick={() =>
-                                                    handleClick(item)
-                                                }
-                                            >
-                                                <input
-                                                    type="radio"
-                                                    name={`option-${variable as string}`}
-                                                    value={item}
-                                                />
-                                                <label
-                                                    htmlFor={`com3_${index}`}
-                                                >
-                                                    <span className="sel-txt">
-                                                        {item}
-                                                    </span>
-                                                </label>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+                <div className="layer">
+                    <div className="layer-header">
+                        <strong className="title">{title}</strong>
+                        <button
+                            type="button"
+                            className="layer-close"
+                            aria-label="닫기"
+                            onClick={handleClose}
+                        ></button>
+                    </div>
+                    <div className="layer-content">
+                        <div className="scroll">
+                            <div className="scroller">
+                                <ul>
+                                    {items.map((item, index) => (
+                                        <li
+                                            key={index}
+                                            onClick={() => handleClick(item)}
+                                        >
+                                            <input
+                                                type="radio"
+                                                name={`option-${variable as string}`}
+                                                value={item}
+                                            />
+                                            <label htmlFor={`com3_${index}`}>
+                                                <span className="sel-txt">
+                                                    {item}
+                                                </span>
+                                            </label>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );

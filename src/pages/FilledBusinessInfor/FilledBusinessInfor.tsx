@@ -75,7 +75,7 @@ const FilledBusinessInfo: React.FC = () => {
                     <button
                         type="button"
                         className="btn"
-                        disabled
+                        disabled={!allChecked}
                         onClick={handleSubmit}
                     >
                         다음

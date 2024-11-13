@@ -4,7 +4,7 @@ import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
 import { TextField } from '@mui/material';
 import { PostCode } from '../SearchPopUp/SearchPopUp';
-import { CSSProperties } from 'react';
+import React, { CSSProperties } from 'react';
 
 type InputsProps = {
     form: BusinessType;
@@ -12,25 +12,29 @@ type InputsProps = {
     style?: CSSProperties;
 };
 
-function TextArea({
-    value,
-    key,
-    handleChange,
-    placeholder,
-}: {
+type CustomTextFieldProps = {
+    id?: string;
+    placeholder: string;
     value: string;
-    key: keyof BusinessType;
-    handleChange: (key: keyof BusinessType, value: string) => void;
-    placeholder?: string;
-}) {
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    style?: CSSProperties;
+};
+
+function CustomTextField({
+    id,
+    placeholder,
+    value,
+    onChange,
+    style,
+}: CustomTextFieldProps) {
     return (
         <TextField
+            id={id}
             multiline
             fullWidth
             placeholder={placeholder}
-            onChange={(e) => handleChange(key, e.target.value)}
+            onChange={onChange}
             variant="standard"
-            value={value}
             sx={{
                 backgroundColor: 'transparent',
                 outline: 'none',
@@ -39,6 +43,7 @@ function TextArea({
                     color: '#cfcfcf',
                     opacity: 1,
                 },
+                ...style,
             }}
             slotProps={{
                 input: {
@@ -52,6 +57,7 @@ function TextArea({
                     },
                 },
             }}
+            value={value}
         />
     );
 }
@@ -101,21 +107,24 @@ function BusinessInputs({ form, handleChange, style }: InputsProps) {
                 <strong className="form-title">사업장 소재지</strong>
                 <div className="form-item">
                     <div className="form-cont">
-                        <TextArea
-                            value={form.address}
-                            key="address"
-                            handleChange={handleChange}
+                        <CustomTextField
+                            id="address"
                             placeholder="주소를 입력해 주세요."
+                            onChange={(e) =>
+                                handleChange('address', e.target.value)
+                            }
+                            value={form.address}
                         />
                         <PostCode handleChange={handleChange} />
                     </div>
                     <div className="form-cont">
                         <div className="form-item">
-                            <TextArea
+                            <CustomTextField
+                                placeholder="추가 주소를 입력해 주세요."
+                                onChange={(e) =>
+                                    handleChange('extra', e.target.value)
+                                }
                                 value={form.extra}
-                                key="extra"
-                                handleChange={handleChange}
-                                placeholder="상세주소 입력(건물명, 동/호수, 단독주택 등)"
                             />
                         </div>
                     </div>
