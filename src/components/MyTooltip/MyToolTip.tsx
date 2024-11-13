@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
 
 function MyToolTip() {
     return (
-        <div className="box-cont">
+        <Box
+            sx={{
+                '.is-show': {
+                    '&::before': {
+                        display: 'none',
+                    },
+                },
+            }}
+        >
             <div className="tooltip">
                 <button
                     type="button"
                     className="tooltip-btn bg-gray"
                     aria-label="도움말"
                 ></button>
-                <div className="tooltip-content">툴틻내용</div>
+                {/*<div className="tooltip-content">툴팁내용</div>*/}
             </div>
-        </div>
+        </Box>
     );
 }
+
 export default MyToolTip;
