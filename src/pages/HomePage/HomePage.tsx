@@ -38,7 +38,7 @@ export default function HomePage() {
             <div
                 className="fullWidth_item dflex_center dflex-column"
                 style={{
-                    maxWidth: '636px',
+                    maxWidth: '684px',
                     margin: '0 auto',
                     overflow: 'hidden',
                     padding: '0 24px',

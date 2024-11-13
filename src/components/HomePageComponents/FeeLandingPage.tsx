@@ -46,7 +46,7 @@ export default function FeeLandingPage() {
                 sx={{
                     width: '100%',
                     height: 'auto',
-                    padding: '20px 14px 55px',
+                    padding: '20px 14px 30px',
                     backgroundColor: '#2d2d2d',
                     color: 'white',
                     borderRadius: '8px',
