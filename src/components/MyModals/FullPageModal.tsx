@@ -50,7 +50,7 @@ export default function FullPageModal({
             sx={{
                 ...style,
                 width: '100%',
-                maxWidth: 'var(--webContainerWidth)',
+                maxWidth: 'calc(var(--webContainerWidth) + 3px)',
                 margin: '0 auto',
                 boxShadow: 'none',
                 transform: {

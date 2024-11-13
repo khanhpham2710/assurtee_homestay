@@ -30,7 +30,12 @@ export default function FilledPersonalInfo() {
 
     const handleSubmit1 = async () => {
         if (allChecked1) {
-            await dispatch(updateInfo(form1));
+            dispatch(updateInfo(form1));
+            dispatch(
+                updateInfo({
+                    registrationNumber: '',
+                })
+            );
             navigate('/options');
         }
     };

@@ -85,11 +85,10 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
             />
             <NewCustomInput<PersonalType>
                 title="이메일"
-                value={form.phoneNumber}
+                value={form.mail}
                 handleChange={handleChange}
                 variable="mail"
                 placeholder="이메일을 입력해 주세요."
-                number
             />
             <div className="form-list">
                 <OptionInput<PersonalType>
