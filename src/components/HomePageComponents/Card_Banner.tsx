@@ -1,20 +1,6 @@
 import React from 'react';
 
-interface Props {
-    title: string;
-    description: string;
-    icon: string;
-    subdesc?: string;
-    color: string;
-}
-
-export default function Card_Banner({
-    title,
-    description,
-    subdesc,
-    color,
-    icon,
-}: Props) {
+export default function Card_Banner() {
     return (
         // <div className="card_banner" style={{backgroundColor: `${color}`}}>
         //     <div className="card_item_left">

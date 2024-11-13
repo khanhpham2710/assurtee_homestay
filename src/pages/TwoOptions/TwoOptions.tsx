@@ -102,6 +102,7 @@ const ScanOption: React.FC = () => {
                 title={modal.title}
                 component={modal.component}
                 appBarColor={modal.appBarColor}
+                style={{ transform: 'translateX(3px)' }}
             />
         </div>
     );

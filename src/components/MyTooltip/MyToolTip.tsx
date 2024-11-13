@@ -1,38 +1,17 @@
 import React from 'react';
 
-interface MyToolTipProps {
-    text?: string[];
-    align?: 'left' | 'center' | 'right';
-    color?: 'grey' | 'black';
-}
-
-const MyToolTip: React.FC<MyToolTipProps> = ({
-    text,
-    align = 'right',
-    color = 'grey',
-}) => {
+function MyToolTip() {
     return (
-        <div id="tooltip">
-            <p
-                className={`tooltip-icon`}
-                style={{
-                    backgroundColor: color == 'black' ? color : '#aeb0b3',
-                }}
-            >
-                !
-            </p>
-            {text && (
-                <p className="tooltiptext" style={{ textAlign: align }}>
-                    {text?.map((line, index) => (
-                        <span key={index}>
-                            {line}
-                            {index < text.length - 1 && <br />}
-                        </span>
-                    ))}
-                </p>
-            )}
+        <div className="box-cont">
+            <div className="tooltip">
+                <button
+                    type="button"
+                    className="tooltip-btn bg-gray"
+                    aria-label="도움말"
+                ></button>
+                <div className="tooltip-content">툴틻내용</div>
+            </div>
         </div>
     );
-};
-
+}
 export default MyToolTip;
