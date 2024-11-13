@@ -12,11 +12,13 @@ import LoadingPage from '../pages/Loading/Loading';
 import InsuranceDetailsPage from '../pages/InsuranceDetailsPage/InsuranceDetailsPage';
 
 // header imports
-import Header2 from '../components/Headers/Header2';
+import HeaderBack from '../components/Headers/HeaderBack';
 import EmailPage from '../pages/EmailPage/EmailPage';
 import TermCondition from '../pages/TermCondition/TermCondition';
 import HeaderNull from '../components/Headers/HeaderNull';
 import HomeHeader from '../components/Headers/HomeHeader';
+import NewFillAllInfor from '../pages/FilledAllInfor/NewFillAllInfor';
+import HeaderClose from '../components/Headers/HeaderClose';
 
 type RouteType = {
     path: string;
@@ -39,18 +41,23 @@ const routes: RouteType[] = [
     {
         path: '/options',
         component: ScanOption,
-        header: <Header2 title="주택 정보 입력" backTo="/" />,
+        header: <HeaderBack title="주택 정보 입력" backTo="/" />,
     },
     {
         path: '/business-infor',
         component: FilledBusinessInfor,
-        header: <Header2 title="주택 정보 입력" backTo="/options" />,
+        header: <HeaderBack title="주택 정보 입력" backTo="/options" />,
+    },
+    {
+        path: '/all-infor',
+        component: NewFillAllInfor,
+        header: <HeaderClose backTo="/insurance-infor" />,
     },
     {
         path: '/terms',
         component: TermCondition,
         header: (
-            <Header2 title="전자서명 동의 안내" backTo="/insurance-amount" />
+            <HeaderBack title="전자서명 동의 안내" backTo="/insurance-amount" />
         ),
     },
     {
@@ -61,7 +68,7 @@ const routes: RouteType[] = [
     {
         path: '/payment',
         component: Payment,
-        header: <Header2 title="결제" backTo="/insurance-infor" />,
+        header: <HeaderBack title="결제" backTo="/insurance-infor" />,
     },
     {
         path: '/inprogress',
@@ -76,7 +83,7 @@ const routes: RouteType[] = [
     {
         path: '/detail/:isSuccess',
         component: InsuranceDetailsPage,
-        header: <Header2 title="보험가입내역" backTo="/complete" />,
+        header: <HeaderBack title="보험가입내역" backTo="/complete" />,
     },
     {
         path: '/EmailPage',

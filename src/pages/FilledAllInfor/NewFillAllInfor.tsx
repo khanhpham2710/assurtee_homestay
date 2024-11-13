@@ -11,13 +11,12 @@ import {
 } from '../../utils/validation/validatefields';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { InfoType } from '../../utils/models/InfoType';
+import { useNavigate } from 'react-router-dom';
+import UploadImage from '../../components/upLoadImage/UpLoadImage';
 
-function FillAllInfor({
-    setOpen,
-}: {
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+function NewFillAllInfor() {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const info: InfoType = useAppSelector((state) => state.info);
 
     const [form, setForm] = useState<InfoType>(info);
@@ -46,7 +45,7 @@ function FillAllInfor({
     const handleSubmit = async () => {
         if (allChecked) {
             await dispatch(updateInfo({ ...form, image: info.image }));
-            setOpen(false);
+            navigate('/insurance-infor');
         }
     };
 
@@ -67,7 +66,9 @@ function FillAllInfor({
                         <div className="form-cont readonly">2024.04.14</div>
                     </div>
                 </div>
-
+                <div className="form-list mb35">
+                    <UploadImage />
+                </div>
                 <Question<'1억' | '3억' | '5억'>
                     title="화재보험 가입금액을 선택해 주세요."
                     item={item}
@@ -90,4 +91,4 @@ function FillAllInfor({
     );
 }
 
-export default FillAllInfor;
+export default NewFillAllInfor;
