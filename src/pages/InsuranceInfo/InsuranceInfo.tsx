@@ -9,7 +9,7 @@ import FullPageModal from '../../components/MyModals/FullPageModal';
 import FillAllInfor from '../FilledAllInfor/FillAllInfor';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../utils/hooks/reduxHooks';
-import WarningContent from './WarningContent';
+import NewWarningContent from './NewWarningContent';
 
 function InsuranceInfo() {
     const [allFilled, setAllFilled] = useState<boolean>(false);
@@ -43,87 +43,76 @@ function InsuranceInfo() {
 
     return (
         <>
-            <div className="section">
-                <div className="title-box">
-                    <div className="title-labels">
-                        <span className="ci-img">
-                            <img
-                                src="images/ci/logo_hyundai.png"
-                                alt="현대해상"
-                            />
-                        </span>
+            <div className="container container-page" id="container">
+                <div className="section">
+                    <div className="title-box">
+                        <div className="title-labels">
+                            <span className="ci-img">
+                                <img
+                                    src="images/ci/logo_hyundai.png"
+                                    alt="현대해상"
+                                />
+                            </span>
+                        </div>
+                        <p className="title">
+                            현대해상화재보험 외국인관광도시민박보험
+                        </p>
                     </div>
-                    <p className="title">
-                        현대해상화재보험 외국인관광도시민박보험
-                    </p>
-                </div>
-                <FeeAccordion />
-                <RegistrationInfo
-                    style={{
-                        margin: '40px 24px 0',
-                    }}
-                />
-                <div
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                        marginTop: '8px',
-                        marginRight: '24px',
-                    }}
-                >
-                    <button
-                        className="small-button"
-                        onClick={() => {
-                            setOpen(true);
-                        }}
-                    >
-                        내용수정
-                    </button>
-                </div>
-                <InsuranceDetails />
-                <section
-                    className="dflex_center"
-                    style={{
-                        gap: 12,
-                        marginTop: 12,
-                    }}
-                >
-                    <Download text="상품설명서(PDF)" href="" fileName="" />
-                    <Download text="보험약관(PDF)" href="" fileName="" />
-                </section>
-                <div style={{ padding: '0 24px', marginTop: 20 }}>
+                    <FeeAccordion />
+                    <div className="form-section">
+                        <RegistrationInfo />
+                        <div className="btn-wrap al-right">
+                            <a
+                                href="#"
+                                className="btn btn--small btn--dark"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setOpen(true);
+                                }}
+                            >
+                                내용수정
+                            </a>
+                        </div>
+                    </div>
+                    <InsuranceDetails />
+                    <div className="btn-wrap btn-mid type-col">
+                        <Download text="상품설명서(PDF)" href="" fileName="" />
+                        <Download text="보험약관(PDF)" href="" fileName="" />
+                    </div>
                     <WarningAccordion
-                        title="보험가입 전 유의사항"
-                        content={WarningContent}
+                        title={
+                            <button
+                                type="button"
+                                className="btn-open"
+                                data-role="accordion-title"
+                            >
+                                보험가입 전 유의사항
+                            </button>
+                        }
+                        content={NewWarningContent}
+                    />
+
+                    <p className="text-sbox">
+                        준법감시확인필 제202325412호 2024.5.25~2025.5.25
+                    </p>
+
+                    <FullPageModal
+                        component={<FillAllInfor setOpen={setOpen} />}
+                        open={open}
+                        setOpen={setOpen}
+                        title="가입 내용 수정"
+                        style={{
+                            transform: {
+                                sm: 'translateX(-8px)',
+                            },
+                        }}
                     />
                 </div>
-                <p
-                    className="title_label"
-                    style={{
-                        lineHeight: 'normal',
-                        color: '#646464',
-                        margin: '34px auto 47px',
-                        marginBottom: 165,
-                    }}
-                >
-                    준법감시확인필 제202325412호 2024.5.25~2025.5.25
-                </p>
-                <ConfirmCheckbox
-                    handleSubmit={handleSubmit}
-                    allFilled={allFilled}
-                />
-                <FullPageModal
-                    component={<FillAllInfor setOpen={setOpen} />}
-                    open={open}
-                    setOpen={setOpen}
-                    title="가입 내용 수정"
-                    style={{
-                        transform: {
-                            sm: 'translateX(-8px)',
-                        },
-                    }}
-                />
             </div>
+            <ConfirmCheckbox
+                handleSubmit={handleSubmit}
+                allFilled={allFilled}
+            />
         </>
     );
 }

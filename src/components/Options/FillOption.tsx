@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { CustomInput, InputSection } from '../Input/CustomInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { useDispatch } from 'react-redux';
 import { updateInfo } from '../../utils/redux/infoSlice';
@@ -25,52 +24,55 @@ export default function ScanText() {
             );
 
             const screenWidth = window.innerWidth;
-            if (screenWidth <= 620) {
-                navigate('/business-infor');
-            } else {
-                navigate('/personal-infor');
-            }
+            navigate(
+                screenWidth <= 620 ? '/business-infor' : '/personal-infor'
+            );
         }
     }
 
     return (
-        <div
-            className="dflex_center flexColumn_item fullWidth_item"
-            style={{ marginTop: '30px' }}
-        >
-            <p
-                className="titleH-24"
-                style={{
-                    marginBottom: '17px',
-                    lineHeight: '28px',
-                    textAlign: 'center',
-                }}
-            >
-                사업자 등록번호 10자리를 <br /> 입력해 주세요.
-            </p>
-
-            <InputSection>
-                <CustomInput
-                    id="contractor"
-                    type="text"
-                    autoComplete="off"
-                    style={{ textAlign: 'center', width: '312px' }}
-                    onChange={(e) => {
-                        setText(handleBusinessNumber(e, text));
-                    }}
-                    maxLength={12}
-                    value={text}
-                />
-            </InputSection>
-            <div className="option-button">
-                <button
-                    className={`button1 ${isValid ? 'active' : ''}`}
-                    onClick={handleSubmit}
-                    disabled={!isValid}
-                >
-                    확인
-                </button>
+        <>
+            <div className="container container-page" id="container">
+                <section className="section">
+                    <p className="title size-large">
+                        사업자 등록번호 10자리를 <br />
+                        입력해 주세요.
+                    </p>
+                    <div className="form-wrap mt30 mb0">
+                        <div className="form-list">
+                            <div className="form-cont is-input">
+                                <div className="form-item">
+                                    <input
+                                        type="text"
+                                        className="txt-input al-center"
+                                        id="inp01_01"
+                                        onChange={(e) => {
+                                            setText(
+                                                handleBusinessNumber(e, text)
+                                            );
+                                        }}
+                                        maxLength={12}
+                                        value={text}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
+
+            <div className="btm-btns">
+                <div className="btn-wrap">
+                    <button
+                        type="button"
+                        className="btn"
+                        onClick={handleSubmit}
+                        disabled={!isValid}
+                    >
+                        확인
+                    </button>
+                </div>
+            </div>
+        </>
     );
 }

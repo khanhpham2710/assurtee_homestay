@@ -14,9 +14,9 @@ type PropsType = {
     style?: CSSProperties;
 };
 
-function InsuranceAmount({ form, handleChange, style }: PropsType) {
+function InsuranceAmount({ form, handleChange }: PropsType) {
     return (
-        <form style={{ ...style, width: '100%' }}>
+        <>
             <SliderInput<InsuranceAmountType>
                 variable="construction"
                 value={form.construction}
@@ -45,7 +45,7 @@ function InsuranceAmount({ form, handleChange, style }: PropsType) {
                 step={1}
             />
 
-            <p
+            {/* <p
                 className="titleH-22"
                 style={{ textAlign: 'left', margin: '7px 0 8px' }}
             >
@@ -86,8 +86,8 @@ function InsuranceAmount({ form, handleChange, style }: PropsType) {
                         m²
                     </p>
                 </div>
-            </InputSection>
-        </form>
+            </InputSection> */}
+        </>
     );
 }
 

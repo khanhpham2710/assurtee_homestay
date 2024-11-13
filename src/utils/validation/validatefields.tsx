@@ -5,14 +5,8 @@ import {
 } from '../models/InfoType';
 
 export const validatePersonalField = (form: PersonalType): boolean => {
-    const {
-        contractor,
-        dob,
-        registrationNumber,
-        phoneNumber,
-        email,
-        delivery,
-    } = form;
+    const { contractor, dob, registrationNumber, phoneNumber, mail, email } =
+        form;
 
     if (
         !contractor ||
@@ -20,9 +14,10 @@ export const validatePersonalField = (form: PersonalType): boolean => {
         !registrationNumber ||
         !phoneNumber ||
         !email ||
-        !delivery
-    )
+        !mail
+    ) {
         return false;
+    }
 
     if (
         dob.length !== 6 ||
@@ -36,7 +31,7 @@ export const validatePersonalField = (form: PersonalType): boolean => {
 
     if (
         !/^(([^<>()[\]\\.,;:\s@\\"]+(\.[^<>()[\]\\.,;:\s@\\"]+)*)|(\\".+\\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-            email
+            mail
         )
     ) {
         return false;
@@ -49,9 +44,9 @@ export const validatePersonalField = (form: PersonalType): boolean => {
 };
 
 export const validateBusinessField = (form: BusinessType): boolean => {
-    const { businessNumber, businessName, address, extra, hanok } = form;
+    const { businessNumber, businessName, address, extra, building } = form;
 
-    if (!businessNumber || !businessName || !address || !extra || !hanok) {
+    if (!businessNumber || !businessName || !address || !extra || !building) {
         return false;
     }
 

@@ -5,20 +5,25 @@ export interface PersonalType {
     dob: string;
     registrationNumber: string;
     phoneNumber: string;
-    email: string;
-    delivery: '직접입력' | '이메일 선택1' | '이메일 선택2' | '이메일 선택3';
+    mail: string;
+    email:
+        | '이메일 선택1'
+        | '이메일 선택2'
+        | '이메일 선택3'
+        | '이메일 선택4'
+        | null;
 }
 
 export interface BusinessType {
-    division: '개인' | '법인' | '';
+    company: '개인' | '법인' | '';
     businessNumber: string;
     businessName: string;
     sameAddress: boolean;
     address: string;
     extra: string;
     image: File | null;
-    hanok: '예' | '아니요' | '';
-    sprinkler: '설치되어 있습니다.' | '설치되어 있지 않습니다.';
+    building: '예' | '아니요' | '';
+    equip: '설치되어 있습니다.' | '설치되어 있지 않습니다.';
 }
 
 export interface InsuranceAmountType {

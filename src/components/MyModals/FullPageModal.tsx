@@ -1,11 +1,10 @@
 import * as React from 'react';
 import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
-import { SxProps, Theme } from '@mui/material';
+import { IconButton, SxProps, Theme } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -51,9 +50,13 @@ export default function FullPageModal({
             sx={{
                 ...style,
                 width: '100%',
-                maxWidth: '620px',
+                maxWidth: 'var(--webContainerWidth)',
                 margin: '0 auto',
                 boxShadow: 'none',
+                transform: {
+                    sx: 'translateX(0)',
+                    md: 'translateX(-8px)',
+                },
             }}
             slotProps={{
                 backdrop: {
@@ -69,37 +72,39 @@ export default function FullPageModal({
             }}
         >
             <AppBar
-                className="dflex_center"
                 sx={{
                     position: 'relative',
                     boxShadow: 'none',
-                    backgroundColor: appBarColor,
-                    height: 'var(--header-height)',
-                    padding: '0px !important',
                 }}
             >
-                <p
-                    id="modal-title"
-                    className="titleH-20"
-                    style={{
-                        color: appBarColor === '#fff' ? '#000' : '#fff',
-                    }}
-                >
-                    {title}
-                </p>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    onClick={handleClose}
-                    aria-label="close"
-                    sx={{
-                        color: appBarColor === '#fff' ? '#000' : '#fff',
-                        position: 'absolute',
-                        right: '24px',
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
+                <header id="header" className="header">
+                    <div
+                        className="header-inner"
+                        style={{ backgroundColor: appBarColor }}
+                    >
+                        <h1
+                            className="header-title"
+                            style={{
+                                color: appBarColor === '#fff' ? '#000' : '#fff',
+                            }}
+                        >
+                            {title}
+                        </h1>
+                        <IconButton
+                            edge="start"
+                            color="inherit"
+                            onClick={handleClose}
+                            aria-label="close"
+                            sx={{
+                                color: appBarColor === '#fff' ? '#000' : '#fff',
+                                position: 'absolute',
+                                right: '24px',
+                            }}
+                        >
+                            <CloseIcon />
+                        </IconButton>
+                    </div>
+                </header>
             </AppBar>
             {component}
         </Dialog>
