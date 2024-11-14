@@ -18,7 +18,7 @@ export default function HomePage() {
             top: 0,
             behavior: 'smooth',
         });
-        console.log('update');
+        console.log(window.scrollY);
     };
 
     const handleClick = () => {
@@ -26,7 +26,7 @@ export default function HomePage() {
     };
 
     return (
-        <section className="wrap wrap-main">
+        <section className="wrap-main">
             <div
                 // className="fullWidth_item fullHeightView_item"
                 // style={{ position: 'relative' }}
