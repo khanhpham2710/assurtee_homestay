@@ -34,10 +34,7 @@ const details: InsuranceDetail[] = [
 
 export default function FeeLandingPage() {
     return (
-        <section
-            className="sample-list"
-            style={{ marginBottom: '16px', width: '100%' }}
-        >
+        <div className="sample-list">
             {details &&
                 details?.map((detail, index) => {
                     return (
@@ -77,6 +74,6 @@ export default function FeeLandingPage() {
                         </div>
                     );
                 })}
-        </section>
+        </div>
     );
 }

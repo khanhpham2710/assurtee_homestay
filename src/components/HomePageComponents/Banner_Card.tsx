@@ -1,5 +1,4 @@
 import React from 'react';
-import Box from '@mui/material/Box';
 import images from '../../assets/images';
 
 export default function Banner_Card() {
@@ -34,25 +33,20 @@ export default function Banner_Card() {
     ];
 
     return (
-        <section className="dflex_center fullWidth_item flexColumn_item ">
-            <div className="title_card">
-                <p className="title_main_component">
-                    전용보험 <br /> 프로그램 특징
-                </p>
-                <p className="title_main_des">
+        <div className="main-section program">
+            <div className="main-section-inner">
+                <h2 className="main-section-title">
+                    전용보험
+                    <br />
+                    프로그램 특징
+                </h2>
+                <p className="main-section-description">
                     운영자와 손님 모두를 위한
                     <br />
-                    외국인관광 도시민박업주 전용 보험 프로그램 특징
+                    외국인관광 도시민박업주 전용 보험 <br className="pc-hide" />
+                    프로그램 특징
                 </p>
-            </div>
 
-            <Box
-                className="card_component"
-                sx={{
-                    flexGrow: 1,
-                    width: '100%',
-                }}
-            >
                 <ul className="program-list">
                     {cardBanner &&
                         cardBanner.map((card, index) => (
@@ -66,7 +60,7 @@ export default function Banner_Card() {
                             </li>
                         ))}
                 </ul>
-            </Box>
-        </section>
+            </div>
+        </div>
     );
 }
