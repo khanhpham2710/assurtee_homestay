@@ -1,5 +1,3 @@
-import images from '../../assets/images';
-import { Box } from '@mui/material';
 import { useNavigate, Link } from 'react-router-dom';
 
 function HeaderMain() {
@@ -10,46 +8,30 @@ function HeaderMain() {
     }
 
     return (
-        <div
+        <header
+            id="header"
+            className="header"
             style={{
                 background:
                     'linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 100%)',
-                position: 'fixed',
-                width: '100%',
-                zIndex: '1',
-                height: '68px',
             }}
         >
-            <Box
-                className="header1"
-                sx={{
-                    backgroundColor: 'transparent',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    position: 'fixed',
-                    top: '0',
-                    zIndex: '1',
-                    maxWidth: '100%',
-                }}
-            >
-                <img
-                    className="mainLogo"
-                    src={images.AssurLogo}
-                    onClick={handleClick}
-                />
+            <div className="header-inner">
+                <h1 className="logo" onClick={handleClick}>
+                    <span className="hidden">assuretee</span>
+                </h1>
 
                 <Link
                     to="/personal-infor"
                     className="dflex_center mainLogo_2 header_item_right"
                     style={{ textDecoration: 'none', gap: '5px' }}
                 >
-                    <p className="titleH-14" style={{ color: 'black' }}>
-                        가입확인
+                    <p className="header-button">
+                        가입확인<i className="ico ico-arrow"></i>
                     </p>
-                    <img src={images.ArrowIconRight} alt="" />
                 </Link>
-            </Box>
-        </div>
+            </div>
+        </header>
     );
 }
 
