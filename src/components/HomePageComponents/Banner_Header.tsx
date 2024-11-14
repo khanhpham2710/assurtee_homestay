@@ -44,34 +44,27 @@ export default function Banner_Header({ video_ref }: BannerHeaderProps) {
     ];
 
     return (
-        <section className="banner_header">
+        <section className="main-section main-section-slide">
             <Slider {...settings}>
                 {carouselImages.map((image, index) => (
                     <div key={index}>
                         <div className="banner_image" style={image}>
                             <div className="overlayer"></div>
-
-                            <div className="banner_text">
-                                <div>
-                                    <p className="title_1">(외도민업)</p>
-
-                                    <p className="title_2">
-                                        외국인관광도시민박 <br />
-                                        전용보험
-                                    </p>
-                                </div>
-                            </div>
-
-                            <img
-                                src={images.ScrollDown}
+                            <h1 className="main-section-title">
+                                <span className="main-section-title--small">
+                                    (외도민업)
+                                </span>
+                                외국인관광도시민박
+                                <br />
+                                전용보험
+                            </h1>
+                            <button
+                                type="button"
+                                className="btn-scroll-down"
                                 onClick={handleScrollDown}
-                                alt=""
-                                style={{
-                                    width: '44px',
-                                    height: '22px',
-                                    cursor: 'pointer',
-                                }}
-                            />
+                            >
+                                <span className="hidden">아래로</span>
+                            </button>
                         </div>
                     </div>
                 ))}

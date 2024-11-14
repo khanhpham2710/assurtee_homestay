@@ -126,16 +126,10 @@
 }
 
 .bottom_carousel {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden;
-    margin: 0 auto 100px;
-    border-radius: 10px !important;
     img {
         border-radius: 10px;
         max-width: 588px;
-        height: 350px;
+        height: 312px;
     }
 
     .slick-dots {

@@ -10,7 +10,7 @@ export default function Landing_Footer({ onTop }: Props) {
 
     return (
         <>
-            <section className="section-notice">
+            {/* <section className="section-notice">
                 <div className="section-inner">
                     <p className="notice-title">필수안내사항</p>
                     <ul className="notice-text">
@@ -40,7 +40,7 @@ export default function Landing_Footer({ onTop }: Props) {
                         어슈어티 준법 심의필 제98호 (2023.01.02~2024.01.01)
                     </p>
                 </div>
-            </section>
+            </section> */}
 
             <section className="footer">
                 <div className="sec_block sec_block--1st">

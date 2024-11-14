@@ -23,14 +23,23 @@ export default function Carousel_Bottom() {
     ];
 
     return (
-        <section className="bottom_carousel">
-            <Slider {...settings_bottom}>
-                {carouselImageBottom.map((image, index) => (
-                    <div key={index} className="banner_slider">
-                        <img src={image} alt="" />
-                    </div>
-                ))}
-            </Slider>
-        </section>
+        <div
+            className="main-section-bottom"
+            style={{
+                maxWidth: '588px',
+                overflow: 'hidden',
+                margin: '0 auto',
+            }}
+        >
+            <section className="bottom_carousel">
+                <Slider {...settings_bottom}>
+                    {carouselImageBottom.map((image, index) => (
+                        <div key={index} className="banner_slider">
+                            <img src={image} alt="" />
+                        </div>
+                    ))}
+                </Slider>
+            </section>
+        </div>
     );
 }
