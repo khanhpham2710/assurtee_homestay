@@ -15,7 +15,7 @@ function FeeAccordion() {
                         >
                             총 보험료
                             <strong className="aside">
-                                <span className="tot-text">19,300원</span>
+                                <span className="tot-text">21,070원</span>
                             </strong>
                         </a>
                         <div
@@ -25,13 +25,13 @@ function FeeAccordion() {
                             <ul className="block-list">
                                 <li className="flex-wrap type-path">
                                     <span className="tit ">화재보장 부문</span>
-                                    <span className="cont">9,300원</span>
+                                    <span className="cont">19,680원</span>
                                 </li>
                                 <li className="flex-wrap type-path">
                                     <span className="tit">
                                         영업배상 보장 부문
                                     </span>
-                                    <span className="cont">10,000원</span>
+                                    <span className="cont">9,680원</span>
                                 </li>
                             </ul>
                         </div>

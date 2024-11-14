@@ -64,6 +64,7 @@ function SliderInput<T>({
                     min={min}
                     max={max}
                     value={value}
+                    className="range-bar"
                     onChange={handleSlider}
                     sx={{
                         color: '#ea3062',
@@ -95,7 +96,14 @@ function SliderInput<T>({
                     }}
                 />
             </div>
-            <p className="desc">최대 5천만원까지 선택할 수 있어요.</p>
+            <p
+                className="desc"
+                style={{
+                    marginTop: 20,
+                }}
+            >
+                최대 5천만원까지 선택할 수 있어요.
+            </p>
         </div>
     );
 }

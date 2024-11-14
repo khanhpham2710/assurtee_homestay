@@ -68,9 +68,11 @@ function InsuranceDetailsPage() {
                                     <a
                                         href="#"
                                         className="btn--underline btn--blue"
-                                        onClick={() =>
-                                            navigate('/detail/failed')
-                                        }
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            navigate('/detail/failed');
+                                            setOpen(false);
+                                        }}
                                     >
                                         취소하기
                                     </a>
@@ -84,7 +86,9 @@ function InsuranceDetailsPage() {
                         <a
                             href="#"
                             className="btn btn--round btn--yellow w-sm"
-                            onClick={() => {}}
+                            onClick={(e) => {
+                                e.preventDefault();
+                            }}
                         >
                             1:1 카톡상담<i className="ico ico-arrow"></i>
                         </a>
