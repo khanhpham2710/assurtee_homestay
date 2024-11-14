@@ -1,9 +1,9 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
 import UpLoadModal from '../UpLoadModal/UpLoadModal';
 
-export default function UploadImage({ style }: { style?: CSSProperties }) {
+export default function UploadImage() {
     const info = useAppSelector((state) => state.info);
     const dispatch = useAppDispatch();
     const [image, setImage] = useState<File | null>(info.image || null);

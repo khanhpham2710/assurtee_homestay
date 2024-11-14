@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { validateBusinessField } from '../../utils/validation/validatefields';
 import { useAppSelector, useAppDispatch } from '../../utils/hooks/reduxHooks';
 import { BusinessType } from '../../utils/models/InfoType';
-import UploadImage from '../../components/UpLoadImage/UpLoadImage';
+import UploadImage from '../../components/upLoadImage/UpLoadImage';
 
 const FilledBusinessInfo: React.FC = () => {
     const info = useAppSelector((state) => state.info);
