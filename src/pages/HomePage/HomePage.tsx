@@ -26,68 +26,74 @@ export default function HomePage() {
     };
 
     return (
-        <div>
-            <HeaderMain />
-
-            <section>
-                <Banner_Header video_ref={video_ref} />
-            </section>
-
+        <section className="wrap-main">
             <div
-                className="fullWidth_item dflex_center dflex-column"
-                style={{
-                    maxWidth: '684px',
-                    margin: '0 auto',
-                    overflow: 'hidden',
-                    padding: '0 24px',
-                }}
+                // className="fullWidth_item fullHeightView_item"
+                // style={{ position: 'relative' }}
+                className="wrap-inner"
             >
-                {/* banner video */}
-                <section
-                    ref={video_ref}
-                    style={{
-                        margin: '0 auto',
-                        width: '100%',
-                    }}
-                >
-                    <Banner_Video />
+                <HeaderMain />
+
+                <section>
+                    <Banner_Header video_ref={video_ref} />
                 </section>
 
-                <Banner_Card />
+                <div
+                    className="fullWidth_item dflex_center dflex-column"
+                    style={{
+                        maxWidth: '684px',
+                        margin: '0 auto',
+                        overflow: 'hidden',
+                        padding: '0 24px',
+                    }}
+                >
+                    {/* banner video */}
+                    <section
+                        ref={video_ref}
+                        style={{
+                            margin: '0 auto',
+                            width: '100%',
+                        }}
+                    >
+                        <Banner_Video />
+                    </section>
 
-                {/* Landing Fee */}
+                    <Banner_Card />
 
-                <Landing_Fee />
+                    {/* Landing Fee */}
 
-                {/* Bottom Carousel */}
+                    <Landing_Fee />
 
-                <Carousel_Bottom />
-            </div>
+                    {/* Bottom Carousel */}
 
-            {/* footer section */}
-            <section>
-                <Landing_Footer onTop={onTop} />
-            </section>
-            {/* Button Fixed */}
+                    <Carousel_Bottom />
+                </div>
 
-            <section className="button_container">
+                {/* footer section */}
+                <section>
+                    <Landing_Footer onTop={onTop} />
+                </section>
+                {/* Button Fixed */}
+
+                <section className="button_container">
+                    <button
+                        className="button_main titleH-18"
+                        onClick={handleClick}
+                        // onClick={onTop}
+                    >
+                        보험료 계산하기
+                    </button>
+                </section>
+                {/* <section className="button_container_2"> */}
                 <button
-                    className="button_main titleH-18"
+                    className="button_main_2 titleH-18"
                     onClick={handleClick}
                     // onClick={onTop}
                 >
-                    보험료 계산하기
+                    보험 비교 견적
+                    <img src={images.PNextButton} alt="" />
                 </button>
-            </section>
-            {/* <section className="button_container_2"> */}
-            <button
-                className="button_main_2 titleH-18"
-                onClick={handleClick}
-                // onClick={onTop}
-            >
-                보험 비교 견적
-                <img src={images.PNextButton} alt="" />
-            </button>
-        </div>
+            </div>
+        </section>
     );
 }
