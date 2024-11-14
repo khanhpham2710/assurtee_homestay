@@ -23,18 +23,14 @@ export default function Carousel_Bottom() {
     ];
 
     return (
-        <div className="main-section main-section-bottom">
-            <div className="slide swiper" data-slide="wrap">
-                <div className="swiper-wrapper">
-                    <Slider {...settings_bottom}>
-                        {carouselImageBottom.map((image, index) => (
-                            <div key={index} className="banner_slider">
-                                <img src={image} alt="" />
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
-            </div>
-        </div>
+        <section className="bottom_carousel">
+            <Slider {...settings_bottom}>
+                {carouselImageBottom.map((image, index) => (
+                    <div key={index} className="banner_slider">
+                        <img src={image} alt="" />
+                    </div>
+                ))}
+            </Slider>
+        </section>
     );
 }

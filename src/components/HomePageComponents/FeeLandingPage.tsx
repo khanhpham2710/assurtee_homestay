@@ -14,7 +14,7 @@ type InsuranceDetail = {
 const details: InsuranceDetail[] = [
     {
         title: '화재보험',
-        main: { label: '보험료', value: '9,300 원' },
+        main: { label: '보험료', value: '9,300원' },
         items: [
             { label: '가입금액', value: '1억원' },
             { label: '건물', value: '3,000만원' },
@@ -24,7 +24,7 @@ const details: InsuranceDetail[] = [
     },
     {
         title: '영업배상책임보험',
-        main: { label: '보험료', value: '10,000 원' },
+        main: { label: '보험료', value: '10,000원' },
         items: [
             { label: '형태', value: '단독' },
             { label: '공급면적', value: '79m²' },
@@ -34,7 +34,10 @@ const details: InsuranceDetail[] = [
 
 export default function FeeLandingPage() {
     return (
-        <div className="sample-list">
+        <section
+            className="sample-list"
+            style={{ marginBottom: '16px', width: '100%' }}
+        >
             {details &&
                 details?.map((detail, index) => {
                     return (
@@ -74,6 +77,6 @@ export default function FeeLandingPage() {
                         </div>
                     );
                 })}
-        </div>
+        </section>
     );
 }
