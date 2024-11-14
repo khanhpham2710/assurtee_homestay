@@ -18,7 +18,7 @@ export default function HomePage() {
             top: 0,
             behavior: 'smooth',
         });
-        console.log('update');
+        console.log(window.scrollY);
     };
 
     const handleClick = () => {
@@ -26,74 +26,68 @@ export default function HomePage() {
     };
 
     return (
-        <section className="wrap wrap-main">
+        <div>
+            <HeaderMain />
+
+            <section>
+                <Banner_Header video_ref={video_ref} />
+            </section>
+
             <div
-                // className="fullWidth_item fullHeightView_item"
-                // style={{ position: 'relative' }}
-                className="wrap-inner"
+                className="fullWidth_item dflex_center dflex-column"
+                style={{
+                    maxWidth: '684px',
+                    margin: '0 auto',
+                    overflow: 'hidden',
+                    padding: '0 24px',
+                }}
             >
-                <HeaderMain />
-
-                <section>
-                    <Banner_Header video_ref={video_ref} />
-                </section>
-
-                <div
-                    className="fullWidth_item dflex_center dflex-column"
+                {/* banner video */}
+                <section
+                    ref={video_ref}
                     style={{
-                        maxWidth: '684px',
                         margin: '0 auto',
-                        overflow: 'hidden',
-                        padding: '0 24px',
+                        width: '100%',
                     }}
                 >
-                    {/* banner video */}
-                    <section
-                        ref={video_ref}
-                        style={{
-                            margin: '0 auto',
-                            width: '100%',
-                        }}
-                    >
-                        <Banner_Video />
-                    </section>
-
-                    <Banner_Card />
-
-                    {/* Landing Fee */}
-
-                    <Landing_Fee />
-
-                    {/* Bottom Carousel */}
-
-                    <Carousel_Bottom />
-                </div>
-
-                {/* footer section */}
-                <section>
-                    <Landing_Footer onTop={onTop} />
+                    <Banner_Video />
                 </section>
-                {/* Button Fixed */}
 
-                <section className="button_container">
-                    <button
-                        className="button_main titleH-18"
-                        onClick={handleClick}
-                        // onClick={onTop}
-                    >
-                        보험료 계산하기
-                    </button>
-                </section>
-                {/* <section className="button_container_2"> */}
+                <Banner_Card />
+
+                {/* Landing Fee */}
+
+                <Landing_Fee />
+
+                {/* Bottom Carousel */}
+
+                <Carousel_Bottom />
+            </div>
+
+            {/* footer section */}
+            <section>
+                <Landing_Footer onTop={onTop} />
+            </section>
+            {/* Button Fixed */}
+
+            <section className="button_container">
                 <button
-                    className="button_main_2 titleH-18"
+                    className="button_main titleH-18"
                     onClick={handleClick}
                     // onClick={onTop}
                 >
-                    보험 비교 견적
-                    <img src={images.PNextButton} alt="" />
+                    보험료 계산하기
                 </button>
-            </div>
-        </section>
+            </section>
+            {/* <section className="button_container_2"> */}
+            <button
+                className="button_main_2 titleH-18"
+                onClick={handleClick}
+                // onClick={onTop}
+            >
+                보험 비교 견적
+                <img src={images.PNextButton} alt="" />
+            </button>
+        </div>
     );
 }
