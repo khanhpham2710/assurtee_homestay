@@ -37,15 +37,15 @@ export default function Video_component({ title, video_id }: Props) {
 
     return (
         <div className="video_component">
-            <strong
+            <p
                 ref={titleRef}
                 style={{
-                    marginBottom: '18px',
+                    marginBottom: '13px',
                 }}
                 className="video-title"
             >
                 {title}
-            </strong>
+            </p>
 
             {/* Video Thumbnail */}
             <div className="thumbnail_container" onClick={handlePlayClick}>

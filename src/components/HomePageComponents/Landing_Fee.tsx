@@ -2,18 +2,19 @@ import React from 'react';
 import FeeLandingPage from '../../components/HomePageComponents/FeeLandingPage';
 export default function Landing_Fee() {
     return (
-        <div className="main-section sample">
-            <div className="main-section-inner">
-                <h2 className="main-section-title">
-                    전용보험
-                    <br />
-                    보험료 산출 예시
-                </h2>
-                <p className="main-section-description">
+        <section className="dflex_center fullWidth_item flexColumn_item ">
+            <div
+                className="title_card"
+                style={{ marginTop: '90px', marginBottom: '40px' }}
+            >
+                <p className="title_main_component">
+                    전용보험 <br /> 보험료 산출 예시
+                </p>
+                <p className="title_main_des">
                     최적의 보험료를 분석 추천합니다.
                 </p>
-                <FeeLandingPage />
             </div>
-        </div>
+            <FeeLandingPage />
+        </section>
     );
 }
