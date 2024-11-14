@@ -3,7 +3,7 @@ import Dialog from '@mui/material/Dialog';
 import AppBar from '@mui/material/AppBar';
 import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
-import { IconButton, SxProps, Theme } from '@mui/material';
+import { SxProps, Theme } from '@mui/material';
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -74,6 +74,7 @@ export default function FullPageModal({
                 sx={{
                     position: 'relative',
                     boxShadow: 'none',
+                    backgroundColor: appBarColor,
                 }}
             >
                 <header id="header" className="header">
@@ -89,10 +90,10 @@ export default function FullPageModal({
                         >
                             {title}
                         </h1>
-                        <IconButton
+                        <div
                             onClick={handleClose}
                             aria-label="close"
-                            sx={{
+                            style={{
                                 position: 'absolute',
                                 right: '10px',
                             }}
@@ -107,7 +108,7 @@ export default function FullPageModal({
                                 className="header-button-close"
                                 aria-label="닫기"
                             ></button>
-                        </IconButton>
+                        </div>
                     </div>
                 </header>
             </AppBar>

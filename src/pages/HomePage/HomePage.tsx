@@ -40,10 +40,9 @@ export default function HomePage() {
                 <div
                     className="fullWidth_item dflex_center dflex-column"
                     style={{
-                        maxWidth: '684px',
+                        maxWidth: '620px',
                         margin: '0 auto',
                         overflow: 'hidden',
-                        padding: '0 24px',
                     }}
                 >
                     {/* banner video */}
@@ -58,21 +57,10 @@ export default function HomePage() {
                     </section>
 
                     <Banner_Card />
-
-                    {/* Landing Fee */}
-
                     <Landing_Fee />
-
-                    {/* Bottom Carousel */}
-
                     <Carousel_Bottom />
                 </div>
-
-                {/* footer section */}
-                <section>
-                    <Landing_Footer onTop={onTop} />
-                </section>
-                {/* Button Fixed */}
+                <Landing_Footer onTop={onTop} />
                 <div className="btn-wrap btn-floating">
                     <a
                         href="#"

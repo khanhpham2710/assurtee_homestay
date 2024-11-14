@@ -62,15 +62,12 @@ const FilledBusinessInfo: React.FC = () => {
 
                 <section className="section">
                     <h2 className="sect-title">건물/주택 정보</h2>
-                    <BusinessInputs
-                        form={form}
-                        handleChange={handleChange}
-                        style={{
-                            marginBottom: '20px',
-                        }}
-                    />
-                </section>
-                <section className="section">
+                    <div className="form-wrap mb20">
+                        <BusinessInputs
+                            form={form}
+                            handleChange={handleChange}
+                        />
+                    </div>
                     <UploadImage />
                 </section>
             </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import Question from '../../components/Questions/Question';
 import ScanImage_Main from '../../components/Options/scanImage_Main';
 import FillOption from '../../components/Options/FillOption';
@@ -28,17 +28,19 @@ const ScanOption: React.FC = () => {
         );
     }, [item]);
 
-    const openModal = useCallback(
-        (component: React.ReactNode, title: string) => {
-            setModal({
-                title,
-                appBarColor: '#fff',
-                component,
-            });
-            setOpen(true);
-        },
-        []
-    );
+    function openModal(component: React.ReactNode, title: string) {
+        setModal({
+            title,
+            appBarColor: '#fff',
+            component,
+        });
+        setOpen(true);
+        dispatch(
+            updateInfo({
+                businessNumber: '',
+            })
+        );
+    }
 
     const items = ['예', '아니오'];
 

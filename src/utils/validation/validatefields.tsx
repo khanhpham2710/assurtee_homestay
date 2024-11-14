@@ -44,9 +44,9 @@ export const validatePersonalField = (form: PersonalType): boolean => {
 };
 
 export const validateBusinessField = (form: BusinessType): boolean => {
-    const { businessNumber, businessName, address, extra, building } = form;
+    const { businessNumber, businessName, address, building } = form;
 
-    if (!businessNumber || !businessName || !address || !extra || !building) {
+    if (!businessNumber || !businessName || !address || !building) {
         return false;
     }
 

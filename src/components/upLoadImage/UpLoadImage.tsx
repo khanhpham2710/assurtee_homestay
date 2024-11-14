@@ -14,8 +14,19 @@ export default function UploadImage() {
     }, [image]);
 
     return (
-        <div style={{ marginTop: '0px' }}>
-            {image === null ? (
+        <>
+            {image && image?.size > 0 ? (
+                <div className="equip-photo">
+                    <img
+                        src={URL.createObjectURL(image)}
+                        alt="Uploaded"
+                        style={{
+                            maxWidth: '100%',
+                            display: 'block',
+                        }}
+                    />
+                </div>
+            ) : (
                 <div className="equip-photo">
                     <button
                         type="button"
@@ -27,26 +38,6 @@ export default function UploadImage() {
                         설치되어 있는 <br />
                         스프링쿨러 사진을 추가해 주세요.
                     </button>
-                </div>
-            ) : (
-                <div
-                    className="equip-photo-btn"
-                    style={{
-                        width: '100%',
-                        aspectRatio: '20 / 9',
-                        overflow: 'hidden',
-                        borderRadius: '8px',
-                        border: 'solid 1px #e0e0e0',
-                    }}
-                >
-                    <img
-                        src={URL.createObjectURL(image)}
-                        alt="Uploaded"
-                        style={{
-                            maxWidth: '100%',
-                            display: 'block',
-                        }}
-                    />
                 </div>
             )}
 
@@ -134,6 +125,6 @@ export default function UploadImage() {
                 </button>
             </div>
             <UpLoadModal open={open} setOpen={setOpen} setImage={setImage} />
-        </div>
+        </>
     );
 }

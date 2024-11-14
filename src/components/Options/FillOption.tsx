@@ -22,11 +22,12 @@ export default function ScanText() {
                     businessNumber: text,
                 })
             );
+            navigate('/business-infor');
 
-            const screenWidth = window.innerWidth;
-            navigate(
-                screenWidth <= 620 ? '/business-infor' : '/personal-infor'
-            );
+            // const screenWidth = window.innerWidth;
+            // navigate(
+            //     screenWidth <= 620 ? '/business-infor' : '/personal-infor'
+            // );
         }
     }
 
