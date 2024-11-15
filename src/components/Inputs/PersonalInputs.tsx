@@ -69,7 +69,7 @@ function PersonalInputs({ form, handleChange }: InputsProps) {
                             onFocus={() => setFocusedField('registration')}
                             onBlur={() => setFocusedField(null)}
                             onChange={handleRegistrationInput}
-                            value={'•'.repeat(form.registrationNumber.length)}
+                            value={'●'.repeat(form.registrationNumber.length)}
                         />
                     </div>
                 </div>

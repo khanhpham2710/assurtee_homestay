@@ -97,6 +97,7 @@ export default function ScanImage_Process() {
             <section
                 style={{
                     overflow: 'hidden',
+                    // width: 'calc(100% + 3px)',
                 }}
             >
                 <div className="webcam-component">
