@@ -23,6 +23,7 @@ function OptionInput<T>({
 
     const handleClick = (itemValue: string) => {
         handleChange(variable, itemValue);
+        setGlobal(false);
     };
 
     const handleOpen = () => {
