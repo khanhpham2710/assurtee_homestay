@@ -49,7 +49,7 @@ export default function FullPageModal({
             sx={{
                 ...style,
                 width: '100%',
-                maxWidth: 'calc(var(--webContainerWidth) + 3px)',
+                maxWidth: 'calc(var(--webContainerWidth) + 10git add .px)',
                 margin: '0 auto',
                 boxShadow: 'none',
                 transform: {
@@ -80,7 +80,7 @@ export default function FullPageModal({
                 <header id="header" className="header">
                     <div
                         className="header-inner"
-                        style={{ backgroundColor: appBarColor }}
+                        style={{ backgroundColor: appBarColor, width: '100%' }}
                     >
                         <h1
                             className="header-title"
