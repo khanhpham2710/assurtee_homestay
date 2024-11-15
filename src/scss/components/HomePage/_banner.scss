@@ -129,13 +129,13 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    overflow-x: hidden;
-    margin: 0 auto 100px;
-    border-radius: 10px !important;
+    align-items: center;
+    border-radius: 8px;
+    max-width: var(--webContainerWidth);
+
     img {
-        border-radius: 10px;
-        max-width: 588px;
-        height: 350px;
+        border-radius: 8px;
+        max-width: calc(100vw - 48px);
     }
 
     .slick-dots {
