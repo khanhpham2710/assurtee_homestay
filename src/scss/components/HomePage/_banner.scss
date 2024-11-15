@@ -128,11 +128,15 @@
 .bottom_carousel {
     // max-width: var(--webContainerWidth);
     width: 100%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    max-width: var(--webContainerWidth);
+
     img {
-        border-radius: 10px;
-        max-width: 588px;
-        height: 350px;
+        border-radius: 8px;
+        max-width: calc(100vw - 48px);
     }
 
     .slick-dots {
