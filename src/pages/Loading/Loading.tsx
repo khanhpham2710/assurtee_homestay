@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import images from '../../assets/images';
 import { useNavigate } from 'react-router-dom';
 
 function LoadingPage() {
@@ -19,7 +18,7 @@ function LoadingPage() {
 
     return (
         <div className="loading" style={{ display: 'flex' }}>
-            <img src={images.Loading} alt="" className="loading-img" />
+            <img src="images/ico_loading.gif" alt="" className="loading-img" />
             <p className="loading-text">결제가 진행 중입니다.</p>
         </div>
     );

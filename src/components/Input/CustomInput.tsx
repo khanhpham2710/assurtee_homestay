@@ -11,7 +11,7 @@ type InputProps<T> = {
     number?: boolean;
 };
 
-function NewCustomInput<T>({
+function CustomInput<T>({
     value,
     variable,
     placeholder,
@@ -54,4 +54,4 @@ function NewCustomInput<T>({
     );
 }
 
-export default NewCustomInput;
+export default CustomInput;

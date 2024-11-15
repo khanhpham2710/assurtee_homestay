@@ -94,7 +94,6 @@ const infoSlice = createSlice({
             Object.assign(state, action.payload);
         },
         resetInfo() {
-            // Clear the cookie when resetting the state
             sessionStorage.removeItem('info');
             return initialState;
         },
