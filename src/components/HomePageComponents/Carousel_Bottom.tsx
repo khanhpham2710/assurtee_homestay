@@ -33,29 +33,27 @@ export default function Carousel_Bottom() {
 
     return (
         <div className="main-section main-section-bottom">
-            <div className="slide swiper" data-slide="wrap">
-                <div className="swiper-wrapper bottom_carousel">
-                    <Slider {...settings_bottom}>
-                        {carouselImageBottom.map((image, index) => (
-                            <div key={index} className="banner_slider">
-                                <picture>
-                                    <source
-                                        media="(max-width: 768px)"
-                                        srcSet={image.mobile}
-                                    />
-                                    <source
-                                        media="(min-width: 769px)"
-                                        srcSet={image.desktop}
-                                    />
-                                    <img
-                                        src={image.mobile}
-                                        alt={`carousel-image-${index}`}
-                                    />
-                                </picture>
-                            </div>
-                        ))}
-                    </Slider>
-                </div>
+            <div className="bottom_carousel">
+                <Slider {...settings_bottom}>
+                    {carouselImageBottom.map((image, index) => (
+                        <div key={index} className="banner_slider">
+                            <picture>
+                                <source
+                                    media="(max-width: 767px)"
+                                    srcSet={image.mobile}
+                                />
+                                <source
+                                    media="(min-width: 768px)"
+                                    srcSet={image.desktop}
+                                />
+                                <img
+                                    src={image.mobile}
+                                    alt={`carousel-image-${index}`}
+                                />
+                            </picture>
+                        </div>
+                    ))}
+                </Slider>
             </div>
         </div>
     );
