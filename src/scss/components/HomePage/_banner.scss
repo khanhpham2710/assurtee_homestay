@@ -130,17 +130,17 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    max-width: var(--webContainerWidth);
-
+    overflow-x: hidden;
+    margin: 0 auto;
+    border-radius: 10px !important;
     img {
-        border-radius: 8px;
-        max-width: calc(100vw - 48px);
+        border-radius: 10px;
+        max-width: 588px;
+        height: 350px;
     }
 
     .slick-dots {
-        // position: static;
+        position: static;
         button::before {
             font-size: 13px;
         }
