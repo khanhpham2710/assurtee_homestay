@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import useThrottle from '../../utils/hooks/useThrottle';
 
-export default function Carousel_Bottom() {
+export default function NewCarousel() {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const handleResize = useThrottle(() => {
+        setWindowWidth(window.innerWidth);
+    }, 500);
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [handleResize]);
+
     const settings_bottom = {
         dots: true,
         infinite: true,
         speed: 1500,
-        // autoplay: true,
         autoplaySpeed: 5000,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -39,16 +52,23 @@ export default function Carousel_Bottom() {
                         <div key={index} className="banner_slider">
                             <picture>
                                 <source
-                                    media="(max-width: 767px)"
+                                    media="(max-width: 624px)"
                                     srcSet={image.mobile}
                                 />
                                 <source
-                                    media="(min-width: 768px)"
+                                    media="(min-width: 769px)"
                                     srcSet={image.desktop}
                                 />
                                 <img
-                                    src={image.mobile}
+                                    src={image.desktop}
                                     alt={`carousel-image-${index}`}
+                                    style={{
+                                        width:
+                                            windowWidth < 769
+                                                ? 'calc(100vw - 48px)'
+                                                : '100%',
+                                        height: 'auto',
+                                    }}
                                 />
                             </picture>
                         </div>
