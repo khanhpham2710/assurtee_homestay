@@ -1,5 +1,3 @@
-@use '../../abstracts/index' as ab;
-
 .banner_header {
     width: 100%;
     height: 100vh;
@@ -57,7 +55,7 @@
             font-size: 13px;
         }
         .slick-active button::before {
-            color: var(--primary);
+            color: #ff0066;
         }
     }
 }
