@@ -126,14 +126,17 @@
 }
 
 .bottom_carousel {
+    // max-width: var(--webContainerWidth);
+    width: 100%;
+    margin: 0 auto;
     img {
         border-radius: 10px;
         max-width: 588px;
-        height: 312px;
+        height: 350px;
     }
 
     .slick-dots {
-        position: static;
+        // position: static;
         button::before {
             font-size: 13px;
         }

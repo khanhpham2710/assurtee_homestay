@@ -6,7 +6,7 @@ export default function Carousel_Bottom() {
         dots: true,
         infinite: true,
         speed: 1500,
-        autoplay: true,
+        // autoplay: true,
         autoplaySpeed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -23,23 +23,14 @@ export default function Carousel_Bottom() {
     ];
 
     return (
-        <div
-            className="main-section-bottom"
-            style={{
-                maxWidth: '588px',
-                overflow: 'hidden',
-                margin: '0 auto',
-            }}
-        >
-            <section className="bottom_carousel">
-                <Slider {...settings_bottom}>
-                    {carouselImageBottom.map((image, index) => (
-                        <div key={index} className="banner_slider">
-                            <img src={image} alt="" />
-                        </div>
-                    ))}
-                </Slider>
-            </section>
-        </div>
+        <section className="bottom_carousel">
+            <Slider {...settings_bottom}>
+                {carouselImageBottom.map((image, index) => (
+                    <div key={index} className="banner_slider">
+                        <img src={image} alt="" />
+                    </div>
+                ))}
+            </Slider>
+        </section>
     );
 }
