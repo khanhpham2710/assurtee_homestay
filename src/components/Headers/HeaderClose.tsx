@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 
-function HeaderClose({ backTo }: { backTo: string }) {
+function HeaderClose({ title, backTo }: { title: string; backTo: string }) {
     const navigate = useNavigate();
     return (
         <header id="header" className="header">
             <div className="header-inner">
-                <h1 className="header-title">가입 내용 수정</h1>
+                <h1 className="header-title">{title}</h1>
                 <button
                     type="button"
                     className="header-button-close"

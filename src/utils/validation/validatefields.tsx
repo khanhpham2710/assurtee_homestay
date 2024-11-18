@@ -2,6 +2,7 @@ import {
     BusinessType,
     PersonalType,
     InsuranceAmountType,
+    PersonalInfoType,
 } from '../models/InfoType';
 
 export const validatePersonalField = (form: PersonalType): boolean => {
@@ -39,6 +40,36 @@ export const validatePersonalField = (form: PersonalType): boolean => {
     if (phoneNumber.length <= 8) {
         return false;
     }
+
+    return true;
+};
+
+export const validatePersonalInfoField = (form: PersonalInfoType): boolean => {
+    const {
+        businessName,
+        name,
+        fullRegistrationNumber,
+        homeAddress,
+        homeExtra,
+    } = form;
+
+    if (
+        !businessName ||
+        !name ||
+        !fullRegistrationNumber ||
+        !homeAddress ||
+        !homeExtra
+    ) {
+        return false;
+    }
+
+    // if (
+    //     !/^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1])-[0-4,9][0-9]{6}$/.test(
+    //         fullRegistrationNumber
+    //     )
+    // ) {
+    //     return false;
+    // }
 
     return true;
 };
