@@ -1,10 +1,10 @@
-import NewCustomInput from '../Input/CustomInput';
+import CustomInput from '../Input/CustomInput';
 import OptionInput from '../Input/OptionInput';
 import { handleBusinessNumber } from '../../utils/validation/number';
 import { BusinessType } from '../../utils/models/InfoType';
-import { TextField } from '@mui/material';
 import { PostCode } from '../SearchPopUp/SearchPopUp';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useEffect, useState } from 'react';
+import CustomTextField from '../Input/TextFiled';
 
 type InputsProps = {
     form: BusinessType;
@@ -12,57 +12,12 @@ type InputsProps = {
     style?: CSSProperties;
 };
 
-type CustomTextFieldProps = {
-    id?: string;
-    placeholder: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    style?: CSSProperties;
-};
-
-function CustomTextField({
-    id,
-    placeholder,
-    value,
-    onChange,
-    style,
-}: CustomTextFieldProps) {
-    return (
-        <TextField
-            id={id}
-            multiline
-            fullWidth
-            placeholder={placeholder}
-            onChange={onChange}
-            variant="standard"
-            sx={{
-                backgroundColor: 'transparent',
-                outline: 'none',
-                width: '100%',
-                '& .MuiInputBase-input::placeholder': {
-                    color: '#cfcfcf',
-                    opacity: 1,
-                },
-                ...style,
-            }}
-            slotProps={{
-                input: {
-                    disableUnderline: true,
-                    style: {
-                        fontFamily: 'AppleSDGothicNeoH',
-                        fontSize: '16px',
-                        lineHeight: '1.75',
-                        color: '#000',
-                        padding: 0,
-                    },
-                },
-            }}
-            value={value}
-        />
-    );
-}
-
 function BusinessInputs({ form, handleChange }: InputsProps) {
+    const [address, setAddress] = useState<string>(form.address);
+    useEffect(() => {
+        handleChange('address', address);
+    }, [address]);
+
     return (
         <>
             <div className="form-list">
@@ -96,7 +51,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                     </div>
                 </div>
             </div>
-            <NewCustomInput<BusinessType>
+            <CustomInput<BusinessType>
                 value={form.businessName}
                 placeholder="상호명 또는 법인명을 입력해 주세요."
                 title="상호(법인)명"
@@ -115,7 +70,7 @@ function BusinessInputs({ form, handleChange }: InputsProps) {
                             }
                             value={form.address}
                         />
-                        <PostCode handleChange={handleChange} />
+                        <PostCode setAddress={setAddress} />
                     </div>
                     <div className="form-cont">
                         <div className="form-item">

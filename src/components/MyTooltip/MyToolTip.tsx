@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
 
-function MyToolTip() {
+function MyToolTip({ color = 'grey' }: { color?: 'grey' | 'black' }) {
     return (
         <Box
             sx={{
@@ -14,7 +14,9 @@ function MyToolTip() {
             <div className="tooltip">
                 <button
                     type="button"
-                    className="tooltip-btn bg-gray"
+                    className={
+                        color == 'grey' ? 'tooltip-btn bg-gray' : 'tooltip-btn'
+                    }
                     aria-label="도움말"
                 ></button>
                 {/*<div className="tooltip-content">툴팁내용</div>*/}

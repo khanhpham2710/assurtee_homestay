@@ -8,6 +8,7 @@ type InputProps<T> = {
     handleChange: (key: keyof T, value: string) => void;
     items: string[];
     title: string;
+    icon?: boolean;
 };
 
 function OptionInput<T>({
@@ -17,13 +18,14 @@ function OptionInput<T>({
     handleChange,
     items,
     title,
+    icon = true,
 }: InputProps<T>) {
     const selboxWrapRef = useRef<HTMLDivElement | null>(null);
     const { setGlobal } = useGlobalContext();
 
     const handleClick = (itemValue: string) => {
         handleChange(variable, itemValue);
-        setGlobal(false);
+        handleClose();
     };
 
     const handleOpen = () => {
@@ -46,7 +48,7 @@ function OptionInput<T>({
                 <div className="openSelect able">
                     <button
                         type="button"
-                        className="btn-sel"
+                        className={icon ? 'btn-sel' : 'btn-sel no-after'}
                         onClick={handleOpen}
                     >
                         <span

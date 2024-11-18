@@ -14,6 +14,14 @@ export interface PersonalType {
         | null;
 }
 
+export interface PersonalInfoType {
+    businessName: string;
+    name: string;
+    homeAddress: string;
+    homeExtra: string;
+    fullRegistrationNumber: string;
+}
+
 export interface BusinessType {
     company: '개인' | '법인' | '';
     businessNumber: string;
@@ -47,6 +55,7 @@ export interface StartEndDate {
 
 export interface InfoType
     extends PersonalType,
+        PersonalInfoType,
         BusinessType,
         StatusRedux,
         StartEndDate,

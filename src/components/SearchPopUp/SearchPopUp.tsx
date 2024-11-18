@@ -1,13 +1,10 @@
 import DaumPostcodeEmbed from 'react-daum-postcode';
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../utils/hooks/reduxHooks';
 import { updateInfo } from '../../utils/redux/infoSlice';
-import { BusinessType } from '../../utils/models/InfoType';
 import FullPageModal from '../MyModals/FullPageModal';
 
-type InputsProps = {
-    handleChange: (key: keyof BusinessType, value: string) => void;
-};
+type InputsProps = { setAddress: React.Dispatch<React.SetStateAction<string>> };
 
 type DataType = {
     address: string;
@@ -16,7 +13,7 @@ type DataType = {
     buildingName: string;
 };
 
-export const PostCode = ({ handleChange }: InputsProps) => {
+export const PostCode = ({ setAddress }: InputsProps) => {
     const dispatch = useAppDispatch();
 
     const [fullAddress, setFullAddress] = useState<string | null>(null);
@@ -50,7 +47,7 @@ export const PostCode = ({ handleChange }: InputsProps) => {
 
     useEffect(() => {
         if (fullAddress) {
-            handleChange('address', fullAddress);
+            setAddress(fullAddress);
         }
         setExpanded(false);
     }, [fullAddress, address]);

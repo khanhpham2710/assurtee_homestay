@@ -19,6 +19,7 @@ import HeaderNull from '../components/Headers/HeaderNull';
 import HomeHeader from '../components/Headers/HomeHeader';
 import NewFillAllInfor from '../pages/FilledAllInfor/NewFillAllInfor';
 import HeaderClose from '../components/Headers/HeaderClose';
+import FilledBossInfor from '../pages/FilledBossInfor/FilledBossInfor';
 
 type RouteType = {
     path: string;
@@ -29,64 +30,76 @@ type RouteType = {
 
 const routes: RouteType[] = [
     {
-        path: '/personal-infor',
+        path: 'personal-infor',
         component: FilledPersonalInfor,
         header: <HomeHeader />,
     },
     {
-        path: '/insurance-infor',
+        path: 'boss-infor',
+        component: FilledBossInfor,
+        header: (
+            <HeaderClose
+                title="미스터멘션 공유숙박업 등록증"
+                backTo="/personal-infor"
+            />
+        ),
+    },
+    {
+        path: 'insurance-infor',
         component: InsuranceInfo,
         header: <HomeHeader />,
     },
     {
-        path: '/options',
+        path: 'options',
         component: ScanOption,
         header: <HeaderBack title="주택 정보 입력" backTo="/" />,
     },
     {
-        path: '/business-infor',
+        path: 'business-infor',
         component: FilledBusinessInfor,
         header: <HeaderBack title="주택 정보 입력" backTo="/options" />,
     },
     {
-        path: '/all-infor',
+        path: 'all-infor',
         component: NewFillAllInfor,
-        header: <HeaderClose backTo="/insurance-infor" />,
+        header: (
+            <HeaderClose title="가입 내용 수정" backTo="/insurance-infor" />
+        ),
     },
     {
-        path: '/terms',
+        path: 'terms',
         component: TermCondition,
         header: (
             <HeaderBack title="전자서명 동의 안내" backTo="/insurance-amount" />
         ),
     },
     {
-        path: '/insurance-amount',
+        path: 'insurance-amount',
         component: InsuranceAmount,
         header: <HomeHeader />,
     },
     {
-        path: '/payment',
+        path: 'payment',
         component: Payment,
         header: <HeaderBack title="결제" backTo="/insurance-infor" />,
     },
     {
-        path: '/inprogress',
+        path: 'inprogress',
         component: LoadingPage,
         header: <HeaderNull />,
     },
     {
-        path: '/complete',
+        path: 'complete',
         component: CompletedPage,
         header: <HomeHeader />,
     },
     {
-        path: '/detail/:isSuccess',
+        path: 'detail/:isSuccess',
         component: InsuranceDetailsPage,
         header: <HeaderBack title="보험가입내역" backTo="/complete" />,
     },
     {
-        path: '/EmailPage',
+        path: 'EmailPage',
         component: EmailPage,
         header: null,
     },

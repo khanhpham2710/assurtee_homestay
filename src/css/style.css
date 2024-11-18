@@ -1106,6 +1106,10 @@ body {
     background-image: url('data:image/svg+xml,<svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 2.07 8 10 0 2.07 2.09 0 8 5.86 13.91 0 16 2.07z" fill="%23333647"/></svg>');
 }
 
+.no-after.btn-sel:after {
+    display: none;
+}
+
 .btn-link {
     display: inline-flex;
     width: 24px;

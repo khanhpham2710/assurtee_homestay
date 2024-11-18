@@ -64,6 +64,10 @@ const initialState: InfoType = persistedState
           phoneNumber: '',
           mail: '',
           email: null,
+          name: '',
+          homeAddress: '',
+          homeExtra: '',
+          fullRegistrationNumber: '',
           company: '',
           businessNumber: '',
           businessName: '',
@@ -92,6 +96,12 @@ const infoSlice = createSlice({
     reducers: {
         updateInfo(state, action: PayloadAction<Partial<InfoType>>) {
             Object.assign(state, action.payload);
+            if (action.payload.dob && action.payload.registrationNumber) {
+                state.fullRegistrationNumber =
+                    action.payload.dob +
+                    '-' +
+                    action.payload.registrationNumber;
+            }
         },
         resetInfo() {
             sessionStorage.removeItem('info');
